@@ -1,1 +1,255 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Researcher Name - Academic Homepage</title>
+    <!-- MathJax Configuration -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+            }
+        };
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js"></script>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #34495e;
+            --accent-color: #3498db;
+            --text-color: #333;
+            --background-color: #fff;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: var(--background-color);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            object-fit: cover;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .title {
+            color: var(--secondary-color);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        section {
+            margin-bottom: 2rem;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact a {
+            color: var(--accent-color);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--accent-color);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .contact a:hover {
+            background: var(--accent-color);
+            color: white;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .publication {
+            margin-bottom: 1rem;
+            padding: 1rem;
+            border-left: 3px solid var(--accent-color);
+            background: rgba(52, 152, 219, 0.05);
+        }
+
+        .publication-title {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .publication-authors {
+            font-style: italic;
+            color: var(--secondary-color);
+        }
+
+        .publication-venue {
+            color: var(--secondary-color);
+        }
+
+        .theorem {
+            margin: 1rem 0;
+            padding: 1rem;
+            background: rgba(52, 152, 219, 0.05);
+            border-left: 3px solid var(--accent-color);
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 1rem;
+            }
+
+            .contact {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="/api/placeholder/150/150" alt="Researcher Name" class="profile-image">
+        <h1>Researcher Name</h1>
+        <div class="title">Position • Institution</div>
+        <div class="contact">
+            <a href="mailto:email@institution.edu">Email</a>
+            <a href="https://github.com/username">GitHub</a>
+            <a href="https://scholar.google.com">Google Scholar</a>
+            <a href="cv.pdf">CV</a>
+        </div>
+    </header>
+
+    <section>
+        <h2>About</h2>
+        <p>
+            Brief biography and research interests. Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+            Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Current research focuses on...
+        </p>
+    </section>
+
+    <section>
+        <h2>Current Research</h2>
+        <div class="research-topic">
+            <h3>Quantum Computing and Information Theory</h3>
+            <p>
+                Our recent work focuses on quantum error correction codes. Given a quantum channel 
+                $\mathcal{E}$, we study the optimal recovery operation $\mathcal{R}$ that maximizes 
+                the fidelity:
+            </p>
+            
+            <div style="text-align: center; margin: 2rem 0;">
+                $
+                F(\mathcal{R} \circ \mathcal{E}) = \min_{|\psi\rangle} 
+                \langle\psi|(\mathcal{R} \circ \mathcal{E})(|\psi\rangle\langle\psi|)|\psi\rangle
+                $
+            </div>
+
+            <p>
+                A key result from our latest paper shows that for any $k$-local Hamiltonian 
+                $H = \sum_{i} H_i$ acting on $n$ qubits, the ground state energy can be approximated 
+                within error $\epsilon$ in time:
+            </p>
+
+            <div style="text-align: center; margin: 2rem 0;">
+                $
+                T = O\left(\frac{n^{k+1}}{\epsilon^2} \log\left(\frac{n}{\epsilon}\right)\right)
+                $
+            </div>
+        </div>
+
+        <div class="research-topic">
+            <h3>Algebraic Topology in Machine Learning</h3>
+            <p>
+                We investigate the topological properties of neural networks through the lens of 
+                persistent homology. For a filtration $\{X_t\}_{t\in\mathbb{R}}$, we study the 
+                $k$-th persistence diagram $\text{Dgm}_k(X)$ and its Wasserstein distance to a 
+                reference diagram:
+            </p>
+
+            <div style="text-align: center; margin: 2rem 0;">
+                $
+                W_p(\text{Dgm}_k(X), \text{Dgm}_k(Y)) = \left(\inf_{\gamma}\sum_{x\in\text{Dgm}_k(X)} 
+                \|x - \gamma(x)\|_{\infty}^p\right)^{1/p}
+                $
+            </div>
+
+            <p>
+                This leads to our main theorem on the stability of topological features in deep networks:
+            </p>
+
+            <div class="theorem">
+                <strong>Theorem 1.</strong> <em>For any $L$-Lipschitz continuous function $f:\mathbb{R}^n\to\mathbb{R}^m$ 
+                and $\epsilon > 0$, there exists a neural network $\mathcal{N}$ with ReLU activations such that:</em>
+                
+                $
+                W_{\infty}(\text{Dgm}_k(f), \text{Dgm}_k(\mathcal{N})) \leq \epsilon
+                $
+
+                <em>with depth $O(\log(1/\epsilon))$ and width $O(n/\epsilon^n)$.</em>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Publications</h2>
+        <ul>
+            <li class="publication">
+                <div class="publication-title">Approximation Algorithms for Non-linear Optimization</div>
+                <div class="publication-authors">Author1, Author2, Author3</div>
+                <div class="publication-venue">Conference/Journal Name, Year</div>
+                <div class="publication-abstract">
+                    Abstract: We present new algorithms for optimization problems with objective functions of the form 
+                    $f(x) = \sum_{i=1}^n g_i(x_i)$ subject to combinatorial constraints.
+                </div>
+            </li>
+            <li class="publication">
+                <div class="publication-title">On the Complexity of Matrix Multiplication</div>
+                <div class="publication-authors">Author1, Author2</div>
+                <div class="publication-venue">Conference/Journal Name, Year</div>
+                <div class="publication-abstract">
+                    We improve the bound on matrix multiplication complexity to $O(n^{2.718})$.
+                </div>
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Teaching</h2>
+        <ul>
+            <li>Course Name (Code) - Semester Year</li>
+            <li>Another Course (Code) - Semester Year</li>
+        </ul>
+    </section>
+</body>
+</html>
