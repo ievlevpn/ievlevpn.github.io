@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homepage of</title>
+    <title>Homepage of Pavel Ievlev</title>
     <!-- MathJax Configuration -->
     <script>
         window.MathJax = {
@@ -22,17 +22,17 @@
     <script>
         var coll = document.getElementsByClassName("collapsible");
         var i;
-        
+
         for (i = 0; i < coll.length; i++) {
-          coll[i].addEventListener("click", function() {
-            this.classList.toggle("active");
-            var content = this.nextElementSibling;
-            if (content.style.display === "block") {
-              content.style.display = "none";
-            } else {
-              content.style.display = "block";
-            }
-          });
+            coll[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.display === "block") {
+                    content.style.display = "none";
+                } else {
+                    content.style.display = "block";
+                }
+            });
         }
     </script>
     <style>
@@ -136,40 +136,29 @@
             color: var(--secondary-color);
         }
 
-        .publication-abstract {
-            overflow: hidden;
-            max-height: 0;
-            transition: max-height 0.3s ease-out;
-        }
-
-        .publication-abstract.expanded {
-            max-height: 1000px;
-        }
-
-        /* Style the button that is used to open and close the collapsible content */
         .collapsible {
-            background-color: #eee;
-            color: #444;
+            /* background-color: var(--accent-color); */
+            /* color: white; */
             cursor: pointer;
-            padding: 18px;
-            width: 100%;
+            padding: 8px;
+            /* width: 100%; */
             border: none;
             text-align: left;
             outline: none;
             font-size: 15px;
+            float: right;
         }
 
-        /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
-        .active,
+        /* .active,
         .collapsible:hover {
-            background-color: #ccc;
-        }
+            background-color: #555;
+        } */
 
-        /* Style the collapsible content. Note: hidden by default */
-        .content {
+        .publication-abstract {
             padding: 0 18px;
-            display: none;
+            max-height: 0;
             overflow: hidden;
+            transition: max-height 0.2s ease-out;
             background-color: #f1f1f1;
         }
 
@@ -194,8 +183,8 @@
 
 <body>
     <header>
-        <img src="photo.jpeg" alt="Researcher Name" class="profile-image">
-        <h1>Researcher Name</h1>
+        <img src="photo.jpeg" alt="Pavel Ievlev" class="profile-image">
+        <h1>Pavel Ievlev</h1>
         <div class="title">Assistant diplomé • DSA HEC UNIL</div>
         <div class="contact">
             <a href="mailto:ievlev.pn@gmail.com">Email</a>
@@ -210,17 +199,21 @@
         <p>
             I am a mathematician working in probability theory and stochastic
             processes. My recent research interests involve asymptotic analysis
-            of rare events' probabilities. This is a subject of <a href="unil_thesis.pdf">my second PhD thesis</a>
-            defended recently at
-            the Université of Lausanne. During my first PhD at St. Petersburg
-            department of V.A. Steklov's Mathematical Institute, I have studied
-            semigroups and generators of Markov processes confined to bounded
-            areas $D \subset \R^d$. This is a subject of <a href="pdmi_thesis.pdf">my first thesis</a> (in Russian).
+            of rare events' probabilities, the simplest example being \( \{
+            \exists \, t : X_t > u \} \), where \( X \) is a Gaussian process
+            and \( u \) is large. This is a subject of <a
+            href="unil_thesis.pdf">my second PhD thesis</a>
+            defended recently at the Université de Lausanne. During my first PhD
+            at St. Petersburg department of V.A. Steklov's Mathematical
+            Institute, I have studied semigroups and generators of Markov
+            processes confined to bounded areas $D \subset \mathbb{R}^d$. This
+            is a subject of <a href="pdmi_thesis.pdf">my first thesis</a> (in
+            Russian).
         </p>
     </section>
 
-    <section>
-        <h2>Current Research</h2>
+    <!-- <section>
+        <h2>Current Research</h2> -->
 
         <!-- <div style="width: 300px; margin: auto">
             <img src="pictures/high_exceedance.png">
@@ -229,16 +222,88 @@
             </div>
         </div> -->
 
-        <div class="research-topic">
+        <!-- <div class="research-topic">
             <h3>Extremes of vector-valued Gaussian random fields</h3>
             <p>
-                The paper <a href="https://doi.org/10.1016/j.spa.2020.04.008">Extremes of vector-valued Gaussian
-                    processes</a>
-                by Krzysztof Dȩbicki, Enkelejd Hashorva and Longmin Wang has
-                opened many new previously inaccessible directions in the
-                asymtotical analysis of vector-valued Gaussian processes.
+                The prototypical problem of vector-valued Gaussian extremes is
+                the following: describe the asymptotics of \[ \mathbb{P} \{
+                \exists \, t \in [0, T] : \boldsymbol{X}_t > u \, \boldsymbol{b}
+                \} \] as \( u \to \infty \), where \( \boldsymbol{b} \) is
+                assumed to have at least one positive component. Although the
+                asymptotic analysis of <em>univariate</em> Gaussian random
+                fields is a well-established area, its <em>multivariate</em>
+                counterpart was not developed until a recent paper <a
+                href="https://doi.org/10.1016/j.spa.2020.04.008">Extremes of
+                vector-valued Gaussian processes</a>
+                by Krzysztof Dȩbicki, Enkelejd Hashorva and Longmin Wang. This
+                paper has opened many new previously inaccessible directions in
+                the asymtotical analysis of vector-valued Gaussian processes. A
+                short account of these possibilities may be found in <a
+                href="unil_thesis.pdf#page=28">the introduction to my
+                thesis</a>. My thesis may be considered as a first step towards
+                the extension of these results to Gaussian random
+                <em>fields</em>, that is, \( \boldsymbol{X} : \mathbb{R}^n \to
+                \mathbb{R}^d \). Here are some of the open
+                problems in this area, which I was recently working on:
+                <ol>
+                    <li>Some of the naturally occuring covariance matrix
+                    functions \( R (t, s) = \mathbb{E} \{ \boldsymbol{X}(t) \,
+                    \boldsymbol{X}(s)^\top \} \), \( t, s \in \mathbb{R}^n \)
+                    remain out of reach for the currently existing methods.</li>
+                    <li>Extending these results to the case where the generalized variance \( \sigma_{\boldsymbol{b}}^{-2} = \min\limits_{\boldsymbol{x} \geq \boldsymbol{b}} \boldsymbol{x}^\top R(t, t)^{-1} \boldsymbol{x} \) attains its maximum on a set \( \mathcal{M} \) such that \( 0 < \dim \mathcal{M} < n \).</li>
+                </ol> 
             </p>
-        </div>
+        </div> -->
+
+        <!-- <div class="research-topic">
+            <h3>Sensitivity of the asymptotic constants</h3>
+            <p>
+                Constants of the form \( \mathbb{E} \{ \Gamma(B_H) \} \) arise
+                naturally in Gaussian extreme value theory, but also in other
+                branches of probability, statistics, financial mathematics, risk
+                theory, queueing theory, etc. Specific examples are \[ M_H(T, a)
+                = \mathbb{E} \left\{ \sup_{t \in [0, T]} \left( B_H(t) - \lambda
+                t \right) \right\}, \quad P_H(T, a) = \mathbb{E} \left\{ \sup_{t
+                \in [0, T]} \exp \left( B_H(t) - \frac{\lambda t}{2} \right)
+                \right\}. \] The constant \( M_H(T, a) \) is the expected value
+                of the workload in the queue with an fBm input under the
+                assumption that at time \( 0 \) the system starts off empty. The
+                quantity \( \mathcal{H}_H(T) = P_H (T, 1) \) is known as the
+                Wills functional (or truncated Piterbarg constant). If \(
+                \lambda > 1 \), the limit \( P_H(\infty, \lambda) \) is known as
+                the Piterbarg constant. The quantity \( \mathcal{H}_H = \lim_{T
+                \to \infty} \frac{1}{T} \mathcal{H}_H(T) \) is known as the
+                Pickands constant. Despite the intensive research, not much is
+                known about these constants except for when \( H = 1/2 \).
+                Recently, it has been shown that 
+                \[ 
+                \mathcal{H}_H = 1 - 2 (H - 1/2) \gamma_E + O \left( (H-1/2)^2 \right), 
+                \] 
+                where \( \gamma_E \) is the Euler-Mascheroni constant. I am
+                trying to approach the study of derivatives \( \frac{d}{dH}
+                \mathbb{E} \{ \Gamma(B_H) \} \) from a different angle: using
+                techniques from Malliavin calculus and white noise analysis.
+            </p>
+        </div> -->
+
+        <!-- <div class="research-topic">
+            <h3>Asymptotics of integrals on stratified manifolds</h3>
+            <p>
+                Asymptotical analysis of rare events frequently requires
+                studying asymptotics of integrals of the form \[ \int_N a \,
+                e^{-z f} \, \operatorname{Vol}, \] where \( (N, g) \) is a
+                Riemannian manifold, \( \operatorname{Vol} \) is its Riemannian
+                volume form and \( f \colon N \to \mathbb{R} \). This analysis
+                becomes intricate if \( \operatorname{argmin} f \) is not a
+                point, but a stratified submanifold of \( N \). To attack the
+                problem and obtain the asymptotics (of all orders), I employ
+                extensions of Weyl tube volume formula and assess contributions
+                from different strata in a systematic way. I plan to extend this
+                research to cover stationary phase approximation (\( f \) is
+                purely imaginary and the set of critical points of \( f \) is a
+                stratified manifold) and saddlepoint approximations.
+            </p>
+        </div> -->
 
         <!-- <div class="research-topic">
             <h3>Algebraic Topology in Machine Learning</h3>
@@ -271,93 +336,86 @@
                 <em>with depth $O(\log(1/\epsilon))$ and width $O(n/\epsilon^n)$.</em>
             </div>
         </div> -->
-    </section>
+    <!-- </section> -->
 
     <section>
-        <h2>Publications</h2>
+        <h2>Recent publications</h2>
         <ul>
             <li class="publication">
                 <div class="publication-title">Extremes of vector-valued locally
                     additive Gaussian fields with application to double crossing
                     probabilities</div>
                 <div class="publication-authors">Pavel Ievlev, Nikolai Kriukov</div>
-                <div class="publication-venue">Submitted to EJP, <a href="https://arxiv.org/abs/2401.05527">arXiv
+                <div class="publication-venue">2024, Submitted to EJP, <a href="https://arxiv.org/abs/2401.05527">arXiv
                         preprint</a></div>
-
-                <button type="button" class="collapsible">Open Collapsible</button>
-                <div class="content">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                        laboris nisi ut aliquip ex ea commodo consequat.</p>
-                </div>
-
-                <div class="publication-abstract">
-                    The asymptotic analysis of high exceedance probabilities for
-                    Gaussian processes and fields has been a blooming research
-                    area since J. Pickands introduced the now-standard
-                    techniques in the late 60's. The <em>vector-valued</em>
-                    processes, however, have long remained out of reach due to
-                    the lack of some key tools including Slepian's lemma,
-                    Borell-TIS and Piterbarg inequalities. In a 2020 paper by K.
-                    Debicki, E. Hashorva and L. Wang, the authors extended the
-                    double-sum method to a large class of vector-valued
-                    processes, both stationary and non-stationary. In this
-                    contribution we make one step forward, extending these
-                    results to a simple yet rich class of non-homogenous
-                    vector-valued Gaussian <em>fields</em>. As an application of
-                    our findings, we present an exact asymptotic result for the
-                    probability that a real-valued process first hits a high
-                    positive barrier and then a low negative barrier within a
-                    finite time horizon.
-                </div>
             </li>
             <li class="publication">
                 <div class="publication-title">Random eigenvalues of nanotubes</div>
                 <div class="publication-authors">Artur Bille, Victor Buchstaber, Pavel Ievlev, Svyatoslav Novikov,
                     Evgeny Spodarev</div>
-                <div class="publication-venue">Submitted to JPhysA, <a href="https://arxiv.org/abs/2408.14313">arXiv
+                <div class="publication-venue">2024, Submitted to JPhysA, <a href="https://arxiv.org/abs/2408.14313">arXiv
                         preprint</a></div>
-                <div class="publication-abstract">
-                    The hexagonal lattice and its dual, the triangular lattice,
-                    serve as powerful models for comprehending the atomic and
-                    ring connectivity, respectively, in <em>graphene</em> and
-                    <em>carbon $(p, q)$-nanotubes</em>. The chemical and
-                    physical attributes of these two carbon allotropes are
-                    closely linked to the average number of closed paths of
-                    different lengths $k \in \mathbb{N}_0$ on their respective
-                    graph representations. Considering that a carbon
-                    $(p,q)$-nanotube can be thought of as a graphene sheet
-                    rolled up in a matter determined by the <em>chiral
-                        vector</em> $(p,q)$, our findings are based on the study of
-                    <em>random eigenvalues</em> of both the hexagonal and
-                    triangular lattices presented in \cite{bille2023random}.
-                    This study reveals that for any given <em>chiral vector</em>
-                    $(p,q)$, the sequence of counts of closed paths forms a
-                    moment sequence derived from a functional of two independent
-                    uniform distributions. Explicit formulas for key
-                    characteristics of these distributions, including
-                    probability density function (PDF) and moment generating
-                    function (MGF), are presented for specific choices of the
-                    chiral vector. Moreover, we demonstrate that as the
-                    <em>circumference</em> of a $(p,q)$--nanotube approaches
-                    infinity, i.e., $p + q \to \infty$, the $(p,q)$-nanotube
-                    tends to converge to the hexagonal lattice with respect to
-                    the number of closed paths for any given length $k$,
-                    indicating weak convergence of the underlying distributions.
-                </div>
             </li>
+            <li class="publication">
+                <div class="publication-title">Extremes of Brownian decision trees</div>
+                <div class="publication-authors">Krzysztof Dębicki, Pavel Ievlev, Nikolai Kriukov</div>
+                <div class="publication-venue">2024, Submitted to Annals of Applied Probability</div>
+            </li>
+            <li class="publication">
+                <div class="publication-title">Parisian ruin with power-asymmetric variance near the optimal point with application to many-inputs proportional reinsurance</div>
+                <div class="publication-authors">Pavel Ievlev</div>
+                <div class="publication-venue">2023, Stochastic Models, <a href="https://doi.org/10.1080/15326349.2023.2278527">link</a></div>
+            </li>
+            <li class="publication">
+                <div class="publication-title">Extremes of locally-homogenous vector-valued Gaussian processes</div>
+                <div class="publication-authors">Pavel Ievlev</div>
+                <div class="publication-venue">2023, Extremes, <a href="https://doi.org/10.1007/s10687-023-00483-9">link</a></div>
+            </li>
+            <li class="publication">
+                <div class="publication-title">A matrix-valued Schoenberg's problem and its applications</div>
+                <div class="publication-authors">Pavel Ievlev</div>
+                <div class="publication-venue">2023, Electron. Commun. Probab., <a href="https://doi.org/10.1214/23-ECP562">link</a></div>
+            </li>
+            <!-- <li class="publication">
+                <div class="publication-title">Symmetric Lévy processes with reflection</div>
+                <div class="publication-authors">Pavel Ievlev</div>
+                <div class="publication-venue">2021, Glob. Stoch. Anal.</div>
+            </li>
+            <li class="publication">
+                <div class="publication-title">Reflecting Brownian motion in \(d\)-ball</div>
+                <div class="publication-authors">Pavel Ievlev</div>
+                <div class="publication-venue">2019, Zap. Nauchn. Sem. POMI</div>
+            </li> -->
+            <li style="text-align: right;">Full list may be found in <a href="cv.pdf">cv</a>.</li>
         </ul>
     </section>
 
     <section>
         <h2>Teaching</h2>
         <ul>
-            <li>Optimization Methods in Management Science (TA) - Fall 2024</li>
-            <li>Actuarial Modelling (TA) - Fall, 2021-2024</li>
-            <li>Time Series (TA) - Spring, 2021-2024</li>
-            <li>Loss Models (TA) - Spring, 2021-2024</li>
+            <li>Optimization Methods in Management Science (TA) — Fall 2024</li>
+            <li>Actuarial Modelling (TA) — Fall, 2021-2024</li>
+            <li>Time Series (TA) — Spring, 2021-2024</li>
+            <li>Loss Models (TA) — Spring, 2021-2024</li>
         </ul>
     </section>
 </body>
+
+<script>
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+            }
+        });
+    }
+</script>
 
 </html>
