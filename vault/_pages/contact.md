@@ -11,13 +11,14 @@ I welcome inquiries from students, researchers, collaborators, and industry prof
 ## Primary Contact
 
 **Email:** {{ site.email }}  
-**Office:** Computer Science Building, Room 314  
-**Phone:** (555) 123-4567  
+**Office:** Extranef 134
 **Mailing Address:**  
-Department of Computer Science  
-University of Technology  
-123 University Drive  
-Tech City, CA 94000
+Department des Sciences Actuarielles
+Université de Lausanne
+Bâtiment Extranef
+Quartier Dorigny,
+1015 Lausanne,
+Switzerland
 
 ## Academic Profiles
 
@@ -36,19 +37,4 @@ Tech City, CA 94000
 
 ---
 
-## Location & Directions
-
-**University of Technology**  
-Computer Science Department  
-123 University Drive  
-Tech City, CA 94000
-
-**Public Transportation:** Metro Blue Line to University Station  
-**Parking:** Visitor parking available in Structure B  
-**Campus Map:** [Interactive Map](https://university.edu/map)
-
-**Building Access:** The Computer Science building is open 7 AM - 10 PM on weekdays. After hours access requires key card.
-
----
-
-*I look forward to hearing from you and exploring opportunities for collaboration, learning, and advancing the field of computer science together!*
+*I look forward to hearing from you and exploring opportunities for collaboration, learning!*

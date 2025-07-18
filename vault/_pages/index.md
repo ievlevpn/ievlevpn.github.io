@@ -99,4 +99,4 @@ I am a mathematician working in probability theory and stochastic processes. My 
 
 ---
 
-*This website is built with Jekyll and managed through Obsidian for seamless content creation and academic workflow integration.*
+*This website is built with Jekyll.*
