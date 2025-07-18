@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  {%- seo -%}
+  
+  <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
+  {%- feed_meta -%}
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
+  <link rel="alternate icon" href="/assets/images/favicon.ico">
+  
+  <!-- Academic structured data -->
+  {% if page.layout == 'publication' or page.collection == 'publications' %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "{{ page.title | escape }}",
+    "author": [
+      {% for author in page.authors %}
+      {
+        "@type": "Person",
+        "name": "{{ author | escape }}"
+      }{% unless forloop.last %},{% endunless %}
+      {% endfor %}
+    ],
+    "datePublished": "{{ page.date | date: "%Y-%m-%d" }}",
+    "publisher": {
+      "@type": "Organization",
+      "name": "{{ page.venue | escape }}"
+    }
+  }
+  </script>
+  {% endif %}
+</head>
+
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="header-content">
+        <div class="header-text">
+          <h1 class="title">
+            <a href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>
+          </h1>
+          {% if site.subtitle %}
+          <p class="subtitle">{{ site.subtitle | escape }}</p>
+          {% endif %}
+        </div>
+        <div class="header-contact">
+          {% if site.email %}
+          <div class="contact-item">
+            <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+          </div>
+          {% endif %}
+          <div class="contact-links">
+            {% if site.orcid %}
+            <a href="https://orcid.org/{{ site.orcid }}" target="_blank" rel="noopener" title="ORCID">ORCID</a>
+            {% endif %}
+            {% if site.scholar %}
+            <a href="https://scholar.google.com/citations?user={{ site.scholar }}" target="_blank" rel="noopener" title="Google Scholar">Scholar</a>
+            {% endif %}
+            {% if site.github_username %}
+            <a href="https://github.com/{{ site.github_username }}" target="_blank" rel="noopener" title="GitHub">GitHub</a>
+            {% endif %}
+            {% if site.linkedin %}
+            <a href="https://linkedin.com/in/{{ site.linkedin }}" target="_blank" rel="noopener" title="LinkedIn">LinkedIn</a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <nav class="navigation">
+    <div class="container">
+      <ul class="nav-list">
+        <li class="nav-item">
+          <a class="nav-link {% if page.url == "/" %}active{% endif %}" href="{{ "/" | relative_url }}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {% if page.url == "/cv/" %}active{% endif %}" href="{{ "/cv/" | relative_url }}">CV</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {% if page.url contains "/publications" %}active{% endif %}" href="{{ "/publications/" | relative_url }}">Publications</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {% if page.url contains "/research" %}active{% endif %}" href="{{ "/research/" | relative_url }}">Research</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {% if page.url contains "/teaching" %}active{% endif %}" href="{{ "/teaching/" | relative_url }}">Teaching</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {% if page.url contains "/talks" %}active{% endif %}" href="{{ "/talks/" | relative_url }}">Talks</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {% if page.url == "/contact/" %}active{% endif %}" href="{{ "/contact/" | relative_url }}">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="main-content">
+    <div class="container">
+      {{ content }}
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; {{ 'now' | date: "%Y" }} {{ site.title | escape }}. Built with Jekyll and managed through Obsidian.</p>
+      
+      {% if site.github_username or site.orcid or site.scholar or site.linkedin %}
+      <div style="margin-top: 1rem;">
+        {% if site.orcid %}
+        <a href="https://orcid.org/{{ site.orcid }}" target="_blank" rel="noopener">ORCID</a>
+        {% endif %}
+        {% if site.scholar %}
+        <a href="https://scholar.google.com/citations?user={{ site.scholar }}" target="_blank" rel="noopener">Google Scholar</a>
+        {% endif %}
+        {% if site.github_username %}
+        <a href="https://github.com/{{ site.github_username }}" target="_blank" rel="noopener">GitHub</a>
+        {% endif %}
+        {% if site.linkedin %}
+        <a href="https://linkedin.com/in/{{ site.linkedin }}" target="_blank" rel="noopener">LinkedIn</a>
+        {% endif %}
+      </div>
+      {% endif %}
+    </div>
+  </footer>
+
+  <!-- Analytics (optional) -->
+  {% if jekyll.environment == 'production' and site.google_analytics %}
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', '{{ site.google_analytics }}');
+  </script>
+  {% endif %}
+</body>
+
+</html>

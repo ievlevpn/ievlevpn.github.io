@@ -1,0 +1,18 @@
+{
+  "legacyEditor": false,
+  "livePreview": true,
+  "strictLineBreaks": false,
+  "showLineNumber": true,
+  "tabSize": 2,
+  "readableLineLength": true,
+  "showFrontmatter": true,
+  "useMarkdownLinks": false,
+  "newLinkFormat": "relative",
+  "attachmentFolderPath": "../assets/images",
+  "newFileLocation": "current",
+  "promptDelete": true,
+  "showInlineTitle": true,
+  "spellcheck": true,
+  "foldHeading": true,
+  "foldIndent": true
+}

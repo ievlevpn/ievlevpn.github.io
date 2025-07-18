@@ -1,0 +1,61 @@
+---
+layout: default
+---
+
+<article class="card">
+  <header class="card-header">
+    <h1>{{ page.title }}</h1>
+    
+    <div class="card-meta">
+      <strong>{{ page.organization }}</strong>
+      {% if page.location %} | {{ page.location }}{% endif %}
+    </div>
+    
+    <div class="card-meta">
+      {{ page.start_date | date: "%B %Y" }} - {% if page.end_date %}{{ page.end_date | date: "%B %Y" }}{% else %}Present{% endif %}
+      {% if page.type %} | {{ page.type | capitalize }}{% endif %}
+    </div>
+  </header>
+
+  {% if page.description %}
+  <section>
+    <h2>Overview</h2>
+    {{ page.description | markdownify }}
+  </section>
+  {% endif %}
+
+  {% if content != "" %}
+  <section>
+    {{ content }}
+  </section>
+  {% endif %}
+
+  {% if page.skills %}
+  <section>
+    <h2>Skills & Technologies</h2>
+    <div class="skills-list">
+      {% for skill in page.skills %}
+        <span class="skill-tag">{{ skill }}</span>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+</article>
+
+<style>
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+}
+
+.skill-tag {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  padding: var(--space-1) var(--space-3);
+  border-radius: 4px;
+  font-size: var(--font-size-sm);
+  color: var(--secondary-text);
+}
+</style>

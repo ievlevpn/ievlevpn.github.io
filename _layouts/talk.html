@@ -1,0 +1,66 @@
+---
+layout: default
+---
+
+<article class="card">
+  <header class="card-header">
+    <h1>{{ page.title }}</h1>
+    
+    <div class="card-meta">
+      <strong>{{ page.venue }}</strong>
+      {% if page.location %} | {{ page.location }}{% endif %}
+    </div>
+    
+    {% if page.date %}
+    <div class="card-meta">
+      <strong>Date:</strong> <time datetime="{{ page.date | date: "%Y-%m-%d" }}">{{ page.date | date: "%B %d, %Y" }}</time>
+      {% if page.type %} | {{ page.type | capitalize }} Talk{% endif %}
+      {% if page.duration %} | {{ page.duration }}{% endif %}
+    </div>
+    {% endif %}
+    
+    {% if page.audience_size %}
+    <div class="card-meta">
+      <strong>Audience:</strong> {{ page.audience_size }} attendees
+    </div>
+    {% endif %}
+    
+    {% if page.slides or page.video %}
+    <div class="card-meta links">
+      {% if page.slides %}
+      <a href="{{ page.slides }}" target="_blank">Slides</a>
+      {% endif %}
+      {% if page.video %}
+      <a href="{{ page.video }}" target="_blank" rel="noopener">Video Recording</a>
+      {% endif %}
+    </div>
+    {% endif %}
+  </header>
+
+  {% if page.abstract %}
+  <section>
+    <h2>Abstract</h2>
+    <div class="abstract">
+      {{ page.abstract | markdownify }}
+    </div>
+  </section>
+  {% endif %}
+
+  {% if page.topics %}
+  <section>
+    <h2>Topics Covered</h2>
+    <ul>
+      {% for topic in page.topics %}
+      <li>{{ topic }}</li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endif %}
+
+  {% if content != "" %}
+  <section>
+    <h2>Details</h2>
+    {{ content }}
+  </section>
+  {% endif %}
+</article>
