@@ -1,21 +1,20 @@
 # Academic CV & Publication Website
 # Built with Jekyll and optimized for Obsidian integration
 
-title: "Dr. Academic Name"
-subtitle: "Professor of Computer Science"
+title: "Pavel Ievlev"
+subtitle: "PhD in Probability Theory and Statistics"
 email: pavel.ievlev@unil.ch
 description: >-
-  Academic website featuring research publications, CV, and professional activities.
-  Built with Jekyll and managed through Obsidian for seamless content creation.
+  Personal academic website.
 
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 
 # Social links
-github_username: username
-orcid: 0000-0000-0000-0000
-scholar: scholar_id
-linkedin: linkedin_username
+github_username: ievlevpn
+orcid: 0000-0003-3329-5741
+scholar: 3z8jrW8AAAAJ
+linkedin:
 
 # Build settings
 markdown: kramdown

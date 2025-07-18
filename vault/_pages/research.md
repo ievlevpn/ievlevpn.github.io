@@ -46,17 +46,9 @@ permalink: /research/
 
 {% if site.academic.research_interests %}
 {% for interest in site.academic.research_interests %}
-- **{{ interest }}**: Investigating novel approaches and applications
 {% endfor %}
 {% endif %}
 
-%% ## Research Impact %%
-
-%% ### Publications Metrics %%
-%% {% assign total_publications = site.publications | size %} %%
-%% {% assign recent_publications = site.publications | where_exp: "pub", "pub.year >= 2020" | size %} %%
-%% - **Total Publications:** {{ total_publications }} %%
-%% - **Recent Publications (2020+):** {{ recent_publications }} %%
 
 ### Selected Recent Work
 
@@ -75,22 +67,6 @@ permalink: /research/
 {% endif %}
 
 [View all publications →]({{ "/publications/" | relative_url }})
-
-%% ## Collaborations %%
-
-%% I actively collaborate with researchers across academia and industry, including: %%
-%% - Faculty at leading research universities %%
-%% - Research scientists at major technology companies %%
-%% - International research institutions %%
-%% - Interdisciplinary teams spanning computer science, mathematics, and domain applications %%
-
-%% ## Funding
-
-Research activities are supported by grants from:
-- National Science Foundation (NSF)
-- National Institutes of Health (NIH)
-- Industry partnerships
-- University research funds %%
 
 ## Contact for Research Collaboration
 

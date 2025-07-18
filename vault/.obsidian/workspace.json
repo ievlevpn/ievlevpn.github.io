@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "_pages/teaching.md",
+                "file": "_pages/research.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "teaching"
+              "title": "research"
             }
           }
         ]
@@ -171,6 +171,7 @@
   },
   "active": "ce5a6ffa911da9bb",
   "lastOpenFiles": [
+    "_pages/teaching.md",
     "_pages/talks.md",
     "_pages/research.md",
     "_pages/publications.md",
@@ -178,7 +179,6 @@
     "_pages/cv.md",
     "_pages/contact.md",
     "_temp/contact 1.md",
-    "_pages/teaching.md",
     "_temp/talks.md",
     "_temp/2020-professor-university.md",
     "_temp",
