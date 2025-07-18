@@ -50,3 +50,4 @@ node_modules/
 # Uncomment if you don't want to track these
 # assets/pdfs/
 # assets/images/personal/
+.obsidian/workspace*.json

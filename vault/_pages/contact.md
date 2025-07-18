@@ -11,13 +11,13 @@ I welcome inquiries from students, researchers, collaborators, and industry prof
 ## Primary Contact
 
 **Email:** {{ site.email }}  
-**Office:** Extranef 134
+**Office:** Extranef 134  
 **Mailing Address:**  
-Department des Sciences Actuarielles
-Université de Lausanne
-Bâtiment Extranef
-Quartier Dorigny,
-1015 Lausanne,
+Department des Sciences Actuarielles  
+Université de Lausanne  
+Bâtiment Extranef  
+Quartier Dorigny,  
+1015 Lausanne,  
 Switzerland
 
 ## Academic Profiles

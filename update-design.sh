@@ -45,7 +45,7 @@ TEMP_DIR=$(mktemp -d)
 cd "$TEMP_DIR"
 
 # Download latest template
-if ! curl -L "https://github.com/mechanicpanic/academic-website/archive/main.zip" -o template.zip; then
+if ! curl -L "https://github.com/mechanicpanic/academic-website/archive/master.zip" -o template.zip; then
     echo -e "${RED}❌ Failed to download template${NC}"
     exit 1
 fi
@@ -56,7 +56,7 @@ if ! unzip -q template.zip; then
     exit 1
 fi
 
-cd academic-website-main
+cd academic-website-master
 
 # Go back to original directory
 cd "$OLDPWD"
@@ -68,7 +68,7 @@ DESIGN_FILES=(
     "_layouts"
     "_includes" 
     "_sass"
-    "assets/css"
+    "assets/css/main.scss"
     ".github/workflows"
     "update-design.sh"
 )
@@ -78,16 +78,20 @@ echo -e "${BLUE}💾 Creating backup...${NC}"
 mkdir -p .design-backup
 for file in "${DESIGN_FILES[@]}"; do
     if [ -e "$file" ]; then
-        cp -r "$file" ".design-backup/" 2>/dev/null || true
+        # Create parent directory in backup if needed
+        mkdir -p ".design-backup/$(dirname "$file")" 2>/dev/null || true
+        cp -r "$file" ".design-backup/$(dirname "$file")/" 2>/dev/null || true
     fi
 done
 
 # Update design files
 for file in "${DESIGN_FILES[@]}"; do
-    if [ -e "$TEMP_DIR/academic-website-main/$file" ]; then
+    if [ -e "$TEMP_DIR/academic-website-master/$file" ]; then
         echo "  Updating $file"
+        # Create parent directory if needed
+        mkdir -p "$(dirname "$file")" 2>/dev/null || true
         rm -rf "$file" 2>/dev/null || true
-        cp -r "$TEMP_DIR/academic-website-main/$file" "$file"
+        cp -r "$TEMP_DIR/academic-website-master/$file" "$file"
     fi
 done
 

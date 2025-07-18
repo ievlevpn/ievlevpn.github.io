@@ -505,6 +505,40 @@ tbody tr:nth-child(even) {
   }
 }
 
+// MathJax styling
+.MathJax {
+  font-size: 1em !important;
+}
+
+mjx-container[jax="SVG"] > svg {
+  max-width: 100%;
+  height: auto;
+}
+
+// Ensure math expressions use Computer Modern when possible
+mjx-container[jax="SVG"] {
+  font-family: 'Computer Modern Serif', 'Times New Roman', serif;
+}
+
+// Inline math styling
+mjx-container[display="false"] {
+  margin: 0 0.1em;
+}
+
+// Display math styling  
+mjx-container[display="true"] {
+  margin: 1em auto;
+  display: block;
+  text-align: center;
+}
+
+// Math in abstracts and content
+.abstract mjx-container,
+.publication-item mjx-container,
+.card mjx-container {
+  color: inherit;
+}
+
 // Print Styles
 @media print {
   body {
@@ -529,5 +563,11 @@ tbody tr:nth-child(even) {
   
   .cv-section {
     page-break-inside: avoid;
+  }
+  
+  // Ensure math renders properly in print
+  mjx-container[jax="SVG"] > svg {
+    max-width: 100% !important;
+    height: auto !important;
   }
 }
