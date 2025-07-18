@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "_temp/talks.md",
+                "file": "_pages/index.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "talks"
+              "title": "index"
             }
           }
         ]
@@ -171,6 +171,12 @@
   },
   "active": "ce5a6ffa911da9bb",
   "lastOpenFiles": [
+    "_pages/cv.md",
+    "_pages/contact.md",
+    "_pages/research.md",
+    "_pages/publications.md",
+    "_pages/index.md",
+    "_temp/talks.md",
     "_temp/contact 1.md",
     "_temp/2024-neural-networks-optimization.md",
     "_temp/2024-keynote-ai-conference.md",
@@ -178,12 +184,6 @@
     "_temp/2018-phd-computer-science.md",
     "_pages/teaching.md",
     "_pages/talks.md",
-    "_pages/research.md",
-    "_pages/publications.md",
-    "_pages/index.md",
-    "_pages/cv.md",
-    "_pages/contact.md",
-    "_temp/talks.md",
     "_temp",
     "_temp/2024-fall-machine-learning.md",
     "_teaching/2024-fall-machine-learning 1.md",
