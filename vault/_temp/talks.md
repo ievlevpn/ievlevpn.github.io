@@ -6,7 +6,7 @@ permalink: /talks/
 
 # Talks & Presentations
 
-Below is a comprehensive list of my presentations, organized by year and type.
+I regularly present my research at conferences, workshops, and invited seminars. Below is a comprehensive list of my presentations, organized by year and type.
 
 ## Upcoming Talks
 
@@ -98,6 +98,48 @@ Below is a comprehensive list of my presentations, organized by year and type.
 *Conference presentations will be listed here.*
 {% endif %}
 
+## Speaking Topics
+
+I frequently speak on the following research areas:
+
+### Artificial Intelligence & Machine Learning
+- **Neural Network Optimization**: Efficient training methods for large-scale models
+- **Sustainable AI**: Environmental considerations in machine learning
+- **Theoretical Foundations**: Mathematical underpinnings of learning algorithms
+
+### Industry Applications
+- **Practical AI Deployment**: Real-world implementation challenges and solutions
+- **Ethics in AI**: Responsible development and deployment of AI systems
+- **Future of AI**: Trends and predictions for the field
+
+### Academic & Career Development
+- **Research Methodology**: Best practices for conducting AI/ML research
+- **Academic Career Paths**: Guidance for graduate students and postdocs
+- **Industry Transitions**: Moving between academic and industry roles
+
+## Speaking Engagement Information
+
+### Availability
+I am available for speaking engagements including:
+- Conference keynotes and invited talks
+- University seminars and colloquia
+- Industry workshops and training sessions
+- Panel discussions and fireside chats
+- Podcast interviews and media appearances
+
+### Topics of Expertise
+- Machine Learning and Deep Learning
+- AI Ethics and Responsible Computing
+- Research Methodology and Career Development
+- Academic-Industry Collaboration
+- Sustainable Computing and Green AI
+
+### Technical Requirements
+- **Remote Presentations**: Fully equipped for high-quality virtual presentations
+- **Travel**: Available for domestic and international speaking engagements
+- **Materials**: Can provide slides, handouts, and follow-up materials
+- **Format Flexibility**: Adaptable to various presentation formats and durations
+
 ## Past Speaking Engagements by Year
 
 <div id="all-talks"></div>
@@ -144,5 +186,19 @@ Below is a comprehensive list of my presentations, organized by year and type.
 - **Invited Seminars:** {{ invited_count }}
 - **Conference Talks:** {{ conference_count }}
 
+## Contact for Speaking Engagements
+
+Interested in having me speak at your event? I'd be happy to discuss:
+
+- **Academic Conferences**: Research presentations and keynote addresses
+- **Industry Events**: Workshops, training sessions, and corporate seminars
+- **Educational Institutions**: Guest lectures and student seminars
+- **Media Appearances**: Interviews, panels, and expert commentary
+
+**Contact:** {{ site.email }}
+
+**Speaking Topics Available:** AI/ML research, sustainable computing, academic career development, industry trends
+
 ---
 
+*For the most current information about upcoming talks and availability, please contact me directly.*

@@ -6,31 +6,11 @@ permalink: /research/
 
 # Research
 
-My research focuses on developing novel algorithms and computational methods that advance the state of artificial intelligence and machine learning. I am particularly interested in the intersection of theoretical foundations and practical applications.
+`todo`
 
 ## Current Research Areas
 
-### Neural Network Optimization
-Developing efficient training algorithms for large-scale neural networks, with emphasis on:
-- Adaptive learning rate scheduling
-- Gradient compression techniques
-- Distributed training optimization
-- Memory-efficient architectures
-
-### Sustainable AI
-Investigating methods to reduce the environmental impact of machine learning:
-- Energy-efficient model architectures
-- Carbon-aware training strategies
-- Model compression and pruning
-- Green computing for AI workloads
-
-### Theoretical Machine Learning
-Advancing our understanding of learning algorithms through:
-- Generalization bounds and learning theory
-- Optimization landscape analysis
-- Convergence guarantees for adaptive methods
-- Statistical learning foundations
-
+`todo`
 ## Active Projects
 
 {% assign current_projects = site.projects | where: "status", "active" | sort: "start_date" | reverse %}
@@ -70,13 +50,13 @@ Advancing our understanding of learning algorithms through:
 {% endfor %}
 {% endif %}
 
-## Research Impact
+%% ## Research Impact %%
 
-### Publications Metrics
-{% assign total_publications = site.publications | size %}
-{% assign recent_publications = site.publications | where_exp: "pub", "pub.year >= 2020" | size %}
-- **Total Publications:** {{ total_publications }}
-- **Recent Publications (2020+):** {{ recent_publications }}
+%% ### Publications Metrics %%
+%% {% assign total_publications = site.publications | size %} %%
+%% {% assign recent_publications = site.publications | where_exp: "pub", "pub.year >= 2020" | size %} %%
+%% - **Total Publications:** {{ total_publications }} %%
+%% - **Recent Publications (2020+):** {{ recent_publications }} %%
 
 ### Selected Recent Work
 
@@ -96,32 +76,30 @@ Advancing our understanding of learning algorithms through:
 
 [View all publications →]({{ "/publications/" | relative_url }})
 
-## Collaborations
+%% ## Collaborations %%
 
-I actively collaborate with researchers across academia and industry, including:
-- Faculty at leading research universities
-- Research scientists at major technology companies
-- International research institutions
-- Interdisciplinary teams spanning computer science, mathematics, and domain applications
+%% I actively collaborate with researchers across academia and industry, including: %%
+%% - Faculty at leading research universities %%
+%% - Research scientists at major technology companies %%
+%% - International research institutions %%
+%% - Interdisciplinary teams spanning computer science, mathematics, and domain applications %%
 
-## Funding
+%% ## Funding
 
 Research activities are supported by grants from:
 - National Science Foundation (NSF)
 - National Institutes of Health (NIH)
 - Industry partnerships
-- University research funds
+- University research funds %%
 
 ## Contact for Research Collaboration
 
 Interested in collaborating? I'm always open to discussing:
 - Joint research projects
-- Student exchanges and visits
-- Grant proposals and funding opportunities
 - Industry partnerships
 
 **Email:** {{ site.email }}
 
 ---
 
-*For the most up-to-date information about ongoing research projects and opportunities, please don't hesitate to reach out directly.*
+*For the most up-to-date information, please don't hesitate to reach out directly.*
