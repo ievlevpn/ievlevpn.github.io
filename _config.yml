@@ -3,7 +3,7 @@
 
 title: "Dr. Academic Name"
 subtitle: "Professor of Computer Science"
-email: academic@university.edu
+email: pavel.ievlev@unil.ch
 description: >-
   Academic website featuring research publications, CV, and professional activities.
   Built with Jekyll and managed through Obsidian for seamless content creation.
@@ -129,7 +129,7 @@ academic:
   show_recent_talks: true
   cv_pdf_path: "/assets/pdfs/cv.pdf"
   research_interests:
-    - "Artificial Intelligence"
-    - "Machine Learning"
-    - "Computer Vision"
-    - "Natural Language Processing"
+    - "Extreme value theory"
+    - "Large deviations"
+    - "Gaussian random fields"
+    - "Stochastic analysis"
