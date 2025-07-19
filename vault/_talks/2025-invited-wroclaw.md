@@ -2,7 +2,7 @@
 layout: talk
 title: Asymptotic Behavior of Path Functionals for Vector-Valued Gaussian Processes at High Levels
 date: 2025-07-15
-venue: 44th Conference on Stochastic Processes and their Applications 14-18 July 2025
+venue: 44th Conference on Stochastic Processes and their Applications
 location: Wrocław, Poland
 type: invited
 duration: 

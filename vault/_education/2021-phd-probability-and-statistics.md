@@ -16,6 +16,6 @@ relevant_coursework: []
 
 ## Thesis/Dissertation
 
-**Title:** An operator approach to constructing complex and reflecting stochastic processes
+**Title:** An operator approach to constructing complex and reflecting stochastic processes.
 
 **Abstract:** This dissertation investigates semigroups and generators of Markov processes confined to a bounded domain $D \subset \mathbb{R}^d$.

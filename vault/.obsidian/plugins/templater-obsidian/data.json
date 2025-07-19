@@ -15,8 +15,28 @@
   "enable_folder_templates": true,
   "folder_templates": [
     {
+      "folder": "_teaching",
+      "template": "templates/Teaching.md"
+    },
+    {
+      "folder": "_publications",
+      "template": "templates/Publication.md"
+    },
+    {
+      "folder": "_education",
+      "template": "templates/Education.md"
+    },
+    {
       "folder": "_talks",
-      "template": "templates/conference template.md"
+      "template": "templates/Talk.md"
+    },
+    {
+      "folder": "_experience",
+      "template": "templates/Experience.md"
+    },
+    {
+      "folder": "_pages",
+      "template": "templates/Page.md"
     }
   ],
   "enable_file_templates": false,

@@ -120,13 +120,14 @@ exclude:
   - vendor/ruby/
   - README.md
   - .obsidian/
+  - vault/templates
 
 # Academic-specific settings
 academic:
   show_publications_on_home: true
   publications_limit: 5
   show_recent_talks: true
-  cv_pdf_path: "/assets/pdfs/cv.pdf"
+  cv_pdf_path: "vault/assets/cv.pdf"
   research_interests:
     - "Extreme value theory"
     - "Large deviations"

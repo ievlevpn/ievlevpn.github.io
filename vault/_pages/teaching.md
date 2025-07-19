@@ -8,10 +8,10 @@ permalink: /teaching/
 
 `todo`
 
-## Current Courses
-
 {% assign current_courses = site.teaching | where_exp: "course", "course.year >= 2024" | sort: "semester" %}
 {% if current_courses.size > 0 %}
+## Current Courses
+
 {% for course in current_courses %}
 ### {{ course.title }} ({{ course.course_code }})
 *{{ course.semester }} {{ course.year }} • {{ course.level }} Level*
@@ -33,7 +33,8 @@ permalink: /teaching/
 *Current course information will be displayed here.*
 {% endif %}
 
-%% ## Teaching Philosophy
+{% if teaching-philosophy %}
+## Teaching Philosophy
 
 My approach to teaching is built on several core principles:
 
@@ -51,11 +52,13 @@ My approach to teaching is built on several core principles:
 - **Industry Connections**: Bringing in guest speakers and industry case studies
 - **Cutting-edge Research**: Incorporating recent developments and ongoing research
 - **Practical Skills**: Teaching tools and methodologies used in professional settings
- %%
-## Past Courses
+
+{% endif %}
 
 {% assign past_courses = site.teaching | where_exp: "course", "course.year < 2024" | sort: "year" | reverse %}
 {% if past_courses.size > 0 %}
+## Past Courses
+
 <div class="cv-section">
   {% for course in past_courses %}
   <div class="cv-item">
