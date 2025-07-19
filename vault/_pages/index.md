@@ -3,7 +3,6 @@ layout: default
 title: Home
 permalink: /
 ---
-
 # Welcome
 
 I am a mathematician working in probability theory and stochastic processes. My recent research interests involve asymptotic analysis of rare events' probabilities, the simplest example being $\\{  \exists \, t : X_t > u \\}$, where $X$ is a Gaussian process and $u$ is large. This is a subject of my [unil_thesis.pdf](second PhD thesis) defended recently at the Université de Lausanne. During my first PhD at St. Petersburg department of V.A. Steklov's Mathematical Institute, I have studied semigroups and generators of Markov processes confined to bounded areas $D \subset \mathbb{R}^d$. This is a subject of my [pdmi_thesis.pdf](first thesis) (in Russian).

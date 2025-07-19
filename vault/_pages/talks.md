@@ -62,9 +62,9 @@ Below is a comprehensive list of my presentations, organized by year and type.
 
 ## Talk Categories
 
+{% if keynote_talks.size > 0 %}
 ### Keynote Addresses
 {% assign keynote_talks = site.talks | where: "type", "keynote" | sort: "date" | reverse %}
-{% if keynote_talks.size > 0 %}
 {% for talk in keynote_talks %}
 - **{{ talk.title }}** - *{{ talk.venue }}* ({{ talk.date | date: "%Y" }})
 {% endfor %}
@@ -72,9 +72,9 @@ Below is a comprehensive list of my presentations, organized by year and type.
 *Keynote presentations will be listed here.*
 {% endif %}
 
+{% if invited_talks.size > 0 %}
 ### Invited Seminars
 {% assign invited_talks = site.talks | where: "type", "invited" | sort: "date" | reverse | limit: 5 %}
-{% if invited_talks.size > 0 %}
 {% for talk in invited_talks %}
 - **{{ talk.title }}** - *{{ talk.venue }}* ({{ talk.date | date: "%Y" }})
 {% endfor %}
@@ -85,9 +85,9 @@ Below is a comprehensive list of my presentations, organized by year and type.
 *Invited seminars will be listed here.*
 {% endif %}
 
+{% if conference_talks.size > 0 %}
 ### Conference Presentations
 {% assign conference_talks = site.talks | where: "type", "contributed" | sort: "date" | reverse | limit: 5 %}
-{% if conference_talks.size > 0 %}
 {% for talk in conference_talks %}
 - **{{ talk.title }}** - *{{ talk.venue }}* ({{ talk.date | date: "%Y" }})
 {% endfor %}

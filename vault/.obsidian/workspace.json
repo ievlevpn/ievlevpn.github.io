@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "_temp/2020-professor-university.md",
+                "file": "_talks/2025-invited-wroclaw.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2020-professor-university"
+              "title": "2025-invited-wroclaw"
             }
           }
         ]
@@ -166,27 +166,36 @@
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
-      "obsidian-git:Open Git source control": false
+      "obsidian-git:Open Git source control": false,
+      "templater-obsidian:Templater": false
     }
   },
   "active": "ce5a6ffa911da9bb",
   "lastOpenFiles": [
-    "_education/2021-phd-probability-and-statistics.md",
-    "_education/2024-phd-actuarial-science.md",
-    "_pages/index.md",
+    "Clippings/IS15 Extremes of Gaussian and related random fields  SPA 2025.md",
+    "_talks/2025-invited-wroclaw.md",
+    "Clippings",
+    "assets/slides/2025-slides-SPA-conference.pdf",
+    "templates/conference template.md",
+    "_pages/talks.md",
+    "_pages/teaching.md",
+    "assets/slides",
+    "assets",
+    "_temp/2024-neural-networks-optimization.md",
+    "_temp/2020-professor-university.md",
+    "_temp/2024-fall-machine-learning.md",
+    "2024-06-20.md",
+    "templates",
     "_pages/contact.md",
-    "_pages/cv.md",
-    "_pages/research.md",
+    "_education/2024-phd-actuarial-science.md",
     "_pages/publications.md",
+    "_pages/index.md",
+    "_pages/cv.md",
+    "_education/2021-phd-probability-and-statistics.md",
+    "_pages/research.md",
     "_temp/talks.md",
     "_temp/contact 1.md",
-    "_temp/2024-neural-networks-optimization.md",
-    "_temp/2024-keynote-ai-conference.md",
-    "_temp/2020-professor-university.md",
-    "_pages/teaching.md",
-    "_pages/talks.md",
     "_temp",
-    "_temp/2024-fall-machine-learning.md",
     "_teaching/2024-fall-machine-learning 1.md",
     "_pages",
     "pages/teaching.md",
