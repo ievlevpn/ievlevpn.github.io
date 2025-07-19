@@ -12,8 +12,6 @@ video:
 abstract: 
 topics:
 ---
-# Asymptotic Behavior of Path Functionals for Vector-Valued Gaussian Processes at High Levels
-
 ## Abstract
 
 Understanding how long a stochastic system stays in a "safe" region is a core
@@ -49,4 +47,4 @@ sojourns for a broad class of Gaussian models.
 
 ## Materials
 
-- [Keynote Slides](/assets/slides/ai-conference-2024-keynote.pdf)
+- [Slides](../assets/slides/2025-slides-SPA-conference.pdf)

@@ -31,10 +31,10 @@ Below is a comprehensive list of my presentations, organized by year and type.
 *No upcoming talks scheduled. Check back for updates.*
 {% endif %}
 
-## Recent Presentations (2024)
-
 {% assign recent_talks = site.talks | where_exp: "talk", "talk.date <= site.time" | where: "year", 2024 | sort: "date" | reverse %}
 {% if recent_talks.size > 0 %}
+## Recent Presentations (2025)
+
 {% for talk in recent_talks %}
 ### {{ talk.title }}
 **{{ talk.venue }}** | {{ talk.location }} | {{ talk.date | date: "%B %d, %Y" }}
@@ -62,9 +62,9 @@ Below is a comprehensive list of my presentations, organized by year and type.
 
 ## Talk Categories
 
+{% assign keynote_talks = site.talks | where: "type", "keynote" | sort: "date" | reverse %}
 {% if keynote_talks.size > 0 %}
 ### Keynote Addresses
-{% assign keynote_talks = site.talks | where: "type", "keynote" | sort: "date" | reverse %}
 {% for talk in keynote_talks %}
 - **{{ talk.title }}** - *{{ talk.venue }}* ({{ talk.date | date: "%Y" }})
 {% endfor %}
@@ -72,9 +72,9 @@ Below is a comprehensive list of my presentations, organized by year and type.
 *Keynote presentations will be listed here.*
 {% endif %}
 
+{% assign invited_talks = site.talks | where: "type", "invited" | sort: "date" | reverse | limit: 5 %}
 {% if invited_talks.size > 0 %}
 ### Invited Seminars
-{% assign invited_talks = site.talks | where: "type", "invited" | sort: "date" | reverse | limit: 5 %}
 {% for talk in invited_talks %}
 - **{{ talk.title }}** - *{{ talk.venue }}* ({{ talk.date | date: "%Y" }})
 {% endfor %}
@@ -85,9 +85,9 @@ Below is a comprehensive list of my presentations, organized by year and type.
 *Invited seminars will be listed here.*
 {% endif %}
 
+{% assign conference_talks = site.talks | where: "type", "contributed" | sort: "date" | reverse | limit: 5 %}
 {% if conference_talks.size > 0 %}
 ### Conference Presentations
-{% assign conference_talks = site.talks | where: "type", "contributed" | sort: "date" | reverse | limit: 5 %}
 {% for talk in conference_talks %}
 - **{{ talk.title }}** - *{{ talk.venue }}* ({{ talk.date | date: "%Y" }})
 {% endfor %}
