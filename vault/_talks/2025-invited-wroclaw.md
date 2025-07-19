@@ -12,8 +12,6 @@ video:
 abstract: 
 topics:
 ---
-## Abstract
-
 Understanding how long a stochastic system stays in a "safe" region is a core
 question in risk management, queueing and reliability. In this project we study
 high exceedance probabilities of the form
@@ -44,7 +42,3 @@ the functionals themselves. The presentation will outline the main theorems,
 discuss the crucial assumptions, and illustrate the framework's applicability
 with examples. This work provides a unified approach to understanding extreme
 sojourns for a broad class of Gaussian models.
-
-## Materials
-
-- [Slides](assets/slides/2025-slides-SPA-conference.pdf)
