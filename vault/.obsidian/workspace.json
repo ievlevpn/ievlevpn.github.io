@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "_pages/talks.md",
+                "file": "_talks/2025-invited-wroclaw.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "talks"
+              "title": "2025-invited-wroclaw"
             }
           }
         ]
@@ -172,10 +172,11 @@
   },
   "active": "ce5a6ffa911da9bb",
   "lastOpenFiles": [
+    "to improve with the template.md",
+    "_pages/talks.md",
     "_pages/research.md",
     "_pages/publications.md",
     "_talks/2025-invited-wroclaw.md",
-    "_pages/talks.md",
     "Clippings/IS15 Extremes of Gaussian and related random fields  SPA 2025.md",
     "Clippings",
     "assets/slides/2025-slides-SPA-conference.pdf",
@@ -204,7 +205,6 @@
     "pages/publications.md",
     "pages/index.md",
     "pages/cv.md",
-    "pages/contact.md",
     "pages"
   ]
 }

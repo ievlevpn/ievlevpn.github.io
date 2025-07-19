@@ -1,0 +1,4 @@
+- still no control over some pages from within obsidian, such as talk's standalone page
+- files should by default be within `vault` folder, not in `/assets`
+- obsidian links don't work so far
+- latex doesn't fully work. e.g., `$$` doesn't produce displayed equations

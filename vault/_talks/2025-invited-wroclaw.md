@@ -47,4 +47,4 @@ sojourns for a broad class of Gaussian models.
 
 ## Materials
 
-- [Slides](../assets/slides/2025-slides-SPA-conference.pdf)
+- [Slides](assets/slides/2025-slides-SPA-conference.pdf)
