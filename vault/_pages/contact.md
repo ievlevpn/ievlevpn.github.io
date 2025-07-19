@@ -13,11 +13,12 @@ I welcome inquiries from students, researchers, collaborators, and industry prof
 **Email:** {{ site.email }}  
 **Office:** Extranef 134  
 **Mailing Address:**  
-Department des Sciences Actuarielles  
+Département de sciences actuarielles  
+Faculté des hautes études commerciales  
 Université de Lausanne  
+Quartier UNIL-Chamberonne  
 Bâtiment Extranef  
-Quartier Dorigny,  
-1015 Lausanne,  
+1015 Lausanne  
 Switzerland
 
 ## Academic Profiles
