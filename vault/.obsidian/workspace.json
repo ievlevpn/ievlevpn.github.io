@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "_pages/talks.md",
+                "file": "_publications/2017-representation-complex-cauchy.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "talks"
+              "title": "2017-representation-complex-cauchy"
             }
           }
         ]
@@ -172,12 +172,17 @@
   },
   "active": "d26e59dbf8d45867",
   "lastOpenFiles": [
+    "_publications/2018-representation-boundary-value.md",
+    "_publications/2017-representation-complex-cauchy.md",
+    "_publications/2019-reflecting-bm-in-d-ball.md",
+    "_publications/2021-symmetric-levy.md",
+    "_publications/Untitled",
+    "_pages/talks.md",
     "_pages/teaching.md",
     "_pages/contact.md",
     "_pages/cv.md",
     "_pages/index.md",
     "_pages/publications.md",
-    "_pages/talks.md",
     "_pages/research.md",
     "_publications/2023-parisian.md",
     "_publications/2023-schoenberg.md",
@@ -195,11 +200,7 @@
     "_teaching/2021-2024-time-series.md",
     "templates/Teaching.md",
     "_teaching/2021-2025-loss-models.md",
-    "_talks/2025-invited-wroclaw.md",
     "assets/photo.jpeg",
-    "_education/2020-msc-physics.md",
-    "_education/2018-bsc-physics.md",
-    "templates/Page.md",
     "assets/cv.pdf",
     "assets/slides/2025-slides-SPA-conference.pdf",
     "Clippings",
@@ -207,7 +208,6 @@
     "assets",
     "templates",
     "_temp",
-    "_pages",
-    "pages"
+    "_pages"
   ]
 }
