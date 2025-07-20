@@ -1,26 +1,26 @@
 ---
 layout: teaching
-title: <% tp.file.title %>
-course_code: CS 101
-semester: Fall
-year: <% tp.date.now("YYYY") %>
-years: 
-institution: University Name
-role: Instructor
-level: Undergraduate
-enrollment: 30
-hours_per_week: 10
-syllabus: /assets/syllabi/course-syllabus.pdf
-website: ""
-description: |
-  Course description and learning objectives.
+title: Time Series
+course_code: 
+semester: Spring
+year: 2024
+years: 2021-2024
+institution: Université de Lausanne
+role: Assistant
+level: Graduate
+enrollment: 
+hours_per_week: 
+syllabus: 
+website: 
+description: 
 topics:
-  - Topic 1
-  - Topic 2
-  - Topic 3
+  - ARMA models
+  - GARCH models
+  - Time series estimation
+  - Extreme value time series
 ---
 
-# <% tp.file.title %>
+# Untitled
 
 ## Course Overview
 

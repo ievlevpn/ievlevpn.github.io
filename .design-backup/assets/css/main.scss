@@ -238,24 +238,6 @@ tbody tr:nth-child(even) {
     gap: var(--space-8);
   }
   
-  .header-photo {
-    flex-shrink: 0;
-    
-    .profile-image {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid var(--border);
-      background-color: var(--surface);
-      transition: border-color 0.2s ease;
-      
-      &:hover {
-        border-color: var(--accent-color);
-      }
-    }
-  }
-  
   .header-text {
     flex: 1;
   }
@@ -493,29 +475,13 @@ tbody tr:nth-child(even) {
     .header-content {
       flex-direction: column;
       gap: var(--space-4);
-      align-items: center;
-      text-align: center;
-    }
-    
-    .header-photo {
-      order: -1;
-      
-      .profile-image {
-        width: 100px;
-        height: 100px;
-      }
-    }
-    
-    .header-text {
-      order: 0;
     }
     
     .header-contact {
-      order: 1;
-      text-align: center;
+      text-align: left;
       
       .contact-links {
-        justify-content: center;
+        justify-content: flex-start;
       }
     }
   }

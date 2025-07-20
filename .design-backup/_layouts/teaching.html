@@ -1,0 +1,68 @@
+---
+layout: default
+---
+
+<article class="card">
+  <header class="card-header">
+    <h1>{{ page.title }}</h1>
+    
+    {% if page.course_code %}
+    <div class="card-meta">
+      <strong>Course Code:</strong> {{ page.course_code }}
+    </div>
+    {% endif %}
+    
+    <div class="card-meta">
+      {% if page.semester %}{{ page.semester }} {% endif %}{% if page.year %}{{ page.year }}{% endif %}
+      {% if page.institution %} | {{ page.institution }}{% endif %}
+    </div>
+    
+    <div class="card-meta">
+      {% if page.level %}{{ page.level }} Level{% endif %}
+      {% if page.role %} | {{ page.role }}{% endif %}
+      {% if page.enrollment %} | {{ page.enrollment }} Students{% endif %}
+    </div>
+    
+    {% if page.syllabus or page.website %}
+    <div class="card-meta links">
+      {% if page.syllabus %}
+      <a href="{{ page.syllabus }}" target="_blank">Syllabus</a>
+      {% endif %}
+      {% if page.website %}
+      <a href="{{ page.website }}" target="_blank" rel="noopener">Course Website</a>
+      {% endif %}
+    </div>
+    {% endif %}
+  </header>
+
+  {% if page.description %}
+  <section>
+    <h2>Course Description</h2>
+    {{ page.description | markdownify }}
+  </section>
+  {% endif %}
+
+  {% if page.topics %}
+  <section>
+    <h2>Topics Covered</h2>
+    <ul>
+      {% for topic in page.topics %}
+      <li>{{ topic }}</li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endif %}
+
+  {% if content != "" %}
+  <section>
+    {{ content }}
+  </section>
+  {% endif %}
+
+  {% if page.hours_per_week %}
+  <section>
+    <h2>Course Details</h2>
+    <p><strong>Time Commitment:</strong> {{ page.hours_per_week }} hours per week</p>
+  </section>
+  {% endif %}
+</article>

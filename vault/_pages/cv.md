@@ -44,10 +44,10 @@ permalink: /cv/
 <p><em>Education information will be displayed here. Add entries to the <code>vault/_education/</code> directory.</em></p>
 {% endif %}
 
-## Professional Experience
-
 {% assign experience_sorted = site.experience | sort: 'start_date' | reverse %}
 {% if experience_sorted.size > 0 %}
+## Professional Experience
+
 <div class="cv-section">
   {% for position in experience_sorted %}
   <div class="cv-item">
@@ -71,10 +71,10 @@ permalink: /cv/
 <p><em>Experience information will be displayed here. Add entries to the <code>vault/_experience/</code> directory.</em></p>
 {% endif %}
 
-## Publications
-
 {% assign recent_publications = site.publications | sort: 'date' | reverse | limit: 10 %}
 {% if recent_publications.size > 0 %}
+## Publications
+
 <div class="cv-section">
   <div class="publication-list">
     {% for publication in recent_publications %}
@@ -99,13 +99,13 @@ permalink: /cv/
 
 ## Teaching
 
-{% assign teaching_sorted = site.teaching | sort: 'semester' | reverse %}
+{% assign teaching_sorted = site.teaching | sort: 'year' | reverse %}
 {% if teaching_sorted.size > 0 %}
 <div class="cv-section">
   {% for course in teaching_sorted %}
   <div class="cv-item">
     <div class="dates">
-      {{ course.semester }} {{ course.year }}
+      {{ course.semester }} {% if course.years %} {{ course.years }} {% else %} {{ course.year }} {% endif %}
     </div>
     <div class="details">
       <div class="position">{{ course.title }}</div>

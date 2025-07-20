@@ -76,9 +76,9 @@ I am a mathematician working in probability theory and stochastic processes. My 
 {% endif %}
 {% endif %}
 
+{% if site.academic.research_interests %}
 ## Research Interests
 
-{% if site.academic.research_interests %}
 {% for interest in site.academic.research_interests %}
 - {{ interest }}
 {% endfor %}

@@ -1,26 +1,22 @@
 ---
 layout: teaching
-title: <% tp.file.title %>
-course_code: CS 101
+title: Dependence Modelling
+course_code: 
 semester: Fall
-year: <% tp.date.now("YYYY") %>
+year: 2025
 years: 
-institution: University Name
-role: Instructor
-level: Undergraduate
-enrollment: 30
-hours_per_week: 10
-syllabus: /assets/syllabi/course-syllabus.pdf
-website: ""
-description: |
-  Course description and learning objectives.
-topics:
-  - Topic 1
-  - Topic 2
-  - Topic 3
+institution: Université de Lausanne
+role: Lecturer
+level: Graduate
+enrollment: 
+hours_per_week: 
+syllabus: 
+website: 
+description: 
+topics: []
 ---
 
-# <% tp.file.title %>
+# Untitled
 
 ## Course Overview
 

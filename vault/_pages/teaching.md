@@ -3,18 +3,20 @@ layout: default
 title: Teaching
 permalink: /teaching/
 ---
-
+{% assign current_year = "now" | date: "%Y" | plus: 0 %}
 # Teaching
 
-`todo`
-
-{% assign current_courses = site.teaching | where_exp: "course", "course.year >= 2024" | sort: "semester" %}
+{% assign current_courses = site.teaching | where_exp: "course", "course.year >= current_year" | sort: "semester" %}
 {% if current_courses.size > 0 %}
 ## Current Courses
 
 {% for course in current_courses %}
-### {{ course.title }} ({{ course.course_code }})
+### {{ course.title }} {% if course.course_code %} ({{ course.course_code }}) {% endif %}
+{% if course.years %}
+*{{ course.semester }} {{ course.years }} • {{ course.level }} Level*
+{% else %}
 *{{ course.semester }} {{ course.year }} • {{ course.level }} Level*
+{% endif %}
 
 {{ course.description }}
 
@@ -55,7 +57,7 @@ My approach to teaching is built on several core principles:
 
 {% endif %}
 
-{% assign past_courses = site.teaching | where_exp: "course", "course.year < 2024" | sort: "year" | reverse %}
+{% assign past_courses = site.teaching | where_exp: "course", "course.year < current_year" | sort: "year" | reverse %}
 {% if past_courses.size > 0 %}
 ## Past Courses
 
@@ -63,10 +65,10 @@ My approach to teaching is built on several core principles:
   {% for course in past_courses %}
   <div class="cv-item">
     <div class="dates">
-      {{ course.semester }} {{ course.year }}
+      {{ course.semester }} {{ course.years }}
     </div>
     <div class="details">
-      <div class="position">{{ course.title }} ({{ course.course_code }})</div>
+      <div class="position">{{ course.title }} {% if course.course_code %} ({{ course.course_code }}) {% endif %}</div>
       <div class="institution">{{ course.institution }}</div>
       {% if course.role and course.role != "Instructor" %}
       <div class="description"><strong>Role:</strong> {{ course.role }}</div>

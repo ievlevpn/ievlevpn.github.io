@@ -7,6 +7,9 @@ email: pavel.ievlev@unil.ch
 description: >-
   Personal academic website.
 
+# Profile photo (add your photo to assets/images/ and update this path)
+profile_photo: "/vault/assets/photo.jpeg"
+
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 
