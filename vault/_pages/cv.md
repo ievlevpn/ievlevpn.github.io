@@ -126,7 +126,7 @@ permalink: /cv/
 
 ## Selected Talks & Presentations
 
-{% assign talks_sorted = site.talks | sort: 'date' | reverse | limit: 8 %}
+{% assign talks_sorted = site.talks | sort: 'date' | reverse | slice: 0, 8 %}
 {% if talks_sorted.size > 0 %}
 <div class="cv-section">
   {% for talk in talks_sorted %}

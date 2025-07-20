@@ -16,10 +16,8 @@ keywords:
   - high-dimensional statistics
   - Gamma distribution
 doi: 
-arxiv: https://arxiv.org/abs/2501.02553
+arxiv: "2501.02553"
 pdf: 
-code: 
-website: 
 bibtex: |-
   @article{ievlev_shashkov_2025,
     title={Upper and lower bounds on {TVD} and {KLD} between centered elliptical distributions in high-dimensional setting},

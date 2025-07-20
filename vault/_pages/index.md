@@ -12,7 +12,7 @@ I am a mathematician working in probability theory and stochastic processes. My 
 {% if site.academic.show_publications_on_home %}
 ### Recent Publications
 
-{% assign recent_publications = site.publications | sort: 'date' | reverse | limit: site.academic.publications_limit %}
+{% assign recent_publications = site.publications | sort: 'date' | reverse | slice: 0, site.academic.publications_limit %}
 {% if recent_publications.size > 0 %}
 <div class="publication-list">
   {% for publication in recent_publications %}
@@ -52,7 +52,7 @@ I am a mathematician working in probability theory and stochastic processes. My 
 {% if site.academic.show_recent_talks %}
 ### Recent Talks
 
-{% assign recent_talks = site.talks | sort: 'date' | reverse | limit: 3 %}
+{% assign recent_talks = site.talks | sort: 'date' | reverse | slice: 0, 3 %}
 {% if recent_talks.size > 0 %}
 <div class="publication-list">
   {% for talk in recent_talks %}

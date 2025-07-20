@@ -128,7 +128,7 @@ exclude:
 # Academic-specific settings
 academic:
   show_publications_on_home: true
-  publications_limit: 5
+  publications_limit: 3
   show_recent_talks: true
   cv_pdf_path: "vault/assets/cv.pdf"
   research_interests:

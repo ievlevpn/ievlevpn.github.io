@@ -15,7 +15,7 @@ status: published
 abstract: 
 keywords: 
 doi: 10.1088/1751-8121/adb54a
-arxiv: https://arxiv.org/abs/2408.14313
+arxiv: "2408.14313"
 pdf: 
 code: 
 website: 
