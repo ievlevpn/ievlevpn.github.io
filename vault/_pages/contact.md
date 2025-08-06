@@ -38,4 +38,4 @@ Switzerland
 
 ---
 
-*I look forward to hearing from you and exploring opportunities for collaboration, learning!*
+*I look forward to hearing from you and exploring opportunities for collaboration!*
