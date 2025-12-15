@@ -4,8 +4,8 @@ title: Curriculum Vitae
 permalink: /cv/
 ---
 
-<div style="display: flex; justify-content: space-between; align-items: baseline;">
-<h1 style="margin: 0;">Curriculum Vitae</h1>
+<div class="cv-header">
+<h1>Curriculum Vitae</h1>
 {% if site.academic.cv_pdf_path %}<a href="{{ site.academic.cv_pdf_path | relative_url }}">Download PDF</a>{% endif %}
 </div>
 

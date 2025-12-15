@@ -156,7 +156,13 @@ hr {
     font-size: 0.9rem;
     color: var(--text-light);
     text-decoration: none;
-    &:hover { text-decoration: underline; }
+    padding: 0.25rem 0.5rem;
+    border-radius: 3px;
+    transition: background-color 0.15s ease;
+    &:hover {
+      background-color: #f0f5fa;
+      text-decoration: none;
+    }
     &.active {
       color: var(--text);
       font-weight: bold;
@@ -233,6 +239,31 @@ hr {
   }
 }
 
+// Make items fully clickable on list pages (touch-friendly)
+.publication-list .publication-item,
+.cv-section .cv-item {
+  position: relative;
+  .title a::after,
+  .position a::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+// CV header
+.cv-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.5rem;
+
+  h1 { margin: 0; }
+}
+
 // CV sections
 .cv-section {
   margin-bottom: 1.5rem;
@@ -280,7 +311,19 @@ hr {
 
   .navigation .nav-list { justify-content: center; gap: 1rem; }
 
-  .cv-item { grid-template-columns: 1fr; .dates { order: 2; color: var(--text-light); } .details { order: 1; } }
+  .cv-section .cv-item {
+    display: block;
+    .dates {
+      font-size: 0.85rem;
+      margin-top: 0.25rem;
+    }
+  }
+
+  // Stack CV header on mobile
+  .cv-header {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
 }
 
 
