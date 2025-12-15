@@ -1,7 +1,7 @@
 ---
 layout: publication
 title: Probabilistic representation of the Cauchy problem solution for the multidimensional Schrödinger equation
-date: 2025-07-20
+date: 2017-01-01
 year: 2017
 authors:
   - Pavel Ievlev
@@ -24,27 +24,3 @@ bibtex: |-
      MRNUMBER = {3760049}
   }
 ---
-
-# Untitled
-
-## Overview
-
-Detailed description of the publication, methodology, results, and impact.
-
-## Key Contributions
-
-- Contribution 1
-- Contribution 2
-- Contribution 3
-
-## Methodology
-
-Brief description of the approach used.
-
-## Results
-
-Summary of key findings.
-
-## Impact
-
-Discussion of the paper's significance and citations.

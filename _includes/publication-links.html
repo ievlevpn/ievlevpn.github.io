@@ -1,0 +1,15 @@
+{% if include.pub.doi %}
+<a href="https://doi.org/{{ include.pub.doi }}" target="_blank" rel="noopener" class="link-badge link-doi">doi</a>
+{% endif %}
+{% if include.pub.arxiv %}
+<a href="https://arxiv.org/abs/{{ include.pub.arxiv }}" target="_blank" rel="noopener" class="link-badge link-arxiv">arxiv</a>
+{% endif %}
+{% if include.pub.pdf %}
+<a href="{{ include.pub.pdf | relative_url }}" target="_blank" class="link-badge link-pdf">pdf</a>
+{% endif %}
+{% if include.pub.code %}
+<a href="{{ include.pub.code }}" target="_blank" rel="noopener" class="link-badge link-code">code</a>
+{% endif %}
+{% if include.pub.website %}
+<a href="{{ include.pub.website }}" target="_blank" rel="noopener" class="link-badge link-website">website</a>
+{% endif %}

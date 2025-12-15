@@ -5,6 +5,7 @@ institution: Université de Lausanne
 location: Lausanne, Switzerland
 graduation_year: 2024
 thesis_title: Towards a Theory of Multivariate Gaussian Extremes
+thesis_pdf: /vault/assets/unil_thesis.pdf
 advisor: Prof. Enkelejd Hashorva
 committee:
   - Prof. Joël Wagner

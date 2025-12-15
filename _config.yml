@@ -42,17 +42,9 @@ collections:
     output: true
     permalink: /publications/:name/
     sort_by: date
-  experience:
-    output: true
-    permalink: /experience/:name/
-    sort_by: start_date
   education:
     output: false
     sort_by: graduation_year
-  projects:
-    output: true
-    permalink: /projects/:name/
-    sort_by: date
   talks:
     output: true
     permalink: /talks/:name/
@@ -69,24 +61,9 @@ collections:
 defaults:
   - scope:
       path: ""
-      type: "posts"
-    values:
-      layout: "post"
-  - scope:
-      path: ""
       type: "publications"
     values:
       layout: "publication"
-  - scope:
-      path: ""
-      type: "experience"
-    values:
-      layout: "experience"
-  - scope:
-      path: ""
-      type: "projects"
-    values:
-      layout: "project"
   - scope:
       path: ""
       type: "talks"
@@ -103,9 +80,6 @@ defaults:
     values:
       layout: "default"
 
-# Pagination
-paginate: 10
-paginate_path: "/blog/page:num/"
 
 # Sass configuration
 sass:
@@ -123,7 +97,6 @@ exclude:
   - vendor/ruby/
   - README.md
   - .obsidian/
-  - vault/templates
 
 # Academic-specific settings
 academic:

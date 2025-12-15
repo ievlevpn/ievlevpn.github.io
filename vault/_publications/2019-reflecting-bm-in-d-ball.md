@@ -1,7 +1,7 @@
 ---
 layout: publication
 title: Reflecting Brownian motion in $d$-ball
-date: 2025-07-20
+date: 2019-01-01
 year: 2019
 authors:
   - Pavel Ievlev
@@ -26,27 +26,3 @@ bibtex: |-
       MRNUMBER = {4060234}
   }
 ---
-
-# Untitled
-
-## Overview
-
-Detailed description of the publication, methodology, results, and impact.
-
-## Key Contributions
-
-- Contribution 1
-- Contribution 2
-- Contribution 3
-
-## Methodology
-
-Brief description of the approach used.
-
-## Results
-
-Summary of key findings.
-
-## Impact
-
-Discussion of the paper's significance and citations.

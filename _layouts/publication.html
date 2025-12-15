@@ -27,24 +27,10 @@ layout: default
       <strong>Date:</strong> <time datetime="{{ page.date | date: "%Y-%m-%d" }}">{{ page.date | date: "%B %Y" }}</time>
     </div>
     {% endif %}
-    
+
     {% if page.doi or page.arxiv or page.pdf or page.code or page.website %}
-    <div class="card-meta links" style="margin-top: 1.5rem;">
-      {% if page.doi %}
-      <a href="https://doi.org/{{ page.doi }}" target="_blank" rel="noopener">DOI</a>
-      {% endif %}
-      {% if page.arxiv %}
-      <a href="https://arxiv.org/abs/{{ page.arxiv }}" target="_blank" rel="noopener">arXiv</a>
-      {% endif %}
-      {% if page.pdf %}
-      <a href="{{ page.pdf | relative_url }}" target="_blank">PDF</a>
-      {% endif %}
-      {% if page.code %}
-      <a href="{{ page.code }}" target="_blank" rel="noopener">Code</a>
-      {% endif %}
-      {% if page.website %}
-      <a href="{{ page.website }}" target="_blank" rel="noopener">Website</a>
-      {% endif %}
+    <div class="card-meta links">
+      {% include publication-links.html pub=page %}
     </div>
     {% endif %}
   </header>
@@ -71,7 +57,6 @@ layout: default
 
   {% if content != "" %}
   <section>
-    <h2>Details</h2>
     {{ content }}
   </section>
   {% endif %}
@@ -86,28 +71,3 @@ layout: default
   </section>
   {% endif %}
 </article>
-
-{% comment %}
-<!-- Related publications -->
-{% assign related_publications = site.publications | where_exp: "pub", "pub.url != page.url" | sample: 3 %}
-{% if related_publications.size > 0 %}
-<section class="related-publications">
-  <h2>Related Publications</h2>
-  <div class="publication-list">
-    {% for publication in related_publications %}
-    <div class="publication-item">
-      <div class="title">
-        <a href="{{ publication.url | relative_url }}">{{ publication.title }}</a>
-      </div>
-      {% if publication.authors %}
-      <div class="authors">{{ publication.authors | join: ", " }}</div>
-      {% endif %}
-      {% if publication.venue %}
-      <div class="venue">{{ publication.venue }} {% if publication.year %}({{ publication.year }}){% endif %}</div>
-      {% endif %}
-    </div>
-    {% endfor %}
-  </div>
-</section>
-{% endif %}
-{% endcomment %}

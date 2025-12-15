@@ -1,7 +1,7 @@
 ---
 layout: publication
 title: Parisian ruin with power-asymmetric variance near the optimal point with application to many-inputs proportional reinsurance
-date: 2025-07-20
+date: 2023-01-01
 year: 2023
 authors:
   - Pavel Ievlev
@@ -33,27 +33,3 @@ bibtex: |-
       URL = {https://doi.org/10.1080/15326349.2023.2278527}
   }
 ---
-
-# Untitled
-
-## Overview
-
-Detailed description of the publication, methodology, results, and impact.
-
-## Key Contributions
-
-- Contribution 1
-- Contribution 2
-- Contribution 3
-
-## Methodology
-
-Brief description of the approach used.
-
-## Results
-
-Summary of key findings.
-
-## Impact
-
-Discussion of the paper's significance and citations.

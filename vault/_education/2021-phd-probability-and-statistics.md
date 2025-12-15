@@ -5,6 +5,8 @@ institution: PDMI RAS
 location: Saint Petersburg, Russia
 graduation_year: 2021
 thesis_title: An operator approach to constructing complex and reflecting stochastic processes
+thesis_pdf: /vault/assets/pdmi_thesis.pdf
+thesis_language: Russian
 advisor: Prof. Natalia Smorodina
 committee: 
 gpa: 

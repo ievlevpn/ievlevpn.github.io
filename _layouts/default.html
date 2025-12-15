@@ -118,9 +118,6 @@
           <a class="nav-link {% if page.url contains "/publications" %}active{% endif %}" href="{{ "/publications/" | relative_url }}">Publications</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {% if page.url contains "/research" %}active{% endif %}" href="{{ "/research/" | relative_url }}">Research</a>
-        </li>
-        <li class="nav-item">
           <a class="nav-link {% if page.url contains "/teaching" %}active{% endif %}" href="{{ "/teaching/" | relative_url }}">Teaching</a>
         </li>
         <li class="nav-item">
@@ -141,24 +138,7 @@
 
   <footer class="footer">
     <div class="container">
-      <p>&copy; {{ 'now' | date: "%Y" }} {{ site.title | escape }}. Built with Jekyll and managed through Obsidian.</p>
-      
-      {% if site.github_username or site.orcid or site.scholar or site.linkedin %}
-      <div style="margin-top: 1rem;">
-        {% if site.orcid %}
-        <a href="https://orcid.org/{{ site.orcid }}" target="_blank" rel="noopener">ORCID</a>
-        {% endif %}
-        {% if site.scholar %}
-        <a href="https://scholar.google.com/citations?user={{ site.scholar }}" target="_blank" rel="noopener">Google Scholar</a>
-        {% endif %}
-        {% if site.github_username %}
-        <a href="https://github.com/{{ site.github_username }}" target="_blank" rel="noopener">GitHub</a>
-        {% endif %}
-        {% if site.linkedin %}
-        <a href="https://linkedin.com/in/{{ site.linkedin }}" target="_blank" rel="noopener">LinkedIn</a>
-        {% endif %}
-      </div>
-      {% endif %}
+      <p>&copy; {{ 'now' | date: "%Y" }} {{ site.title | escape }}</p>
     </div>
   </footer>
 

@@ -28,10 +28,10 @@ layout: default
     {% if page.slides or page.video %}
     <div class="card-meta links">
       {% if page.slides %}
-      <a href="{{ page.slides }}" target="_blank">Slides</a>
+      <a href="{{ page.slides }}" target="_blank" class="link-badge link-slides">slides</a>
       {% endif %}
       {% if page.video %}
-      <a href="{{ page.video }}" target="_blank" rel="noopener">Video Recording</a>
+      <a href="{{ page.video }}" target="_blank" rel="noopener" class="link-badge link-video">video</a>
       {% endif %}
     </div>
     {% endif %}
@@ -59,7 +59,6 @@ layout: default
 
   {% if content != "" %}
   <section>
-    <h2>Details</h2>
     {{ content }}
   </section>
   {% endif %}

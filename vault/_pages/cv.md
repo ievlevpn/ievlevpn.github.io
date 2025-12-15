@@ -4,15 +4,10 @@ title: Curriculum Vitae
 permalink: /cv/
 ---
 
-# Curriculum Vitae
-
-{% if site.academic.cv_pdf_path %}
-<p style="text-align: center; margin-bottom: 2rem;">
-  <a href="{{ site.academic.cv_pdf_path | relative_url }}" target="_blank" class="cv-download-link" style="background-color: var(--accent-color); color: white; padding: 0.75rem 1.5rem; border-radius: 6px; text-decoration: none; font-weight: 500;">
-    Download PDF Version
-  </a>
-</p>
-{% endif %}
+<div style="display: flex; justify-content: space-between; align-items: baseline;">
+<h1 style="margin: 0;">Curriculum Vitae</h1>
+{% if site.academic.cv_pdf_path %}<a href="{{ site.academic.cv_pdf_path | relative_url }}">Download PDF</a>{% endif %}
+</div>
 
 ## Education
 
@@ -29,7 +24,8 @@ permalink: /cv/
       <div class="institution">{{ degree.institution }}</div>
       {% if degree.thesis_title %}
       <div class="description">
-        <strong>Thesis:</strong> {{ degree.thesis_title }}
+        <strong>Thesis:</strong> {{ degree.thesis_title }}{% if degree.thesis_language %} (in {{ degree.thesis_language }}){% endif %}
+        {% if degree.thesis_pdf %} <a href="{{ degree.thesis_pdf | relative_url }}" class="link-badge link-pdf">pdf</a>{% endif %}
         {% if degree.advisor %}<br><strong>Advisor:</strong> {{ degree.advisor }}{% endif %}
       </div>
       {% endif %}
@@ -42,33 +38,6 @@ permalink: /cv/
 </div>
 {% else %}
 <p><em>Education information will be displayed here. Add entries to the <code>vault/_education/</code> directory.</em></p>
-{% endif %}
-
-{% assign experience_sorted = site.experience | sort: 'start_date' | reverse %}
-{% if experience_sorted.size > 0 %}
-## Professional Experience
-
-<div class="cv-section">
-  {% for position in experience_sorted %}
-  <div class="cv-item">
-    <div class="dates">
-      {{ position.start_date | date: "%Y" }}–{% if position.end_date %}{{ position.end_date | date: "%Y" }}{% else %}Present{% endif %}
-    </div>
-    <div class="details">
-      <div class="position">{{ position.title }}</div>
-      <div class="institution">{{ position.organization }}</div>
-      {% if position.location %}
-      <div class="institution">{{ position.location }}</div>
-      {% endif %}
-      {% if position.description %}
-      <div class="description">{{ position.description | markdownify }}</div>
-      {% endif %}
-    </div>
-  </div>
-  {% endfor %}
-</div>
-{% else %}
-<p><em>Experience information will be displayed here. Add entries to the <code>vault/_experience/</code> directory.</em></p>
 {% endif %}
 
 {% assign recent_publications = site.publications | sort: 'date' | reverse | limit: 10 %}
@@ -152,11 +121,3 @@ permalink: /cv/
 <p><em>Talks information will be displayed here. Add entries to the <code>vault/_talks/</code> directory.</em></p>
 {% endif %}
 
----
-
-<div style="text-align: center; font-size: 0.9em; color: var(--secondary-text); margin-top: 3rem;">
-  <p>Last updated: {{ 'now' | date: "%B %Y" }}</p>
-  {% if site.academic.cv_pdf_path %}
-  <p><a href="{{ site.academic.cv_pdf_path | relative_url }}" target="_blank">Download complete CV as PDF</a></p>
-  {% endif %}
-</div>

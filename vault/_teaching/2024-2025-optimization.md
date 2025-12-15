@@ -1,60 +1,44 @@
 ---
 layout: teaching
 title: Optimization Methods in Management Science
-course_code: 
+course_code:
 semester: Fall
 year: 2025
 years: 2024-2025
 institution: Université de Lausanne
-role: Assistant
+role: Teaching Assistant
 level: Graduate
-enrollment: 
-hours_per_week: 
-syllabus: 
-website: 
-description: 
-topics:
-  - Discrete optimization
-  - Shortest path problems
-  - Linear programming
-  - Quasi-Newton algorithms
+current: true
+description: Graduate course covering linear and non-linear optimization, combinatorial methods, and applications in finance.
 ---
 
-# Untitled
+## Course Outline
 
-## Course Overview
+### I. Linear Programming
+- **Forms:** Canonical, standard; transformations between forms
+- **Tableaus:** Bases, basic solutions, feasibility, pivoting
+- **Simplex Algorithm:** Phase I (feasibility), Phase II (optimization), degeneracy, Bland's rule
+- **Duality:** Weak/strong duality, complementary slackness, dual simplex
 
-Detailed description of the course content, structure, and goals.
+### II. Graph Theory & Networks
+- **Fundamentals:** Directed/undirected graphs, connectivity, adjacency/incidence matrices
+- **Shortest Path:** Bellman's principle, Dijkstra's algorithm
+- **Transshipment Problem:** Network simplex, spanning tree solutions, pricing, ratio test
 
-## Learning Objectives
+### III. Combinatorial Optimization
+- **Branch and Bound:** Enumeration trees, relaxation, branching, bounding, pruning
+- **Dynamic Programming:** Bellman's principle, backward induction, applications (knapsack, inventory, shortest path with negative weights)
 
-By the end of this course, students will be able to:
+### IV. Non-Linear Optimization
+- **Unconstrained:** Local/global optima, first/second order conditions, convexity, Hessian analysis
+- **Constrained:** Lagrange multipliers, KKT conditions, Slater's condition, Lagrangian duality
 
-1. Objective 1
-2. Objective 2
-3. Objective 3
+### V. Iterative Algorithms
+- **Descent Methods:** Steepest descent, Wolfe conditions, backtracking linesearch
+- **Newton's Method:** Quadratic approximation, Hessian inversion, Cholesky decomposition
+- **Quasi-Newton (BFGS):** Hessian approximation, Sherman-Morrison formula
 
-## Curriculum
-
-### Week 1-4: Foundation
-- Topic 1
-- Topic 2
-
-### Week 5-8: Advanced Concepts
-- Topic 3
-- Topic 4
-
-### Week 9-12: Applications
-- Project work
-- Presentations
-
-## Assessment
-
-- Assignments: 40%
-- Midterm: 25%
-- Final Project: 25%
-- Participation: 10%
-
-## Student Feedback
-
-Summary of course evaluations and improvements made.
+### VI. Applications
+- **Portfolio Theory:** Mean-variance analysis, diversification, efficient frontier, tangency portfolio
+- **CAPM:** Market portfolio, Security Market Line, beta
+- **Support Vector Machines:** Separating hyperplanes, margin maximization, dual formulation, kernel trick

@@ -1,7 +1,7 @@
 ---
 layout: publication
 title: Extremes of locally-homogenous vector-valued Gaussian processes
-date: 2025-07-20
+date: 2024-01-01
 year: 2024
 authors:
   - Pavel Ievlev
@@ -32,27 +32,3 @@ bibtex: |-
       URL = {https://doi.org/10.1007/s10687-023-00483-9}
   }
 ---
-
-# Untitled
-
-## Overview
-
-Detailed description of the publication, methodology, results, and impact.
-
-## Key Contributions
-
-- Contribution 1
-- Contribution 2
-- Contribution 3
-
-## Methodology
-
-Brief description of the approach used.
-
-## Results
-
-Summary of key findings.
-
-## Impact
-
-Discussion of the paper's significance and citations.

@@ -1,7 +1,7 @@
 ---
 layout: publication
 title: Symmetric Lévy processes with reflection
-date: 2025-07-20
+date: 2021-01-01
 year: 2021
 authors:
   - Pavel Ievlev
@@ -15,27 +15,3 @@ keywords:
   - Markov semigroup
   - Lévy operator
 ---
-
-# Untitled
-
-## Overview
-
-Detailed description of the publication, methodology, results, and impact.
-
-## Key Contributions
-
-- Contribution 1
-- Contribution 2
-- Contribution 3
-
-## Methodology
-
-Brief description of the approach used.
-
-## Results
-
-Summary of key findings.
-
-## Impact
-
-Discussion of the paper's significance and citations.

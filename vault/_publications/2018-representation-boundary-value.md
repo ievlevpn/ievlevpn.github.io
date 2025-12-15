@@ -1,7 +1,7 @@
 ---
 layout: publication
 title: Probabilistic representations of the initial-boundary value problem solutions for the Schrödinger equation in a $d$-dimensional ball
-date: 2025-07-20
+date: 2018-01-01
 year: 2018
 authors:
   - Pavel Ievlev
@@ -22,27 +22,3 @@ bibtex: |
     publisher={Publisher}
   }
 ---
-
-# Untitled
-
-## Overview
-
-Detailed description of the publication, methodology, results, and impact.
-
-## Key Contributions
-
-- Contribution 1
-- Contribution 2
-- Contribution 3
-
-## Methodology
-
-Brief description of the approach used.
-
-## Results
-
-Summary of key findings.
-
-## Impact
-
-Discussion of the paper's significance and citations.

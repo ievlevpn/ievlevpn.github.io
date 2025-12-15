@@ -7,7 +7,7 @@ authors:
   - Pavel Ievlev
   - Nikolai Kriukov
   - Krzysztof Dębicki
-venue: submitted to Annals of Applied Probability
+venue: submitted to Electronic Journal of Probability
 type: academic
 status: submitted
 abstract: 
@@ -21,27 +21,3 @@ arxiv:
 pdf: 
 bibtex:
 ---
-
-# Untitled
-
-## Overview
-
-Detailed description of the publication, methodology, results, and impact.
-
-## Key Contributions
-
-- Contribution 1
-- Contribution 2
-- Contribution 3
-
-## Methodology
-
-Brief description of the approach used.
-
-## Results
-
-Summary of key findings.
-
-## Impact
-
-Discussion of the paper's significance and citations.
