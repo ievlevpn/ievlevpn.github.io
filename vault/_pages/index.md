@@ -1,6 +1,5 @@
 ---
 layout: default
-title: Pavel Ievlev
 permalink: /
 ---
 
