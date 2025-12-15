@@ -5,13 +5,28 @@ title: "Pavel Ievlev"
 subtitle: "PhD in Probability Theory and Statistics"
 email: pavel.ievlev@unil.ch
 description: >-
-  Personal academic website.
+  Pavel Ievlev - Mathematician specializing in probability theory, extreme value theory,
+  and stochastic analysis. Postdoctoral researcher at Université de Lausanne.
 
 # Profile photo (add your photo to assets/images/ and update this path)
 profile_photo: "/vault/assets/photo.jpeg"
 
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://ievlevpn.github.io" # the base hostname & protocol for your site
+
+# SEO settings
+author:
+  name: "Pavel Ievlev"
+  url: "https://ievlevpn.github.io"
+twitter:
+  card: summary
+logo: /assets/images/favicon.svg
+social:
+  name: Pavel Ievlev
+  links:
+    - https://github.com/ievlevpn
+    - https://orcid.org/0000-0003-3329-5741
+    - https://scholar.google.com/citations?user=3z8jrW8AAAAJ
 
 # Social links
 github_username: ievlevpn

@@ -38,7 +38,43 @@
     src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
   </script>
   
-  <!-- Academic structured data -->
+  <!-- Person structured data (appears on all pages) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Pavel Ievlev",
+    "givenName": "Pavel",
+    "familyName": "Ievlev",
+    "url": "https://ievlevpn.github.io",
+    "image": "https://ievlevpn.github.io/vault/assets/photo.jpeg",
+    "email": "pavel.ievlev@unil.ch",
+    "jobTitle": "Postdoctoral Researcher",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Université de Lausanne",
+      "url": "https://www.unil.ch"
+    },
+    "alumniOf": [
+      {
+        "@type": "Organization",
+        "name": "Université de Lausanne"
+      },
+      {
+        "@type": "Organization",
+        "name": "Steklov Mathematical Institute"
+      }
+    ],
+    "knowsAbout": ["Probability Theory", "Extreme Value Theory", "Stochastic Analysis", "Large Deviations", "Gaussian Random Fields"],
+    "sameAs": [
+      "https://orcid.org/0000-0003-3329-5741",
+      "https://scholar.google.com/citations?user=3z8jrW8AAAAJ",
+      "https://github.com/ievlevpn"
+    ]
+  }
+  </script>
+
+  <!-- Publication structured data -->
   {% if page.layout == 'publication' or page.collection == 'publications' %}
   <script type="application/ld+json">
   {
