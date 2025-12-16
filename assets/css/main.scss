@@ -101,10 +101,15 @@ hr {
       width: 72px;
       height: 72px;
       border-radius: 50%;
+      clip-path: circle(50%);
       object-fit: cover;
       filter: grayscale(20%);
       transition: transform 0.3s ease, filter 0.3s ease;
       cursor: pointer;
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      user-select: none;
+      -webkit-user-drag: none;
       @media (hover: hover) {
         &:hover {
           transform: scale(4);
