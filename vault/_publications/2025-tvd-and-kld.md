@@ -27,5 +27,12 @@ bibtex: |-
     year={2025}
   }
 ---
-In this paper, we derive some upper and lower bounds and inequalities for the total variation distance (TVD) and the Kullback-Leibler divergence (KLD), also known as the relative entropy, between two probability measures $\mu$ and $\nu$ defined by $$D_{\mathrm{TV}} ( \mu, \nu ) = \sup_{B \in \mathcal{B} (\mathbb{R}^n)} \left| \mu(B) - \nu(B) \right| \quad \text{and} \quad D_{\mathrm{KL}} ( \mu \, \| \, \nu ) = \int_{\mathbb{R}^n} \ln \left( \frac{d\mu(x)}{d\nu(x)} \right) \, \mu(dx)$$
+In this paper, we derive some upper and lower bounds and inequalities for the total variation distance (TVD) and the Kullback-Leibler divergence (KLD), also known as the relative entropy, between two probability measures $\mu$ and $\nu$ defined by 
+
+$$D_{\mathrm{TV}} ( \mu, \nu ) = \sup_{B \in \mathcal{B} (\mathbb{R}^n)} \left| \mu(B) - \nu(B) \right|$$
+
+and
+
+$$\quad D_{\mathrm{KL}} ( \mu \, \| \, \nu ) = \int_{\mathbb{R}^n} \ln \left( \frac{d\mu(x)}{d\nu(x)} \right) \, \mu(dx)$$
+
 correspondingly when the dimension n is high. We begin with some elementary bounds for centered elliptical distributions admitting densities and showcase how these bounds may be used by estimating the TVD and KLD between multivariate Student and multivariate normal distribution in the high-dimensional setting. Next, we show how the same approach simplifies when we apply it to multivariate Gamma distributions with independent components (in the latter case, we only study the TVD, because KLD may be calculated explicitly, see [1]). Our approach is motivated by the recent contribution by Barabesi and Pratelli [2].
