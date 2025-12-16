@@ -160,7 +160,7 @@ hr {
     border-radius: 3px;
     transition: background-color 0.15s ease;
     &:hover {
-      background-color: #f0f5fa;
+      background-color: #e3edfc;
       text-decoration: none;
     }
     &.active {
@@ -208,7 +208,7 @@ hr {
     transition: background-color 0.15s ease;
 
     &:hover {
-      background-color: #f0f5fa;
+      background-color: #e3edfc;
     }
 
     .authors { font-size: 0.95rem; margin-bottom: 0.1rem; }
@@ -251,6 +251,11 @@ hr {
     left: 0;
     right: 0;
     bottom: 0;
+    z-index: 0;
+  }
+  .links {
+    position: relative;
+    z-index: 1;
   }
 }
 
@@ -281,7 +286,7 @@ hr {
     transition: background-color 0.15s ease;
 
     &:hover {
-      background-color: #f0f5fa;
+      background-color: #e3edfc;
     }
 
     .dates { color: var(--text-light); }
@@ -329,7 +334,7 @@ hr {
 
 // Welcome box
 .welcome-box {
-  background: #fafafa;
+  background: #f0f5fa;
   border-radius: 6px;
   padding: 1.25rem 2rem;
   margin: 0 -4.5rem 1.5rem;
@@ -380,47 +385,21 @@ hr {
     &:hover { background: #f2e4e4; }
   }
 
-  // Publication link badges
-  &.link-doi {
-    background: #f8f4f0;
-    color: #9a7a5a;
-    &:hover { background: #f2ebe4; }
-  }
-
-  &.link-arxiv {
-    background: #f0f5f0;
-    color: #5a7a5a;
-    &:hover { background: #e4ede4; }
-  }
-
-  &.link-pdf {
-    background: #f8f0f0;
-    color: #8a5a5a;
-    &:hover { background: #f2e4e4; }
-  }
-
-  &.link-code {
-    background: #f4f0f6;
-    color: #6a5a7a;
-    &:hover { background: #eae4ee; }
-  }
-
-  &.link-website {
-    background: #f0f5f5;
-    color: #5a7a7a;
-    &:hover { background: #e4eded; }
-  }
-
-  &.link-slides {
-    background: #f6f4f0;
-    color: #8a7a5a;
-    &:hover { background: #eeebe4; }
-  }
-
+  // Publication link badges - white with border for visibility
+  &.link-doi,
+  &.link-arxiv,
+  &.link-pdf,
+  &.link-code,
+  &.link-website,
+  &.link-slides,
   &.link-video {
-    background: #f6f0f4;
-    color: #7a5a6a;
-    &:hover { background: #eee4ea; }
+    background: #fff;
+    color: #4a6a8a;
+    border: 1px solid #a0b8d0;
+    &:hover {
+      background: #f0f5fa;
+      border-color: #7a9ab8;
+    }
   }
 }
 

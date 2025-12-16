@@ -1,52 +1,42 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+Guidance for Claude Code when working with this repository.
 
-## Project Overview
+## Overview
 
-This is an academic personal website built with Jekyll 4.3+ and designed for Obsidian integration. The site uses Computer Modern typography and deploys to GitHub Pages via GitHub Actions.
+Academic personal website built with Jekyll 4.3+ for GitHub Pages. Content is managed via Obsidian in the `vault/` directory.
 
-## Common Commands
+## Commands
 
 ```bash
-# Install dependencies
-bundle install
-
-# Run local development server
-bundle exec jekyll serve --host 127.0.0.1 --port 4000
-
-# Build site for production
-bundle exec jekyll build
+./serve.sh              # Start local dev server with live reload (port 4000)
+bundle exec jekyll build  # Build for production
+bundle install            # Install dependencies
 ```
 
-## Architecture
+Note: Use `./serve.sh` instead of raw Jekyll commands - it sets up the correct Ruby environment (rbenv).
 
-### Content Structure
+## Structure
 
-All content lives in `vault/` directory (Obsidian vault):
-- `vault/_pages/` - Main website pages (index, cv, publications, research, teaching, talks, contact)
-- `vault/_publications/` - Academic publications (output: true)
-- `vault/_education/` - Degrees and education (output: false, data only)
-- `vault/_teaching/` - Courses taught
-- `vault/_talks/` - Presentations and seminars
-- `vault/_experience/` - Professional positions
-- `vault/templates/` - Obsidian templates for creating new content
+**Content** (in `vault/`):
+- `_pages/` - Main pages (index, cv, publications, research, teaching, talks, contact)
+- `_publications/` - Academic publications
+- `_talks/` - Presentations and lectures
+- `_teaching/` - Courses
+- `_experience/` - Professional positions
+- `_education/` - Degrees (data only, no output)
 
-### Jekyll Configuration
+**Jekyll**:
+- `_layouts/` - Page templates
+- `assets/css/main.scss` - Styles
+- `_config.yml` - Site configuration (collections defined with `collections_dir: vault`)
 
-- Collections are defined in `_config.yml` with `collections_dir: vault`
-- Layouts in `_layouts/`: default, publication, experience, talk, teaching
-- Styles in `assets/css/main.scss`
-- MathJax enabled for LaTeX rendering (configured in `_layouts/default.html`)
+## Front Matter
 
-### Content Front Matter
+Publications: layout, title, date, year, authors (array), venue, type, status, abstract, keywords, doi, arxiv, pdf, code
 
-Publications use YAML front matter with: layout, title, date, year, authors (array), venue, type, status, abstract, keywords, doi, arxiv, pdf, code.
+Talks: layout, title, date, year, venue, location, type, slides, video
 
-### Deployment
+## Deployment
 
-Pushes to `master` branch trigger GitHub Actions workflow (`.github/workflows/jekyll.yml`) which builds and deploys to GitHub Pages.
-
-### Design Updates
-
-Run `./update-design.sh` to pull template design updates without affecting content in `vault/`.
+Push to `master` triggers GitHub Actions (`.github/workflows/jekyll.yml`) which builds and deploys to GitHub Pages.
