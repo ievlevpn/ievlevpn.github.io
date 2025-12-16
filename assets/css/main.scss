@@ -103,6 +103,12 @@ hr {
       border-radius: 50%;
       object-fit: cover;
       filter: grayscale(20%);
+      transition: transform 0.3s ease, filter 0.3s ease;
+      cursor: pointer;
+      &:hover {
+        transform: scale(4);
+        filter: grayscale(0%);
+      }
     }
   }
 

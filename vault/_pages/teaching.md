@@ -34,7 +34,7 @@ permalink: /teaching/
 <div class="cv-item">
   <div class="dates">{% if course.years %}{{ course.years }}{% else %}{{ course.year }}{% endif %}</div>
   <div class="details">
-    <div class="position">{% if course.materials %}<a href="{{ course.url | relative_url }}">{{ course.title }}</a>{% else %}{{ course.title }}{% endif %}</div>
+    <div class="position"><a href="{{ course.url | relative_url }}">{{ course.title }}</a></div>
     <div class="institution">{{ course.institution }}{% if course.role and course.role != "Lecturer" %} · {{ course.role }}{% endif %}</div>
     {% if course.materials %}<div class="description"><a href="{{ course.url | relative_url }}">Lecture notes available</a></div>{% endif %}
   </div>

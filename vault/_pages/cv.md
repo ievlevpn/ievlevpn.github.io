@@ -77,7 +77,7 @@ permalink: /cv/
       {{ course.semester }} {% if course.years %} {{ course.years }} {% else %} {{ course.year }} {% endif %}
     </div>
     <div class="details">
-      <div class="position">{{ course.title }}</div>
+      <div class="position"><a href="{{ course.url | relative_url }}">{{ course.title }}</a></div>
       <div class="institution">{{ course.institution }}</div>
       {% if course.role %}
       <div class="description"><strong>Role:</strong> {{ course.role }}</div>
@@ -104,7 +104,7 @@ permalink: /cv/
       {% if talk.date %}{{ talk.date | date: "%Y" }}{% endif %}
     </div>
     <div class="details">
-      <div class="position">{{ talk.title }}</div>
+      <div class="position"><a href="{{ talk.url | relative_url }}">{{ talk.title }}</a></div>
       <div class="institution">{{ talk.venue }}</div>
       {% if talk.location %}
       <div class="institution">{{ talk.location }}</div>
