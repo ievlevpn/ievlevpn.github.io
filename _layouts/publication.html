@@ -64,7 +64,20 @@ layout: default
   {% if page.bibtex %}
   <section>
     <h2>BibTeX</h2>
-    <pre><code>{{ page.bibtex }}</code></pre>
+    <div class="bibtex-wrapper">
+      <button class="copy-btn link-badge" onclick="copyBibtex(this)" data-bibtex="{{ page.bibtex | escape }}">copy</button>
+      <pre><code>{{ page.bibtex }}</code></pre>
+    </div>
   </section>
+  <script>
+  function copyBibtex(btn) {
+    const bibtex = btn.getAttribute('data-bibtex');
+    navigator.clipboard.writeText(bibtex).then(() => {
+      const orig = btn.textContent;
+      btn.textContent = 'copied!';
+      setTimeout(() => btn.textContent = orig, 1500);
+    });
+  }
+  </script>
   {% endif %}
 </article>

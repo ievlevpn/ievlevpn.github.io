@@ -39,6 +39,7 @@ markdown: kramdown
 highlighter: rouge
 kramdown:
   input: GFM
+  math_engine: mathjax
   syntax_highlighter: rouge
   syntax_highlighter_opts:
     block:
@@ -112,6 +113,7 @@ exclude:
   - vendor/ruby/
   - README.md
   - .obsidian/
+  - vault/templates/
 
 # Academic-specific settings
 academic:

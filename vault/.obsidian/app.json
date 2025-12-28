@@ -2,7 +2,7 @@
   "legacyEditor": false,
   "livePreview": true,
   "strictLineBreaks": false,
-  "showLineNumber": true,
+  "showLineNumber": false,
   "tabSize": 2,
   "readableLineLength": true,
   "showFrontmatter": true,
@@ -14,5 +14,6 @@
   "showInlineTitle": true,
   "spellcheck": true,
   "foldHeading": true,
-  "foldIndent": true
+  "foldIndent": true,
+  "vimMode": true
 }

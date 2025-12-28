@@ -173,9 +173,9 @@ Site deploys to GitHub Pages at `https://ievlevpn.github.io`.
 
 Configured for both inline and display math:
 - Inline: `$E = mc^2$`
-- Display: `\[\int_0^\infty e^{-x^2} dx = \frac{\sqrt{\pi}}{2}\]`
+- Display: `$$\int_0^\infty e^{-x^2} dx = \frac{\sqrt{\pi}}{2}$$`
 
-**Note:** Use `\[...\]` for display math. The `$$...$$` syntax requires blank lines around it due to Kramdown parsing.
+**Note:** Display math `$$...$$` requires **blank lines** before and after for Kramdown to parse correctly.
 
 ### BibTeX
 

@@ -38,12 +38,22 @@ bibtex: |-
 
 ## Overview
 
-We study high exceedance probabilities $\mathbb{P}\\{\exists t \in [0, T]: X(t) > ub\\}$ as $u \to \infty$ for centered $\mathbb{R}^d$-valued Gaussian random fields. The main contribution is extending the double-sum method to non-homogeneous vector-valued Gaussian fields that are "locally additive" near high exceedance points.
+We study high exceedance probabilities 
+
+$$
+\mathbb{P}\{\exists\, t \in [0, T]: \boldsymbol{X}(t) > u\boldsymbol{b}\} \quad \text{as} \quad u \to \infty
+$$
+
+for centered $\mathbb{R}^d$-valued Gaussian random fields. The main contribution is extending the double-sum method to non-homogeneous vector-valued Gaussian fields that are "locally additive" near high exceedance points.
 
 ## Main Results
 
 - **Theorem 1:** Exact asymptotic equivalence for exceedance probabilities involving Pickands-type and geometric constants
-- **Double Crossing Probability:** Asymptotics for $\mathbb{P}\\{\exists t, s: X(t) > au, X(s) < -bu\\}$
+- **Double Crossing Probability:** Asymptotics for 
+  
+  $$
+  \mathbb{P}\{\exists \, t, s: X(t) > au, X(s) < -bu\}
+  $$
 
 ## Applications
 

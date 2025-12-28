@@ -11,10 +11,14 @@
             "id": "269f08ba5da98497",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "_teaching/2024-2025-optimization.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "2024-2025-optimization"
             }
           }
         ]
@@ -156,6 +160,8 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "quickadd:QuickAdd": false,
+      "bases:Create new base": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
@@ -163,46 +169,48 @@
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
       "obsidian-git:Open Git source control": false,
-      "templater-obsidian:Templater": false
+      "templater-obsidian:Templater": false,
+      "callout-manager:Insert Callout": false
     }
   },
-  "active": "file-explorer-pane",
+  "active": "269f08ba5da98497",
   "lastOpenFiles": [
-    "_pages/contact.md",
+    "_publications/2025-vector-valued-fields.md",
+    "_teaching/2024-2025-optimization.md",
+    "_teaching/2025-dependence-modelling.md",
+    "_teaching/2025-math-2.md",
+    "_talks/2024-white-noise-analysis.md",
+    "_teaching/2021-2025-loss-models.md",
+    "_teaching/2021-2024-time-series.md",
+    "_education/2024-phd-actuarial-science.md",
+    "_education/2021-phd-probability-and-statistics.md",
+    "_teaching/2021-2024-dependence-modelling.md",
+    "assets/misc/white-noise.pdf",
+    "assets/misc",
+    "_talks/2025-invited-wroclaw.md",
+    "templates/Teaching.md",
+    "_publications/2018-representation-boundary-value.md",
+    "_publications/2017-representation-complex-cauchy.md",
+    "templates/Talk.md",
+    "templates/Education.md",
+    "templates/Experience.md",
+    "templates/Page.md",
+    "templates/Publication.md",
+    "templates",
+    "_education/2020-msc-physics.md",
+    "_education/2018-bsc-physics.md",
     "assets/unil_thesis.pdf",
+    "assets/photo.jpeg",
+    "assets/pdmi_thesis.pdf",
+    "assets/slides/2025-slides-SPA-conference.pdf",
     "to improve with the template.md",
+    "general-tax.pdf",
+    "_pages/contact.md",
     "_pages/teaching.md",
     "_pages/cv.md",
-    "_publications/2017-representation-complex-cauchy.md",
-    "_publications/2018-representation-boundary-value.md",
     "_publications/2019-reflecting-bm-in-d-ball.md",
-    "_publications/2021-symmetric-levy.md",
     "_publications/Untitled",
-    "_pages/talks.md",
-    "_pages/index.md",
-    "_pages/publications.md",
-    "_pages/research.md",
-    "_publications/2023-parisian.md",
-    "_publications/2023-schoenberg.md",
-    "_publications/2025-vector-valued-fields.md",
-    "_publications/2025-tvd-and-kld.md",
-    "_publications/2025-brownian-decision-trees.md",
-    "_publications/2024-locally-homogenous-vector-valued.md",
-    "_publications/2025-nanotubes.md",
-    "_education/2024-phd-actuarial-science.md",
-    "_teaching/2024-2025-optimization.md",
-    "_teaching/2025-math-2.md",
-    "_teaching/2025-dependence-modelling.md",
-    "_teaching/2021-2024-dependence-modelling.md",
     "_teaching/Untitled",
-    "_teaching/2021-2024-time-series.md",
-    "assets/photo.jpeg",
-    "assets/cv.pdf",
-    "assets/slides/2025-slides-SPA-conference.pdf",
-    "Clippings",
-    "assets/slides",
-    "assets",
-    "templates",
-    "_temp"
+    "assets/cv.pdf"
   ]
 }

@@ -1,0 +1,40 @@
+{
+  "callouts": {
+    "custom": [
+      "lecture",
+      "material",
+      "exercise"
+    ],
+    "settings": {
+      "lecture": [
+        {
+          "changes": {
+            "icon": "lucide-book-open",
+            "color": "59, 130, 246"
+          }
+        }
+      ],
+      "material": [
+        {
+          "changes": {
+            "icon": "lucide-folder-open",
+            "color": "16, 185, 129"
+          }
+        }
+      ],
+      "exercise": [
+        {
+          "changes": {
+            "icon": "lucide-pencil",
+            "color": "245, 158, 11"
+          }
+        }
+      ]
+    }
+  },
+  "calloutDetection": {
+    "obsidian": true,
+    "theme": true,
+    "snippet": true
+  }
+}

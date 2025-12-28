@@ -120,31 +120,66 @@ All collections use `collections_dir: vault` in `_config.yml`.
 | thesis_pdf | string | Path to thesis PDF |
 | advisor | string | Advisor name |
 
-## Wikilinks Plugin
+## Wikilinks & Callouts Plugin
 
 **File:** `_plugins/wikilinks.rb`
 
-Converts Obsidian-style wikilinks to proper markdown links before Jekyll's markdown processing.
+Full Obsidian-style wikilinks and callouts support for both content and YAML front matter.
 
-### Syntax
+### Wikilinks Syntax
 ```markdown
 [[Page Title]]              # Link using title
 [[Page Title|Display Text]] # Link with custom text
 [[filename]]                # Link using filename (without .md)
+[[file.pdf]]                # Link to asset file
 ```
+
+### Wikilinks Locations
+- **Content:** Converts to markdown links `[text](url)`
+- **YAML front matter:** Converts to plain URLs (for `slides`, `pdf`, `video`, etc.)
+
+### Callouts Syntax
+Obsidian-style callouts are converted to styled HTML blocks:
+
+```markdown
+> [!lecture] Lecture Title
+> Description of the lecture content.
+> [[lecture-slides.pdf|pdf]]
+```
+
+### Callout Types
+- `lecture`, `note`, `material`, `exercise` - Rendered as styled item blocks (like publication items)
+- `info`, `warning`, `tip`, `note` - Rendered as generic callouts with colored left border
 
 ### How It Works
 1. Runs in `pre_render` hook (before markdown conversion)
-2. Builds lookup table from all collections (title + filename, case-insensitive)
-3. Converts `[[...]]` to `[text](url)` markdown syntax
-4. Unresolved links stay as-is for debugging
+2. Builds lookup tables:
+   - Pages/documents by title and filename
+   - Asset files (PDF, images, etc.) from `vault/assets/`
+3. Converts callouts to HTML blocks
+4. Processes wikilinks in content and YAML fields
+5. Unresolved links stay as-is for debugging
 
 ### Examples
+
+**Wikilinks in content:**
 ```markdown
 [[Publications]]                    # → /publications/
 [[cv|My CV]]                        # → /cv/ with "My CV" text
 [[2023-parisian]]                   # → /publications/2023-parisian/
-[[Optimization Methods in Management Science]] # → /teaching/2024-2025-optimization/
+```
+
+**Wikilinks in YAML front matter:**
+```yaml
+slides: "[[2025-slides-SPA-conference.pdf]]"  # → resolves to actual file location
+pdf: "[[unil_thesis.pdf]]"                     # → searches vault/assets/ recursively
+```
+
+**Callouts for lecture notes:**
+```markdown
+> [!lecture] 1. Introduction
+> Overview of the course topics and objectives.
+> [[L1_Introduction.pdf|pdf]]
 ```
 
 ## Layouts
@@ -221,7 +256,7 @@ MathJax = {
 
 Loaded from CDN: `https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js`
 
-**Important:** Use `\[...\]` for display math (not `$$...$$`). Kramdown requires blank lines around `$$` blocks, but `\[...\]` works inline without issues.
+**Important:** Use `$$...$$` for display math with **blank lines** around it. Kramdown requires blank lines to treat `$$` as display math.
 
 ## Deployment
 
