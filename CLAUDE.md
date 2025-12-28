@@ -221,6 +221,8 @@ MathJax = {
 
 Loaded from CDN: `https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js`
 
+**Important:** Use `\[...\]` for display math (not `$$...$$`). Kramdown requires blank lines around `$$` blocks, but `\[...\]` works inline without issues.
+
 ## Deployment
 
 ### GitHub Actions (`.github/workflows/jekyll.yml`)

@@ -1,7 +1,7 @@
 - still no control over some pages from within obsidian, such as talk's standalone page
 - files should by default be within `vault` folder, not in `/assets`
 - ~~obsidian links don't work so far~~ (implemented in `_plugins/wikilinks.rb`)
-- latex doesn't fully work. e.g., `$$` doesn't produce displayed equations
+- ~~latex doesn't fully work~~ (use `\[...\]` for display math, `$...$` for inline)
 - dark theme switch should be easy to implement
 - and also fontsize switch maybe
 - `... | limit 5` doesn't work, change everywhere to `... | slice 0, 5`

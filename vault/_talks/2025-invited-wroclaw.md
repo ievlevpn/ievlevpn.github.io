@@ -16,19 +16,19 @@ topics:
 Understanding how long a stochastic system stays in a "safe" region is a core
 question in risk management, queueing and reliability. In this project we study
 high exceedance probabilities of the form
-$$
+\[
   \mathbb{P} \{ \Gamma_{[0,T]} ( \hat{\boldsymbol{u}} ( \boldsymbol{X} - u \boldsymbol{b} ) ) > L_u \},
-$$
+\]
 as $u \to \infty$, where $\Gamma_{[0,T]}$ is a functional of a continuous
 $d$-dimensional Gaussian process $\mathbf X(t)$ on $[0,T]$, and $L_u$ is some
 sequence of thresholds, chosen appropriately for each $\Gamma$. The class of
 functionals we treat is quite broad, including functionals of the form
-$$
+\[
 \Gamma_E ( \boldsymbol{f} ) = \int_{E} G ( \boldsymbol{f} ( t ) ) \, d t
 \quad \text{and} \quad
-\Gamma_{E \times F} ( \boldsymbol{f} ) = \sup_{t \in E} \inf_{s \in F} 
+\Gamma_{E \times F} ( \boldsymbol{f} ) = \sup_{t \in E} \inf_{s \in F}
 \min_{i = 1, \dots, d} f_i ( t, s ),
-$$
+\]
 where $G$ is some function satisfying additional assumptions. In particular,
 this class includes the classical sojourn time, Parisian (moving-window infimum)
 functional, area under the curve, as well as compositions of those with
