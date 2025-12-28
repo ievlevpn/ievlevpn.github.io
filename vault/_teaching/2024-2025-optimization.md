@@ -42,3 +42,7 @@ description: Graduate course covering linear and non-linear optimization, combin
 - **Portfolio Theory:** Mean-variance analysis, diversification, efficient frontier, tangency portfolio
 - **CAPM:** Market portfolio, Security Market Line, beta
 - **Support Vector Machines:** Separating hyperplanes, margin maximization, dual formulation, kernel trick
+
+## Resources
+
+- [Transshipment Problem: Quick Guide](/assets/teaching/optimization/transshipment-guide.pdf) — step-by-step methodology for Phase I and Phase II
