@@ -45,4 +45,4 @@ description: Graduate course covering linear and non-linear optimization, combin
 
 ## Resources
 
-- [Transshipment Problem: Quick Guide](/assets/teaching/optimization/transshipment-guide.pdf) — step-by-step methodology for Phase I and Phase II
+- [Transshipment Problem: Quick Guide](/vault/assets/teaching/optimization/transshipment-guide.pdf) — step-by-step methodology for Phase I and Phase II
