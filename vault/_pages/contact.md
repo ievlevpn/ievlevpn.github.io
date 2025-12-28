@@ -15,4 +15,3 @@ Département de sciences actuarielles
 Faculté des HEC
 Université de Lausanne
 1015 Lausanne, Switzerland
-
