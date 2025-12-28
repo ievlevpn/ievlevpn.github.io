@@ -12,7 +12,7 @@ authors:
 venue: "Journal of Physics A: Mathematical and Theoretical"
 type: academic
 status: published
-abstract: 
+description: We study closed paths on carbon nanotubes using random eigenvalue theory. The sequence of path counts forms a moment sequence from uniform distributions, with explicit formulas for specific chiral vectors. As circumference grows, nanotubes converge to the hexagonal lattice.
 keywords: 
 doi: 10.1088/1751-8121/adb54a
 arxiv: "2408.14313"

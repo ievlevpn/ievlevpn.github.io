@@ -8,13 +8,13 @@ authors:
 venue: Extremes
 type: academic
 status: published
-abstract: 
+abstract:
 keywords:
   - Locally-homogeneous Gaussian fields
   - Extremes of Gaussian processes
 doi: 10.1007/s10687-023-00483-9
-arxiv: "2401.05527"
-pdf: 
+arxiv:
+pdf:
 bibtex: |-
   @article {MR4744268,
       AUTHOR = {Ievlev, Pavel},

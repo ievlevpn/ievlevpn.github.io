@@ -25,9 +25,9 @@ permalink: /publications/
     {% if publication.venue %}
     <div class="venue">{{ publication.venue }}</div>
     {% endif %}
-    {% if publication.abstract %}
+    {% if publication.description or publication.abstract %}
     <div class="abstract" style="margin-top: 0.5rem; font-size: 0.9em; color: var(--text-light);">
-      {{ publication.abstract | truncatewords: 30 }}
+      {{ publication.description | default: publication.abstract | truncatewords: 30 }}
     </div>
     {% endif %}
     {% if publication.doi or publication.arxiv or publication.pdf or publication.code or publication.website %}

@@ -9,6 +9,7 @@ authors:
 venue: Electronic Journal of Probability
 type: academic
 status: published
+description: We extend the double-sum method to vector-valued Gaussian fields, deriving exact asymptotics for high exceedance probabilities. As an application, we obtain the probability that a process first hits a high positive barrier and then a low negative barrier.
 abstract: We derive exact asymptotics for high exceedance probabilities of vector-valued Gaussian fields that are locally additive near the point of maximal variance. As an application, we obtain the double crossing probability for stationary processes and fractional Brownian motion.
 keywords:
   - Vector-valued Gaussian fields

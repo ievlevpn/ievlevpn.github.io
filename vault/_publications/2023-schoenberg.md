@@ -9,7 +9,7 @@ authors:
 venue: Electronic Communications in Probability
 type: academic
 status: published
-abstract: Brief description of the paper's contribution and findings.
+description: We present criteria for positive definiteness of matrix-valued exponential functions involving absolute values and sign functions. Applications include multivariate fractional Ornstein-Uhlenbeck processes and variogram modelling.
 keywords:
   - Matrix-valued positive definite functions
   - Positive definiteness
@@ -37,3 +37,9 @@ bibtex: |-
       URL = {https://doi.org/10.1214/23-ecp562}
   }
 ---
+
+In this paper we present a criterion for positive definiteness of the matrix-valued function
+$$f(t) := \exp(-|t|^\alpha[B^+ + B^- \text{sign}(t)]),$$
+where $\alpha \in (0, 2]$ and $B^\pm$ are real symmetric and antisymmetric $d \times d$ matrices. We also find a criterion for positive definiteness of its multidimensional generalization 
+$$f(t) := \exp(- \int_{\mathbb{S}^{d-1}} |t^\top s|^\alpha[B^+ + B^- \text{sign}(t^\top s)]d\Lambda(s))$$ 
+where $\Lambda$ is a finite measure on the unit sphere $\mathbb{S}^{d-1} \subset \mathbb{R}^d$ under a more restrictive assumption that $B^\pm$ commute and are normal. The associated stationary Gaussian random field may be viewed as a generalization of the univariate fractional Ornstein-Uhlenbeck process. This generalization turns out to be particularly useful for the asymptotic analysis of $\mathbb{R}^d$-valued Gaussian random fields. Another possible application of these findings may concern variogram modelling and general stationary time series analysis.

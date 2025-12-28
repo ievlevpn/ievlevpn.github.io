@@ -63,6 +63,7 @@ a {
   text-decoration: none;
   background: #f0f5fa;
   padding: 0.1rem 0.35rem;
+  margin: 0 0.15rem;
   border-radius: 3px;
   border: 1px solid #c0d0e0;
   transition: background-color 0.15s ease, border-color 0.15s ease;
@@ -276,7 +277,7 @@ hr {
     }
     .links {
       font-size: 0.9rem;
-      margin-top: 0.25rem;
+      margin-top: 0.6rem;
       a { margin-right: 0.75rem; }
     }
   }

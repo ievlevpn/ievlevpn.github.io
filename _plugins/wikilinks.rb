@@ -6,8 +6,78 @@
 # - YAML front matter: slides: [[filename.pdf]] becomes slides: /vault/assets/.../filename.pdf
 # - Asset files: indexes PDFs, images, etc. from vault/assets/
 # - Callouts: > [!type] Title becomes styled div blocks
+# - Math protection: preserves LaTeX math from Kramdown processing
 
 module Jekyll
+  # Protects math blocks from Kramdown's markdown processing
+  # Extracts math, replaces with placeholders, restores after rendering
+  class MathProtector
+    PLACEHOLDER_PREFIX = "MATHPROTECT"
+
+    def initialize
+      @math_blocks = {}
+      @counter = 0
+    end
+
+    # Extract math blocks and replace with placeholders
+    def protect(content)
+      return content unless content
+
+      # Display math: $$...$$ (including multiline)
+      content = content.gsub(/\$\$(.+?)\$\$/m) do |match|
+        store_and_placeholder(match)
+      end
+
+      # Display math: \[...\] (including multiline)
+      content = content.gsub(/\\\[(.+?)\\\]/m) do |match|
+        store_and_placeholder(match)
+      end
+
+      # Inline math: $...$ (single line, non-greedy)
+      content = content.gsub(/(?<![\\$])\$(?!\$)([^$\n]+)\$(?!\$)/) do |match|
+        store_and_placeholder(match)
+      end
+
+      # Inline math: \(...\)
+      content = content.gsub(/\\\((.+?)\\\)/) do |match|
+        store_and_placeholder(match)
+      end
+
+      content
+    end
+
+    # Restore math blocks from placeholders
+    def restore(content)
+      return content unless content
+
+      @math_blocks.each do |placeholder, math|
+        content = content.gsub(placeholder, math)
+      end
+
+      content
+    end
+
+    private
+
+    def store_and_placeholder(math)
+      @counter += 1
+      placeholder = "<!--#{PLACEHOLDER_PREFIX}_#{@counter}-->"
+      @math_blocks[placeholder] = math
+      placeholder
+    end
+  end
+
+  # Storage for math protectors per document
+  @@math_protectors = {}
+
+  def self.math_protector_for(doc_id)
+    @@math_protectors[doc_id] ||= MathProtector.new
+  end
+
+  def self.clear_math_protector(doc_id)
+    @@math_protectors.delete(doc_id)
+  end
+
   class WikilinksConverter
     WIKILINK_PATTERN = /\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/
     ASSET_EXTENSIONS = %w[.pdf .png .jpg .jpeg .gif .svg .webp .mp4 .mp3 .zip]
@@ -293,11 +363,22 @@ module Jekyll
 
     # Process content
     if doc.content
+      # Protect math first
+      protector = Jekyll.math_protector_for(doc.object_id)
+      doc.content = protector.protect(doc.content)
+      # Then convert wikilinks/callouts
       doc.content = converter.convert_content(doc.content, baseurl)
     end
 
     # Process YAML front matter
     converter.process_yaml(doc.data, baseurl)
+  end
+
+  # Restore math in documents AFTER markdown conversion
+  Hooks.register :documents, :post_render do |doc|
+    protector = Jekyll.math_protector_for(doc.object_id)
+    doc.output = protector.restore(doc.output) if doc.output
+    Jekyll.clear_math_protector(doc.object_id)
   end
 
   # Process pages BEFORE markdown conversion
@@ -307,11 +388,22 @@ module Jekyll
 
     # Process content
     if page.content
+      # Protect math first
+      protector = Jekyll.math_protector_for(page.object_id)
+      page.content = protector.protect(page.content)
+      # Then convert wikilinks/callouts
       page.content = converter.convert_content(page.content, baseurl)
     end
 
     # Process YAML front matter
     converter.process_yaml(page.data, baseurl)
+  end
+
+  # Restore math in pages AFTER markdown conversion
+  Hooks.register :pages, :post_render do |page|
+    protector = Jekyll.math_protector_for(page.object_id)
+    page.output = protector.restore(page.output) if page.output
+    Jekyll.clear_math_protector(page.object_id)
   end
 
   # Clear cache after site is written
