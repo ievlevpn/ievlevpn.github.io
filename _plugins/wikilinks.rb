@@ -80,6 +80,8 @@ module Jekyll
 
   class WikilinksConverter
     WIKILINK_PATTERN = /\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/
+    # Markdown link to an external URL: [text](http(s)://...)
+    EXTLINK_PATTERN = /\[([^\]]+)\]\((https?:\/\/[^)]+)\)/
     ASSET_EXTENSIONS = %w[.pdf .png .jpg .jpeg .gif .svg .webp .mp4 .mp3 .zip]
 
     # Callout header pattern: > [!type] Title
@@ -256,8 +258,13 @@ module Jekyll
       links = []
 
       lines.each do |line|
-        # Check if line contains wikilinks (for assets)
-        if line =~ WIKILINK_PATTERN
+        stripped = line.strip
+        # Treat the line as a "links-only" line if every non-whitespace token
+        # is either a wikilink or an external markdown link
+        link_only = !stripped.empty? &&
+          stripped.gsub(WIKILINK_PATTERN, '').gsub(EXTLINK_PATTERN, '').strip.empty?
+
+        if link_only
           line.scan(WIKILINK_PATTERN) do
             link_target = Regexp.last_match(1).strip
             display_text = Regexp.last_match(2)&.strip || 'pdf'
@@ -266,6 +273,12 @@ module Jekyll
               url = baseurl.to_s + entry[:url]
               links << { url: url, text: display_text }
             end
+          end
+
+          line.scan(EXTLINK_PATTERN) do
+            display_text = Regexp.last_match(1).strip
+            url = Regexp.last_match(2).strip
+            links << { url: url, text: display_text, external: true }
           end
         else
           # Regular description line
@@ -284,7 +297,8 @@ module Jekyll
         html += %(<div class="links">)
         links.each do |link|
           css_class = link[:text].downcase == 'pdf' ? 'link-pdf' : 'link-badge'
-          html += %(<a href="#{link[:url]}" class="link-badge #{css_class}">#{link[:text]}</a>)
+          rel = link[:external] ? ' rel="noopener" target="_blank"' : ''
+          html += %(<a href="#{link[:url]}" class="link-badge #{css_class}"#{rel}>#{link[:text]}</a>)
         end
         html += %(</div>\n)
       end
@@ -335,15 +349,25 @@ module Jekyll
     end
 
     # Process all YAML front matter fields
-    def process_yaml(data, baseurl)
+    def process_yaml(data, baseurl, protector = nil)
       data.each do |key, value|
         case value
         when String
-          data[key] = convert_yaml_value(value, baseurl)
+          v = convert_yaml_value(value, baseurl)
+          v = protector.protect(v) if protector
+          data[key] = v
         when Array
-          data[key] = value.map { |v| v.is_a?(String) ? convert_yaml_value(v, baseurl) : v }
+          data[key] = value.map do |v|
+            if v.is_a?(String)
+              v = convert_yaml_value(v, baseurl)
+              v = protector.protect(v) if protector
+              v
+            else
+              v
+            end
+          end
         when Hash
-          process_yaml(value, baseurl)
+          process_yaml(value, baseurl, protector)
         end
       end
     end
@@ -360,18 +384,19 @@ module Jekyll
   Hooks.register :documents, :pre_render do |doc|
     converter = Jekyll.wikilinks_converter(doc.site)
     baseurl = doc.site.config['baseurl']
+    protector = Jekyll.math_protector_for(doc.object_id)
 
     # Process content
     if doc.content
       # Protect math first
-      protector = Jekyll.math_protector_for(doc.object_id)
       doc.content = protector.protect(doc.content)
       # Then convert wikilinks/callouts
       doc.content = converter.convert_content(doc.content, baseurl)
     end
 
-    # Process YAML front matter
-    converter.process_yaml(doc.data, baseurl)
+    # Process YAML front matter (also protect math so layout's markdownify
+    # doesn't mangle TeX in fields like `description`)
+    converter.process_yaml(doc.data, baseurl, protector)
   end
 
   # Restore math in documents AFTER markdown conversion
@@ -385,18 +410,19 @@ module Jekyll
   Hooks.register :pages, :pre_render do |page|
     converter = Jekyll.wikilinks_converter(page.site)
     baseurl = page.site.config['baseurl']
+    protector = Jekyll.math_protector_for(page.object_id)
 
     # Process content
     if page.content
       # Protect math first
-      protector = Jekyll.math_protector_for(page.object_id)
       page.content = protector.protect(page.content)
       # Then convert wikilinks/callouts
       page.content = converter.convert_content(page.content, baseurl)
     end
 
-    # Process YAML front matter
-    converter.process_yaml(page.data, baseurl)
+    # Process YAML front matter (also protect math so layout's markdownify
+    # doesn't mangle TeX in fields like `description`)
+    converter.process_yaml(page.data, baseurl, protector)
   end
 
   # Restore math in pages AFTER markdown conversion
