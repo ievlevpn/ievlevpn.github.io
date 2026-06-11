@@ -9,6 +9,8 @@ permalink: /
 
 I'm a probabilist interested in rare events and extreme values. I hold PhDs from Université de Lausanne and the Steklov Mathematical Institute in St. Petersburg.
 
+Recently my research has expanded into scientific machine learning: I work on neural-network solvers for mean-field games arising in macroeconomics (HANK models, master equation), in collaboration with the Department of Economics at HEC Lausanne.
+
 {% if site.academic.research_interests %}
 **Research interests:** {% for interest in site.academic.research_interests %}{{ interest }}{% unless forloop.last %}, {% endunless %}{% endfor %}.
 {% endif %}

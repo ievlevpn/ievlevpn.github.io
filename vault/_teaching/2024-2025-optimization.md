@@ -8,7 +8,7 @@ years: 2024-2025
 institution: Université de Lausanne
 role: Teaching Assistant
 level: Graduate
-current: true
+current: false
 description: Graduate course covering linear and non-linear optimization, combinatorial methods, and applications in finance.
 ---
 ## Resources

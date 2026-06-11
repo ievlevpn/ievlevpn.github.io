@@ -8,7 +8,7 @@ institution: Université de Lausanne
 role: Lecturer
 level: Graduate
 materials: true
-current: true
+current: false
 description: Advanced course on modelling dependencies between random variables with applications to risk management.
 ---
 

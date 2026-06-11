@@ -2,11 +2,11 @@
 # Built with Jekyll and optimized for Obsidian integration
 
 title: "Pavel Ievlev"
-subtitle: "PhD in Probability Theory and Statistics"
+subtitle: "Mathematician · Probability & Scientific ML"
 email: pavel.ievlev@unil.ch
 description: >-
   Pavel Ievlev - Mathematician specializing in probability theory, extreme value theory,
-  and stochastic analysis. Postdoctoral researcher at Université de Lausanne.
+  stochastic analysis, and scientific machine learning.
 
 # Profile photo (add your photo to assets/images/ and update this path)
 profile_photo: "/vault/assets/photo.jpeg"
@@ -126,3 +126,4 @@ academic:
     - "Large deviations"
     - "Gaussian random fields"
     - "Stochastic analysis"
+    - "Scientific machine learning"

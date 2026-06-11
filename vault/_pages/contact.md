@@ -6,12 +6,6 @@ permalink: /contact/
 
 # Contact
 
-**Email:** {{ site.email }}
+**Email:** [pavel.ievlev@unil.ch](mailto:pavel.ievlev@unil.ch) · [ievlev.pn@gmail.com](mailto:ievlev.pn@gmail.com)
 
-**Office:** Extranef 134
-
-**Address:**
-Département de sciences actuarielles
-Faculté des HEC
-Université de Lausanne
-1015 Lausanne, Switzerland
+**Location:** Lausanne, Switzerland
