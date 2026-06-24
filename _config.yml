@@ -69,6 +69,10 @@ collections:
     output: true
     permalink: /teaching/:name/
     sort_by: semester
+  code:
+    output: true
+    permalink: /code/:name/
+    sort_by: date
   pages:
     output: true
     permalink: /:name/
@@ -90,6 +94,11 @@ defaults:
       type: "teaching"
     values:
       layout: "teaching"
+  - scope:
+      path: ""
+      type: "code"
+    values:
+      layout: "code"
   - scope:
       path: ""
       type: "pages"

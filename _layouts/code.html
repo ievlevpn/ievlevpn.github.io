@@ -1,0 +1,36 @@
+---
+layout: default
+---
+
+<article class="card">
+  <header class="card-header">
+    <h1>{{ page.title }}</h1>
+
+    {% if page.description %}
+    <div class="card-meta">{{ page.description }}</div>
+    {% endif %}
+
+    {% if page.github %}
+    <div class="card-meta links">
+      <a href="{{ page.github }}" target="_blank" rel="noopener" class="link-badge link-code">GitHub</a>
+    </div>
+    {% endif %}
+  </header>
+
+  {% if page.topics %}
+  <section>
+    <h2>Topics</h2>
+    <ul>
+      {% for topic in page.topics %}
+      <li>{{ topic }}</li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endif %}
+
+  {% if content != "" %}
+  <section>
+    {{ content }}
+  </section>
+  {% endif %}
+</article>

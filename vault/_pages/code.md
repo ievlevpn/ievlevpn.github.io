@@ -6,14 +6,28 @@ permalink: /code/
 
 # Code
 
+{% assign sections = "project,Projects|tool,Tools" | split: "|" %}
+{% for section in sections %}
+{% assign parts = section | split: "," %}
+{% assign cat = parts[0] %}
+{% assign items = site.code | where: "category", cat | sort: "date" | reverse %}
+{% if items.size > 0 %}
+## {{ parts[1] }}
+
 <div class="publication-list">
+  {% for item in items %}
   <div class="publication-item">
     <div class="title">
-      <a href="https://github.com/ievlevpn/counterterms" target="_blank">counterterms</a>
+      <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
     </div>
-    <div class="venue">Symbolic engine for the renormalization counterterms of singular SPDEs (Bailleul–Hoshino / BCCH–BHZ): SPDE in → the family of renormalized equations out.</div>
+    {% if item.description %}<div class="venue">{{ item.description }}</div>{% endif %}
+    {% if item.github %}
     <div class="links">
-      <a href="https://github.com/ievlevpn/counterterms" target="_blank" class="link-badge link-code">GitHub</a>
+      <a href="{{ item.github }}" target="_blank" class="link-badge link-code">GitHub</a>
     </div>
+    {% endif %}
   </div>
+  {% endfor %}
 </div>
+{% endif %}
+{% endfor %}
