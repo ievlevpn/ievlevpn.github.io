@@ -71,18 +71,39 @@
   }
   .lab.dom { color: #4f8a73; }   .lab.bnd { color: #c0863a; }
 
-  #chart { display: none; margin: 12px auto 2px; width: 350px; height: 216px; pointer-events: auto;
-    border-radius: 9px; box-shadow: 0 6px 22px rgba(0,0,0,0.16); }
+  #chartwrap { display: none; position: relative; margin: 12px auto 2px; width: 350px; pointer-events: auto; }
+  #chart { display: block; width: 100%; height: auto; border-radius: 9px; box-shadow: 0 6px 22px rgba(0,0,0,0.16); }
+  #chartclose { position: absolute; top: 5px; right: 5px; width: 26px; height: 26px; border: none;
+    border-radius: 50%; background: rgba(0,0,0,0.55); color: #fff; font: 600 16px/1 var(--font);
+    cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0; }
+  #chartclose:hover { background: rgba(0,0,0,0.75); }
   .lil-gui.root { --width: 290px; top: 16px; right: 16px; }
   .webgl-error { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; text-align: center; padding: 40px; color: #222; }
   body.preview .caption, body.preview .hint, body.preview .lil-gui { display: none !important; }
-  /* mobile: panel starts collapsed (tap title to open); hide long description */
-  @media (max-width: 600px) {
+  /* phones & touch: collapse the GUI and turn the caption into a scrollable panel,
+     so the full EC/Monte-Carlo content stays available without burying the figure.
+     pointer:coarse catches touch devices the width breakpoint alone would miss. */
+  @media (max-width: 820px), (pointer: coarse) {
     .lil-gui.root { --width: min(82vw, 286px); }
-    .caption { top: 58px; }          /* clear the collapsed GUI title bar */
-    .caption .sub { display: none; }
-    .mrow .katex { font-size: 0.8em; }   /* keep wide equations from running off-screen */
-    .ecbox { max-width: 92vw; }
+    .caption { top: 58px; max-width: 92vw; }  /* clear the collapsed GUI title bar */
+    .caption .sub { display: none; }          /* drop only the long prose paragraph */
+    .hint { display: none; }                  /* covered by the bottom sheet on phones */
+    .mrow .katex { font-size: 0.78em; }       /* keep wide equations on-screen */
+    /* EC heuristic as a bottom sheet, clear of the title block (no transform/filter
+       here, so the chart's position:fixed stays relative to the viewport) */
+    .ecbox {
+      position: fixed; left: 3vw; right: 3vw; bottom: 10px; margin: 0;
+      max-width: none; max-height: 48vh; overflow-y: auto; pointer-events: auto;
+      -webkit-overflow-scrolling: touch;
+      background: rgba(244,243,238,0.95); box-shadow: 0 6px 26px rgba(0,0,0,0.18);
+    }
+    body[data-theme="dark"] .ecbox { background: rgba(20,26,38,0.95); }
+    /* Monte-Carlo plot as a small centred popup (× to close) */
+    #chartwrap {
+      position: fixed; top: 50%; left: 50%; transform: translate(-50%,-50%);
+      width: min(90vw, 360px); margin: 0; z-index: 60;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.30); border-radius: 9px;
+    }
   }
 </style>
 </head>
@@ -109,7 +130,7 @@
       <p class="mlabel">its mean approximates the exceedance probability of the maximum:</p>
       <div class="mrow mbig" id="f-heur"></div>
       <button class="ecbtn" id="ecbtn">▶ run Monte-Carlo &nbsp; P(sup f<sub>t</sub> ≥ u) vs E[χ]</button>
-      <canvas id="chart" width="350" height="216"></canvas>
+      <div id="chartwrap"><button id="chartclose" aria-label="close">×</button><canvas id="chart" width="350" height="216"></canvas></div>
     </div>
   </div>
   <div class="hint" id="hint">drag to rotate &nbsp;·&nbsp; scroll to zoom</div>
@@ -443,7 +464,7 @@
   }
 
   const gui = new GUI({ title: 'Brownian-pillow flow' });
-  if (window.matchMedia('(max-width: 600px)').matches) gui.close();
+  if (window.matchMedia('(max-width: 820px), (pointer: coarse)').matches) gui.close();
   const domNames = {}; for (const k of Object.keys(DOMAINS)) domNames[DOMAINS[k].name] = k;
   gui.add(params, 'domain', domNames).name('domain Ω').onChange(rebuild);
   gui.add(params, 'corr', 0.06, 1.1, 0.01).name('correlation length').onChange(() => { setSmoothing(); resetField(); updateFormula(); });
@@ -505,7 +526,7 @@
     return { Echi, Psup, N };
   }
   function startEC() {
-    document.getElementById('chart').style.display = 'block';
+    document.getElementById('chartwrap').style.display = 'block';
     const ctx = chartCtx(), dark = params.theme === 'dark';
     ctx.fillStyle = dark ? '#161c28' : '#fcfbf7'; ctx.fillRect(0, 0, CW, CH);
     ctx.fillStyle = dark ? '#e9edf4' : '#232a33'; ctx.font = '13px Inter, sans-serif';
@@ -554,6 +575,7 @@
   }
 
   document.getElementById('ecbtn').addEventListener('click', startEC);
+  document.getElementById('chartclose').addEventListener('click', () => { document.getElementById('chartwrap').style.display = 'none'; });
   const hint = document.getElementById('hint'); let hintGone = false;
   controls.addEventListener('start', () => { if (params.autoRotate) { params.autoRotate = false; controls.autoRotate = false; } if (!hintGone) { hint.classList.add('gone'); hintGone = true; } });
   setTimeout(() => { if (!hintGone) hint.classList.add('gone'); }, 6000);

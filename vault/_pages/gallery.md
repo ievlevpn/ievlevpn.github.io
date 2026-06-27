@@ -6,7 +6,7 @@ permalink: /gallery/
 
 # Gallery
 
-Interactive illustrations of some mathematical objects I'm interested in.
+Interactive illustrations of some mathematical objects I'm interested in, built with [three.js](https://threejs.org/).
 
 <style>
   .gallery-thumb {
