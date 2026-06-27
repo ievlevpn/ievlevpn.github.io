@@ -5,3 +5,6 @@
 - file: jumpdiff3d.html
   title: "Jump-Diffusion in a Solid Domain of $\\mathbb{R}^3$"
   description: "Five boundary behaviours of a jump-diffusion process in a 3D domain."
+- file: pillow.html
+  title: "The Brownian Pillow and the Euler-Characteristic Heuristic"
+  description: "A Gaussian field pinned to zero on a non-convex boundary, flowing in time, and the Adler–Taylor heuristic for its supremum."

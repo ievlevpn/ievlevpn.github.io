@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>A Moving Gaussian Random Field (Brownian Pillow) over a Non-Convex Domain</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<style>
+  :root { --font: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; overflow: hidden; font-family: var(--font); }
+
+  body[data-theme="light"] {
+    background: radial-gradient(circle at 50% 28%, #fcfbf7 0%, #f1efe8 68%, #e6e3da 100%);
+    --ink: #232a33; --ink-soft: #6a7280; --hairline: rgba(35,42,51,0.14); --halo: rgba(252,251,247,0.95);
+  }
+  body[data-theme="dark"] {
+    background: radial-gradient(circle at 50% 28%, #232936 0%, #181d28 68%, #11151d 100%);
+    --ink: #e9edf4; --ink-soft: #98a1b1; --hairline: rgba(233,237,244,0.16); --halo: rgba(17,21,29,0.92);
+  }
+
+  #app { position: fixed; inset: 0; }
+  canvas { display: block; }
+
+  .caption {
+    position: fixed; left: clamp(16px,3.5vw,40px); top: clamp(16px,3.5vh,34px);
+    color: var(--ink); pointer-events: none; user-select: none; max-width: min(86vw, 690px);
+  }
+  .caption .title { font-size: clamp(16px,2.3vw,23px); font-weight: 600; letter-spacing: -0.01em; margin: 0; line-height: 1.22; }
+  .caption .sub { margin: 9px 0 0; font-size: clamp(12px,1.4vw,14px); color: var(--ink-soft); line-height: 1.55; }
+  .caption .sub b.m { color: var(--ink); }
+  .caption .sub sub, .legend sub { font-size: 0.72em; }
+  .formula { margin: 7px 0 0; font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif; font-style: italic; font-size: clamp(12px,1.55vw,15px); color: var(--ink); }
+  .formula b { font-style: normal; font-weight: 600; color: #b06a2c; }
+  .chi { margin: 5px 0 0; font-size: clamp(12px,1.5vw,14.5px); color: var(--ink); font-weight: 600; }
+  .chi b { color: #2f62b4; } .chi .neg { color: #cf5a32; } .chi sub { font-size: 0.72em; }
+  .ec { margin: 7px 0 0; font-size: clamp(10.5px,1.3vw,12.5px); color: var(--ink-soft); line-height: 1.5; max-width: 580px; }
+  .ec b { color: var(--ink); font-weight: 600; } .ec sub, .ec sup { font-size: 0.72em; }
+  .mlabel { margin: 9px 0 1px; font-size: clamp(10px,1.2vw,12px); color: var(--ink-soft); font-style: italic; }
+  .mrow { color: var(--ink); margin: 1px 0; font-size: clamp(12.5px,1.5vw,15px); overflow-x: auto; overflow-y: hidden; }
+  .mrow .katex-display { margin: 3px 0; text-align: center; }
+  .mrow.mbig { font-size: clamp(13px,1.7vw,16.5px); }
+  .ecbox { margin: 12px 0 0; padding: 11px 15px 14px; border-radius: 12px; max-width: 600px;
+    background: rgba(47,98,180,0.06); border: 1px solid rgba(47,98,180,0.20); }
+  body[data-theme="dark"] .ecbox { background: rgba(79,127,208,0.11); border-color: rgba(79,127,208,0.30); }
+  .echead { margin: 0 0 1px; font-size: clamp(13px,1.7vw,16px); font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .echead .echsub { font-weight: 500; font-size: 0.8em; color: var(--ink-soft); }
+  .ecbtn { pointer-events: auto; margin: 13px 0 0; font: 600 12px/1 var(--font); color: #fff; background: #2f62b4;
+    border: none; border-radius: 7px; padding: 9px 14px; cursor: pointer; box-shadow: 0 2px 9px rgba(47,98,180,0.32); transition: background 0.15s; }
+  .ecbtn:hover { background: #2a58a4; }
+  body[data-theme="dark"] .ecbtn { background: #4f7fd0; color: #0e1420; }
+  .legend { margin: 8px 0 0; font-size: clamp(11px,1.35vw,13px); display: flex; gap: 13px; flex-wrap: wrap; color: var(--ink-soft); }
+  .legend .k { display: inline-flex; align-items: center; gap: 6px; }
+  .legend .sw { width: 22px; height: 11px; border-radius: 3px; display: inline-block; border: 1px solid var(--hairline); }
+  .legend .ln { width: 16px; height: 0; border-top: 3px solid; display: inline-block; }
+
+  .hint {
+    position: fixed; left: 50%; bottom: 14px; transform: translateX(-50%);
+    color: var(--ink-soft); font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase;
+    opacity: 0.78; pointer-events: none; user-select: none; transition: opacity 0.6s ease;
+  }
+  .hint.gone { opacity: 0; }
+
+  .lab {
+    position: absolute; transform: translate(-50%,-50%);
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-style: italic; font-weight: 600; font-size: 15px; white-space: nowrap;
+    pointer-events: none; user-select: none;
+    text-shadow: 0 0 3px var(--halo), 0 0 3px var(--halo), 0 0 7px var(--halo);
+  }
+  .lab.dom { color: #4f8a73; }   .lab.bnd { color: #c0863a; }
+
+  #chart { display: none; margin: 12px auto 2px; width: 350px; height: 216px; pointer-events: auto;
+    border-radius: 9px; box-shadow: 0 6px 22px rgba(0,0,0,0.16); }
+  .lil-gui.root { --width: 290px; top: 16px; right: 16px; }
+  .webgl-error { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; text-align: center; padding: 40px; color: #222; }
+  body.preview .caption, body.preview .hint, body.preview .lil-gui { display: none !important; }
+  /* mobile: panel starts collapsed (tap title to open); hide long description */
+  @media (max-width: 600px) {
+    .lil-gui.root { --width: min(82vw, 286px); }
+    .caption { top: 58px; }          /* clear the collapsed GUI title bar */
+    .caption .sub { display: none; }
+    .mrow .katex { font-size: 0.8em; }   /* keep wide equations from running off-screen */
+    .ecbox { max-width: 92vw; }
+  }
+</style>
+</head>
+<body data-theme="light">
+  <script>if (location.search.includes('preview')) document.body.classList.add('preview');</script>
+  <div id="app"></div>
+
+  <div class="caption">
+    <p class="title">A moving Gaussian field f<sub>t</sub>, and the Euler-characteristic heuristic for its supremum</p>
+    <p class="sub">
+      A smooth <b class="m">Gaussian field</b> f<sub>t</sub> over a non-convex Ω, pinned to 0 on ∂Ω (a
+      <b class="m">Brownian pillow</b>): white noise smoothed by the Dirichlet heat flow, flowing in time by its
+      stationary <b class="m">Ornstein–Uhlenbeck</b> dynamics.
+    </p>
+    <p class="mlabel">the moving field — Dirichlet-heat-smoothed white noise, Ornstein–Uhlenbeck in time</p>
+    <div class="mrow" id="f-proc"></div>
+    <p class="legend" id="legend"></p>
+
+    <div class="ecbox">
+      <p class="echead">The Euler-characteristic heuristic <span class="echsub">(Adler–Taylor, eq. 14.0.2)</span></p>
+      <p class="mlabel">the excursion set and its Euler characteristic — a random functional of the field f<sub>t</sub></p>
+      <div class="mrow" id="f-exc"></div>
+      <p class="chi" id="f-chival"></p>
+      <p class="mlabel">its mean approximates the exceedance probability of the maximum:</p>
+      <div class="mrow mbig" id="f-heur"></div>
+      <button class="ecbtn" id="ecbtn">▶ run Monte-Carlo &nbsp; P(sup f<sub>t</sub> ≥ u) vs E[χ]</button>
+      <canvas id="chart" width="350" height="216"></canvas>
+    </div>
+  </div>
+  <div class="hint" id="hint">drag to rotate &nbsp;·&nbsp; scroll to zoom</div>
+
+  <noscript><div class="webgl-error">This illustration needs JavaScript enabled.</div></noscript>
+
+  <script type="importmap">
+  { "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.185.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.185.0/examples/jsm/"
+  } }
+  </script>
+
+  <script type="module">
+  import * as THREE from 'three';
+  import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+  import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+  import GUI from 'three/addons/libs/lil-gui.module.min.js';
+  import { CSS2DRenderer, CSS2DObject } from 'three/addons/renderers/CSS2DRenderer.js';
+  import { LineSegments2 } from 'three/addons/lines/LineSegments2.js';
+  import { LineSegmentsGeometry } from 'three/addons/lines/LineSegmentsGeometry.js';
+  import { LineMaterial } from 'three/addons/lines/LineMaterial.js';
+
+  // ---------------------------------------------------------------------------
+  // Scaffolding (shared with the other figures in this repo)
+  // ---------------------------------------------------------------------------
+  const container = document.getElementById('app');
+  let renderer;
+  try { renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: 'high-performance' }); }
+  catch (e) { document.body.innerHTML = '<div class="webgl-error">Your browser could not start WebGL.</div>'; throw e; }
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.toneMapping = THREE.NeutralToneMapping; renderer.toneMappingExposure = 1.0;
+  renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+  container.appendChild(renderer.domElement);
+
+  const labelRenderer = new CSS2DRenderer();
+  labelRenderer.setSize(window.innerWidth, window.innerHeight);
+  labelRenderer.domElement.style.cssText = 'position:absolute;top:0;left:0;pointer-events:none;';
+  container.appendChild(labelRenderer.domElement);
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(42, window.innerWidth / window.innerHeight, 0.1, 200);
+
+  const pmrem = new THREE.PMREMGenerator(renderer);
+  scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.06).texture;
+  scene.environmentIntensity = 0.55;
+
+  const hemi = new THREE.HemisphereLight(0xeef2ff, 0xdcd5c8, 0.6); scene.add(hemi);
+  const key = new THREE.DirectionalLight(0xffffff, 1.0);
+  key.position.set(5, 11, 7); key.castShadow = true; key.shadow.mapSize.set(2048, 2048);
+  key.shadow.radius = 8; key.shadow.bias = -0.0005;
+  const sc = key.shadow.camera; sc.near = 0.5; sc.far = 48; sc.left = -7; sc.right = 7; sc.top = 7; sc.bottom = -7; sc.updateProjectionMatrix();
+  scene.add(key);
+
+  const floor = new THREE.Mesh(new THREE.PlaneGeometry(400, 400), new THREE.ShadowMaterial({ opacity: 0.1 }));
+  floor.rotation.x = -Math.PI / 2; floor.position.y = -1.6; floor.receiveShadow = true; scene.add(floor);
+
+  const controls = new OrbitControls(camera, renderer.domElement);
+  controls.enableDamping = true; controls.dampingFactor = 0.05; controls.enablePan = false;
+  controls.minDistance = 3; controls.maxDistance = 26; controls.autoRotate = true; controls.autoRotateSpeed = 0.4;
+
+  // ---------------------------------------------------------------------------
+  // The domain Ω: a non-convex "kidney" (a disk with a smooth bite), masked grid.
+  //   base (x,y) -> world (x, amp·u(x,y), y)   [y-up: field height]
+  // ---------------------------------------------------------------------------
+  const X0 = -2.25, X1 = 2.25, Y0 = -1.7, Y1 = 1.7, hx = 0.045;
+  const NX = Math.round((X1 - X0) / hx), NY = Math.round((Y1 - Y0) / hx);
+  const dx = (X1 - X0) / NX, dy = (Y1 - Y0) / NY, h2 = dx * dx;
+  // swappable domains Ω (all smooth & non-convex). Add an entry -> it's in the picker.
+  const _cre = []; for (let m = 0; m < 8; m++) { const a = -1.0 + 2.0 * m / 7; _cre.push([1.35 * Math.cos(a), 1.35 * Math.sin(a)]); }
+  const DOMAINS = {                                     // smooth level set g(x,y); inside = g > 0
+    peanut:   { name: 'peanut', g: (x, y) => Math.exp(-(((x + 0.72) ** 2 + (y + 0.6) ** 2)) / (2 * 0.60 * 0.60)) + Math.exp(-(((x - 0.68) ** 2 + (y - 0.58) ** 2)) / (2 * 0.72 * 0.72)) - 0.5 },
+    kidney:   { name: 'kidney', g: (x, y) => 1 - ((x / 1.55) ** 2 + (y / 1.32) ** 2) - 1.35 * Math.exp(-(((x - 1.4) ** 2 + y * y)) / 0.5) },
+    crescent: { name: 'crescent', g: (x, y) => { let s = 0; for (const c of _cre) s += Math.exp(-(((x - c[0]) ** 2 + (y - c[1]) ** 2)) / (2 * 0.5 * 0.5)); return s - 0.62; } },
+    trefoil:  { name: 'trefoil', g: (x, y) => (1.15 + 0.42 * Math.cos(3 * Math.atan2(y, x) + 0.4)) - Math.hypot(x, y) }
+  };
+  const inDomain = (x, y) => DOMAINS[params.domain].g(x, y) > 0;
+
+  // build the masked grid + 4-neighbour topology (Dirichlet: outside = 0)
+  let V = 0, Vtot = 0, gx, nb, deg, idmap, cells;
+  function buildGrid() {
+    idmap = new Int32Array((NX + 1) * (NY + 1)).fill(-1);
+    const px = [], py = [];
+    for (let i = 0; i <= NX; i++) for (let j = 0; j <= NY; j++) {
+      const x = X0 + i * dx, y = Y0 + j * dy; if (!inDomain(x, y)) continue;
+      idmap[i * (NY + 1) + j] = px.length; px.push(x); py.push(y);
+    }
+    V = px.length; gx = new Float32Array(2 * V);
+    for (let v = 0; v < V; v++) { gx[2 * v] = px[v]; gx[2 * v + 1] = py[v]; }
+    const id = (i, j) => (i < 0 || j < 0 || i > NX || j > NY) ? -1 : idmap[i * (NY + 1) + j];
+    nb = new Int32Array(4 * V); deg = new Int32Array(V);
+    const gi = new Int32Array(V), gj = new Int32Array(V);
+    for (let i = 0; i <= NX; i++) for (let j = 0; j <= NY; j++) { const v = idmap[i * (NY + 1) + j]; if (v < 0) continue; gi[v] = i; gj[v] = j; }
+    for (let v = 0; v < V; v++) {
+      const i = gi[v], j = gj[v]; nb[4 * v] = id(i + 1, j); nb[4 * v + 1] = id(i - 1, j); nb[4 * v + 2] = id(i, j + 1); nb[4 * v + 3] = id(i, j - 1);
+      let d = 0; for (let t = 0; t < 4; t++) if (nb[4 * v + t] >= 0) d++; deg[v] = d;
+    }
+    // cells (4-corner squares fully inside) for the interior nodal contour
+    cells = [];
+    for (let i = 0; i < NX; i++) for (let j = 0; j < NY; j++) {
+      const a = id(i, j), b = id(i + 1, j), c = id(i, j + 1), d = id(i + 1, j + 1);
+      if (a >= 0 && b >= 0 && c >= 0 && d >= 0) cells.push(a, b, d, c, X0 + i * dx, Y0 + j * dy);
+    }
+  }
+
+  // ---------------------------------------------------------------------------
+  // The field: u = (Dirichlet heat-smoothed white noise), evolved by OU in time.
+  //   per frame:  η ~ white,  s = smooth(η),  u ← β·u + √(1−β²)·s/σ̂
+  // ---------------------------------------------------------------------------
+  const params = {
+    domain: 'peanut', corr: 0.2, speed: 0.3, amp: 1.0, level: 1.0,
+    showField: true, showNodal: true, showBase: true, showBorder: true, showLevel: true,
+    ecN: 3000, runEC: () => startEC(),
+    reseed: () => resetField(),
+    autoRotate: true, theme: 'light', exposure: 1.0, snapshot: () => takeSnapshot()
+  };
+  const dtHeat = 0.2 * h2;
+  let u, wa, wb, wL, eta;                                // sized in rebuild()
+  let Jsmooth = 250, normSig = 1;
+
+  function applyL(src, out) {                            // discrete Dirichlet Laplacian (5-point)
+    for (let v = 0; v < V; v++) { let s = -4 * src[v]; const b = 4 * v;
+      const n0 = nb[b], n1 = nb[b + 1], n2 = nb[b + 2], n3 = nb[b + 3];
+      if (n0 >= 0) s += src[n0]; if (n1 >= 0) s += src[n1]; if (n2 >= 0) s += src[n2]; if (n3 >= 0) s += src[n3];
+      out[v] = s / h2;
+    }
+  }
+  function smoothInto(src, J) {                          // J explicit heat steps; returns the buffer holding the result
+    wa.set(src);
+    for (let s = 0; s < J; s++) { applyL(wa, wL); for (let v = 0; v < V; v++) wb[v] = wa[v] + dtHeat * wL[v]; const t = wa; wa = wb; wb = t; }
+    return wa;
+  }
+  let _spare = null;
+  function gauss() {
+    if (_spare !== null) { const s = _spare; _spare = null; return s; }
+    const a = Math.random() || 1e-9, b = Math.random(); const m = Math.sqrt(-2 * Math.log(a)); _spare = m * Math.sin(2 * Math.PI * b);
+    return m * Math.cos(2 * Math.PI * b);
+  }
+  function whiteInto(arr) { for (let v = 0; v < V; v++) arr[v] = gauss(); }
+
+  function setSmoothing() {                              // correlation length -> heat steps, and the amplitude normaliser
+    Jsmooth = Math.max(8, Math.min(1300, Math.round((params.corr / dx) ** 2 / 0.4)));
+    let acc = 0, cnt = 0;
+    for (let k = 0; k < 6; k++) { whiteInto(eta); const s = smoothInto(eta, Jsmooth); for (let v = 0; v < V; v++) if (deg[v] === 4) { acc += s[v] * s[v]; cnt++; } }
+    normSig = Math.sqrt(acc / Math.max(1, cnt)) || 1;
+  }
+  function resetField() { whiteInto(eta); const s = smoothInto(eta, Jsmooth); for (let v = 0; v < V; v++) u[v] = s[v] / normSig; }
+
+  // ---------------------------------------------------------------------------
+  // Meshes: billowing surface, flat footprint, moving nodal curve
+  // ---------------------------------------------------------------------------
+  const H0 = 0.62;                                       // height scale for one std-dev
+  const surfMat = new THREE.MeshStandardMaterial({ vertexColors: true, roughness: 0.62, metalness: 0.0, side: THREE.DoubleSide, envMapIntensity: 0.7, flatShading: false });
+  const baseMat = new THREE.MeshStandardMaterial({ color: 0x9fb0a8, roughness: 0.95, transparent: true, opacity: 0.26, side: THREE.DoubleSide, depthWrite: false });
+  const nodalMat = new THREE.LineBasicMaterial({ color: 0x1c1c22, transparent: true, opacity: 0.92 });
+  const borderMat = new LineMaterial({ color: 0xb06a2c, linewidth: 3.2, transparent: true, opacity: 0.96 });
+  borderMat.resolution.set(window.innerWidth, window.innerHeight);
+
+  const surfGeom = new THREE.BufferGeometry();
+  const surf = new THREE.Mesh(surfGeom, surfMat); surf.castShadow = true; surf.receiveShadow = true; scene.add(surf);
+  const baseGeom = new THREE.BufferGeometry();
+  const base = new THREE.Mesh(baseGeom, baseMat); base.receiveShadow = true; scene.add(base);
+  const nodal = new THREE.LineSegments(new THREE.BufferGeometry(), nodalMat); scene.add(nodal);
+  const border = new LineSegments2(new LineSegmentsGeometry(), borderMat); border.renderOrder = 4; scene.add(border);
+
+  // threshold plane at height h + the level curve {u = h} (excursion-set readout)
+  const planeMat = new THREE.MeshStandardMaterial({ color: 0x6f86b0, roughness: 0.5, transparent: true, opacity: 0.16, side: THREE.DoubleSide, depthWrite: false });
+  const levelMat = new THREE.LineBasicMaterial({ color: 0x14223a, transparent: true, opacity: 0.95 });
+  const planeGeom = new THREE.BufferGeometry();
+  const plane = new THREE.Mesh(planeGeom, planeMat); plane.renderOrder = 1; scene.add(plane);
+  const levelLine = new THREE.LineSegments(new THREE.BufferGeometry(), levelMat); levelLine.renderOrder = 5; scene.add(levelLine);
+  let Tindex = [], medges = [];                          // triangle indices + unique mesh edges (for χ)
+
+  // (re)build the grid + boundary-conforming mesh for the current domain.
+  // interior grid nodes [0..V) carry the field; extra vertices placed exactly on ∂Ω
+  // (the g=0 crossings on cell edges) are pinned to height 0, so the rendered surface
+  // satisfies u|∂Ω = 0 exactly — by mesh construction, not by tapering or clamping.
+  function rebuild() {
+    buildGrid();
+    u = new Float32Array(V); wa = new Float32Array(V); wb = new Float32Array(V); wL = new Float32Array(V); eta = new Float32Array(V);
+    const g = DOMAINS[params.domain].g, W = NY + 1;
+    const inside = (i, j) => i >= 0 && j >= 0 && i <= NX && j <= NY && idmap[i * W + j] >= 0;
+    const cross = new Map(), bxy = [], T = [], bseg = [];
+    function crossV(ci, cj, oi, oj) {                   // edge crossing inside(ci,cj) -> outside(oi,oj)
+      const ka = ci * W + cj, kb = oi * W + oj, key = ka < kb ? ka * 1e7 + kb : kb * 1e7 + ka;
+      let idx = cross.get(key); if (idx !== undefined) return idx;
+      const xa = X0 + ci * dx, ya = Y0 + cj * dy, xb = X0 + oi * dx, yb = Y0 + oj * dy;
+      const ga = g(xa, ya), gb = g(xb, yb), t = ga / (ga - gb);
+      idx = V + bxy.length / 2; bxy.push(xa + t * (xb - xa), ya + t * (yb - ya)); cross.set(key, idx); return idx;
+    }
+    const cc = [[0, 0], [1, 0], [1, 1], [0, 1]];        // cell corners, CCW
+    for (let i = 0; i < NX; i++) for (let j = 0; j < NY; j++) {
+      const poly = [];
+      for (let k = 0; k < 4; k++) {
+        const ci = i + cc[k][0], cj = j + cc[k][1], ni = i + cc[(k + 1) % 4][0], nj = j + cc[(k + 1) % 4][1];
+        const cin = inside(ci, cj), nin = inside(ni, nj);
+        if (cin) poly.push(idmap[ci * W + cj]);
+        if (cin !== nin) poly.push(cin ? crossV(ci, cj, ni, nj) : crossV(ni, nj, ci, cj));
+      }
+      for (let m = 1; m + 1 < poly.length; m++) T.push(poly[0], poly[m], poly[m + 1]);
+      // smooth g=0 border outline for this cell
+      const x0 = X0 + i * dx, y0 = Y0 + j * dy, ga = g(x0, y0), gb = g(x0 + dx, y0), gd = g(x0 + dx, y0 + dy), gc = g(x0, y0 + dy), pts = [];
+      if ((ga > 0) !== (gb > 0)) pts.push(x0 + dx * ga / (ga - gb), y0);
+      if ((gb > 0) !== (gd > 0)) pts.push(x0 + dx, y0 + dy * gb / (gb - gd));
+      if ((gc > 0) !== (gd > 0)) pts.push(x0 + dx * gc / (gc - gd), y0 + dy);
+      if ((ga > 0) !== (gc > 0)) pts.push(x0, y0 + dy * ga / (ga - gc));
+      if (pts.length >= 4) bseg.push(pts[0], 0.008, pts[1], pts[2], 0.008, pts[3]);
+    }
+    const B = bxy.length / 2; Vtot = V + B;
+    const sp = new Float32Array(3 * Vtot), bp = new Float32Array(3 * Vtot), cl = new Float32Array(3 * Vtot);
+    for (let v = 0; v < V; v++) { sp[3 * v] = gx[2 * v]; sp[3 * v + 2] = gx[2 * v + 1]; bp[3 * v] = gx[2 * v]; bp[3 * v + 1] = -0.004; bp[3 * v + 2] = gx[2 * v + 1]; }
+    for (let b = 0; b < B; b++) { const o = 3 * (V + b);                        // ∂Ω vertices: height 0, pale (u=0) colour
+      sp[o] = bxy[2 * b]; sp[o + 2] = bxy[2 * b + 1]; bp[o] = bxy[2 * b]; bp[o + 1] = -0.004; bp[o + 2] = bxy[2 * b + 1];
+      cl[o] = lut[3 * 128]; cl[o + 1] = lut[3 * 128 + 1]; cl[o + 2] = lut[3 * 128 + 2]; }
+    surfGeom.setAttribute('position', new THREE.BufferAttribute(sp, 3));
+    surfGeom.setAttribute('color', new THREE.BufferAttribute(cl, 3));
+    surfGeom.setIndex(T);
+    baseGeom.setAttribute('position', new THREE.BufferAttribute(bp, 3)); baseGeom.setIndex(T); baseGeom.computeVertexNormals();
+    border.geometry.dispose(); border.geometry = new LineSegmentsGeometry(); border.geometry.setPositions(bseg);
+
+    // threshold plane (flat copy of the mesh footprint) + unique mesh edges for χ
+    const plp = new Float32Array(3 * Vtot);
+    for (let v = 0; v < Vtot; v++) { plp[3 * v] = sp[3 * v]; plp[3 * v + 2] = sp[3 * v + 2]; }
+    planeGeom.setAttribute('position', new THREE.BufferAttribute(plp, 3)); planeGeom.setIndex(T.slice()); planeGeom.computeVertexNormals();
+    Tindex = T;
+    const eset = new Set(); medges = [];
+    for (let t = 0; t < T.length; t += 3) { const a = T[t], b = T[t + 1], c = T[t + 2];
+      for (const pq of [[a, b], [b, c], [c, a]]) { const p = pq[0], q = pq[1], key = p < q ? p * 1e7 + q : q * 1e7 + p; if (!eset.has(key)) { eset.add(key); medges.push(p, q); } } }
+
+    setSmoothing(); resetField();
+  }
+
+  // diverging colour ramp (blue → pale → warm), built per theme
+  let lut = new Float32Array(256 * 3);
+  function buildLUT() {
+    const dark = params.theme === 'dark';
+    const cN = new THREE.Color(dark ? 0x4f7fd0 : 0x2f62b4), c0 = new THREE.Color(dark ? 0x3a4150 : 0xeae6da), cP = new THREE.Color(dark ? 0xe07a45 : 0xcf5a32);
+    for (let i = 0; i < 256; i++) { const t = i / 255, c = t < 0.5 ? cN.clone().lerp(c0, t * 2) : c0.clone().lerp(cP, (t - 0.5) * 2); lut[3 * i] = c.r; lut[3 * i + 1] = c.g; lut[3 * i + 2] = c.b; }
+  }
+
+  // ---------------------------------------------------------------------------
+  // Per-frame update
+  // ---------------------------------------------------------------------------
+  const CLIP = 2.6;                                      // colour saturates at ±CLIP·σ
+  const _seg = [], _lvl = [], chiEl = document.getElementById('f-chival');
+  let lastChiKey = '';
+  function K(tex, el, disp) { if (!el) return; if (window.katex) { try { katex.render(tex, el, { displayMode: disp, throwOnError: false }); return; } catch (e) {} } el.textContent = tex; }
+  function contourInto(out, thr, hgt) {                  // marching squares of {u = thr} over interior cells
+    out.length = 0;
+    for (let k = 0; k < cells.length; k += 6) {
+      const x0 = cells[k + 4], y0 = cells[k + 5];
+      const ua = u[cells[k]] - thr, ub = u[cells[k + 1]] - thr, uc = u[cells[k + 2]] - thr, ud = u[cells[k + 3]] - thr, pts = [];
+      if ((ua > 0) !== (ub > 0)) pts.push(x0 + dx * ua / (ua - ub), y0);
+      if ((ub > 0) !== (uc > 0)) pts.push(x0 + dx, y0 + dy * ub / (ub - uc));
+      if ((ud > 0) !== (uc > 0)) pts.push(x0 + dx * ud / (ud - uc), y0 + dy);
+      if ((ua > 0) !== (ud > 0)) pts.push(x0, y0 + dy * ua / (ua - ud));
+      for (let m = 0; m + 3 < pts.length; m += 4) out.push(pts[m], hgt, pts[m + 1], pts[m + 2], hgt, pts[m + 3]);
+    }
+  }
+  function eulerChar(h) {                                // χ of the excursion set {u ≥ h} = #V − #E + #F of the PL subcomplex
+    const val = v => v < V ? u[v] : 0;
+    let nv = 0; for (let v = 0; v < V; v++) if (u[v] >= h) nv++;
+    let ne = 0; for (let e = 0; e < medges.length; e += 2) if (val(medges[e]) >= h && val(medges[e + 1]) >= h) ne++;
+    let nf = 0; for (let t = 0; t < Tindex.length; t += 3) if (val(Tindex[t]) >= h && val(Tindex[t + 1]) >= h && val(Tindex[t + 2]) >= h) nf++;
+    return nv - ne + nf;
+  }
+  function updateField(dtFrame) {
+    // OU step: blend in a fresh smoothed white field
+    const beta = Math.exp(-params.speed * dtFrame);
+    whiteInto(eta); const s = smoothInto(eta, Jsmooth); const a = Math.sqrt(Math.max(0, 1 - beta * beta));
+    for (let v = 0; v < V; v++) u[v] = beta * u[v] + a * s[v] / normSig;
+
+    // surface heights + colours at interior nodes (∂Ω vertices stay at height 0, u=0)
+    const pos = surfGeom.attributes.position.array, col = surfGeom.attributes.color.array;
+    for (let v = 0; v < V; v++) {
+      pos[3 * v + 1] = params.amp * H0 * u[v];
+      let t = (u[v] / CLIP + 1) * 0.5; t = t < 0 ? 0 : t > 1 ? 1 : t; const idx = (t * 255) | 0;
+      col[3 * v] = lut[3 * idx]; col[3 * v + 1] = lut[3 * idx + 1]; col[3 * v + 2] = lut[3 * idx + 2];
+    }
+    for (let v = V; v < Vtot; v++) { const o = 3 * v; col[o] = lut[384]; col[o + 1] = lut[385]; col[o + 2] = lut[386]; }   // ∂Ω verts: pale (u=0)
+    surfGeom.attributes.position.needsUpdate = true; surfGeom.attributes.color.needsUpdate = true;
+    surfGeom.computeVertexNormals();
+
+    // nodal set {u = 0} on the footprint
+    if (params.showNodal) { contourInto(_seg, 0, 0.01); nodal.geometry.setAttribute('position', new THREE.Float32BufferAttribute(_seg, 3)); }
+    nodal.visible = params.showNodal;
+
+    // threshold plane {z = h}, intersection curve {u = h}, and Euler characteristic of {u ≥ h}
+    if (params.showLevel) {
+      const hw = params.amp * H0 * params.level, pp = planeGeom.attributes.position.array;
+      for (let v = 0; v < Vtot; v++) pp[3 * v + 1] = hw;
+      planeGeom.attributes.position.needsUpdate = true;
+      contourInto(_lvl, params.level, hw + 0.004); levelLine.geometry.setAttribute('position', new THREE.Float32BufferAttribute(_lvl, 3));
+      const chi = eulerChar(params.level);
+      const ckey = chi + '@' + params.level.toFixed(2);
+      if (ckey !== lastChiKey) { lastChiKey = ckey;
+        K('\\chi\\bigl(A_u(f)\\bigr)\\big|_{u=' + params.level.toFixed(2) + '}=\\textcolor{' + (chi < 0 ? '#cf5a32' : '#2f62b4') + '}{' + chi + '}', chiEl, true); }
+    }
+    plane.visible = params.showLevel; levelLine.visible = params.showLevel; chiEl.style.display = params.showLevel ? '' : 'none';
+  }
+
+  // ---------------------------------------------------------------------------
+  // Labels / formula / theming / GUI / boot
+  // ---------------------------------------------------------------------------
+  const labelGroup = new THREE.Group(); scene.add(labelGroup);
+  function makeLabel(html, cls, x, y, lift) { const el = document.createElement('div'); el.className = 'lab ' + cls; el.innerHTML = html;
+    const o = new CSS2DObject(el); o.position.set(x, lift, y); labelGroup.add(o); return o; }
+
+  const elProc = document.getElementById('f-proc');
+  function updateFormula() {                              // process equation (re-rendered when the correlation length changes)
+    K('f_t=e^{\\tau\\Delta_\\Omega}\\,\\xi_t,\\quad f_t\\big|_{\\partial\\Omega}=0,\\quad \\sqrt{2\\tau}\\approx ' + params.corr.toFixed(2), elProc, true);
+  }
+  function renderStaticMath() {                           // the fixed equations (rendered once)
+    K('A_u(f)=\\{\\,t\\in M:\\ f_t\\ge u\\,\\},\\qquad \\chi\\bigl(A_u(f)\\bigr)=b_0-b_1', document.getElementById('f-exc'), true);
+    K('\\Bigl|\\,\\mathbb{P}\\bigl\\{\\textstyle\\sup_{t\\in M} f_t\\ge u\\bigr\\}-\\mathbb{E}\\bigl\\{\\chi(A_u(f,M))\\bigr\\}\\,\\Bigr|<O\\bigl(e^{-\\alpha u^2/2\\sigma^2}\\bigr)', document.getElementById('f-heur'), true);
+  }
+
+  function applyTheme(theme) {
+    document.body.setAttribute('data-theme', theme);
+    const dark = theme === 'dark';
+    scene.environmentIntensity = dark ? 0.4 : 0.55; hemi.intensity = dark ? 0.5 : 0.6; key.intensity = dark ? 0.85 : 1.0;
+    floor.material.opacity = dark ? 0.2 : 0.1;
+    baseMat.color.set(dark ? 0x5a6a6a : 0x9fb0a8); nodalMat.color.set(dark ? 0xf4f1e8 : 0x1c1c22);
+    borderMat.color.set(dark ? 0xe6a85a : 0xb06a2c);
+    buildLUT();
+    document.getElementById('legend').innerHTML =
+      `<span class="k"><span class="sw" style="background:linear-gradient(90deg,#2f62b4,#eae6da,#cf5a32)"></span>field u (− → +)</span>` +
+      `<span class="k"><span class="ln" style="border-color:${dark ? '#f4f1e8' : '#1c1c22'}"></span>nodal set {u = 0}</span>` +
+      `<span class="k"><span class="sw" style="background:rgba(159,176,168,.5)"></span>Ω footprint</span>`;
+  }
+
+  const gui = new GUI({ title: 'Brownian-pillow flow' });
+  if (window.matchMedia('(max-width: 600px)').matches) gui.close();
+  const domNames = {}; for (const k of Object.keys(DOMAINS)) domNames[DOMAINS[k].name] = k;
+  gui.add(params, 'domain', domNames).name('domain Ω').onChange(rebuild);
+  gui.add(params, 'corr', 0.06, 1.1, 0.01).name('correlation length').onChange(() => { setSmoothing(); resetField(); updateFormula(); });
+  gui.add(params, 'speed', 0.04, 2.5, 0.02).name('flow speed');
+  gui.add(params, 'amp', 0.2, 2.2, 0.05).name('amplitude');
+  gui.add(params, 'level', 0.1, 2.8, 0.05).name('threshold h');
+  gui.add(params, 'reseed').name('reseed field');
+  const fS = gui.addFolder('Show');
+  fS.add(params, 'showNodal').name('nodal set {u=0}');
+  fS.add(params, 'showLevel').name('threshold + χ({u≥h})');
+  fS.add(params, 'showBorder').name('boundary ∂Ω').onChange(v => border.visible = v);
+  fS.add(params, 'showBase').name('Ω footprint').onChange(v => base.visible = v);
+  const fE = gui.addFolder('EC experiment (14.0.2)');
+  fE.add(params, 'ecN', { '1500': 1500, '3000': 3000, '6000': 6000 }).name('MC samples N');   // run button is by the formula
+  const fV = gui.addFolder('View');
+  fV.add(params, 'autoRotate').name('auto-rotate').listen().onChange(v => controls.autoRotate = v);
+  fV.add(params, 'theme', ['light', 'dark']).name('theme').onChange(applyTheme);
+  fV.add(params, 'exposure', 0.6, 1.6, 0.01).name('exposure').onChange(v => renderer.toneMappingExposure = v);
+  fV.add(params, 'snapshot').name('save PNG');
+
+  function takeSnapshot() {
+    const s = 2, w = window.innerWidth, h = window.innerHeight;
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2) * s);
+    const prevBg = scene.background; scene.background = new THREE.Color(params.theme === 'dark' ? 0x161c28 : 0xf1efe8);
+    renderer.setSize(w, h, false); renderer.render(scene, camera);
+    renderer.domElement.toBlob(b => { const link = document.createElement('a'); link.href = URL.createObjectURL(b);
+      link.download = 'pillow.png'; link.click(); URL.revokeObjectURL(link.href);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2)); renderer.setSize(w, h, false); scene.background = prevBg; }, 'image/png');
+  }
+
+  // ---------------------------------------------------------------------------
+  // Euler-characteristic heuristic experiment (Adler–Taylor 14.0.2):
+  //   over N independent field draws, estimate  P(sup f ≥ u)  and  E[χ(A_u(f))]
+  //   for a grid of thresholds u, and plot them — they coincide in the tail.
+  // ---------------------------------------------------------------------------
+  const ecM = 84, U0E = 0, U1E = 4.5, dUE = (U1E - U0E) / ecM;
+  const binE = x => { const b = Math.floor((x - U0E) / dUE); return b < 0 ? -1 : b >= ecM ? ecM - 1 : b; };
+  let lastEC = null;
+  const CW = 350, CH = 216;
+  function chartCtx() {                                   // HiDPI-correct 2D context (crisp on retina)
+    const cv = document.getElementById('chart'), dpr = Math.min(window.devicePixelRatio || 1, 3);
+    if (cv.width !== Math.round(CW * dpr)) { cv.width = Math.round(CW * dpr); cv.height = Math.round(CH * dpr); }
+    const ctx = cv.getContext('2d'); ctx.setTransform(dpr, 0, 0, dpr, 0, 0); return ctx;
+  }
+  function computeEC(N) {
+    const hV = new Float64Array(ecM), hEd = new Float64Array(ecM), hF = new Float64Array(ecM), hS = new Float64Array(ecM);
+    const f = new Float32Array(V);
+    for (let n = 0; n < N; n++) {
+      whiteInto(eta); const s = smoothInto(eta, Jsmooth);
+      let sup = -1e30;
+      for (let v = 0; v < V; v++) { const fv = s[v] / normSig; f[v] = fv; if (fv > sup) sup = fv; const b = binE(fv); if (b >= 0) hV[b]++; }
+      for (let e = 0; e < medges.length; e += 2) { const p = medges[e], q = medges[e + 1], mn = Math.min(p < V ? f[p] : 0, q < V ? f[q] : 0), b = binE(mn); if (b >= 0) hEd[b]++; }
+      for (let t = 0; t < Tindex.length; t += 3) { const a = Tindex[t], b2 = Tindex[t + 1], c = Tindex[t + 2], mn = Math.min(a < V ? f[a] : 0, b2 < V ? f[b2] : 0, c < V ? f[c] : 0), b = binE(mn); if (b >= 0) hF[b]++; }
+      const bs = binE(sup); if (bs >= 0) hS[bs]++;
+    }
+    const Echi = new Float64Array(ecM), Psup = new Float64Array(ecM);
+    let cv = 0, ce = 0, cf = 0, cs = 0;
+    for (let k = ecM - 1; k >= 0; k--) { cv += hV[k]; ce += hEd[k]; cf += hF[k]; cs += hS[k]; Echi[k] = (cv - ce + cf) / N; Psup[k] = cs / N; }
+    return { Echi, Psup, N };
+  }
+  function startEC() {
+    document.getElementById('chart').style.display = 'block';
+    const ctx = chartCtx(), dark = params.theme === 'dark';
+    ctx.fillStyle = dark ? '#161c28' : '#fcfbf7'; ctx.fillRect(0, 0, CW, CH);
+    ctx.fillStyle = dark ? '#e9edf4' : '#232a33'; ctx.font = '13px Inter, sans-serif';
+    ctx.fillText('running ' + params.ecN + ' field samples…', 18, 30);
+    setTimeout(() => { lastEC = computeEC(params.ecN); drawChart(lastEC); }, 30);
+  }
+  function drawChart(d) {
+    const ctx = chartCtx(), W = CW, H = CH;
+    const dark = params.theme === 'dark', ink = dark ? '#e9edf4' : '#232a33', soft = dark ? 'rgba(233,237,244,0.5)' : 'rgba(35,42,51,0.45)';
+    const padL = 30, padR = 10, padT = 30, padB = 24;
+    let dmax = 0; for (let k = 0; k < ecM; k++) { if (d.Echi[k] > dmax) dmax = d.Echi[k]; if (d.Psup[k] > dmax) dmax = d.Psup[k]; }
+    const ymax = Math.min(6, Math.max(1.1, dmax * 1.06));
+    ctx.fillStyle = dark ? '#161c28' : '#fcfbf7'; ctx.fillRect(0, 0, W, H);
+    const X = u => padL + (u - U0E) / (U1E - U0E) * (W - padL - padR);
+    const Y = y => (H - padB) - Math.min(ymax, Math.max(0, y)) / ymax * (H - padT - padB);
+    ctx.strokeStyle = dark ? 'rgba(255,255,255,0.10)' : 'rgba(0,0,0,0.10)'; ctx.fillStyle = soft; ctx.font = '9px Inter, sans-serif'; ctx.lineWidth = 1;
+    const yticks = ymax > 1.45 ? [0, 1, ymax] : [0, 0.5, 1.0];
+    for (const yy of yticks) { ctx.beginPath(); ctx.moveTo(X(U0E), Y(yy)); ctx.lineTo(X(U1E), Y(yy)); ctx.stroke(); ctx.fillText(yy.toFixed(1), 5, Y(yy) + 3); }
+    for (const uu of [0, 1, 2, 3, 4]) ctx.fillText(uu.toString(), X(uu) - 2, H - 9);
+    ctx.fillText('u / σ', X(U1E) - 4, H - 9);
+    // current threshold marker
+    ctx.strokeStyle = dark ? 'rgba(233,237,244,0.4)' : 'rgba(35,42,51,0.35)'; ctx.setLineDash([3, 3]); ctx.beginPath(); ctx.moveTo(X(params.level), Y(ymax)); ctx.lineTo(X(params.level), Y(0)); ctx.stroke(); ctx.setLineDash([]);
+    const curve = (arr, col) => { ctx.strokeStyle = col; ctx.lineWidth = 2.2; ctx.beginPath(); for (let k = 0; k < ecM; k++) { const x = X(U0E + (k + 0.5) * dUE), y = Y(arr[k]); k ? ctx.lineTo(x, y) : ctx.moveTo(x, y); } ctx.stroke(); };
+    curve(d.Echi, '#2f62b4'); curve(d.Psup, '#cf5a32');
+    ctx.fillStyle = ink; ctx.font = '600 12px Inter, sans-serif'; ctx.fillText('Euler-characteristic heuristic   (14.0.2)', padL, 15);
+    ctx.font = '10px Inter, sans-serif';
+    ctx.fillStyle = '#cf5a32'; ctx.fillText('■ P(sup f ≥ u)', padL, 26);
+    ctx.fillStyle = '#2f62b4'; ctx.fillText('■ E[χ(A_u)]', padL + 96, 26);
+    ctx.fillStyle = soft; ctx.fillText('N = ' + d.N, W - 54, 15);
+  }
+
+  // frame the domain
+  {
+    const box = new THREE.Box3(new THREE.Vector3(X0, -1.0, Y0), new THREE.Vector3(X1, 1.0, Y1));
+    const center = box.getCenter(new THREE.Vector3()), radius = box.getBoundingSphere(new THREE.Sphere()).radius;
+    const dir = new THREE.Vector3(0.1, 0.66, 0.74).normalize();
+    const dist = radius / Math.sin(THREE.MathUtils.degToRad(camera.fov * 0.5)) * 1.0;
+    controls.target.copy(center); camera.position.copy(center).add(dir.multiplyScalar(dist));
+    camera.near = 0.1; camera.far = dist + radius * 6; camera.updateProjectionMatrix();   // small near so zooming in never clips the surface
+  }
+  // place ∂Ω right on the boundary curve (ray-march the level set outward from a lobe)
+  {
+    const g = DOMAINS[params.domain].g, cx = -0.72, cy = -0.6, dxr = -0.5, dyr = -0.86;
+    let a = 0, b = 3; for (let it = 0; it < 40; it++) { const m = (a + b) / 2; if (g(cx + dxr * m, cy + dyr * m) > 0) a = m; else b = m; }
+    const t = (a + b) / 2; makeLabel('∂Ω', 'bnd', cx + dxr * t, cy + dyr * t, 0.12);
+  }
+
+  document.getElementById('ecbtn').addEventListener('click', startEC);
+  const hint = document.getElementById('hint'); let hintGone = false;
+  controls.addEventListener('start', () => { if (params.autoRotate) { params.autoRotate = false; controls.autoRotate = false; } if (!hintGone) { hint.classList.add('gone'); hintGone = true; } });
+  setTimeout(() => { if (!hintGone) hint.classList.add('gone'); }, 6000);
+  window.addEventListener('resize', () => {
+    camera.aspect = window.innerWidth / window.innerHeight; camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight); labelRenderer.setSize(window.innerWidth, window.innerHeight);
+    borderMat.resolution.set(window.innerWidth, window.innerHeight);
+  });
+
+  applyTheme(params.theme); rebuild(); renderStaticMath(); updateFormula();
+  const clock = new THREE.Clock();
+  renderer.setAnimationLoop(() => {
+    const dtFrame = Math.min(0.05, clock.getDelta());
+    controls.update(); updateField(dtFrame);
+    renderer.render(scene, camera); labelRenderer.render(scene, camera);
+  });
+  </script>
+</body>
+</html>
