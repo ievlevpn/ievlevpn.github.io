@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Jump-Diffusion in a Solid Domain of ℝ³ — Five Boundary Behaviours</title>
+<style>
+  :root { --font: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; overflow: hidden; font-family: var(--font); }
+
+  body[data-theme="light"] {
+    background: radial-gradient(circle at 50% 28%, #fcfbf7 0%, #f1efe8 68%, #e6e3da 100%);
+    --ink: #232a33; --ink-soft: #6a7280; --hairline: rgba(35,42,51,0.14); --halo: rgba(252,251,247,0.95);
+  }
+  body[data-theme="dark"] {
+    background: radial-gradient(circle at 50% 28%, #232936 0%, #181d28 68%, #11151d 100%);
+    --ink: #e9edf4; --ink-soft: #98a1b1; --hairline: rgba(233,237,244,0.16); --halo: rgba(17,21,29,0.92);
+  }
+
+  #app { position: fixed; inset: 0; }
+  canvas { display: block; }
+
+  .caption {
+    position: fixed; left: clamp(16px,3.5vw,40px); top: clamp(16px,3.5vh,34px);
+    color: var(--ink); pointer-events: none; user-select: none; max-width: min(86vw, 680px);
+  }
+  .caption .title { font-size: clamp(16px,2.3vw,23px); font-weight: 600; letter-spacing: -0.01em; margin: 0; line-height: 1.22; }
+  .caption .sub { margin: 9px 0 0; font-size: clamp(12px,1.4vw,14px); color: var(--ink-soft); line-height: 1.55; }
+  .caption .sub b.m { color: var(--ink); }
+  .caption .sub sub, .legend sub { font-size: 0.72em; }
+  .status { margin: 8px 0 0; font-size: clamp(12px,1.5vw,14px); color: var(--ink); font-weight: 600; }
+  .status .st { color: var(--ink-soft); font-weight: 500; }
+  .legend { margin: 8px 0 0; font-size: clamp(11px,1.35vw,13px); display: flex; gap: 13px; flex-wrap: wrap; color: var(--ink-soft); }
+  .legend .k { display: inline-flex; align-items: center; gap: 6px; }
+  .legend .sw { width: 15px; height: 11px; border-radius: 3px; display: inline-block; border: 1px solid var(--hairline); }
+  .legend .ln { width: 16px; height: 0; border-top: 3px solid; display: inline-block; }
+  .legend .ln.dash { border-top-style: dashed; }
+  .legend .dot { width: 11px; height: 11px; border-radius: 50%; display: inline-block; }
+
+  .hint {
+    position: fixed; left: 50%; bottom: 14px; transform: translateX(-50%);
+    color: var(--ink-soft); font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase;
+    opacity: 0.78; pointer-events: none; user-select: none; transition: opacity 0.6s ease;
+  }
+  .hint.gone { opacity: 0; }
+
+  .lab {
+    position: absolute; transform: translate(-50%,-50%);
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-style: italic; font-weight: 600; font-size: 15px; white-space: nowrap;
+    pointer-events: none; user-select: none;
+    text-shadow: 0 0 3px var(--halo), 0 0 3px var(--halo), 0 0 7px var(--halo);
+  }
+  .lab sub { font-size: 0.72em; }
+  .lab.dom { color: #4f8a73; }   .lab.bnd { color: #d98326; }
+
+  .lil-gui.root { --width: 286px; top: 16px; right: 16px; }
+  .webgl-error { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; text-align: center; padding: 40px; color: #222; }
+  /* preview mode (?preview): clean thumbnail, hide all UI chrome */
+  body.preview .caption, body.preview .hint, body.preview .lil-gui { display: none !important; }
+</style>
+</head>
+<body data-theme="light">
+  <script>if (location.search.includes('preview')) document.body.classList.add('preview');</script>
+  <div id="app"></div>
+
+  <div class="caption">
+    <p class="title">Jump-diffusion inside a solid domain of ℝ³ — five behaviours at the boundary</p>
+    <p class="sub">
+      A particle runs a <b class="m">jump-diffusion</b> through the interior of a smooth
+      solid Ω ⊂ ℝ³ (a 3-manifold with boundary): 3-D Brownian wandering punctuated by
+      Poisson <b class="m">Lévy jumps</b>. On reaching the surface ∂Ω one of five rules
+      fires — <b class="m">reflection</b>, <b class="m">sticky reflection</b>,
+      <b class="m">sticky + tangential diffusion</b> over ∂Ω, <b class="m">absorption</b>,
+      or a <b class="m">jump</b> to a uniformly random interior point. Swap the domain and
+      the rule in the panel; the translucent shell lets you watch the path inside.
+    </p>
+    <p class="status" id="status"></p>
+    <p class="legend" id="legend"></p>
+  </div>
+  <div class="hint" id="hint">drag to rotate &nbsp;·&nbsp; scroll to zoom</div>
+
+  <noscript><div class="webgl-error">This illustration needs JavaScript enabled.</div></noscript>
+
+  <script type="importmap">
+  { "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.185.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.185.0/examples/jsm/"
+  } }
+  </script>
+
+  <script type="module">
+  import * as THREE from 'three';
+  import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+  import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+  import GUI from 'three/addons/libs/lil-gui.module.min.js';
+  import { CSS2DRenderer, CSS2DObject } from 'three/addons/renderers/CSS2DRenderer.js';
+  import { Line2 } from 'three/addons/lines/Line2.js';
+  import { LineMaterial } from 'three/addons/lines/LineMaterial.js';
+  import { LineGeometry } from 'three/addons/lines/LineGeometry.js';
+
+  // ---------------------------------------------------------------------------
+  // Scaffolding (shared with the other figures in this repo)
+  // ---------------------------------------------------------------------------
+  const container = document.getElementById('app');
+  let renderer;
+  try { renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: 'high-performance' }); }
+  catch (e) { document.body.innerHTML = '<div class="webgl-error">Your browser could not start WebGL.</div>'; throw e; }
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.toneMapping = THREE.NeutralToneMapping; renderer.toneMappingExposure = 1.0;
+  renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+  container.appendChild(renderer.domElement);
+
+  const labelRenderer = new CSS2DRenderer();
+  labelRenderer.setSize(window.innerWidth, window.innerHeight);
+  labelRenderer.domElement.style.cssText = 'position:absolute;top:0;left:0;pointer-events:none;';
+  container.appendChild(labelRenderer.domElement);
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(42, window.innerWidth / window.innerHeight, 0.1, 200);
+
+  const pmrem = new THREE.PMREMGenerator(renderer);
+  scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.06).texture;
+  scene.environmentIntensity = 0.7;
+
+  const hemi = new THREE.HemisphereLight(0xeef2ff, 0xdcd5c8, 0.7); scene.add(hemi);
+  const key = new THREE.DirectionalLight(0xffffff, 1.0);
+  key.position.set(6, 10, 6); key.castShadow = true; key.shadow.mapSize.set(2048, 2048);
+  key.shadow.radius = 8; key.shadow.bias = -0.0005;
+  const sc = key.shadow.camera; sc.near = 0.5; sc.far = 48; sc.left = -8; sc.right = 8; sc.top = 8; sc.bottom = -8; sc.updateProjectionMatrix();
+  scene.add(key);
+
+  const floor = new THREE.Mesh(new THREE.PlaneGeometry(400, 400), new THREE.ShadowMaterial({ opacity: 0.1 }));
+  floor.rotation.x = -Math.PI / 2; floor.position.y = -2.4; floor.receiveShadow = true; scene.add(floor);
+  const groundY = floor.position.y + 0.004;
+
+  // distance haze — the far side of the solid recedes, reading the depth as depth
+  const FOG = { light: 0xeae7df, dark: 0x1a2030 };
+  scene.fog = new THREE.Fog(FOG.light, 4, 12);
+
+  // ground "footprint": the path and the live dot dropped straight down onto the floor,
+  // plus a vertical stem. The gap between curve and shadow is the height cue.
+  const shadowGrp = new THREE.Group(); scene.add(shadowGrp);
+  const shadowTrail = new THREE.LineSegments(new THREE.BufferGeometry(),
+    new THREE.LineBasicMaterial({ color: 0x000000, transparent: true, opacity: 0.13, fog: false })); shadowGrp.add(shadowTrail);
+  const stem = new THREE.Line(new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(), new THREE.Vector3()]),
+    new THREE.LineBasicMaterial({ color: 0x000000, transparent: true, opacity: 0.2, fog: false })); shadowGrp.add(stem);
+  const shadowDot = new THREE.Mesh(new THREE.CircleGeometry(0.06, 22),
+    new THREE.MeshBasicMaterial({ color: 0x000000, transparent: true, opacity: 0.24, depthWrite: false, fog: false }));
+  shadowDot.rotation.x = -Math.PI / 2; shadowGrp.add(shadowDot);
+
+  const controls = new OrbitControls(camera, renderer.domElement);
+  controls.enableDamping = true; controls.dampingFactor = 0.05; controls.enablePan = false;
+  controls.minDistance = 2.5; controls.maxDistance = 26; controls.autoRotate = true; controls.autoRotateSpeed = 1.4;
+
+  // ---------------------------------------------------------------------------
+  // Domains: star-shaped solids Ω = { x : |x| < ρ(x/|x|) }.
+  //   ρ(dir) = R0 · (1 + Σ Aᵢ exp(kᵢ (dir·ĉᵢ − 1)))   — bumps (Aᵢ>0) and dimples (Aᵢ<0).
+  //   Star-shaped ⇒ inside-test, boundary point and radial reflection are all trivial.
+  //   Add a new entry here and it shows up in the picker — that's the whole swap.
+  // ---------------------------------------------------------------------------
+  const DOMAIN_SPECS = {
+    blob: { name: 'lumpy blob', R0: 1.45, bumps: [
+      { c: [1, 0.4, 0.2], A: 0.34, k: 1.8 }, { c: [-0.5, -0.3, 0.9], A: 0.30, k: 2.0 },
+      { c: [0.2, -1, 0.1], A: -0.24, k: 2.6 }, { c: [-0.8, 0.6, -0.4], A: 0.24, k: 2.2 } ] },
+    peanut: { name: 'peanut', R0: 1.25, bumps: [
+      { c: [1, 0, 0], A: 0.62, k: 1.3 }, { c: [-1, 0, 0], A: 0.62, k: 1.3 },
+      { c: [0, 1, 0], A: -0.16, k: 3.0 }, { c: [0, -1, 0], A: -0.16, k: 3.0 } ] },
+    pillow: { name: 'rounded pillow', R0: 1.35, bumps: [
+      { c: [1, 0, 0], A: 0.18, k: 3.2 }, { c: [-1, 0, 0], A: 0.18, k: 3.2 },
+      { c: [0, 1, 0], A: 0.18, k: 3.2 }, { c: [0, -1, 0], A: 0.18, k: 3.2 },
+      { c: [0, 0, 1], A: 0.18, k: 3.2 }, { c: [0, 0, -1], A: 0.18, k: 3.2 } ] },
+    pear: { name: 'pear', R0: 1.3, bumps: [
+      { c: [0, 1, 0], A: 0.5, k: 1.1 }, { c: [0, -1, 0], A: -0.18, k: 1.6 },
+      { c: [0.6, -0.4, 0.7], A: 0.12, k: 2.4 } ] },
+    // a sqrt radial profile makes the boundary spike inward to a sharp point (∞ slope):
+    // genuine reentrant cusps the diffusion has to negotiate.
+    cusp: { name: 'reentrant cusps', R0: 1.5, bumps: [
+      { c: [-0.6, -0.2, 0.8], A: 0.18, k: 2.0 }, { c: [0.9, -0.3, -0.2], A: 0.14, k: 2.2 } ],
+      cusps: [
+        { c: [0.25, 1, 0.2], C: 1.2, a0: 0.62 }, { c: [1, -0.25, 0.35], C: 1.15, a0: 0.6 },
+        { c: [-0.9, 0.1, 0.45], C: 1.1, a0: 0.58 }, { c: [0.15, -0.95, -0.3], C: 1.18, a0: 0.62 },
+        { c: [-0.35, 0.2, -1], C: 1.12, a0: 0.6 }, { c: [0.55, 0.35, 0.78], C: 1.0, a0: 0.55 } ] }
+  };
+
+  function makeDomain(spec) {
+    const bumps = spec.bumps.map(b => { const n = Math.hypot(b.c[0], b.c[1], b.c[2]); return { x: b.c[0] / n, y: b.c[1] / n, z: b.c[2] / n, A: b.A, k: b.k }; });
+    const cusps = (spec.cusps || []).map(c => { const n = Math.hypot(c.c[0], c.c[1], c.c[2]); return { x: c.c[0] / n, y: c.c[1] / n, z: c.c[2] / n, C: c.C, a0: c.a0 }; });
+    const rho = (x, y, z) => {                      // x,y,z must be a UNIT direction
+      let r = 1;
+      for (const b of bumps) { const d = x * b.x + y * b.y + z * b.z; r += b.A * Math.exp(b.k * (d - 1)); }
+      let R = spec.R0 * Math.max(0.2, r);
+      for (const c of cusps) {                       // inward cusp: pull the radius down with a sqrt notch
+        const a = Math.acos(Math.max(-1, Math.min(1, x * c.x + y * c.y + z * c.z)));
+        if (a < c.a0) R -= c.C * (1 - Math.sqrt(a / c.a0));
+      }
+      return Math.max(0.15, R);
+    };
+    return { name: spec.name, R0: spec.R0, rho, rmax: spec.R0 };  // rmax refined after meshing
+  }
+  let dom = makeDomain(DOMAIN_SPECS.blob);
+
+  // star-shaped geometry helpers --------------------------------------------
+  const _d = new THREE.Vector3();
+  function rhoAt(p) { const r = p.length(); if (r < 1e-9) return dom.rho(0, 1, 0); return dom.rho(p.x / r, p.y / r, p.z / r); }
+  function inside(p) { return p.length() < rhoAt(p); }
+  function clampInside(p) {                          // pull an over-shot point back in along its ray
+    const r = p.length(); if (r < 1e-9) return p; _d.copy(p).multiplyScalar(1 / r);
+    const Rb = dom.rho(_d.x, _d.y, _d.z);
+    if (r <= Rb) return p;
+    const rr = 2 * Rb - r;
+    return p.copy(_d).multiplyScalar(rr > 0.05 * Rb ? rr : 0.5 * Rb);
+  }
+  function randInterior() {                          // rejection-sample the solid, kept off the rim
+    const Rm = dom.rmax;
+    for (let i = 0; i < 60; i++) {
+      const p = new THREE.Vector3((Math.random() * 2 - 1) * Rm, (Math.random() * 2 - 1) * Rm, (Math.random() * 2 - 1) * Rm);
+      if (p.length() < 0.93 * rhoAt(p)) return p;
+    }
+    return new THREE.Vector3(0, 0, 0);
+  }
+
+  // ---------------------------------------------------------------------------
+  // Materials
+  // ---------------------------------------------------------------------------
+  const Zax = new THREE.Vector3(0, 0, 1);
+  const orient = (obj, from, to) => { obj.quaternion.setFromUnitVectors(from, to.clone().normalize()); return obj; };
+
+  const shellMat = new THREE.MeshPhysicalMaterial({
+    color: 0x9fb6d8, roughness: 0.25, metalness: 0.0, transmission: 0.0,
+    transparent: true, opacity: 0.16, side: THREE.DoubleSide, depthWrite: false,
+    envMapIntensity: 0.8, clearcoat: 0.6, clearcoatRoughness: 0.4
+  });
+  const wireMat = new THREE.LineBasicMaterial({ color: 0x6f86b0, transparent: true, opacity: 0.10 });
+
+  const COL = {
+    path: new THREE.Color(0x2563eb), stuck: new THREE.Color(0xe08a1e),
+    absorb: new THREE.Color(0xcf3a2c), jump: new THREE.Color(0x8458d6),
+    reflect: new THREE.Color(0x2f9e54)
+  };
+  const trailMat = new THREE.LineBasicMaterial({ vertexColors: true, transparent: true, opacity: 0.95 });
+  const jumpLineMat = new LineMaterial({ color: 0x8458d6, linewidth: 3.2, transparent: true, opacity: 0.95, dashed: true, dashSize: 0.13, gapSize: 0.09 });
+  jumpLineMat.resolution.set(window.innerWidth, window.innerHeight);
+
+  // ---------------------------------------------------------------------------
+  // Domain mesh (a sphere deformed by ρ) + labels
+  // ---------------------------------------------------------------------------
+  const root = new THREE.Group(); scene.add(root);
+  const labelGroup = new THREE.Group(); scene.add(labelGroup);
+  let shell, wire, firstBuild = true;
+  let shellGeom, hits, hitMax = 0, hitsDirty = false, shellWSeg = 160, shellHSeg = 110;
+  const params = {
+    domain: 'blob', mode: 'reflect',
+    diffusion: 0.30, jumpRate: 0.9, jumpSigma: 0.6,
+    dwell: 0.7, tangDiff: 2.2, absorbPause: 0.9,
+    speed: 1.0, showShell: true, showWire: false, showShadow: true, rotateSpeed: 1.4, heatmap: true,
+    reset: () => resetSim(),
+    autoRotate: true, theme: 'light', exposure: 1.0, snapshot: () => takeSnapshot()
+  };
+
+  function clearGroup(g) {
+    for (let i = g.children.length - 1; i >= 0; i--) {
+      const ch = g.children[i];
+      if (ch.isCSS2DObject && ch.element) ch.element.remove();
+      ch.traverse?.(o => { if (o.geometry) o.geometry.dispose(); });
+      g.remove(ch);
+    }
+  }
+  function makeLabel(html, cls, worldPos) {
+    const el = document.createElement('div'); el.className = 'lab ' + cls;
+    el.innerHTML = '<span style="display:inline-block">' + html + '</span>';
+    const o = new CSS2DObject(el); o.position.copy(worldPos); labelGroup.add(o); return o;
+  }
+
+  function buildDomain() {
+    clearGroup(root); clearGroup(labelGroup);
+
+    shellWSeg = 160; shellHSeg = 110;
+    const g = new THREE.SphereGeometry(1, shellWSeg, shellHSeg);   // smooth, indexed -> smooth normals
+    const p = g.attributes.position; const v = new THREE.Vector3();
+    let rmax = 0;
+    for (let i = 0; i < p.count; i++) {
+      v.fromBufferAttribute(p, i).normalize();          // unit direction
+      const r = dom.rho(v.x, v.y, v.z); if (r > rmax) rmax = r;
+      p.setXYZ(i, v.x * r, v.y * r, v.z * r);
+    }
+    g.computeVertexNormals(); dom.rmax = rmax;
+    shellGeom = g; g.setAttribute('color', new THREE.Float32BufferAttribute(new Float32Array(3 * p.count), 3));
+    hits = new Float32Array(p.count); hitMax = 0; hitsDirty = false;
+    shellMat.vertexColors = params.heatmap; shellMat.needsUpdate = true;
+    shell = new THREE.Mesh(g, shellMat); shell.visible = params.showShell;
+    shell.renderOrder = 2; root.add(shell);
+    recolorHits(); setShellOpacity();
+
+    wire = new THREE.LineSegments(new THREE.WireframeGeometry(new THREE.SphereGeometry(1, 48, 32)), wireMat);
+    // displace the wire sphere too (cheap: rebuild from a coarse deformed sphere)
+    {
+      const cg = new THREE.SphereGeometry(1, 60, 40), cp = cg.attributes.position;
+      for (let i = 0; i < cp.count; i++) { v.fromBufferAttribute(cp, i).normalize(); const r = dom.rho(v.x, v.y, v.z); cp.setXYZ(i, v.x * r, v.y * r, v.z * r); }
+      cg.computeVertexNormals(); wire.geometry.dispose(); wire.geometry = new THREE.WireframeGeometry(cg);
+    }
+    wire.visible = params.showWire; root.add(wire);
+
+    // labels at a representative surface point
+    const bd = new THREE.Vector3(0.4, 0.75, 0.5).normalize();
+    makeLabel('∂Ω', 'bnd', bd.clone().multiplyScalar(dom.rho(bd.x, bd.y, bd.z) + 0.18));
+    makeLabel('Ω', 'dom', new THREE.Vector3(0, 0, 0));
+
+    if (firstBuild) frameCamera(); firstBuild = false;
+  }
+  function frameCamera() {
+    const radius = dom.rmax * 1.15;
+    const dir = new THREE.Vector3(0.5, 0.45, 0.74).normalize();
+    const dist = radius / Math.sin(THREE.MathUtils.degToRad(camera.fov * 0.5)) * 1.05;
+    controls.target.set(0, 0, 0);
+    camera.position.copy(dir.multiplyScalar(dist));
+    camera.near = Math.max(0.05, dist - radius * 2.5); camera.far = dist + radius * 4; camera.updateProjectionMatrix();
+    scene.fog.near = dist - dom.rmax * 1.25; scene.fog.far = dist + dom.rmax * 2.4;   // haze spans the solid's depth
+  }
+
+  // --- boundary hit heatmap ---------------------------------------------------
+  function setShellOpacity() {
+    const dark = params.theme === 'dark';
+    shellMat.opacity = params.heatmap ? (dark ? 0.5 : 0.46) : (dark ? 0.2 : 0.16);
+  }
+  function recordHit(x, y, z) {                          // splat one contact onto the ∂Ω grid
+    if (!hits) return;
+    const theta = Math.acos(Math.max(-1, Math.min(1, y)));
+    let phi = Math.atan2(z, -x); if (phi < 0) phi += 2 * Math.PI;
+    const ix = Math.round(phi / (2 * Math.PI) * shellWSeg) % shellWSeg;   // distinct column 0..wSeg-1
+    const iy = Math.round(theta / Math.PI * shellHSeg);
+    const Wc = 6, s2 = 2 * 2.6 * 2.6, wcols = shellWSeg + 1;
+    for (let oy = -Wc; oy <= Wc; oy++) {
+      const jy = iy + oy; if (jy < 0 || jy > shellHSeg) continue;
+      for (let ox = -Wc; ox <= Wc; ox++) {
+        const jx = ((ix + ox) % shellWSeg + shellWSeg) % shellWSeg;       // wrap across the meridian
+        const nv = hits[jy * wcols + jx] + Math.exp(-(ox * ox + oy * oy) / s2);
+        hits[jy * wcols + jx] = nv; if (nv > hitMax) hitMax = nv;
+      }
+      hits[jy * wcols + shellWSeg] = hits[jy * wcols];                    // keep the seam duplicate equal to column 0
+    }
+    hitsDirty = true;
+  }
+  const _c1 = new THREE.Color(0xff6a3a), _c2 = new THREE.Color(0xffe8a0), _ct = new THREE.Color();
+  function recolorHits() {                               // base shell colour → warm → gold by hit count
+    if (!shellGeom) return;
+    const col = shellGeom.attributes.color.array, base = shellMat.color;
+    const denom = Math.log(1 + hitMax) || 1;
+    for (let i = 0; i < hits.length; i++) {
+      const t = hitMax > 0 ? Math.log(1 + hits[i]) / denom : 0;
+      if (t <= 0) _ct.copy(base);
+      else if (t < 0.5) _ct.copy(base).lerp(_c1, t * 2);
+      else _ct.copy(_c1).lerp(_c2, (t - 0.5) * 2);
+      col[3 * i] = _ct.r; col[3 * i + 1] = _ct.g; col[3 * i + 2] = _ct.b;
+    }
+    shellGeom.attributes.color.needsUpdate = true;
+  }
+
+  // ---------------------------------------------------------------------------
+  // The walker: 3-D jump-diffusion + boundary state machine
+  // ---------------------------------------------------------------------------
+  const dyn = new THREE.Group(); scene.add(dyn);
+  const ephem = [];
+
+  const ball = new THREE.Mesh(new THREE.SphereGeometry(0.06, 24, 18),
+    new THREE.MeshStandardMaterial({ color: COL.path, emissive: COL.path, emissiveIntensity: 0.4, roughness: 0.4 }));
+  ball.renderOrder = 3; scene.add(ball);
+
+  const MAXTRAIL = 4200;
+  let trail = [], cut = [];
+  const trailLine = new THREE.LineSegments(new THREE.BufferGeometry(), trailMat); trailLine.renderOrder = 3; scene.add(trailLine);
+
+  let pos = new THREE.Vector3(0, 0, 0);
+  let state = 'interior';
+  let dwellT = 0, absorbT = 0, pendingCut = false;
+  const bndDir = new THREE.Vector3(0, 1, 0);
+
+  let _spare = null;
+  function gauss() {
+    if (_spare !== null) { const s = _spare; _spare = null; return s; }
+    const u = Math.random() || 1e-9, v = Math.random();
+    const m = Math.sqrt(-2 * Math.log(u)); _spare = m * Math.sin(2 * Math.PI * v);
+    return m * Math.cos(2 * Math.PI * v);
+  }
+  const expRand = mean => -mean * Math.log(Math.random() || 1e-9);
+
+  function resetSim() {
+    trail = []; cut = []; pos.set(0, 0, 0); state = 'interior'; pendingCut = true;
+    for (const e of ephem) { e.obj.geometry?.dispose?.(); dyn.remove(e.obj); } ephem.length = 0;
+    ball.material.color.copy(COL.path); ball.material.emissive.copy(COL.path);
+    if (hits) { hits.fill(0); hitMax = 0; recolorHits(); }    // fresh hit tally
+    pushTrail(); updateStatus();
+  }
+  function pushTrail() {
+    trail.push(pos.clone()); cut.push(pendingCut); pendingCut = false;
+    if (trail.length > MAXTRAIL) { trail.shift(); cut.shift(); }
+  }
+
+  function pulse(p3, color) {
+    const ring = new THREE.Mesh(new THREE.RingGeometry(0.04, 0.075, 40),
+      new THREE.MeshBasicMaterial({ color, transparent: true, opacity: 0.9, side: THREE.DoubleSide, depthWrite: false }));
+    const n = p3.clone().normalize(); orient(ring, Zax, n); ring.position.copy(p3).addScaledVector(n, 0.015);
+    ring.renderOrder = 3; dyn.add(ring); ephem.push({ obj: ring, life: 0.7, max: 0.7, kind: 'pulse' });
+  }
+  function killMark(p3) {
+    const dot = new THREE.Mesh(new THREE.SphereGeometry(0.07, 18, 14),
+      new THREE.MeshStandardMaterial({ color: COL.absorb, emissive: COL.absorb, emissiveIntensity: 0.45, roughness: 0.4 }));
+    dot.position.copy(p3); dot.renderOrder = 3; dyn.add(dot); ephem.push({ obj: dot, life: 6.0, max: 6.0, kind: 'kill' });
+  }
+  function jumpArc(a3, b3) {
+    const mid = a3.clone().add(b3).multiplyScalar(0.5);
+    const out = mid.length() > 1e-3 ? mid.clone().normalize() : new THREE.Vector3(0, 1, 0);
+    mid.addScaledVector(out, 0.22 + 0.18 * a3.distanceTo(b3));     // bow the arc outward so it reads
+    const pts = new THREE.QuadraticBezierCurve3(a3, mid, b3).getPoints(32);
+    const flat = []; for (const q of pts) flat.push(q.x, q.y, q.z);
+    const geo = new LineGeometry(); geo.setPositions(flat);
+    const mat = jumpLineMat.clone(); mat.resolution.set(window.innerWidth, window.innerHeight);
+    const ln = new Line2(geo, mat); ln.computeLineDistances(); ln.renderOrder = 3;
+    dyn.add(ln); ephem.push({ obj: ln, life: 1.3, max: 1.3, kind: 'jump' });
+  }
+
+  function stepSim(dt) {
+    if (state === 'absorbed') {
+      absorbT -= dt; if (absorbT <= 0) { pos.copy(randInterior()); state = 'interior'; pendingCut = true;
+        ball.material.color.copy(COL.path); ball.material.emissive.copy(COL.path); pushTrail(); }
+      return;
+    }
+    if (state === 'boundary') {
+      dwellT -= dt;
+      if (params.mode === 'stickyDiffuse') {                       // Brownian motion over ∂Ω (tangential)
+        const g = new THREE.Vector3(gauss(), gauss(), gauss());
+        g.addScaledVector(bndDir, -g.dot(bndDir));                 // project out the radial part
+        bndDir.addScaledVector(g, Math.sqrt(2 * params.tangDiff * dt)).normalize();
+        pos.copy(bndDir).multiplyScalar(dom.rho(bndDir.x, bndDir.y, bndDir.z)); pushTrail();
+      }
+      if (dwellT <= 0) {
+        const Rb = dom.rho(bndDir.x, bndDir.y, bndDir.z);
+        pos.copy(bndDir).multiplyScalar(Rb - 0.07); state = 'interior';
+        ball.material.color.copy(COL.path); ball.material.emissive.copy(COL.path);
+      }
+      return;
+    }
+
+    // interior: Brownian step with a chance of a Lévy jump
+    if (Math.random() < params.jumpRate * dt) {
+      const from = pos.clone();
+      const to = new THREE.Vector3(pos.x + gauss() * params.jumpSigma, pos.y + gauss() * params.jumpSigma, pos.z + gauss() * params.jumpSigma);
+      clampInside(to); jumpArc(from, to); pos.copy(to); pendingCut = true; pushTrail(); return;
+    }
+    const s = Math.sqrt(2 * params.diffusion * dt);
+    pos.x += gauss() * s; pos.y += gauss() * s; pos.z += gauss() * s;
+    if (!inside(pos)) handleBoundary();
+    pushTrail();
+  }
+
+  function handleBoundary() {
+    const r = pos.length(); const dir = pos.clone().multiplyScalar(1 / r);
+    const Rb = dom.rho(dir.x, dir.y, dir.z);
+    const contact = dir.clone().multiplyScalar(Rb);
+    recordHit(dir.x, dir.y, dir.z);                       // tally the contact for the heatmap
+    switch (params.mode) {
+      case 'reflect':
+        pos.copy(dir).multiplyScalar(2 * Rb - r); pulse(contact, COL.reflect); break;
+      case 'sticky':
+      case 'stickyDiffuse':
+        pos.copy(contact); bndDir.copy(dir); state = 'boundary'; dwellT = expRand(params.dwell);
+        ball.material.color.copy(COL.stuck); ball.material.emissive.copy(COL.stuck); pulse(contact, COL.stuck); break;
+      case 'absorb':
+        pos.copy(contact); state = 'absorbed'; absorbT = params.absorbPause;
+        ball.material.color.copy(COL.absorb); ball.material.emissive.copy(COL.absorb); killMark(contact); break;
+      case 'jump': {
+        const to = randInterior(); jumpArc(contact, to); pos.copy(to); pendingCut = true; pulse(contact, COL.jump); break;
+      }
+    }
+  }
+
+  // ---------------------------------------------------------------------------
+  // Per-frame update
+  // ---------------------------------------------------------------------------
+  const _bg = new THREE.Color();
+  function updateDynamic(dtFrame) {
+    const dt = 0.0011 * params.speed; const sub = 36;
+    for (let k = 0; k < sub; k++) stepSim(dt);
+
+    ball.position.copy(pos);
+    if (params.heatmap && hitsDirty) { recolorHits(); hitsDirty = false; }
+
+    _bg.set(params.theme === 'dark' ? 0x161c28 : 0xf1efe8);
+    const p = [], c = [], sp = [], n = trail.length;
+    for (let i = 1; i < n; i++) {
+      if (cut[i]) continue;
+      const a = trail[i - 1], b = trail[i];
+      p.push(a.x, a.y, a.z, b.x, b.y, b.z);
+      sp.push(a.x, groundY, a.z, b.x, groundY, b.z);                 // dropped onto the floor
+      const fa = 0.5 + 0.5 * ((i - 1) / n), fb = 0.5 + 0.5 * (i / n);
+      const ca = _bg.clone().lerp(COL.path, fa), cb = _bg.clone().lerp(COL.path, fb);
+      c.push(ca.r, ca.g, ca.b, cb.r, cb.g, cb.b);
+    }
+    const tg = trailLine.geometry;
+    tg.setAttribute('position', new THREE.Float32BufferAttribute(p, 3));
+    tg.setAttribute('color', new THREE.Float32BufferAttribute(c, 3));
+    tg.attributes.position.needsUpdate = true;
+    shadowTrail.geometry.setAttribute('position', new THREE.Float32BufferAttribute(sp, 3));
+    stem.geometry.setFromPoints([pos, new THREE.Vector3(pos.x, groundY, pos.z)]);
+    shadowDot.position.set(pos.x, groundY, pos.z);
+
+    for (let i = ephem.length - 1; i >= 0; i--) {
+      const e = ephem[i]; e.life -= dtFrame;
+      const t = Math.max(0, e.life / e.max);
+      if (e.kind === 'pulse') { const s = 1 + (1 - t) * 5; e.obj.scale.set(s, s, s); e.obj.material.opacity = 0.9 * t; }
+      else if (e.kind === 'jump') e.obj.material.opacity = Math.min(1, t * 3);
+      else if (e.kind === 'kill') e.obj.material.emissiveIntensity = 0.15 + 0.45 * t;
+      if (e.life <= 0) { e.obj.geometry?.dispose?.(); dyn.remove(e.obj); ephem.splice(i, 1); }
+    }
+  }
+
+  // ---------------------------------------------------------------------------
+  // Status / theming / GUI / boot
+  // ---------------------------------------------------------------------------
+  const MODE_NAME = {
+    reflect: 'Reflection (Neumann)', sticky: 'Sticky reflection',
+    stickyDiffuse: 'Sticky + tangential diffusion', absorb: 'Absorption (killing)',
+    jump: 'Jump to random interior point'
+  };
+  const statusEl = document.getElementById('status');
+  function updateStatus() {
+    const st = state === 'interior' ? 'diffusing in Ω'
+      : state === 'boundary' ? (params.mode === 'stickyDiffuse' ? 'stuck on ∂Ω, sliding' : 'stuck on ∂Ω')
+      : 'absorbed — respawning';
+    statusEl.innerHTML = 'domain: ' + dom.name + ' &nbsp;·&nbsp; rule: ' + MODE_NAME[params.mode] + ' &nbsp;·&nbsp; <span class="st">' + st + '</span>';
+  }
+
+  function applyTheme(theme) {
+    document.body.setAttribute('data-theme', theme);
+    const dark = theme === 'dark';
+    scene.environmentIntensity = dark ? 0.5 : 0.7;
+    hemi.intensity = dark ? 0.5 : 0.7; key.intensity = dark ? 0.8 : 1.0;
+    floor.material.opacity = dark ? 0.2 : 0.1;
+    scene.fog.color.set(dark ? FOG.dark : FOG.light);
+    const sOp = dark ? 0.22 : 0.14;
+    shadowTrail.material.opacity = sOp * 0.9; stem.material.opacity = sOp * 1.4; shadowDot.material.opacity = sOp * 1.7;
+    shadowTrail.material.color.set(dark ? 0x000000 : 0x223040); stem.material.color.copy(shadowTrail.material.color); shadowDot.material.color.copy(shadowTrail.material.color);
+    shellMat.color.set(dark ? 0x8aa0c8 : 0x9fb6d8); setShellOpacity();
+    if (params.heatmap) recolorHits();
+    document.getElementById('legend').innerHTML =
+      `<span class="k"><span class="ln" style="border-color:#2563eb"></span>sample path</span>` +
+      `<span class="k"><span class="ln dash" style="border-color:#8458d6;border-top-width:3px"></span>Lévy jump</span>` +
+      `<span class="k"><span class="sw" style="background:rgba(159,182,216,.5)"></span>∂Ω</span>` +
+      `<span class="k"><span class="dot" style="background:#e08a1e"></span>stuck</span>` +
+      `<span class="k"><span class="dot" style="background:#cf3a2c"></span>absorbed</span>`;
+  }
+
+  function setDomain(keyName) {
+    dom = makeDomain(DOMAIN_SPECS[keyName]); buildDomain(); frameCamera(); resetSim();
+  }
+
+  const gui = new GUI({ title: 'Jump-diffusion in Ω ⊂ ℝ³' });
+  const domNames = {}; for (const k of Object.keys(DOMAIN_SPECS)) domNames[DOMAIN_SPECS[k].name] = k;
+  gui.add(params, 'domain', domNames).name('domain Ω').onChange(setDomain);
+  gui.add(params, 'mode', {
+    'Reflection': 'reflect', 'Sticky reflection': 'sticky',
+    'Sticky + boundary diffusion': 'stickyDiffuse', 'Absorption': 'absorb',
+    'Jump to interior': 'jump'
+  }).name('boundary rule ∂Ω').onChange(resetSim);
+  const fP = gui.addFolder('Jump-diffusion');
+  fP.add(params, 'diffusion', 0.05, 1.0, 0.01).name('diffusion D');
+  fP.add(params, 'jumpRate', 0, 3, 0.05).name('jump rate λ');
+  fP.add(params, 'jumpSigma', 0.15, 1.2, 0.05).name('jump size');
+  fP.add(params, 'speed', 0.2, 3, 0.1).name('speed');
+  const fB = gui.addFolder('Boundary');
+  fB.add(params, 'dwell', 0.1, 3, 0.05).name('sticky dwell (mean)');
+  fB.add(params, 'tangDiff', 0.2, 6, 0.1).name('along-∂Ω diffusion');
+  fB.add(params, 'absorbPause', 0.3, 3, 0.1).name('absorb pause');
+  fB.add(params, 'reset').name('reset walker');
+  const fV = gui.addFolder('View');
+  fV.add(params, 'heatmap').name('hit heatmap ∂Ω').onChange(v => {
+    shellMat.vertexColors = v; shellMat.needsUpdate = true; setShellOpacity();
+    if (v) { params.showShell = true; shell.visible = true; recolorHits(); }
+  }).listen();
+  fV.add(params, 'showShell').name('show ∂Ω').onChange(v => shell.visible = v).listen();
+  fV.add(params, 'showWire').name('show wire').onChange(v => wire.visible = v);
+  fV.add(params, 'showShadow').name('ground shadow').onChange(v => shadowGrp.visible = v);
+  fV.add(params, 'autoRotate').name('auto-rotate').listen().onChange(v => controls.autoRotate = v);
+  fV.add(params, 'rotateSpeed', 0, 5, 0.1).name('rotation speed').onChange(v => controls.autoRotateSpeed = v);
+  fV.add(params, 'theme', ['light', 'dark']).name('theme').onChange(applyTheme);
+  fV.add(params, 'exposure', 0.6, 1.6, 0.01).name('exposure').onChange(v => renderer.toneMappingExposure = v);
+  fV.add(params, 'snapshot').name('save PNG');
+
+  function takeSnapshot() {
+    const s = 2, w = window.innerWidth, h = window.innerHeight;
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2) * s);
+    const prevBg = scene.background;
+    scene.background = new THREE.Color(params.theme === 'dark' ? 0x161c28 : 0xf1efe8);
+    renderer.setSize(w, h, false); renderer.render(scene, camera);
+    renderer.domElement.toBlob(b => {
+      const link = document.createElement('a'); link.href = URL.createObjectURL(b);
+      link.download = 'jumpdiff3d.png'; link.click(); URL.revokeObjectURL(link.href);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2)); renderer.setSize(w, h, false); scene.background = prevBg;
+    }, 'image/png');
+  }
+
+  const hint = document.getElementById('hint'); let hintGone = false;
+  controls.addEventListener('start', () => { if (params.autoRotate) { params.autoRotate = false; controls.autoRotate = false; } if (!hintGone) { hint.classList.add('gone'); hintGone = true; } });
+  setTimeout(() => { if (!hintGone) hint.classList.add('gone'); }, 6000);
+  window.addEventListener('resize', () => {
+    camera.aspect = window.innerWidth / window.innerHeight; camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight); labelRenderer.setSize(window.innerWidth, window.innerHeight);
+    jumpLineMat.resolution.set(window.innerWidth, window.innerHeight);
+  });
+
+  buildDomain(); applyTheme(params.theme); resetSim();
+  let _lastStatus = '';
+  const clock = new THREE.Clock();
+  renderer.setAnimationLoop(() => {
+    const dtFrame = Math.min(0.05, clock.getDelta());
+    controls.update();
+    updateDynamic(dtFrame);
+    const k2 = dom.name + params.mode + state;
+    if (k2 !== _lastStatus) { updateStatus(); _lastStatus = k2; }
+    renderer.render(scene, camera); labelRenderer.render(scene, camera);
+  });
+  </script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+# Interactive math illustrations. Drop the HTML in /viz/ and add an entry here.
+- file: jumpdiff.html
+  title: "Jump-Diffusion on a Terrain with Boundary"
+  description: "Five edge behaviours of a jump-diffusion process near a boundary."
+- file: jumpdiff3d.html
+  title: "Jump-Diffusion in a Solid Domain of $\\mathbb{R}^3$"
+  description: "Five boundary behaviours of a jump-diffusion process in a 3D domain."

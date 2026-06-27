@@ -155,6 +155,9 @@
           <a class="nav-link {% if page.url contains "/talks" %}active{% endif %}" href="{{ "/talks/" | relative_url }}">Talks</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link {% if page.url == "/gallery/" %}active{% endif %}" href="{{ "/gallery/" | relative_url }}">Gallery</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link {% if page.url == "/code/" %}active{% endif %}" href="{{ "/code/" | relative_url }}">Code</a>
         </li>
         <li class="nav-item">
