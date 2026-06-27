@@ -59,6 +59,12 @@
   .webgl-error { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; text-align: center; padding: 40px; color: #222; }
   /* preview mode (?preview): clean thumbnail, hide all UI chrome */
   body.preview .caption, body.preview .hint, body.preview .lil-gui { display: none !important; }
+  /* mobile: panel starts collapsed (tap title to open); hide long description */
+  @media (max-width: 600px) {
+    .lil-gui.root { --width: min(82vw, 286px); }
+    .caption { top: 58px; }          /* clear the collapsed GUI title bar */
+    .caption .sub { display: none; }
+  }
 </style>
 </head>
 <body data-theme="light">
@@ -156,10 +162,11 @@
   controls.minDistance = 2.5; controls.maxDistance = 26; controls.autoRotate = true; controls.autoRotateSpeed = 1.4;
 
   // ---------------------------------------------------------------------------
-  // Domains: star-shaped solids Ω = { x : |x| < ρ(x/|x|) }.
-  //   ρ(dir) = R0 · (1 + Σ Aᵢ exp(kᵢ (dir·ĉᵢ − 1)))   — bumps (Aᵢ>0) and dimples (Aᵢ<0).
-  //   Star-shaped ⇒ inside-test, boundary point and radial reflection are all trivial.
-  //   Add a new entry here and it shows up in the picker — that's the whole swap.
+  // Domains: solids Ω ⊂ ℝ³ given implicitly by F(p) < 0 (boundary at F = 0).
+  //   Star-shaped lumps come from a radial ρ(dir); the torus is genuinely
+  //   non-star-shaped. Each domain only exposes F, a mesh, and a surface→grid
+  //   map — normals / reflection / projection are one shared set of ∇F helpers.
+  //   Add an entry to DOMAIN_SPECS and it shows up in the picker.
   // ---------------------------------------------------------------------------
   const DOMAIN_SPECS = {
     blob: { name: 'lumpy blob', R0: 1.45, bumps: [
@@ -182,44 +189,80 @@
       cusps: [
         { c: [0.25, 1, 0.2], C: 1.2, a0: 0.62 }, { c: [1, -0.25, 0.35], C: 1.15, a0: 0.6 },
         { c: [-0.9, 0.1, 0.45], C: 1.1, a0: 0.58 }, { c: [0.15, -0.95, -0.3], C: 1.18, a0: 0.62 },
-        { c: [-0.35, 0.2, -1], C: 1.12, a0: 0.6 }, { c: [0.55, 0.35, 0.78], C: 1.0, a0: 0.55 } ] }
+        { c: [-0.35, 0.2, -1], C: 1.12, a0: 0.6 }, { c: [0.55, 0.35, 0.78], C: 1.0, a0: 0.55 } ] },
+    torus: { name: 'torus', kind: 'torus', Rmaj: 1.05, Rtube: 0.45 }
   };
 
-  function makeDomain(spec) {
+  // star-shaped lump: ρ(dir) = R0·(1 + Σ Aᵢ exp(kᵢ(dir·ĉᵢ−1))) minus √-cusp notches
+  function starDomain(spec) {
     const bumps = spec.bumps.map(b => { const n = Math.hypot(b.c[0], b.c[1], b.c[2]); return { x: b.c[0] / n, y: b.c[1] / n, z: b.c[2] / n, A: b.A, k: b.k }; });
     const cusps = (spec.cusps || []).map(c => { const n = Math.hypot(c.c[0], c.c[1], c.c[2]); return { x: c.c[0] / n, y: c.c[1] / n, z: c.c[2] / n, C: c.C, a0: c.a0 }; });
-    const rho = (x, y, z) => {                      // x,y,z must be a UNIT direction
+    const rho = (x, y, z) => {
       let r = 1;
       for (const b of bumps) { const d = x * b.x + y * b.y + z * b.z; r += b.A * Math.exp(b.k * (d - 1)); }
       let R = spec.R0 * Math.max(0.2, r);
-      for (const c of cusps) {                       // inward cusp: pull the radius down with a sqrt notch
-        const a = Math.acos(Math.max(-1, Math.min(1, x * c.x + y * c.y + z * c.z)));
-        if (a < c.a0) R -= c.C * (1 - Math.sqrt(a / c.a0));
-      }
+      for (const c of cusps) { const a = Math.acos(Math.max(-1, Math.min(1, x * c.x + y * c.y + z * c.z))); if (a < c.a0) R -= c.C * (1 - Math.sqrt(a / c.a0)); }
       return Math.max(0.15, R);
     };
-    return { name: spec.name, R0: spec.R0, rho, rmax: spec.R0 };  // rmax refined after meshing
+    const F = p => { const r = p.length(); if (r < 1e-9) return -rho(0, 1, 0); return r - rho(p.x / r, p.y / r, p.z / r); };
+    const deform = g => { const pa = g.attributes.position, v = new THREE.Vector3(); let rmax = 0;
+      for (let i = 0; i < pa.count; i++) { v.fromBufferAttribute(pa, i).normalize(); const r = rho(v.x, v.y, v.z); if (r > rmax) rmax = r; pa.setXYZ(i, v.x * r, v.y * r, v.z * r); }
+      g.computeVertexNormals(); g._rmax = rmax; return g; };
+    return {
+      name: spec.name, F, rmax: spec.R0,
+      fine: () => { const g = deform(new THREE.SphereGeometry(1, 160, 110)); return { g, rmax: g._rmax }; },
+      coarse: () => deform(new THREE.SphereGeometry(1, 60, 40)),
+      uv: { wSeg: 160, hSeg: 110, wrapU: true, wrapV: false },
+      pointToUV: (x, y, z) => { const m = Math.hypot(x, y, z) || 1, X = x / m, Y = y / m, Z = z / m;
+        const theta = Math.acos(Math.max(-1, Math.min(1, Y))); let phi = Math.atan2(Z, -X); if (phi < 0) phi += 2 * Math.PI;
+        return [Math.round(phi / (2 * Math.PI) * 160) % 160, Math.round(theta / Math.PI * 110)]; },
+      center: new THREE.Vector3(0, 0, 0),
+      bnd: () => { const d = new THREE.Vector3(0.4, 0.75, 0.5).normalize(); return d.multiplyScalar(rho(d.x, d.y, d.z) + 0.18); }
+    };
   }
-  let dom = makeDomain(DOMAIN_SPECS.blob);
 
-  // star-shaped geometry helpers --------------------------------------------
-  const _d = new THREE.Vector3();
-  function rhoAt(p) { const r = p.length(); if (r < 1e-9) return dom.rho(0, 1, 0); return dom.rho(p.x / r, p.y / r, p.z / r); }
-  function inside(p) { return p.length() < rhoAt(p); }
-  function clampInside(p) {                          // pull an over-shot point back in along its ray
-    const r = p.length(); if (r < 1e-9) return p; _d.copy(p).multiplyScalar(1 / r);
-    const Rb = dom.rho(_d.x, _d.y, _d.z);
-    if (r <= Rb) return p;
-    const rr = 2 * Rb - r;
-    return p.copy(_d).multiplyScalar(rr > 0.05 * Rb ? rr : 0.5 * Rb);
+  // torus: tube radius rt around a ring of radius R in the xy-plane (axis = z)
+  function torusDomain(spec) {
+    const R = spec.Rmaj, rt = spec.Rtube, TS = 220, RS = 64;
+    const F = p => { const rc = Math.hypot(p.x, p.y), a = rc - R; return a * a + p.z * p.z - rt * rt; };
+    return {
+      name: spec.name, F, rmax: R + rt,
+      fine: () => ({ g: new THREE.TorusGeometry(R, rt, RS, TS), rmax: R + rt }),
+      coarse: () => new THREE.TorusGeometry(R, rt, 24, 90),
+      uv: { wSeg: TS, hSeg: RS, wrapU: true, wrapV: true },
+      pointToUV: (x, y, z) => { let u = Math.atan2(y, x); if (u < 0) u += 2 * Math.PI; const rc = Math.hypot(x, y); let w = Math.atan2(z, rc - R); if (w < 0) w += 2 * Math.PI;
+        return [Math.round(u / (2 * Math.PI) * TS) % TS, Math.round(w / (2 * Math.PI) * RS) % RS]; },
+      center: new THREE.Vector3(R, 0, 0),
+      bnd: () => new THREE.Vector3(R + rt + 0.18, 0, 0)
+    };
   }
-  function randInterior() {                          // rejection-sample the solid, kept off the rim
-    const Rm = dom.rmax;
-    for (let i = 0; i < 60; i++) {
-      const p = new THREE.Vector3((Math.random() * 2 - 1) * Rm, (Math.random() * 2 - 1) * Rm, (Math.random() * 2 - 1) * Rm);
-      if (p.length() < 0.93 * rhoAt(p)) return p;
-    }
-    return new THREE.Vector3(0, 0, 0);
+
+  const buildDomainObj = key => { const s = DOMAIN_SPECS[key]; return s.kind === 'torus' ? torusDomain(s) : starDomain(s); };
+  let dom = buildDomainObj('blob');
+
+  // implicit-domain helpers shared by every Ω, all via the gradient of F ------
+  const _ga = new THREE.Vector3(), _gp = new THREE.Vector3(), _nrm = new THREE.Vector3(), _gv = new THREE.Vector3();
+  function gradF(p, out) {
+    const h = 1.5e-3; _gp.copy(p);
+    _gp.x = p.x + h; const fxp = dom.F(_gp); _gp.x = p.x - h; const fxm = dom.F(_gp); _gp.x = p.x;
+    _gp.y = p.y + h; const fyp = dom.F(_gp); _gp.y = p.y - h; const fym = dom.F(_gp); _gp.y = p.y;
+    _gp.z = p.z + h; const fzp = dom.F(_gp); _gp.z = p.z - h; const fzm = dom.F(_gp); _gp.z = p.z;
+    return out.set(fxp - fxm, fyp - fym, fzp - fzm).multiplyScalar(0.5 / h);
+  }
+  function normalAt(p, out) { gradF(p, out); const l = out.length(); return l > 1e-12 ? out.multiplyScalar(1 / l) : out.set(0, 1, 0); }
+  function inside(p) { return dom.F(p) < 0; }
+  function projectToBoundary(p) { for (let k = 0; k < 3; k++) { const f = dom.F(p); gradF(p, _ga); const g2 = _ga.lengthSq(); if (g2 < 1e-12) break; p.addScaledVector(_ga, -f / g2); } return p; }
+  function pullInside(p) {                            // mirror an outside point back through ∂Ω (specular reflection)
+    if (dom.F(p) < 0) return p;
+    const f = dom.F(p); gradF(p, _ga); const l = _ga.length();
+    if (l > 1e-9) p.addScaledVector(_ga, -2 * f / (l * l));
+    if (dom.F(p) >= 0) { projectToBoundary(p); normalAt(p, _ga); p.addScaledVector(_ga, -0.04); }
+    return p;
+  }
+  function randInterior() {                           // rejection-sample the solid, kept off the boundary
+    const Rm = dom.rmax, p = new THREE.Vector3();
+    for (let i = 0; i < 80; i++) { p.set((Math.random() * 2 - 1) * Rm, (Math.random() * 2 - 1) * Rm, (Math.random() * 2 - 1) * Rm); if (dom.F(p) < -0.03) return p; }
+    return dom.center.clone();
   }
 
   // ---------------------------------------------------------------------------
@@ -250,7 +293,7 @@
   const root = new THREE.Group(); scene.add(root);
   const labelGroup = new THREE.Group(); scene.add(labelGroup);
   let shell, wire, firstBuild = true;
-  let shellGeom, hits, hitMax = 0, hitsDirty = false, shellWSeg = 160, shellHSeg = 110;
+  let shellGeom, hits, hitMax = 0, hitsDirty = false, shellWSeg = 160, shellHSeg = 110, shellWrapU = true, shellWrapV = false;
   const params = {
     domain: 'blob', mode: 'reflect',
     diffusion: 0.30, jumpRate: 0.9, jumpSigma: 0.6,
@@ -277,36 +320,21 @@
   function buildDomain() {
     clearGroup(root); clearGroup(labelGroup);
 
-    shellWSeg = 160; shellHSeg = 110;
-    const g = new THREE.SphereGeometry(1, shellWSeg, shellHSeg);   // smooth, indexed -> smooth normals
-    const p = g.attributes.position; const v = new THREE.Vector3();
-    let rmax = 0;
-    for (let i = 0; i < p.count; i++) {
-      v.fromBufferAttribute(p, i).normalize();          // unit direction
-      const r = dom.rho(v.x, v.y, v.z); if (r > rmax) rmax = r;
-      p.setXYZ(i, v.x * r, v.y * r, v.z * r);
-    }
-    g.computeVertexNormals(); dom.rmax = rmax;
-    shellGeom = g; g.setAttribute('color', new THREE.Float32BufferAttribute(new Float32Array(3 * p.count), 3));
-    hits = new Float32Array(p.count); hitMax = 0; hitsDirty = false;
+    const fineR = dom.fine(); const g = fineR.g; dom.rmax = fineR.rmax;
+    shellWSeg = dom.uv.wSeg; shellHSeg = dom.uv.hSeg; shellWrapU = dom.uv.wrapU; shellWrapV = dom.uv.wrapV;
+    const nVerts = g.attributes.position.count;
+    shellGeom = g; g.setAttribute('color', new THREE.Float32BufferAttribute(new Float32Array(3 * nVerts), 3));
+    hits = new Float32Array(nVerts); hitMax = 0; hitsDirty = false;
     shellMat.vertexColors = params.heatmap; shellMat.needsUpdate = true;
     shell = new THREE.Mesh(g, shellMat); shell.visible = params.showShell;
     shell.renderOrder = 2; root.add(shell);
     recolorHits(); setShellOpacity();
 
-    wire = new THREE.LineSegments(new THREE.WireframeGeometry(new THREE.SphereGeometry(1, 48, 32)), wireMat);
-    // displace the wire sphere too (cheap: rebuild from a coarse deformed sphere)
-    {
-      const cg = new THREE.SphereGeometry(1, 60, 40), cp = cg.attributes.position;
-      for (let i = 0; i < cp.count; i++) { v.fromBufferAttribute(cp, i).normalize(); const r = dom.rho(v.x, v.y, v.z); cp.setXYZ(i, v.x * r, v.y * r, v.z * r); }
-      cg.computeVertexNormals(); wire.geometry.dispose(); wire.geometry = new THREE.WireframeGeometry(cg);
-    }
+    wire = new THREE.LineSegments(new THREE.WireframeGeometry(dom.coarse()), wireMat);
     wire.visible = params.showWire; root.add(wire);
 
-    // labels at a representative surface point
-    const bd = new THREE.Vector3(0.4, 0.75, 0.5).normalize();
-    makeLabel('∂Ω', 'bnd', bd.clone().multiplyScalar(dom.rho(bd.x, bd.y, bd.z) + 0.18));
-    makeLabel('Ω', 'dom', new THREE.Vector3(0, 0, 0));
+    makeLabel('∂Ω', 'bnd', dom.bnd());
+    makeLabel('Ω', 'dom', dom.center.clone());
 
     if (firstBuild) frameCamera(); firstBuild = false;
   }
@@ -325,22 +353,24 @@
     const dark = params.theme === 'dark';
     shellMat.opacity = params.heatmap ? (dark ? 0.5 : 0.46) : (dark ? 0.2 : 0.16);
   }
-  function recordHit(x, y, z) {                          // splat one contact onto the ∂Ω grid
+  function recordHit(x, y, z) {                          // splat one contact onto the ∂Ω UV grid
     if (!hits) return;
-    const theta = Math.acos(Math.max(-1, Math.min(1, y)));
-    let phi = Math.atan2(z, -x); if (phi < 0) phi += 2 * Math.PI;
-    const ix = Math.round(phi / (2 * Math.PI) * shellWSeg) % shellWSeg;   // distinct column 0..wSeg-1
-    const iy = Math.round(theta / Math.PI * shellHSeg);
-    const Wc = 6, s2 = 2 * 2.6 * 2.6, wcols = shellWSeg + 1;
+    const uv = dom.pointToUV(x, y, z), wS = shellWSeg, hS = shellHSeg, wcols = wS + 1, Wc = 6, s2 = 2 * 2.6 * 2.6;
+    let iu = uv[0], iv = uv[1];
+    iu = shellWrapU ? ((iu % wS) + wS) % wS : Math.max(0, Math.min(wS, iu));
+    iv = shellWrapV ? ((iv % hS) + hS) % hS : Math.max(0, Math.min(hS, iv));
     for (let oy = -Wc; oy <= Wc; oy++) {
-      const jy = iy + oy; if (jy < 0 || jy > shellHSeg) continue;
+      let jv = iv + oy;
+      if (shellWrapV) jv = ((jv % hS) + hS) % hS; else if (jv < 0 || jv > hS) continue;
       for (let ox = -Wc; ox <= Wc; ox++) {
-        const jx = ((ix + ox) % shellWSeg + shellWSeg) % shellWSeg;       // wrap across the meridian
-        const nv = hits[jy * wcols + jx] + Math.exp(-(ox * ox + oy * oy) / s2);
-        hits[jy * wcols + jx] = nv; if (nv > hitMax) hitMax = nv;
+        let ju = iu + ox;
+        if (shellWrapU) ju = ((ju % wS) + wS) % wS; else if (ju < 0 || ju > wS) continue;
+        const idx = jv * wcols + ju, nv = hits[idx] + Math.exp(-(ox * ox + oy * oy) / s2);
+        hits[idx] = nv; if (nv > hitMax) hitMax = nv;
       }
-      hits[jy * wcols + shellWSeg] = hits[jy * wcols];                    // keep the seam duplicate equal to column 0
+      if (shellWrapU) hits[jv * wcols + wS] = hits[jv * wcols];           // seam column duplicate
     }
+    if (shellWrapV) for (let ju = 0; ju <= wS; ju++) hits[hS * wcols + ju] = hits[ju];   // seam row duplicate
     hitsDirty = true;
   }
   const _c1 = new THREE.Color(0xff6a3a), _c2 = new THREE.Color(0xffe8a0), _ct = new THREE.Color();
@@ -375,7 +405,7 @@
   let pos = new THREE.Vector3(0, 0, 0);
   let state = 'interior';
   let dwellT = 0, absorbT = 0, pendingCut = false;
-  const bndDir = new THREE.Vector3(0, 1, 0);
+  const bndPt = new THREE.Vector3(0, 1, 0);          // current contact point on ∂Ω (sticky states)
 
   let _spare = null;
   function gauss() {
@@ -387,7 +417,7 @@
   const expRand = mean => -mean * Math.log(Math.random() || 1e-9);
 
   function resetSim() {
-    trail = []; cut = []; pos.set(0, 0, 0); state = 'interior'; pendingCut = true;
+    trail = []; cut = []; pos.copy(dom.center); state = 'interior'; pendingCut = true;   // center is inside (torus: in the tube)
     for (const e of ephem) { e.obj.geometry?.dispose?.(); dyn.remove(e.obj); } ephem.length = 0;
     ball.material.color.copy(COL.path); ball.material.emissive.copy(COL.path);
     if (hits) { hits.fill(0); hitMax = 0; recolorHits(); }    // fresh hit tally
@@ -401,7 +431,7 @@
   function pulse(p3, color) {
     const ring = new THREE.Mesh(new THREE.RingGeometry(0.04, 0.075, 40),
       new THREE.MeshBasicMaterial({ color, transparent: true, opacity: 0.9, side: THREE.DoubleSide, depthWrite: false }));
-    const n = p3.clone().normalize(); orient(ring, Zax, n); ring.position.copy(p3).addScaledVector(n, 0.015);
+    const n = normalAt(p3, new THREE.Vector3()); orient(ring, Zax, n); ring.position.copy(p3).addScaledVector(n, 0.015);
     ring.renderOrder = 3; dyn.add(ring); ephem.push({ obj: ring, life: 0.7, max: 0.7, kind: 'pulse' });
   }
   function killMark(p3) {
@@ -429,15 +459,14 @@
     }
     if (state === 'boundary') {
       dwellT -= dt;
-      if (params.mode === 'stickyDiffuse') {                       // Brownian motion over ∂Ω (tangential)
-        const g = new THREE.Vector3(gauss(), gauss(), gauss());
-        g.addScaledVector(bndDir, -g.dot(bndDir));                 // project out the radial part
-        bndDir.addScaledVector(g, Math.sqrt(2 * params.tangDiff * dt)).normalize();
-        pos.copy(bndDir).multiplyScalar(dom.rho(bndDir.x, bndDir.y, bndDir.z)); pushTrail();
+      if (params.mode === 'stickyDiffuse') {                       // Brownian motion over ∂Ω (tangential, then re-project)
+        normalAt(bndPt, _nrm);
+        _gv.set(gauss(), gauss(), gauss()); _gv.addScaledVector(_nrm, -_gv.dot(_nrm));   // project out the normal part
+        bndPt.addScaledVector(_gv, Math.sqrt(2 * params.tangDiff * dt));
+        projectToBoundary(bndPt); pos.copy(bndPt); pushTrail();
       }
       if (dwellT <= 0) {
-        const Rb = dom.rho(bndDir.x, bndDir.y, bndDir.z);
-        pos.copy(bndDir).multiplyScalar(Rb - 0.07); state = 'interior';
+        normalAt(bndPt, _nrm); pos.copy(bndPt).addScaledVector(_nrm, -0.07); state = 'interior';
         ball.material.color.copy(COL.path); ball.material.emissive.copy(COL.path);
       }
       return;
@@ -447,7 +476,7 @@
     if (Math.random() < params.jumpRate * dt) {
       const from = pos.clone();
       const to = new THREE.Vector3(pos.x + gauss() * params.jumpSigma, pos.y + gauss() * params.jumpSigma, pos.z + gauss() * params.jumpSigma);
-      clampInside(to); jumpArc(from, to); pos.copy(to); pendingCut = true; pushTrail(); return;
+      pullInside(to); jumpArc(from, to); pos.copy(to); pendingCut = true; pushTrail(); return;
     }
     const s = Math.sqrt(2 * params.diffusion * dt);
     pos.x += gauss() * s; pos.y += gauss() * s; pos.z += gauss() * s;
@@ -456,16 +485,14 @@
   }
 
   function handleBoundary() {
-    const r = pos.length(); const dir = pos.clone().multiplyScalar(1 / r);
-    const Rb = dom.rho(dir.x, dir.y, dir.z);
-    const contact = dir.clone().multiplyScalar(Rb);
-    recordHit(dir.x, dir.y, dir.z);                       // tally the contact for the heatmap
+    const contact = projectToBoundary(pos.clone());       // nearest boundary point along ∇F
+    recordHit(contact.x, contact.y, contact.z);           // tally the contact for the heatmap
     switch (params.mode) {
       case 'reflect':
-        pos.copy(dir).multiplyScalar(2 * Rb - r); pulse(contact, COL.reflect); break;
+        pullInside(pos); pulse(contact, COL.reflect); break;
       case 'sticky':
       case 'stickyDiffuse':
-        pos.copy(contact); bndDir.copy(dir); state = 'boundary'; dwellT = expRand(params.dwell);
+        pos.copy(contact); bndPt.copy(contact); state = 'boundary'; dwellT = expRand(params.dwell);
         ball.material.color.copy(COL.stuck); ball.material.emissive.copy(COL.stuck); pulse(contact, COL.stuck); break;
       case 'absorb':
         pos.copy(contact); state = 'absorbed'; absorbT = params.absorbPause;
@@ -553,10 +580,11 @@
   }
 
   function setDomain(keyName) {
-    dom = makeDomain(DOMAIN_SPECS[keyName]); buildDomain(); frameCamera(); resetSim();
+    dom = buildDomainObj(keyName); buildDomain(); frameCamera(); resetSim();
   }
 
   const gui = new GUI({ title: 'Jump-diffusion in Ω ⊂ ℝ³' });
+  if (window.matchMedia('(max-width: 600px)').matches) gui.close();
   const domNames = {}; for (const k of Object.keys(DOMAIN_SPECS)) domNames[DOMAIN_SPECS[k].name] = k;
   gui.add(params, 'domain', domNames).name('domain Ω').onChange(setDomain);
   gui.add(params, 'mode', {
