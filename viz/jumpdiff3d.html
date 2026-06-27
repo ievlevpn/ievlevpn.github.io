@@ -31,6 +31,8 @@
   .caption .sub sub, .legend sub { font-size: 0.72em; }
   .status { margin: 8px 0 0; font-size: clamp(12px,1.5vw,14px); color: var(--ink); font-weight: 600; }
   .status .st { color: var(--ink-soft); font-weight: 500; }
+  .formula { margin: 6px 0 0; font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif; font-style: italic; font-size: clamp(12px,1.55vw,15px); color: var(--ink); }
+  .formula b { font-style: normal; font-weight: 600; color: #8458d6; }
   .legend { margin: 8px 0 0; font-size: clamp(11px,1.35vw,13px); display: flex; gap: 13px; flex-wrap: wrap; color: var(--ink-soft); }
   .legend .k { display: inline-flex; align-items: center; gap: 6px; }
   .legend .sw { width: 15px; height: 11px; border-radius: 3px; display: inline-block; border: 1px solid var(--hairline); }
@@ -83,6 +85,7 @@
       the rule in the panel; the translucent shell lets you watch the path inside.
     </p>
     <p class="status" id="status"></p>
+    <p class="formula" id="formula"></p>
     <p class="legend" id="legend"></p>
   </div>
   <div class="hint" id="hint">drag to rotate &nbsp;·&nbsp; scroll to zoom</div>
@@ -297,6 +300,7 @@
   const params = {
     domain: 'blob', mode: 'reflect',
     diffusion: 0.30, jumpRate: 0.9, jumpSigma: 0.6,
+    driftField: 'none', driftStrength: 1.0,
     dwell: 0.7, tangDiff: 2.2, absorbPause: 0.9,
     speed: 1.0, showShell: true, showWire: false, showShadow: true, rotateSpeed: 1.4, heatmap: true,
     reset: () => resetSim(),
@@ -416,6 +420,19 @@
   }
   const expRand = mean => -mean * Math.log(Math.random() || 1e-9);
 
+  // drift field b(x) for the drift-diffusion  dX = b(X) dt + √(2D) dW
+  const _drift = new THREE.Vector3();
+  function drift(p, out) {
+    const s = params.driftStrength;
+    switch (params.driftField) {
+      case 'swirl':    return out.set(-p.y, p.x, 0).multiplyScalar(s);          // circulation about the z-axis
+      case 'inward':   return out.copy(dom.center).sub(p).multiplyScalar(s);    // confine toward the centre
+      case 'outward':  return out.copy(p).sub(dom.center).multiplyScalar(s);    // push toward ∂Ω
+      case 'downward': return out.set(0, -s, 0);                                // gravity / sedimentation
+      default:         return out.set(0, 0, 0);
+    }
+  }
+
   function resetSim() {
     trail = []; cut = []; pos.copy(dom.center); state = 'interior'; pendingCut = true;   // center is inside (torus: in the tube)
     for (const e of ephem) { e.obj.geometry?.dispose?.(); dyn.remove(e.obj); } ephem.length = 0;
@@ -463,6 +480,8 @@
         normalAt(bndPt, _nrm);
         _gv.set(gauss(), gauss(), gauss()); _gv.addScaledVector(_nrm, -_gv.dot(_nrm));   // project out the normal part
         bndPt.addScaledVector(_gv, Math.sqrt(2 * params.tangDiff * dt));
+        drift(bndPt, _drift); _drift.addScaledVector(_nrm, -_drift.dot(_nrm));            // tangential part of the drift
+        bndPt.addScaledVector(_drift, dt);
         projectToBoundary(bndPt); pos.copy(bndPt); pushTrail();
       }
       if (dwellT <= 0) {
@@ -479,7 +498,8 @@
       pullInside(to); jumpArc(from, to); pos.copy(to); pendingCut = true; pushTrail(); return;
     }
     const s = Math.sqrt(2 * params.diffusion * dt);
-    pos.x += gauss() * s; pos.y += gauss() * s; pos.z += gauss() * s;
+    drift(pos, _drift);
+    pos.x += gauss() * s + _drift.x * dt; pos.y += gauss() * s + _drift.y * dt; pos.z += gauss() * s + _drift.z * dt;
     if (!inside(pos)) handleBoundary();
     pushTrail();
   }
@@ -556,7 +576,24 @@
     const st = state === 'interior' ? 'diffusing in Ω'
       : state === 'boundary' ? (params.mode === 'stickyDiffuse' ? 'stuck on ∂Ω, sliding' : 'stuck on ∂Ω')
       : 'absorbed — respawning';
-    statusEl.innerHTML = 'domain: ' + dom.name + ' &nbsp;·&nbsp; rule: ' + MODE_NAME[params.mode] + ' &nbsp;·&nbsp; <span class="st">' + st + '</span>';
+    const dr = params.driftField !== 'none' ? ' &nbsp;·&nbsp; drift: ' + params.driftField : '';
+    statusEl.innerHTML = 'domain: ' + dom.name + ' &nbsp;·&nbsp; rule: ' + MODE_NAME[params.mode] + dr + ' &nbsp;·&nbsp; <span class="st">' + st + '</span>';
+    updateFormula();
+  }
+  const formulaEl = document.getElementById('formula');
+  function driftRHS() {
+    const s = params.driftStrength.toFixed(2);
+    switch (params.driftField) {
+      case 'swirl':    return s + ' (−y, x, 0)';
+      case 'inward':   return s + ' (c − X<sub>t</sub>)';
+      case 'outward':  return s + ' (X<sub>t</sub> − c)';
+      case 'downward': return '(0, −' + s + ', 0)';
+      default:         return '0';
+    }
+  }
+  function updateFormula() {
+    const D = params.diffusion.toFixed(2), c = params.driftField === 'inward' || params.driftField === 'outward' ? ',&nbsp; c = centre of Ω' : '';
+    formulaEl.innerHTML = 'dX<sub>t</sub> = <b>b</b>(X<sub>t</sub>) dt + √(2·' + D + ') dW<sub>t</sub> &nbsp;&nbsp; with &nbsp; <b>b</b>(X<sub>t</sub>) = ' + driftRHS() + c;
   }
 
   function applyTheme(theme) {
@@ -593,10 +630,13 @@
     'Jump to interior': 'jump'
   }).name('boundary rule ∂Ω').onChange(resetSim);
   const fP = gui.addFolder('Jump-diffusion');
-  fP.add(params, 'diffusion', 0.05, 1.0, 0.01).name('diffusion D');
+  fP.add(params, 'diffusion', 0.05, 1.0, 0.01).name('diffusion D').onChange(updateFormula);
   fP.add(params, 'jumpRate', 0, 3, 0.05).name('jump rate λ');
   fP.add(params, 'jumpSigma', 0.15, 1.2, 0.05).name('jump size');
   fP.add(params, 'speed', 0.2, 3, 0.1).name('speed');
+  const fD = gui.addFolder('Drift field b(x)');
+  fD.add(params, 'driftField', { 'none': 'none', 'swirl (around z)': 'swirl', 'inward (confine)': 'inward', 'outward (to ∂Ω)': 'outward', 'downward (gravity)': 'downward' }).name('field').onChange(updateStatus);
+  fD.add(params, 'driftStrength', 0, 3, 0.05).name('strength').onChange(updateFormula);
   const fB = gui.addFolder('Boundary');
   fB.add(params, 'dwell', 0.1, 3, 0.05).name('sticky dwell (mean)');
   fB.add(params, 'tangDiff', 0.2, 6, 0.1).name('along-∂Ω diffusion');
