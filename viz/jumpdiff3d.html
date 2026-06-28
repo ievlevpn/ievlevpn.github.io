@@ -31,7 +31,11 @@
   .caption .sub sub, .legend sub { font-size: 0.72em; }
   .status { margin: 8px 0 0; font-size: clamp(12px,1.5vw,14px); color: var(--ink); font-weight: 600; }
   .status .st { color: var(--ink-soft); font-weight: 500; }
-  .formula { margin: 6px 0 0; font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif; font-style: italic; font-size: clamp(12px,1.55vw,15px); color: var(--ink); }
+  /* the SDE as a centred display equation, pinned bottom-centre over the figure */
+  .formula { position: fixed; left: 50%; bottom: 42px; transform: translateX(-50%); margin: 0;
+    max-width: 92vw; text-align: center; font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-style: italic; font-size: clamp(13px,1.9vw,18px); color: var(--ink); pointer-events: none; user-select: none;
+    text-shadow: 0 0 4px var(--halo), 0 0 4px var(--halo), 0 0 9px var(--halo); }
   .formula b { font-style: normal; font-weight: 600; color: #8458d6; }
   .legend { margin: 8px 0 0; font-size: clamp(11px,1.35vw,13px); display: flex; gap: 13px; flex-wrap: wrap; color: var(--ink-soft); }
   .legend .k { display: inline-flex; align-items: center; gap: 6px; }
@@ -61,10 +65,12 @@
   .webgl-error { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; text-align: center; padding: 40px; color: #222; }
   /* preview mode (?preview): clean thumbnail, hide all UI chrome */
   body.preview .caption, body.preview .hint, body.preview .lil-gui { display: none !important; }
-  /* mobile: panel starts collapsed (tap title to open); hide long description */
-  @media (max-width: 600px) {
+  /* phones & touch: collapse the GUI (tap title to open) and hide the long
+     description so the figure stays front-and-centre. pointer:coarse catches
+     touch devices the width breakpoint alone would miss. */
+  @media (max-width: 820px), (pointer: coarse) {
     .lil-gui.root { --width: min(82vw, 286px); }
-    .caption { top: 58px; }          /* clear the collapsed GUI title bar */
+    .caption { top: 58px; max-width: 92vw; }   /* clear the collapsed GUI title bar */
     .caption .sub { display: none; }
   }
 </style>
@@ -593,7 +599,10 @@
   }
   function updateFormula() {
     const D = params.diffusion.toFixed(2), c = params.driftField === 'inward' || params.driftField === 'outward' ? ',&nbsp; c = centre of Ω' : '';
-    formulaEl.innerHTML = 'dX<sub>t</sub> = <b>b</b>(X<sub>t</sub>) dt + √(2·' + D + ') dW<sub>t</sub> &nbsp;&nbsp; with &nbsp; <b>b</b>(X<sub>t</sub>) = ' + driftRHS() + c;
+    const jump = params.jumpRate > 0
+      ? ' + d<b>J</b><sub>t</sub>,&nbsp; <b>J</b>: compound Poisson(λ=' + params.jumpRate.toFixed(2) + '), jumps ~ 𝒩(0, ' + params.jumpSigma.toFixed(2) + '² I<sub>3</sub>)'
+      : '';
+    formulaEl.innerHTML = 'dX<sub>t</sub> = <b>b</b>(X<sub>t</sub>) dt + √(2·' + D + ') dW<sub>t</sub>' + jump + ' &nbsp;&nbsp; with &nbsp; <b>b</b>(X<sub>t</sub>) = ' + driftRHS() + c;
   }
 
   function applyTheme(theme) {
@@ -621,7 +630,7 @@
   }
 
   const gui = new GUI({ title: 'Jump-diffusion in Ω ⊂ ℝ³' });
-  if (window.matchMedia('(max-width: 600px)').matches) gui.close();
+  if (window.matchMedia('(max-width: 820px), (pointer: coarse)').matches) gui.close();
   const domNames = {}; for (const k of Object.keys(DOMAIN_SPECS)) domNames[DOMAIN_SPECS[k].name] = k;
   gui.add(params, 'domain', domNames).name('domain Ω').onChange(setDomain);
   gui.add(params, 'mode', {
@@ -631,8 +640,8 @@
   }).name('boundary rule ∂Ω').onChange(resetSim);
   const fP = gui.addFolder('Jump-diffusion');
   fP.add(params, 'diffusion', 0.05, 1.0, 0.01).name('diffusion D').onChange(updateFormula);
-  fP.add(params, 'jumpRate', 0, 3, 0.05).name('jump rate λ');
-  fP.add(params, 'jumpSigma', 0.15, 1.2, 0.05).name('jump size');
+  fP.add(params, 'jumpRate', 0, 3, 0.05).name('jump rate λ').onChange(updateFormula);
+  fP.add(params, 'jumpSigma', 0.15, 1.2, 0.05).name('jump size').onChange(updateFormula);
   fP.add(params, 'speed', 0.2, 3, 0.1).name('speed');
   const fD = gui.addFolder('Drift field b(x)');
   fD.add(params, 'driftField', { 'none': 'none', 'swirl (around z)': 'swirl', 'inward (confine)': 'inward', 'outward (to ∂Ω)': 'outward', 'downward (gravity)': 'downward' }).name('field').onChange(updateStatus);
