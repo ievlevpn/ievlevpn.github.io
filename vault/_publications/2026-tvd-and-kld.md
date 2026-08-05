@@ -1,8 +1,8 @@
 ---
 layout: publication
 title: Upper and lower bounds on TVD and KLD between centered elliptical distributions in high-dimensional setting
-date: 2025-01-01
-year: 2025
+date: 2026-01-01
+year: 2026
 authors:
   - Pavel Ievlev
   - Timofei Shashkov
@@ -20,12 +20,12 @@ doi:
 arxiv: "2501.02553"
 pdf: 
 bibtex: |-
-  @article{ievlev_shashkov_2025,
+  @article{ievlev_shashkov_2026,
     title={Upper and lower bounds on {TVD} and {KLD} between centered elliptical distributions in high-dimensional setting},
     author={Ievlev, Pavel and Shashkov, Timofei},
     journal={Probability and Mathematical Statistics},
     note={accepted},
-    year={2025}
+    year={2026}
   }
 ---
 In this paper, we derive some upper and lower bounds and inequalities for the total variation distance (TVD) and the Kullback-Leibler divergence (KLD), also known as the relative entropy, between two probability measures $\mu$ and $\nu$ defined by 
