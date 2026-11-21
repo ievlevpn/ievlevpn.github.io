@@ -1,0 +1,15 @@
+Samples: FluidR3_GM soundfont, pre-rendered to MP3 by gleitz/midi-js-soundfonts
+(https://github.com/gleitz/midi-js-soundfonts). The repository's README states the FluidR3_GM samples are
+released under the Creative Commons Attribution 3.0 license (https://creativecommons.org/licenses/by/3.0/us/):
+free to share and adapt, including privately and commercially, provided attribution is given.
+Attribution: FluidR3_GM by Frank Wen; MP3 renders by Benjamin Gleitzman (midi-js-soundfonts).
+
+The midi-js-soundfonts repository itself (code and packaging) is under this licence:
+
+Copyright (C) 2012 Benjamin Gleitzman (gleitz@mit.edu)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

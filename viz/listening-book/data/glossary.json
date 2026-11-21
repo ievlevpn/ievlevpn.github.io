@@ -1,0 +1,5287 @@
+{
+ "entries": [
+  {
+   "id": "answer",
+   "title": "Answer",
+   "also": "also: real answer · tonal answer",
+   "aliases": [
+    "answer",
+    "real answer",
+    "tonal answer"
+   ],
+   "links": [
+    "answer",
+    "real answer",
+    "tonal answer"
+   ],
+   "short": "The subject's second entry, a fifth higher, sometimes with a note changed to stay in the key.",
+   "text": "In a fugue, the second voice to enter plays the subject again a fifth higher (or a fourth lower), in the key of the dominant: this is the answer. A real answer copies every interval exactly. A tonal answer changes a note or two near the start, so that the subject's tonic is answered by the dominant and its dominant by the tonic, and the music stays anchored in the home key.",
+   "related": [
+    "subject",
+    "countersubject",
+    "fugue"
+   ],
+   "pieces": [
+    {
+     "id": "bwv1079-ricercar-a3"
+    },
+    {
+     "id": "bwv1079-ricercar-a6"
+    },
+    {
+     "id": "contrapunctus01"
+    },
+    {
+     "id": "contrapunctus06"
+    },
+    {
+     "id": "bwv846"
+    },
+    {
+     "id": "bwv847"
+    },
+    {
+     "id": "bwv848"
+    },
+    {
+     "id": "bwv850"
+    },
+    {
+     "id": "bwv851"
+    },
+    {
+     "id": "bwv852"
+    },
+    {
+     "id": "bwv853"
+    },
+    {
+     "id": "bwv854"
+    },
+    {
+     "id": "bwv855"
+    },
+    {
+     "id": "bwv856"
+    },
+    {
+     "id": "bwv857"
+    },
+    {
+     "id": "bwv858"
+    },
+    {
+     "id": "bwv859"
+    },
+    {
+     "id": "bwv860"
+    },
+    {
+     "id": "bwv861"
+    },
+    {
+     "id": "bwv862"
+    },
+    {
+     "id": "bwv863"
+    },
+    {
+     "id": "bwv864"
+    },
+    {
+     "id": "bwv866"
+    },
+    {
+     "id": "bwv867"
+    },
+    {
+     "id": "bwv868"
+    },
+    {
+     "id": "bwv869"
+    }
+   ],
+   "example": {
+    "id": "glossary-answer",
+    "title": "",
+    "collection": "",
+    "catalogue": "",
+    "key": "C",
+    "tempo": 60,
+    "beatsPerBar": 4,
+    "ensemble": "chamber",
+    "voices": [
+     {
+      "name": "Answer",
+      "texture": "hatch",
+      "instrument": "flute",
+      "pan": -0.6
+     },
+     {
+      "name": "Subject",
+      "texture": "solid",
+      "instrument": "violin",
+      "pan": 0.6
+     }
+    ],
+    "notes": [
+     {
+      "v": 1,
+      "p": 60,
+      "s": 0,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 67,
+      "s": 1,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 65,
+      "s": 2,
+      "d": 0.5
+     },
+     {
+      "v": 1,
+      "p": 64,
+      "s": 2.5,
+      "d": 0.5
+     },
+     {
+      "v": 1,
+      "p": 62,
+      "s": 3,
+      "d": 0.5
+     },
+     {
+      "v": 1,
+      "p": 64,
+      "s": 3.5,
+      "d": 0.5
+     },
+     {
+      "v": 1,
+      "p": 60,
+      "s": 4,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 67,
+      "s": 5,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 72,
+      "s": 6,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 72,
+      "s": 7,
+      "d": 0.5
+     },
+     {
+      "v": 0,
+      "p": 71,
+      "s": 7.5,
+      "d": 0.5
+     },
+     {
+      "v": 0,
+      "p": 69,
+      "s": 8,
+      "d": 0.5
+     },
+     {
+      "v": 0,
+      "p": 71,
+      "s": 8.5,
+      "d": 0.5
+     },
+     {
+      "v": 0,
+      "p": 67,
+      "s": 9,
+      "d": 1
+     }
+    ],
+    "threads": [
+     {
+      "a": 0,
+      "b": 7,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 1,
+      "b": 8,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": true
+     },
+     {
+      "a": 2,
+      "b": 9,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 3,
+      "b": 10,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 4,
+      "b": 11,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 5,
+      "b": 12,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 6,
+      "b": 13,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     }
+    ],
+    "marks": [
+     {
+      "kind": "entry",
+      "start": 0,
+      "end": 5,
+      "voice": 1,
+      "label": "subject"
+     },
+     {
+      "kind": "entry",
+      "start": 5,
+      "end": 10,
+      "voice": 0,
+      "label": "answer"
+     }
+    ],
+    "captions": [],
+    "techniques": [],
+    "listenFor": "",
+    "caption": "The subject (solid), then the answer a fifth higher (hatched). The tick marks the tonal change: the subject's C–G is answered G–C, not G–D."
+   }
+  },
+  {
+   "id": "augmentation",
+   "title": "Augmentation",
+   "also": "also: per augmentationem",
+   "aliases": [
+    "augmentation",
+    "per augmentationem"
+   ],
+   "links": [
+    "augmentation",
+    "per augmentationem"
+   ],
+   "short": "The line played in longer notes, usually twice as long, with its shape unchanged.",
+   "text": "The line is played in longer notes, usually each twice as long, so it moves at half the speed but keeps its shape. In a canon by augmentation the follower falls further and further behind the leader; in a fugue the subject may return augmented, often in the bass, against itself at the normal speed.",
+   "related": [
+    "diminution",
+    "canon"
+   ],
+   "pieces": [
+    {
+     "id": "bwv1079-augmentationem"
+    },
+    {
+     "id": "bwv853"
+    }
+   ],
+   "example": {
+    "id": "glossary-augmentation",
+    "title": "",
+    "collection": "",
+    "catalogue": "",
+    "key": "C",
+    "tempo": 66,
+    "beatsPerBar": 4,
+    "ensemble": "chamber",
+    "voices": [
+     {
+      "name": "Motif",
+      "texture": "solid",
+      "instrument": "flute",
+      "pan": -0.6
+     },
+     {
+      "name": "Augmented",
+      "texture": "hatch",
+      "instrument": "violin",
+      "pan": 0.6
+     }
+    ],
+    "notes": [
+     {
+      "v": 0,
+      "p": 72,
+      "s": 0,
+      "d": 0.5
+     },
+     {
+      "v": 0,
+      "p": 74,
+      "s": 0.5,
+      "d": 0.5
+     },
+     {
+      "v": 0,
+      "p": 76,
+      "s": 1,
+      "d": 0.5
+     },
+     {
+      "v": 0,
+      "p": 77,
+      "s": 1.5,
+      "d": 0.5
+     },
+     {
+      "v": 0,
+      "p": 74,
+      "s": 2,
+      "d": 0.5
+     },
+     {
+      "v": 0,
+      "p": 76,
+      "s": 2.5,
+      "d": 0.5
+     },
+     {
+      "v": 0,
+      "p": 72,
+      "s": 3,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 60,
+      "s": 4,
+      "d": 1.0
+     },
+     {
+      "v": 1,
+      "p": 62,
+      "s": 5.0,
+      "d": 1.0
+     },
+     {
+      "v": 1,
+      "p": 64,
+      "s": 6,
+      "d": 1.0
+     },
+     {
+      "v": 1,
+      "p": 65,
+      "s": 7.0,
+      "d": 1.0
+     },
+     {
+      "v": 1,
+      "p": 62,
+      "s": 8,
+      "d": 1.0
+     },
+     {
+      "v": 1,
+      "p": 64,
+      "s": 9.0,
+      "d": 1.0
+     },
+     {
+      "v": 1,
+      "p": 60,
+      "s": 10,
+      "d": 2
+     }
+    ],
+    "threads": [
+     {
+      "a": 0,
+      "b": 7,
+      "kind": "stretch",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 1,
+      "b": 8,
+      "kind": "stretch",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 2,
+      "b": 9,
+      "kind": "stretch",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 3,
+      "b": 10,
+      "kind": "stretch",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 4,
+      "b": 11,
+      "kind": "stretch",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 5,
+      "b": 12,
+      "kind": "stretch",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 6,
+      "b": 13,
+      "kind": "stretch",
+      "broken": false,
+      "adjusted": false
+     }
+    ],
+    "marks": [
+     {
+      "kind": "stretch",
+      "start": 4,
+      "end": 12,
+      "voice": 1,
+      "label": "×2"
+     }
+    ],
+    "captions": [],
+    "techniques": [],
+    "listenFor": "",
+    "caption": "The motif (solid), then the same motif an octave lower in notes twice as long (hatched)."
+   }
+  },
+  {
+   "id": "canon",
+   "title": "Canon",
+   "also": "also: dux and comes · leader and follower",
+   "aliases": [
+    "canon",
+    "dux",
+    "comes",
+    "dux and comes"
+   ],
+   "links": [
+    "canon",
+    "dux",
+    "comes",
+    "dux and comes"
+   ],
+   "short": "One voice, the dux, sings a melody, and another, the comes, sings it later, note for note.",
+   "text": "A strict imitation that lasts: one voice, the dux (leader), sings a melody, and another, the comes (follower), sings the same melody a little later, note for note, while the dux goes on. The rule that turns the dux into the comes (how long to wait, at what interval, upright or mirrored) is the canon's whole secret. Bach often wrote out only the dux, with a sign or a riddle for where the comes begins; in a fugue the same two names mean the subject and its answer.",
+   "related": [
+    "canon-at-the-unison",
+    "canon-at-an-interval",
+    "perpetual-canon",
+    "imitation"
+   ],
+   "pieces": [
+    {
+     "id": "frere-jacques"
+    },
+    {
+     "id": "bwv1079-thema-regium"
+    },
+    {
+     "id": "bwv1079-cancrizans"
+    },
+    {
+     "id": "bwv1079-violini-in-unisono"
+    },
+    {
+     "id": "bwv1079-motum-contrarium"
+    },
+    {
+     "id": "bwv1079-augmentationem"
+    },
+    {
+     "id": "bwv1079-per-tonos"
+    },
+    {
+     "id": "bwv1079-fuga-canonica"
+    },
+    {
+     "id": "bwv1079-quaerendo"
+    },
+    {
+     "id": "bwv1079-canon-a4"
+    },
+    {
+     "id": "bwv1079-canone-perpetuo"
+    },
+    {
+     "id": "goldberg-var03"
+    },
+    {
+     "id": "goldberg-var06"
+    },
+    {
+     "id": "goldberg-var09"
+    },
+    {
+     "id": "goldberg-var12"
+    },
+    {
+     "id": "goldberg-var15"
+    },
+    {
+     "id": "goldberg-var18"
+    },
+    {
+     "id": "goldberg-var21"
+    },
+    {
+     "id": "goldberg-var24"
+    },
+    {
+     "id": "goldberg-var27"
+    },
+    {
+     "id": "invention02"
+    },
+    {
+     "id": "invention08"
+    }
+   ],
+   "example": {
+    "id": "glossary-canon",
+    "title": "",
+    "collection": "",
+    "catalogue": "",
+    "key": "C",
+    "tempo": 66,
+    "beatsPerBar": 4,
+    "ensemble": "chamber",
+    "voices": [
+     {
+      "name": "Dux",
+      "texture": "solid",
+      "instrument": "flute",
+      "pan": -0.6
+     },
+     {
+      "name": "Comes",
+      "texture": "hatch",
+      "instrument": "violin",
+      "pan": 0.6
+     }
+    ],
+    "notes": [
+     {
+      "v": 0,
+      "p": 72,
+      "s": 0,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 74,
+      "s": 1,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 76,
+      "s": 2,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 60,
+      "s": 2,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 74,
+      "s": 3,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 62,
+      "s": 3,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 72,
+      "s": 4,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 64,
+      "s": 4,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 69,
+      "s": 5,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 62,
+      "s": 5,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 72,
+      "s": 6,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 60,
+      "s": 6,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 76,
+      "s": 7,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 57,
+      "s": 7,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 72,
+      "s": 8,
+      "d": 2
+     },
+     {
+      "v": 1,
+      "p": 60,
+      "s": 8,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 64,
+      "s": 9,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 60,
+      "s": 10,
+      "d": 2
+     }
+    ],
+    "threads": [
+     {
+      "a": 0,
+      "b": 3,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 1,
+      "b": 5,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 2,
+      "b": 7,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 4,
+      "b": 9,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 6,
+      "b": 11,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 8,
+      "b": 13,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 10,
+      "b": 15,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 12,
+      "b": 16,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 14,
+      "b": 17,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     }
+    ],
+    "marks": [],
+    "captions": [],
+    "techniques": [],
+    "listenFor": "",
+    "caption": "The dux (solid) and the comes (hatched) an octave lower, two beats behind; each thread joins a note to its copy."
+   }
+  },
+  {
+   "id": "canon-at-an-interval",
+   "title": "Canon at an interval",
+   "also": "also: at the second, the third … the ninth",
+   "aliases": [
+    "canon at the second",
+    "canon at the third",
+    "canon at the fourth",
+    "canon at the fifth",
+    "canon at the sixth",
+    "canon at the seventh",
+    "canon at the octave",
+    "canon at the ninth"
+   ],
+   "links": [
+    "canon at the second",
+    "canon at the third",
+    "canon at the fourth",
+    "canon at the fifth",
+    "canon at the sixth",
+    "canon at the seventh",
+    "canon at the octave",
+    "canon at the ninth"
+   ],
+   "short": "The comes sings the dux's melody moved up or down by a fixed interval.",
+   "text": "The comes sings the dux's melody transposed by a fixed interval: in a canon at the fifth it starts a fifth higher (or lower), in a canon at the octave an octave apart. The interval is usually counted on the scale, so the comes stays in the key, and a whole step in the dux may be answered by a half step. Every third Goldberg Variation is a canon, at each interval in turn from the unison to the ninth.",
+   "related": [
+    "canon",
+    "canon-at-the-unison"
+   ],
+   "pieces": [
+    {
+     "id": "bwv1079-thema-regium",
+     "note": "at the octave"
+    },
+    {
+     "id": "bwv1079-per-tonos",
+     "note": "at the fifth"
+    },
+    {
+     "id": "bwv1079-fuga-canonica",
+     "note": "at the fifth"
+    },
+    {
+     "id": "bwv1079-canon-a4",
+     "note": "at the octave"
+    },
+    {
+     "id": "goldberg-var06",
+     "note": "at the second"
+    },
+    {
+     "id": "goldberg-var09",
+     "note": "at the third"
+    },
+    {
+     "id": "goldberg-var12",
+     "note": "at the fourth"
+    },
+    {
+     "id": "goldberg-var15",
+     "note": "at the fifth"
+    },
+    {
+     "id": "goldberg-var18",
+     "note": "at the sixth"
+    },
+    {
+     "id": "goldberg-var21",
+     "note": "at the seventh"
+    },
+    {
+     "id": "goldberg-var24",
+     "note": "at the octave"
+    },
+    {
+     "id": "goldberg-var27",
+     "note": "at the ninth"
+    },
+    {
+     "id": "invention02",
+     "note": "at the octave"
+    },
+    {
+     "id": "invention08",
+     "note": "at the octave"
+    }
+   ],
+   "example": {
+    "id": "glossary-canon-at-an-interval",
+    "title": "",
+    "collection": "",
+    "catalogue": "",
+    "key": "C",
+    "tempo": 66,
+    "beatsPerBar": 4,
+    "ensemble": "chamber",
+    "voices": [
+     {
+      "name": "Comes",
+      "texture": "hatch",
+      "instrument": "flute",
+      "pan": -0.6
+     },
+     {
+      "name": "Dux",
+      "texture": "solid",
+      "instrument": "violin",
+      "pan": 0.6
+     }
+    ],
+    "notes": [
+     {
+      "v": 1,
+      "p": 72,
+      "s": 0,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 71,
+      "s": 1,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 79,
+      "s": 2,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 67,
+      "s": 2,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 77,
+      "s": 3,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 69,
+      "s": 3,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 74,
+      "s": 4,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 71,
+      "s": 4,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 76,
+      "s": 5,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 69,
+      "s": 5,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 77,
+      "s": 6,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 65,
+      "s": 6,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 76,
+      "s": 7,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 69,
+      "s": 7,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 72,
+      "s": 8,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 72,
+      "s": 8,
+      "d": 2
+     },
+     {
+      "v": 0,
+      "p": 76,
+      "s": 9,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 79,
+      "s": 10,
+      "d": 2
+     }
+    ],
+    "threads": [
+     {
+      "a": 0,
+      "b": 2,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 1,
+      "b": 4,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 3,
+      "b": 6,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 5,
+      "b": 8,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 7,
+      "b": 10,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 9,
+      "b": 12,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 11,
+      "b": 14,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 13,
+      "b": 16,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 15,
+      "b": 17,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     }
+    ],
+    "marks": [],
+    "captions": [],
+    "techniques": [],
+    "listenFor": "",
+    "caption": "A canon at the fifth: the comes (hatched) sings the dux (solid) a fifth higher, two beats later. Steps are counted in C major, so the dux's whole step A–B is answered by the half step E–F."
+   }
+  },
+  {
+   "id": "canon-at-the-unison",
+   "title": "Canon at the unison",
+   "also": "also: round",
+   "aliases": [
+    "canon at the unison",
+    "round"
+   ],
+   "links": [
+    "canon at the unison"
+   ],
+   "short": "The comes sings exactly the dux's notes, at the same pitch, only later.",
+   "text": "The comes sings exactly the same notes as the dux, at the same pitch, only later. Because the two voices share one register they cross and tangle; on the roll their notes sit on the same rows. A round such as Frère Jacques is a canon at the unison.",
+   "related": [
+    "canon",
+    "canon-at-an-interval",
+    "perpetual-canon"
+   ],
+   "pieces": [
+    {
+     "id": "frere-jacques"
+    },
+    {
+     "id": "bwv1079-violini-in-unisono"
+    },
+    {
+     "id": "bwv1079-canon-a4"
+    },
+    {
+     "id": "goldberg-var03"
+    }
+   ],
+   "example": {
+    "id": "glossary-canon-at-the-unison",
+    "title": "",
+    "collection": "",
+    "catalogue": "",
+    "key": "C",
+    "tempo": 92,
+    "beatsPerBar": 4,
+    "ensemble": "chamber",
+    "voices": [
+     {
+      "name": "Dux",
+      "texture": "solid",
+      "instrument": "flute",
+      "pan": -0.6
+     },
+     {
+      "name": "Comes",
+      "texture": "hatch",
+      "instrument": "violin",
+      "pan": 0.6
+     }
+    ],
+    "notes": [
+     {
+      "v": 0,
+      "p": 72,
+      "s": 0,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 74,
+      "s": 1,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 76,
+      "s": 2,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 72,
+      "s": 3,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 72,
+      "s": 4,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 74,
+      "s": 5,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 76,
+      "s": 6,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 72,
+      "s": 7,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 76,
+      "s": 8,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 72,
+      "s": 8,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 77,
+      "s": 9,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 74,
+      "s": 9,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 79,
+      "s": 10,
+      "d": 2
+     },
+     {
+      "v": 1,
+      "p": 76,
+      "s": 10,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 72,
+      "s": 11,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 76,
+      "s": 12,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 72,
+      "s": 12,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 77,
+      "s": 13,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 74,
+      "s": 13,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 79,
+      "s": 14,
+      "d": 2
+     },
+     {
+      "v": 1,
+      "p": 76,
+      "s": 14,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 72,
+      "s": 15,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 76,
+      "s": 16,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 77,
+      "s": 17,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 79,
+      "s": 18,
+      "d": 2
+     },
+     {
+      "v": 1,
+      "p": 76,
+      "s": 20,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 77,
+      "s": 21,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 79,
+      "s": 22,
+      "d": 2
+     }
+    ],
+    "threads": [
+     {
+      "a": 0,
+      "b": 9,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 1,
+      "b": 11,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 2,
+      "b": 13,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 3,
+      "b": 14,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 4,
+      "b": 16,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 5,
+      "b": 18,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 6,
+      "b": 20,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 7,
+      "b": 21,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 8,
+      "b": 22,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 10,
+      "b": 23,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 12,
+      "b": 24,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 15,
+      "b": 25,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 17,
+      "b": 26,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 19,
+      "b": 27,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     }
+    ],
+    "marks": [],
+    "captions": [],
+    "techniques": [],
+    "listenFor": "",
+    "caption": "Frère Jacques as a round: the comes (hatched) sings the dux's notes at the same pitch, two bars later."
+   }
+  },
+  {
+   "id": "chromaticism",
+   "title": "Chromaticism",
+   "also": "also: chromatic fourth",
+   "aliases": [
+    "chromaticism",
+    "chromatic",
+    "chromatic fourth"
+   ],
+   "links": [
+    "chromaticism",
+    "chromatic",
+    "chromatic fourth"
+   ],
+   "short": "Melody or harmony that moves by semitones, using notes from outside the key.",
+   "text": "Melody or harmony that moves by semitones, borrowing the notes that lie outside the key. A line creeping down a fourth through every semitone, the chromatic fourth, is the Baroque figure of lament. Bach uses it to darken a subject or to make a bass ache under a slow cadence.",
+   "related": [
+    "motive"
+   ],
+   "pieces": [
+    {
+     "id": "bwv1079-ricercar-a3"
+    },
+    {
+     "id": "bwv1079-ricercar-a6"
+    },
+    {
+     "id": "sinfonia09"
+    }
+   ],
+   "example": {
+    "id": "glossary-chromaticism",
+    "title": "",
+    "collection": "",
+    "catalogue": "",
+    "key": "d",
+    "tempo": 60,
+    "beatsPerBar": 4,
+    "ensemble": "chamber",
+    "voices": [
+     {
+      "name": "Line",
+      "texture": "solid",
+      "instrument": "flute",
+      "pan": 0.0
+     }
+    ],
+    "notes": [
+     {
+      "v": 0,
+      "p": 74,
+      "s": 0,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 73,
+      "s": 1,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 72,
+      "s": 2,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 71,
+      "s": 3,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 70,
+      "s": 4,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 69,
+      "s": 5,
+      "d": 2
+     }
+    ],
+    "threads": [],
+    "marks": [],
+    "captions": [],
+    "techniques": [],
+    "listenFor": "",
+    "caption": "The chromatic fourth, D down to A through every semitone."
+   }
+  },
+  {
+   "id": "countersubject",
+   "title": "Countersubject",
+   "also": "",
+   "aliases": [
+    "countersubject"
+   ],
+   "links": [
+    "countersubject"
+   ],
+   "short": "The melody that accompanies the subject each time it returns, made to contrast with it.",
+   "text": "In a fugue, once the first voice has finished the subject it goes on to play a new melody against the answer. When that melody comes back with later entries, as the subject's regular partner, it is called a countersubject. It is written to contrast with the subject, often moving where the subject holds still.",
+   "related": [
+    "subject",
+    "answer",
+    "invertible-counterpoint"
+   ],
+   "pieces": [
+    {
+     "id": "bwv847"
+    },
+    {
+     "id": "bwv848"
+    },
+    {
+     "id": "bwv855"
+    },
+    {
+     "id": "bwv857"
+    },
+    {
+     "id": "bwv858"
+    },
+    {
+     "id": "bwv859"
+    },
+    {
+     "id": "bwv861"
+    },
+    {
+     "id": "bwv863"
+    },
+    {
+     "id": "bwv866"
+    },
+    {
+     "id": "bwv869"
+    }
+   ],
+   "example": {
+    "id": "glossary-countersubject",
+    "title": "",
+    "collection": "",
+    "catalogue": "",
+    "key": "C",
+    "tempo": 60,
+    "beatsPerBar": 4,
+    "ensemble": "chamber",
+    "voices": [
+     {
+      "name": "Answer",
+      "texture": "hatch",
+      "instrument": "flute",
+      "pan": -0.6
+     },
+     {
+      "name": "Subject",
+      "texture": "solid",
+      "instrument": "violin",
+      "pan": 0.6
+     }
+    ],
+    "notes": [
+     {
+      "v": 1,
+      "p": 60,
+      "s": 0,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 67,
+      "s": 1,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 65,
+      "s": 2,
+      "d": 0.5
+     },
+     {
+      "v": 1,
+      "p": 64,
+      "s": 2.5,
+      "d": 0.5
+     },
+     {
+      "v": 1,
+      "p": 62,
+      "s": 3,
+      "d": 0.5
+     },
+     {
+      "v": 1,
+      "p": 64,
+      "s": 3.5,
+      "d": 0.5
+     },
+     {
+      "v": 1,
+      "p": 60,
+      "s": 4,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 67,
+      "s": 5,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 64,
+      "s": 5,
+      "d": 0.5
+     },
+     {
+      "v": 1,
+      "p": 62,
+      "s": 5.5,
+      "d": 0.5
+     },
+     {
+      "v": 0,
+      "p": 72,
+      "s": 6,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 60,
+      "s": 6,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 72,
+      "s": 7,
+      "d": 0.5
+     },
+     {
+      "v": 1,
+      "p": 64,
+      "s": 7,
+      "d": 0.5
+     },
+     {
+      "v": 0,
+      "p": 71,
+      "s": 7.5,
+      "d": 0.5
+     },
+     {
+      "v": 1,
+      "p": 62,
+      "s": 7.5,
+      "d": 0.5
+     },
+     {
+      "v": 0,
+      "p": 69,
+      "s": 8,
+      "d": 0.5
+     },
+     {
+      "v": 1,
+      "p": 60,
+      "s": 8,
+      "d": 0.5
+     },
+     {
+      "v": 0,
+      "p": 71,
+      "s": 8.5,
+      "d": 0.5
+     },
+     {
+      "v": 1,
+      "p": 62,
+      "s": 8.5,
+      "d": 0.5
+     },
+     {
+      "v": 0,
+      "p": 67,
+      "s": 9,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 59,
+      "s": 9,
+      "d": 1
+     }
+    ],
+    "threads": [
+     {
+      "a": 0,
+      "b": 7,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 1,
+      "b": 10,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": true
+     },
+     {
+      "a": 2,
+      "b": 12,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 3,
+      "b": 14,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 4,
+      "b": 16,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 5,
+      "b": 18,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 6,
+      "b": 20,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     }
+    ],
+    "marks": [
+     {
+      "kind": "entry",
+      "start": 0,
+      "end": 5,
+      "voice": 1,
+      "label": "subject"
+     },
+     {
+      "kind": "entry",
+      "start": 5,
+      "end": 10,
+      "voice": 0,
+      "label": "answer"
+     },
+     {
+      "kind": "entry",
+      "start": 5,
+      "end": 10,
+      "voice": 1,
+      "label": "countersubject"
+     }
+    ],
+    "captions": [],
+    "techniques": [],
+    "listenFor": "",
+    "caption": "The subject (solid) finishes, and the same voice goes on with the countersubject under the answer (hatched)."
+   }
+  },
+  {
+   "id": "diminution",
+   "title": "Diminution",
+   "also": "also: per diminutionem",
+   "aliases": [
+    "diminution",
+    "per diminutionem"
+   ],
+   "links": [
+    "diminution",
+    "per diminutionem"
+   ],
+   "short": "The line played in shorter notes, usually half as long, with its shape unchanged.",
+   "text": "The line is played in shorter notes, usually each half as long, so it hurries past with the same shape. Fugues use it to fit the subject into a tighter space, sometimes against itself at the normal speed.",
+   "related": [
+    "augmentation"
+   ],
+   "pieces": [
+    {
+     "id": "contrapunctus06"
+    }
+   ],
+   "example": {
+    "id": "glossary-diminution",
+    "title": "",
+    "collection": "",
+    "catalogue": "",
+    "key": "C",
+    "tempo": 66,
+    "beatsPerBar": 4,
+    "ensemble": "chamber",
+    "voices": [
+     {
+      "name": "Motif",
+      "texture": "solid",
+      "instrument": "flute",
+      "pan": -0.6
+     },
+     {
+      "name": "Diminished",
+      "texture": "hatch",
+      "instrument": "violin",
+      "pan": 0.6
+     }
+    ],
+    "notes": [
+     {
+      "v": 0,
+      "p": 72,
+      "s": 0,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 74,
+      "s": 1,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 76,
+      "s": 2,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 77,
+      "s": 3,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 74,
+      "s": 4,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 76,
+      "s": 5,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 72,
+      "s": 6,
+      "d": 2
+     },
+     {
+      "v": 1,
+      "p": 60,
+      "s": 8.0,
+      "d": 0.5
+     },
+     {
+      "v": 1,
+      "p": 62,
+      "s": 8.5,
+      "d": 0.5
+     },
+     {
+      "v": 1,
+      "p": 64,
+      "s": 9.0,
+      "d": 0.5
+     },
+     {
+      "v": 1,
+      "p": 65,
+      "s": 9.5,
+      "d": 0.5
+     },
+     {
+      "v": 1,
+      "p": 62,
+      "s": 10.0,
+      "d": 0.5
+     },
+     {
+      "v": 1,
+      "p": 64,
+      "s": 10.5,
+      "d": 0.5
+     },
+     {
+      "v": 1,
+      "p": 60,
+      "s": 11.0,
+      "d": 1.0
+     }
+    ],
+    "threads": [
+     {
+      "a": 0,
+      "b": 7,
+      "kind": "stretch",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 1,
+      "b": 8,
+      "kind": "stretch",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 2,
+      "b": 9,
+      "kind": "stretch",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 3,
+      "b": 10,
+      "kind": "stretch",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 4,
+      "b": 11,
+      "kind": "stretch",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 5,
+      "b": 12,
+      "kind": "stretch",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 6,
+      "b": 13,
+      "kind": "stretch",
+      "broken": false,
+      "adjusted": false
+     }
+    ],
+    "marks": [
+     {
+      "kind": "stretch",
+      "start": 8,
+      "end": 12,
+      "voice": 1,
+      "label": "×½"
+     }
+    ],
+    "captions": [],
+    "techniques": [],
+    "listenFor": "",
+    "caption": "The motif (solid), then the same motif an octave lower in notes half as long (hatched)."
+   }
+  },
+  {
+   "id": "free-passage",
+   "title": "Free passage",
+   "also": "also: episode · cadence · coda",
+   "aliases": [
+    "free passage",
+    "episode",
+    "cadence",
+    "coda"
+   ],
+   "links": [],
+   "short": "Music outside the imitation, such as a fugue's episodes or a canon's closing cadence.",
+   "text": "Not every bar is imitation. Between a fugue's entries come episodes, which spin out fragments of the subject and lead to a new key; a canon may let its voices go free for a closing cadence, the formula that brings the music to rest. On the roll, notes outside the imitation carry no threads.",
+   "related": [
+    "canon",
+    "fugue"
+   ],
+   "pieces": [
+    {
+     "id": "bwv1079-fuga-canonica"
+    },
+    {
+     "id": "bwv1079-canone-perpetuo"
+    },
+    {
+     "id": "goldberg-var03"
+    },
+    {
+     "id": "goldberg-var06"
+    },
+    {
+     "id": "goldberg-var09"
+    },
+    {
+     "id": "goldberg-var12"
+    },
+    {
+     "id": "goldberg-var15"
+    },
+    {
+     "id": "goldberg-var21"
+    },
+    {
+     "id": "goldberg-var24"
+    },
+    {
+     "id": "goldberg-var27"
+    },
+    {
+     "id": "invention02"
+    }
+   ],
+   "example": {
+    "id": "glossary-free-passage",
+    "title": "",
+    "collection": "",
+    "catalogue": "",
+    "key": "C",
+    "tempo": 66,
+    "beatsPerBar": 4,
+    "ensemble": "chamber",
+    "voices": [
+     {
+      "name": "Dux",
+      "texture": "solid",
+      "instrument": "flute",
+      "pan": -0.6
+     },
+     {
+      "name": "Comes",
+      "texture": "hatch",
+      "instrument": "violin",
+      "pan": 0.6
+     }
+    ],
+    "notes": [
+     {
+      "v": 0,
+      "p": 72,
+      "s": 0,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 74,
+      "s": 1,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 76,
+      "s": 2,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 60,
+      "s": 2,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 74,
+      "s": 3,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 62,
+      "s": 3,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 72,
+      "s": 4,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 64,
+      "s": 4,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 69,
+      "s": 5,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 62,
+      "s": 5,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 76,
+      "s": 6,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 60,
+      "s": 6,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 72,
+      "s": 7,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 57,
+      "s": 7,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 71,
+      "s": 8,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 55,
+      "s": 8,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 72,
+      "s": 9,
+      "d": 2
+     },
+     {
+      "v": 1,
+      "p": 60,
+      "s": 9,
+      "d": 2
+     }
+    ],
+    "threads": [
+     {
+      "a": 0,
+      "b": 3,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 1,
+      "b": 5,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 2,
+      "b": 7,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 4,
+      "b": 9,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 6,
+      "b": 11,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 8,
+      "b": 13,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     }
+    ],
+    "marks": [],
+    "captions": [],
+    "techniques": [],
+    "listenFor": "",
+    "caption": "A canon at the octave; where the threads stop, both voices go free and close with a cadence."
+   }
+  },
+  {
+   "id": "fugue",
+   "title": "Fugue",
+   "also": "also: fuga",
+   "aliases": [
+    "fugue",
+    "fuga",
+    "exposition"
+   ],
+   "links": [
+    "fugue",
+    "fuga",
+    "exposition"
+   ],
+   "short": "A piece built on one subject, which each voice enters with in turn.",
+   "text": "A piece built on one subject, which each voice takes up in turn: subject, answer, subject again, until all the voices are in; this opening is the exposition. After that the subject returns in other keys, between free episodes, and may be combined with itself in stretto, inversion or augmentation. A fugue is a way of writing more than a fixed form: no two of Bach's are built alike.",
+   "related": [
+    "subject",
+    "answer",
+    "countersubject",
+    "stretto",
+    "free-passage"
+   ],
+   "pieces": [
+    {
+     "id": "bwv1079-ricercar-a3"
+    },
+    {
+     "id": "bwv1079-ricercar-a6"
+    },
+    {
+     "id": "contrapunctus01"
+    },
+    {
+     "id": "contrapunctus06"
+    },
+    {
+     "id": "bwv846"
+    },
+    {
+     "id": "bwv847"
+    },
+    {
+     "id": "bwv848"
+    },
+    {
+     "id": "bwv850"
+    },
+    {
+     "id": "bwv851"
+    },
+    {
+     "id": "bwv852"
+    },
+    {
+     "id": "bwv853"
+    },
+    {
+     "id": "bwv854"
+    },
+    {
+     "id": "bwv855"
+    },
+    {
+     "id": "bwv856"
+    },
+    {
+     "id": "bwv857"
+    },
+    {
+     "id": "bwv858"
+    },
+    {
+     "id": "bwv859"
+    },
+    {
+     "id": "bwv860"
+    },
+    {
+     "id": "bwv861"
+    },
+    {
+     "id": "bwv862"
+    },
+    {
+     "id": "bwv863"
+    },
+    {
+     "id": "bwv864"
+    },
+    {
+     "id": "bwv866"
+    },
+    {
+     "id": "bwv867"
+    },
+    {
+     "id": "bwv868"
+    },
+    {
+     "id": "bwv869"
+    }
+   ],
+   "example": {
+    "id": "glossary-fugue",
+    "title": "",
+    "collection": "",
+    "catalogue": "",
+    "key": "C",
+    "tempo": 60,
+    "beatsPerBar": 4,
+    "ensemble": "chamber",
+    "voices": [
+     {
+      "name": "Soprano",
+      "texture": "hatch",
+      "instrument": "flute",
+      "pan": -0.6
+     },
+     {
+      "name": "Alto",
+      "texture": "solid",
+      "instrument": "violin",
+      "pan": 0.0
+     },
+     {
+      "name": "Bass",
+      "texture": "stipple",
+      "instrument": "cello",
+      "pan": 0.6
+     }
+    ],
+    "notes": [
+     {
+      "v": 1,
+      "p": 60,
+      "s": 0,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 67,
+      "s": 1,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 65,
+      "s": 2,
+      "d": 0.5
+     },
+     {
+      "v": 1,
+      "p": 64,
+      "s": 2.5,
+      "d": 0.5
+     },
+     {
+      "v": 1,
+      "p": 62,
+      "s": 3,
+      "d": 0.5
+     },
+     {
+      "v": 1,
+      "p": 64,
+      "s": 3.5,
+      "d": 0.5
+     },
+     {
+      "v": 1,
+      "p": 60,
+      "s": 4,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 67,
+      "s": 5,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 64,
+      "s": 5,
+      "d": 0.5
+     },
+     {
+      "v": 1,
+      "p": 62,
+      "s": 5.5,
+      "d": 0.5
+     },
+     {
+      "v": 0,
+      "p": 72,
+      "s": 6,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 60,
+      "s": 6,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 72,
+      "s": 7,
+      "d": 0.5
+     },
+     {
+      "v": 1,
+      "p": 64,
+      "s": 7,
+      "d": 0.5
+     },
+     {
+      "v": 0,
+      "p": 71,
+      "s": 7.5,
+      "d": 0.5
+     },
+     {
+      "v": 1,
+      "p": 62,
+      "s": 7.5,
+      "d": 0.5
+     },
+     {
+      "v": 0,
+      "p": 69,
+      "s": 8,
+      "d": 0.5
+     },
+     {
+      "v": 1,
+      "p": 60,
+      "s": 8,
+      "d": 0.5
+     },
+     {
+      "v": 0,
+      "p": 71,
+      "s": 8.5,
+      "d": 0.5
+     },
+     {
+      "v": 1,
+      "p": 62,
+      "s": 8.5,
+      "d": 0.5
+     },
+     {
+      "v": 0,
+      "p": 67,
+      "s": 9,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 59,
+      "s": 9,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 67,
+      "s": 10,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 64,
+      "s": 10,
+      "d": 1
+     },
+     {
+      "v": 2,
+      "p": 48,
+      "s": 10,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 71,
+      "s": 11,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 62,
+      "s": 11,
+      "d": 1
+     },
+     {
+      "v": 2,
+      "p": 55,
+      "s": 11,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 69,
+      "s": 12,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 57,
+      "s": 12,
+      "d": 2
+     },
+     {
+      "v": 2,
+      "p": 53,
+      "s": 12,
+      "d": 0.5
+     },
+     {
+      "v": 2,
+      "p": 52,
+      "s": 12.5,
+      "d": 0.5
+     },
+     {
+      "v": 0,
+      "p": 65,
+      "s": 13,
+      "d": 1
+     },
+     {
+      "v": 2,
+      "p": 50,
+      "s": 13,
+      "d": 0.5
+     },
+     {
+      "v": 2,
+      "p": 52,
+      "s": 13.5,
+      "d": 0.5
+     },
+     {
+      "v": 0,
+      "p": 64,
+      "s": 14,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 60,
+      "s": 14,
+      "d": 1
+     },
+     {
+      "v": 2,
+      "p": 48,
+      "s": 14,
+      "d": 1
+     }
+    ],
+    "threads": [
+     {
+      "a": 0,
+      "b": 7,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 1,
+      "b": 10,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": true
+     },
+     {
+      "a": 2,
+      "b": 12,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 3,
+      "b": 14,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 4,
+      "b": 16,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 5,
+      "b": 18,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 6,
+      "b": 20,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 0,
+      "b": 24,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 1,
+      "b": 27,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 2,
+      "b": 30,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 3,
+      "b": 31,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 4,
+      "b": 33,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 5,
+      "b": 34,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 6,
+      "b": 37,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     }
+    ],
+    "marks": [
+     {
+      "kind": "entry",
+      "start": 0,
+      "end": 5,
+      "voice": 1,
+      "label": "subject"
+     },
+     {
+      "kind": "entry",
+      "start": 5,
+      "end": 10,
+      "voice": 0,
+      "label": "answer"
+     },
+     {
+      "kind": "entry",
+      "start": 10,
+      "end": 15,
+      "voice": 2,
+      "label": "subject"
+     }
+    ],
+    "captions": [],
+    "techniques": [],
+    "listenFor": "",
+    "caption": "An exposition in three voices: subject, answer, subject in the bass. The rail above joins every entry to the first."
+   }
+  },
+  {
+   "id": "imitation",
+   "title": "Imitation",
+   "also": "",
+   "aliases": [
+    "imitation",
+    "imitative"
+   ],
+   "links": [
+    "imitation",
+    "imitative"
+   ],
+   "short": "One voice repeats a figure another has just played, then goes its own way.",
+   "text": "One voice repeats a figure that another has just played, at the same or another pitch, and then goes its own way. Imitation is looser than canon, where the copying never stops; it is the everyday glue of inventions and fugues.",
+   "related": [
+    "canon",
+    "motive",
+    "invention"
+   ],
+   "pieces": [
+    {
+     "id": "invention01"
+    },
+    {
+     "id": "sinfonia01"
+    },
+    {
+     "id": "sinfonia02"
+    },
+    {
+     "id": "invention03"
+    },
+    {
+     "id": "sinfonia03"
+    },
+    {
+     "id": "invention04"
+    },
+    {
+     "id": "sinfonia04"
+    },
+    {
+     "id": "sinfonia05"
+    },
+    {
+     "id": "sinfonia06"
+    },
+    {
+     "id": "invention07"
+    },
+    {
+     "id": "sinfonia07"
+    },
+    {
+     "id": "sinfonia08"
+    },
+    {
+     "id": "invention10"
+    },
+    {
+     "id": "sinfonia10"
+    },
+    {
+     "id": "sinfonia11"
+    },
+    {
+     "id": "invention12"
+    },
+    {
+     "id": "sinfonia12"
+    },
+    {
+     "id": "invention13"
+    },
+    {
+     "id": "sinfonia13"
+    },
+    {
+     "id": "invention14"
+    },
+    {
+     "id": "sinfonia14"
+    },
+    {
+     "id": "invention15"
+    },
+    {
+     "id": "sinfonia15"
+    }
+   ],
+   "example": {
+    "id": "glossary-imitation",
+    "title": "",
+    "collection": "",
+    "catalogue": "",
+    "key": "C",
+    "tempo": 66,
+    "beatsPerBar": 4,
+    "ensemble": "chamber",
+    "voices": [
+     {
+      "name": "Upper",
+      "texture": "hatch",
+      "instrument": "flute",
+      "pan": -0.6
+     },
+     {
+      "name": "Lower",
+      "texture": "solid",
+      "instrument": "violin",
+      "pan": 0.6
+     }
+    ],
+    "notes": [
+     {
+      "v": 1,
+      "p": 60,
+      "s": 0,
+      "d": 0.5
+     },
+     {
+      "v": 1,
+      "p": 62,
+      "s": 0.5,
+      "d": 0.5
+     },
+     {
+      "v": 1,
+      "p": 64,
+      "s": 1,
+      "d": 0.5
+     },
+     {
+      "v": 1,
+      "p": 65,
+      "s": 1.5,
+      "d": 0.5
+     },
+     {
+      "v": 1,
+      "p": 62,
+      "s": 2,
+      "d": 0.5
+     },
+     {
+      "v": 1,
+      "p": 64,
+      "s": 2.5,
+      "d": 0.5
+     },
+     {
+      "v": 1,
+      "p": 60,
+      "s": 3,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 67,
+      "s": 4,
+      "d": 0.5
+     },
+     {
+      "v": 1,
+      "p": 64,
+      "s": 4,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 69,
+      "s": 4.5,
+      "d": 0.5
+     },
+     {
+      "v": 0,
+      "p": 71,
+      "s": 5,
+      "d": 0.5
+     },
+     {
+      "v": 1,
+      "p": 62,
+      "s": 5,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 72,
+      "s": 5.5,
+      "d": 0.5
+     },
+     {
+      "v": 0,
+      "p": 69,
+      "s": 6,
+      "d": 0.5
+     },
+     {
+      "v": 1,
+      "p": 60,
+      "s": 6,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 71,
+      "s": 6.5,
+      "d": 0.5
+     },
+     {
+      "v": 0,
+      "p": 67,
+      "s": 7,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 59,
+      "s": 7,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 65,
+      "s": 8,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 62,
+      "s": 8,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 64,
+      "s": 9,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 60,
+      "s": 9,
+      "d": 1
+     }
+    ],
+    "threads": [
+     {
+      "a": 0,
+      "b": 7,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 1,
+      "b": 9,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 2,
+      "b": 10,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 3,
+      "b": 12,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 4,
+      "b": 13,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 5,
+      "b": 15,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 6,
+      "b": 16,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     }
+    ],
+    "marks": [
+     {
+      "kind": "entry",
+      "start": 0,
+      "end": 4,
+      "voice": 1,
+      "label": "motive"
+     },
+     {
+      "kind": "entry",
+      "start": 4,
+      "end": 8,
+      "voice": 0,
+      "label": "motive"
+     }
+    ],
+    "captions": [],
+    "techniques": [],
+    "listenFor": "",
+    "caption": "The upper voice (hatched) imitates the motive a fifth higher, while the lower voice goes on freely; then both close."
+   }
+  },
+  {
+   "id": "invention",
+   "title": "Invention and sinfonia",
+   "also": "also: inventio · sinfonia",
+   "aliases": [
+    "invention",
+    "inventions",
+    "sinfonia",
+    "sinfonias"
+   ],
+   "links": [
+    "invention",
+    "inventions",
+    "sinfonia",
+    "sinfonias"
+   ],
+   "short": "Bach's two-part (inventions) and three-part (sinfonias) keyboard pieces, each grown from one motive.",
+   "text": "Bach's names for his fifteen two-part and fifteen three-part keyboard pieces, written to teach playing cleanly in two and three voices and, in his words, to get good ideas and develop them well. Each piece grows from one short motive, imitated between the voices and carried through related keys.",
+   "related": [
+    "motive",
+    "imitation",
+    "invertible-counterpoint"
+   ],
+   "pieces": [
+    {
+     "id": "invention01"
+    },
+    {
+     "id": "sinfonia01"
+    },
+    {
+     "id": "invention02"
+    },
+    {
+     "id": "sinfonia02"
+    },
+    {
+     "id": "invention03"
+    },
+    {
+     "id": "sinfonia03"
+    },
+    {
+     "id": "invention04"
+    },
+    {
+     "id": "sinfonia04"
+    },
+    {
+     "id": "invention05"
+    },
+    {
+     "id": "sinfonia05"
+    },
+    {
+     "id": "invention06"
+    },
+    {
+     "id": "sinfonia06"
+    },
+    {
+     "id": "invention07"
+    },
+    {
+     "id": "sinfonia07"
+    },
+    {
+     "id": "invention08"
+    },
+    {
+     "id": "sinfonia08"
+    },
+    {
+     "id": "invention09"
+    },
+    {
+     "id": "sinfonia09"
+    },
+    {
+     "id": "invention10"
+    },
+    {
+     "id": "sinfonia10"
+    },
+    {
+     "id": "invention11"
+    },
+    {
+     "id": "sinfonia11"
+    },
+    {
+     "id": "invention12"
+    },
+    {
+     "id": "sinfonia12"
+    },
+    {
+     "id": "invention13"
+    },
+    {
+     "id": "sinfonia13"
+    },
+    {
+     "id": "invention14"
+    },
+    {
+     "id": "sinfonia14"
+    },
+    {
+     "id": "invention15"
+    },
+    {
+     "id": "sinfonia15"
+    }
+   ]
+  },
+  {
+   "id": "inversion",
+   "title": "Inversion",
+   "also": "also: contrary motion · per motum contrarium · mirror",
+   "aliases": [
+    "inversion",
+    "inverted",
+    "contrary motion",
+    "per motum contrarium",
+    "contrario motu",
+    "mirror"
+   ],
+   "links": [
+    "inversion",
+    "inverted",
+    "contrary motion",
+    "per motum contrarium",
+    "contrario motu",
+    "mirror"
+   ],
+   "short": "The line turned upside down; every step up becomes a matching step down.",
+   "text": "The line is turned upside down: every step up becomes a step down, as if the melody were reflected in a mirror held level across the staff. Usually the steps are counted on the scale, so the mirrored line stays in the key; a strict mirror keeps every interval exact, as in the Canone perpetuo. In a canon by inversion the comes sings the dux mirrored; in a fugue the subject may return inverted.",
+   "related": [
+    "retrograde",
+    "canon"
+   ],
+   "pieces": [
+    {
+     "id": "bwv1079-motum-contrarium"
+    },
+    {
+     "id": "bwv1079-augmentationem"
+    },
+    {
+     "id": "bwv1079-quaerendo"
+    },
+    {
+     "id": "bwv1079-canone-perpetuo"
+    },
+    {
+     "id": "goldberg-var12"
+    },
+    {
+     "id": "goldberg-var15"
+    },
+    {
+     "id": "contrapunctus06"
+    },
+    {
+     "id": "bwv851"
+    },
+    {
+     "id": "bwv853"
+    },
+    {
+     "id": "bwv859"
+    },
+    {
+     "id": "bwv860"
+    },
+    {
+     "id": "bwv868"
+    },
+    {
+     "id": "invention01"
+    },
+    {
+     "id": "sinfonia01"
+    },
+    {
+     "id": "invention04"
+    },
+    {
+     "id": "sinfonia06"
+    },
+    {
+     "id": "invention11"
+    },
+    {
+     "id": "invention14"
+    }
+   ],
+   "example": {
+    "id": "glossary-inversion",
+    "title": "",
+    "collection": "",
+    "catalogue": "",
+    "key": "C",
+    "tempo": 66,
+    "beatsPerBar": 4,
+    "ensemble": "chamber",
+    "voices": [
+     {
+      "name": "Motif",
+      "texture": "solid",
+      "instrument": "flute",
+      "pan": -0.6
+     },
+     {
+      "name": "Mirror",
+      "texture": "hatch",
+      "instrument": "violin",
+      "pan": 0.6
+     }
+    ],
+    "notes": [
+     {
+      "v": 0,
+      "p": 76,
+      "s": 0,
+      "d": 0.5
+     },
+     {
+      "v": 0,
+      "p": 77,
+      "s": 0.5,
+      "d": 0.5
+     },
+     {
+      "v": 0,
+      "p": 79,
+      "s": 1,
+      "d": 0.5
+     },
+     {
+      "v": 0,
+      "p": 81,
+      "s": 1.5,
+      "d": 0.5
+     },
+     {
+      "v": 0,
+      "p": 77,
+      "s": 2,
+      "d": 0.5
+     },
+     {
+      "v": 0,
+      "p": 79,
+      "s": 2.5,
+      "d": 0.5
+     },
+     {
+      "v": 0,
+      "p": 76,
+      "s": 3,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 72,
+      "s": 4,
+      "d": 0.5
+     },
+     {
+      "v": 1,
+      "p": 71,
+      "s": 4.5,
+      "d": 0.5
+     },
+     {
+      "v": 1,
+      "p": 69,
+      "s": 5,
+      "d": 0.5
+     },
+     {
+      "v": 1,
+      "p": 67,
+      "s": 5.5,
+      "d": 0.5
+     },
+     {
+      "v": 1,
+      "p": 71,
+      "s": 6,
+      "d": 0.5
+     },
+     {
+      "v": 1,
+      "p": 69,
+      "s": 6.5,
+      "d": 0.5
+     },
+     {
+      "v": 1,
+      "p": 72,
+      "s": 7,
+      "d": 1
+     }
+    ],
+    "threads": [
+     {
+      "a": 0,
+      "b": 7,
+      "kind": "mirror",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 1,
+      "b": 8,
+      "kind": "mirror",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 2,
+      "b": 9,
+      "kind": "mirror",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 3,
+      "b": 10,
+      "kind": "mirror",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 4,
+      "b": 11,
+      "kind": "mirror",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 5,
+      "b": 12,
+      "kind": "mirror",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 6,
+      "b": 13,
+      "kind": "mirror",
+      "broken": false,
+      "adjusted": false
+     }
+    ],
+    "marks": [
+     {
+      "kind": "mirror-axis",
+      "start": 0,
+      "end": 8,
+      "pitch": 73.5
+     }
+    ],
+    "captions": [],
+    "techniques": [],
+    "listenFor": "",
+    "caption": "The motif (solid) and its mirror image (hatched), reflected about the dashed line through D."
+   }
+  },
+  {
+   "id": "invertible-counterpoint",
+   "title": "Invertible counterpoint",
+   "also": "also: double counterpoint",
+   "aliases": [
+    "invertible counterpoint",
+    "double counterpoint"
+   ],
+   "links": [
+    "invertible counterpoint",
+    "double counterpoint"
+   ],
+   "short": "Two lines written so that either can be on top.",
+   "text": "Two lines written so that either can be on top: swap them, moving one up or down an octave, and they still sound right. It means avoiding the intervals that turn bad when the parts change places (a fifth becomes a fourth). Inventions and fugues use it to bring the same pair back with the parts exchanged.",
+   "related": [
+    "countersubject",
+    "motive"
+   ],
+   "pieces": [
+    {
+     "id": "bwv855"
+    },
+    {
+     "id": "sinfonia02"
+    },
+    {
+     "id": "invention05"
+    },
+    {
+     "id": "invention06"
+    },
+    {
+     "id": "invention09"
+    },
+    {
+     "id": "sinfonia09"
+    }
+   ],
+   "example": {
+    "id": "glossary-invertible-counterpoint",
+    "title": "",
+    "collection": "",
+    "catalogue": "",
+    "key": "C",
+    "tempo": 60,
+    "beatsPerBar": 4,
+    "ensemble": "chamber",
+    "voices": [
+     {
+      "name": "Upper",
+      "texture": "solid",
+      "instrument": "flute",
+      "pan": -0.6
+     },
+     {
+      "name": "Lower",
+      "texture": "hatch",
+      "instrument": "violin",
+      "pan": 0.6
+     }
+    ],
+    "notes": [
+     {
+      "v": 0,
+      "p": 76,
+      "s": 0,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 72,
+      "s": 0,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 77,
+      "s": 1,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 69,
+      "s": 1,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 79,
+      "s": 2,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 71,
+      "s": 2,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 76,
+      "s": 3,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 72,
+      "s": 3,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 72,
+      "s": 4,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 64,
+      "s": 4,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 69,
+      "s": 5,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 65,
+      "s": 5,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 71,
+      "s": 6,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 67,
+      "s": 6,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 72,
+      "s": 7,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 64,
+      "s": 7,
+      "d": 1
+     }
+    ],
+    "threads": [
+     {
+      "a": 0,
+      "b": 9,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 1,
+      "b": 8,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 2,
+      "b": 11,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 3,
+      "b": 10,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 4,
+      "b": 13,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 5,
+      "b": 12,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 6,
+      "b": 15,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 7,
+      "b": 14,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     }
+    ],
+    "marks": [],
+    "captions": [],
+    "techniques": [],
+    "listenFor": "",
+    "caption": "Two lines, then the same pair exchanged: the upper voice (solid) takes the lower line, and the lower voice (hatched) the upper line an octave down."
+   }
+  },
+  {
+   "id": "motive",
+   "title": "Motive and countermotive",
+   "also": "also: motif",
+   "aliases": [
+    "motive",
+    "motif",
+    "countermotive"
+   ],
+   "links": [
+    "motive",
+    "motif",
+    "countermotive"
+   ],
+   "short": "A short, recognisable figure from which a piece grows, and the figure that answers it.",
+   "text": "A motive is a short, recognisable figure, often only a bar long, from which a piece is spun. The countermotive is the figure that accompanies it, the other voice's reply, and it keeps returning with it. In the inventions the motive passes from voice to voice as a subject does in a fugue.",
+   "related": [
+    "imitation",
+    "invention",
+    "subject"
+   ],
+   "pieces": [
+    {
+     "id": "invention01"
+    },
+    {
+     "id": "sinfonia01"
+    },
+    {
+     "id": "sinfonia02"
+    },
+    {
+     "id": "invention03"
+    },
+    {
+     "id": "sinfonia03"
+    },
+    {
+     "id": "invention04"
+    },
+    {
+     "id": "sinfonia04"
+    },
+    {
+     "id": "invention05"
+    },
+    {
+     "id": "sinfonia05"
+    },
+    {
+     "id": "invention06"
+    },
+    {
+     "id": "sinfonia06"
+    },
+    {
+     "id": "invention07"
+    },
+    {
+     "id": "sinfonia07"
+    },
+    {
+     "id": "sinfonia08"
+    },
+    {
+     "id": "invention09"
+    },
+    {
+     "id": "sinfonia09"
+    },
+    {
+     "id": "invention10"
+    },
+    {
+     "id": "sinfonia10"
+    },
+    {
+     "id": "invention11"
+    },
+    {
+     "id": "sinfonia11"
+    },
+    {
+     "id": "invention12"
+    },
+    {
+     "id": "sinfonia12"
+    },
+    {
+     "id": "invention13"
+    },
+    {
+     "id": "sinfonia13"
+    },
+    {
+     "id": "invention14"
+    },
+    {
+     "id": "sinfonia14"
+    },
+    {
+     "id": "invention15"
+    },
+    {
+     "id": "sinfonia15"
+    }
+   ],
+   "example": {
+    "id": "glossary-motive",
+    "title": "",
+    "collection": "",
+    "catalogue": "",
+    "key": "C",
+    "tempo": 60,
+    "beatsPerBar": 4,
+    "ensemble": "chamber",
+    "voices": [
+     {
+      "name": "Upper",
+      "texture": "solid",
+      "instrument": "flute",
+      "pan": -0.6
+     },
+     {
+      "name": "Lower",
+      "texture": "hatch",
+      "instrument": "violin",
+      "pan": 0.6
+     }
+    ],
+    "notes": [
+     {
+      "v": 0,
+      "p": 72,
+      "s": 0,
+      "d": 0.5
+     },
+     {
+      "v": 0,
+      "p": 74,
+      "s": 0.5,
+      "d": 0.5
+     },
+     {
+      "v": 0,
+      "p": 76,
+      "s": 1,
+      "d": 0.5
+     },
+     {
+      "v": 0,
+      "p": 77,
+      "s": 1.5,
+      "d": 0.5
+     },
+     {
+      "v": 0,
+      "p": 74,
+      "s": 2,
+      "d": 0.5
+     },
+     {
+      "v": 0,
+      "p": 76,
+      "s": 2.5,
+      "d": 0.5
+     },
+     {
+      "v": 0,
+      "p": 72,
+      "s": 3,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 79,
+      "s": 4,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 60,
+      "s": 4,
+      "d": 0.5
+     },
+     {
+      "v": 1,
+      "p": 62,
+      "s": 4.5,
+      "d": 0.5
+     },
+     {
+      "v": 0,
+      "p": 72,
+      "s": 5,
+      "d": 0.5
+     },
+     {
+      "v": 1,
+      "p": 64,
+      "s": 5,
+      "d": 0.5
+     },
+     {
+      "v": 0,
+      "p": 69,
+      "s": 5.5,
+      "d": 0.5
+     },
+     {
+      "v": 1,
+      "p": 65,
+      "s": 5.5,
+      "d": 0.5
+     },
+     {
+      "v": 0,
+      "p": 71,
+      "s": 6,
+      "d": 0.5
+     },
+     {
+      "v": 1,
+      "p": 62,
+      "s": 6,
+      "d": 0.5
+     },
+     {
+      "v": 0,
+      "p": 72,
+      "s": 6.5,
+      "d": 0.5
+     },
+     {
+      "v": 1,
+      "p": 64,
+      "s": 6.5,
+      "d": 0.5
+     },
+     {
+      "v": 0,
+      "p": 76,
+      "s": 7,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 60,
+      "s": 7,
+      "d": 1
+     }
+    ],
+    "threads": [
+     {
+      "a": 0,
+      "b": 8,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 1,
+      "b": 9,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 2,
+      "b": 11,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 3,
+      "b": 13,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 4,
+      "b": 15,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 5,
+      "b": 17,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 6,
+      "b": 19,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     }
+    ],
+    "marks": [
+     {
+      "kind": "entry",
+      "start": 0,
+      "end": 4,
+      "voice": 0,
+      "label": "motive"
+     },
+     {
+      "kind": "entry",
+      "start": 4,
+      "end": 8,
+      "voice": 0,
+      "label": "countermotive"
+     },
+     {
+      "kind": "entry",
+      "start": 4,
+      "end": 8,
+      "voice": 1,
+      "label": "motive"
+     }
+    ],
+    "captions": [],
+    "techniques": [],
+    "listenFor": "",
+    "caption": "The motive in the upper voice, then in the lower voice an octave down, while the upper voice plays the countermotive."
+   }
+  },
+  {
+   "id": "per-tonos",
+   "title": "Per tonos",
+   "also": "also: rising canon",
+   "aliases": [
+    "per tonos",
+    "rising canon",
+    "modulating canon"
+   ],
+   "links": [
+    "per tonos",
+    "rising canon",
+    "modulating canon"
+   ],
+   "short": "A canon that modulates up a step each time round.",
+   "text": "Latin for \"through the tones\": the canon modulates as it goes, so that it ends a step higher than it began, and starts again there. Bach's canon per tonos rises a whole tone each time round, six times, and arrives back in C minor an octave higher.",
+   "related": [
+    "perpetual-canon",
+    "canon"
+   ],
+   "pieces": [
+    {
+     "id": "bwv1079-per-tonos"
+    }
+   ],
+   "example": {
+    "id": "glossary-per-tonos",
+    "title": "",
+    "collection": "",
+    "catalogue": "",
+    "key": "C",
+    "tempo": 72,
+    "beatsPerBar": 4,
+    "ensemble": "chamber",
+    "voices": [
+     {
+      "name": "Line",
+      "texture": "solid",
+      "instrument": "flute",
+      "pan": 0.0
+     }
+    ],
+    "notes": [
+     {
+      "v": 0,
+      "p": 72,
+      "s": 0,
+      "d": 0.5
+     },
+     {
+      "v": 0,
+      "p": 74,
+      "s": 0.5,
+      "d": 0.5
+     },
+     {
+      "v": 0,
+      "p": 76,
+      "s": 1,
+      "d": 0.5
+     },
+     {
+      "v": 0,
+      "p": 77,
+      "s": 1.5,
+      "d": 0.5
+     },
+     {
+      "v": 0,
+      "p": 79,
+      "s": 2,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 72,
+      "s": 3,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 74,
+      "s": 4,
+      "d": 0.5
+     },
+     {
+      "v": 0,
+      "p": 76,
+      "s": 4.5,
+      "d": 0.5
+     },
+     {
+      "v": 0,
+      "p": 78,
+      "s": 5,
+      "d": 0.5
+     },
+     {
+      "v": 0,
+      "p": 79,
+      "s": 5.5,
+      "d": 0.5
+     },
+     {
+      "v": 0,
+      "p": 81,
+      "s": 6,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 74,
+      "s": 7,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 76,
+      "s": 8,
+      "d": 0.5
+     },
+     {
+      "v": 0,
+      "p": 78,
+      "s": 8.5,
+      "d": 0.5
+     },
+     {
+      "v": 0,
+      "p": 80,
+      "s": 9,
+      "d": 0.5
+     },
+     {
+      "v": 0,
+      "p": 81,
+      "s": 9.5,
+      "d": 0.5
+     },
+     {
+      "v": 0,
+      "p": 83,
+      "s": 10,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 76,
+      "s": 11,
+      "d": 1
+     }
+    ],
+    "threads": [],
+    "marks": [
+     {
+      "kind": "rise",
+      "start": 0,
+      "end": 4,
+      "label": "C major"
+     },
+     {
+      "kind": "rise",
+      "start": 4,
+      "end": 8,
+      "label": "D major"
+     },
+     {
+      "kind": "rise",
+      "start": 8,
+      "end": 12,
+      "label": "E major"
+     }
+    ],
+    "captions": [],
+    "techniques": [],
+    "listenFor": "",
+    "caption": "One phrase played three times, each a whole tone higher. In Bach's canon all three voices rise together."
+   }
+  },
+  {
+   "id": "perpetual-canon",
+   "title": "Perpetual canon",
+   "also": "also: canon perpetuus",
+   "aliases": [
+    "perpetual canon",
+    "canon perpetuus",
+    "canone perpetuo"
+   ],
+   "links": [
+    "perpetual canon",
+    "canon perpetuus",
+    "canone perpetuo"
+   ],
+   "short": "A canon whose end leads back to its beginning, so it can go round without stopping.",
+   "text": "A canon whose end leads back into its beginning, so that the voices can go round and round without stopping. The players decide when to finish, usually at a marked cadence. A round is a perpetual canon at the unison.",
+   "related": [
+    "canon",
+    "canon-at-the-unison",
+    "per-tonos"
+   ],
+   "pieces": [
+    {
+     "id": "frere-jacques"
+    },
+    {
+     "id": "bwv1079-thema-regium"
+    },
+    {
+     "id": "bwv1079-violini-in-unisono"
+    },
+    {
+     "id": "bwv1079-motum-contrarium"
+    },
+    {
+     "id": "bwv1079-augmentationem"
+    },
+    {
+     "id": "bwv1079-per-tonos"
+    },
+    {
+     "id": "bwv1079-quaerendo"
+    },
+    {
+     "id": "bwv1079-canon-a4"
+    },
+    {
+     "id": "bwv1079-canone-perpetuo"
+    }
+   ],
+   "example": {
+    "id": "glossary-perpetual-canon",
+    "title": "",
+    "collection": "",
+    "catalogue": "",
+    "key": "C",
+    "tempo": 72,
+    "beatsPerBar": 4,
+    "ensemble": "chamber",
+    "voices": [
+     {
+      "name": "Dux",
+      "texture": "solid",
+      "instrument": "flute",
+      "pan": -0.6
+     },
+     {
+      "name": "Comes",
+      "texture": "hatch",
+      "instrument": "violin",
+      "pan": 0.6
+     }
+    ],
+    "notes": [
+     {
+      "v": 0,
+      "p": 76,
+      "s": 0,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 74,
+      "s": 1,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 72,
+      "s": 2,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 74,
+      "s": 3,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 72,
+      "s": 4,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 76,
+      "s": 4,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 71,
+      "s": 5,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 74,
+      "s": 5,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 69,
+      "s": 6,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 72,
+      "s": 6,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 71,
+      "s": 7,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 74,
+      "s": 7,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 76,
+      "s": 8,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 72,
+      "s": 8,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 74,
+      "s": 9,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 71,
+      "s": 9,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 72,
+      "s": 10,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 69,
+      "s": 10,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 74,
+      "s": 11,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 71,
+      "s": 11,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 72,
+      "s": 12,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 76,
+      "s": 12,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 71,
+      "s": 13,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 74,
+      "s": 13,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 69,
+      "s": 14,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 72,
+      "s": 14,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 71,
+      "s": 15,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 74,
+      "s": 15,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 72,
+      "s": 16,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 71,
+      "s": 17,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 69,
+      "s": 18,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 71,
+      "s": 19,
+      "d": 1
+     }
+    ],
+    "threads": [
+     {
+      "a": 0,
+      "b": 5,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 1,
+      "b": 7,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 2,
+      "b": 9,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 3,
+      "b": 11,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 4,
+      "b": 13,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 6,
+      "b": 15,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 8,
+      "b": 17,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 10,
+      "b": 19,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 12,
+      "b": 21,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 14,
+      "b": 23,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 16,
+      "b": 25,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 18,
+      "b": 27,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 20,
+      "b": 28,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 22,
+      "b": 29,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 24,
+      "b": 30,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 26,
+      "b": 31,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     }
+    ],
+    "marks": [],
+    "captions": [],
+    "techniques": [],
+    "listenFor": "",
+    "caption": "The dux's last note leads back to its first, so the canon goes round again; the comes (hatched) follows one bar behind."
+   }
+  },
+  {
+   "id": "retrograde",
+   "title": "Retrograde",
+   "also": "also: crab · cancrizans",
+   "aliases": [
+    "retrograde",
+    "crab",
+    "cancrizans",
+    "crab canon"
+   ],
+   "links": [
+    "retrograde",
+    "crab",
+    "cancrizans",
+    "crab canon"
+   ],
+   "short": "The line played backwards, from its last note to its first.",
+   "text": "The line is played backwards, from its last note to its first, like a sentence read from the end. In a crab canon (cancrizans) one voice plays the melody forwards while the other plays it backwards at the same time. On the roll the two meet at a vertical mirror in the middle.",
+   "related": [
+    "inversion",
+    "canon"
+   ],
+   "pieces": [
+    {
+     "id": "bwv1079-cancrizans"
+    }
+   ],
+   "example": {
+    "id": "glossary-retrograde",
+    "title": "",
+    "collection": "",
+    "catalogue": "",
+    "key": "C",
+    "tempo": 66,
+    "beatsPerBar": 4,
+    "ensemble": "chamber",
+    "voices": [
+     {
+      "name": "Forwards",
+      "texture": "solid",
+      "instrument": "flute",
+      "pan": -0.6
+     },
+     {
+      "name": "Backwards",
+      "texture": "hatch",
+      "instrument": "violin",
+      "pan": 0.6
+     }
+    ],
+    "notes": [
+     {
+      "v": 0,
+      "p": 72,
+      "s": 0,
+      "d": 0.5
+     },
+     {
+      "v": 0,
+      "p": 74,
+      "s": 0.5,
+      "d": 0.5
+     },
+     {
+      "v": 0,
+      "p": 76,
+      "s": 1,
+      "d": 0.5
+     },
+     {
+      "v": 0,
+      "p": 77,
+      "s": 1.5,
+      "d": 0.5
+     },
+     {
+      "v": 0,
+      "p": 74,
+      "s": 2,
+      "d": 0.5
+     },
+     {
+      "v": 0,
+      "p": 76,
+      "s": 2.5,
+      "d": 0.5
+     },
+     {
+      "v": 0,
+      "p": 72,
+      "s": 3,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 72,
+      "s": 4,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 76,
+      "s": 5.0,
+      "d": 0.5
+     },
+     {
+      "v": 1,
+      "p": 74,
+      "s": 5.5,
+      "d": 0.5
+     },
+     {
+      "v": 1,
+      "p": 77,
+      "s": 6.0,
+      "d": 0.5
+     },
+     {
+      "v": 1,
+      "p": 76,
+      "s": 6.5,
+      "d": 0.5
+     },
+     {
+      "v": 1,
+      "p": 74,
+      "s": 7.0,
+      "d": 0.5
+     },
+     {
+      "v": 1,
+      "p": 72,
+      "s": 7.5,
+      "d": 0.5
+     }
+    ],
+    "threads": [
+     {
+      "a": 6,
+      "b": 7,
+      "kind": "retrograde",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 5,
+      "b": 8,
+      "kind": "retrograde",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 4,
+      "b": 9,
+      "kind": "retrograde",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 3,
+      "b": 10,
+      "kind": "retrograde",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 2,
+      "b": 11,
+      "kind": "retrograde",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 1,
+      "b": 12,
+      "kind": "retrograde",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 0,
+      "b": 13,
+      "kind": "retrograde",
+      "broken": false,
+      "adjusted": false
+     }
+    ],
+    "marks": [
+     {
+      "kind": "crab-axis",
+      "start": 4,
+      "end": 4,
+      "label": "crab"
+     }
+    ],
+    "captions": [],
+    "techniques": [],
+    "listenFor": "",
+    "caption": "The motif (solid), then the same notes from the last to the first (hatched), mirrored about the vertical line."
+   }
+  },
+  {
+   "id": "stretto",
+   "title": "Stretto",
+   "also": "Italian, “tightened”",
+   "aliases": [
+    "stretto",
+    "strettos",
+    "stretti"
+   ],
+   "links": [
+    "stretto",
+    "strettos",
+    "stretti"
+   ],
+   "short": "Entries of the subject that overlap, each beginning before the last has finished.",
+   "text": "A voice begins the subject before the previous voice has finished it, so the entries overlap and crowd together. Unlike a canon, where one voice copies another all the way through, a stretto compresses entries of a fugue's subject. Fugues often save their strettos for the end, where the tightening gives a sense of arrival.",
+   "related": [
+    "fugue",
+    "subject"
+   ],
+   "pieces": [
+    {
+     "id": "contrapunctus06"
+    },
+    {
+     "id": "bwv846"
+    },
+    {
+     "id": "bwv851"
+    },
+    {
+     "id": "bwv853"
+    },
+    {
+     "id": "bwv856"
+    },
+    {
+     "id": "bwv861"
+    },
+    {
+     "id": "bwv864"
+    },
+    {
+     "id": "bwv867"
+    },
+    {
+     "id": "bwv868"
+    },
+    {
+     "id": "sinfonia08"
+    },
+    {
+     "id": "invention10"
+    },
+    {
+     "id": "sinfonia14"
+    }
+   ],
+   "example": {
+    "id": "glossary-stretto",
+    "title": "",
+    "collection": "",
+    "catalogue": "",
+    "key": "C",
+    "tempo": 60,
+    "beatsPerBar": 4,
+    "ensemble": "chamber",
+    "voices": [
+     {
+      "name": "Soprano",
+      "texture": "solid",
+      "instrument": "flute",
+      "pan": -0.6
+     },
+     {
+      "name": "Alto",
+      "texture": "hatch",
+      "instrument": "violin",
+      "pan": 0.0
+     },
+     {
+      "name": "Bass",
+      "texture": "stipple",
+      "instrument": "cello",
+      "pan": 0.6
+     }
+    ],
+    "notes": [
+     {
+      "v": 0,
+      "p": 79,
+      "s": 0,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 76,
+      "s": 1,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 72,
+      "s": 1,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 77,
+      "s": 2,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 69,
+      "s": 2,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 74,
+      "s": 3,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 71,
+      "s": 3,
+      "d": 1
+     },
+     {
+      "v": 2,
+      "p": 67,
+      "s": 3,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 76,
+      "s": 4,
+      "d": 0.5
+     },
+     {
+      "v": 1,
+      "p": 67,
+      "s": 4,
+      "d": 1
+     },
+     {
+      "v": 2,
+      "p": 64,
+      "s": 4,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 74,
+      "s": 4.5,
+      "d": 0.5
+     },
+     {
+      "v": 0,
+      "p": 72,
+      "s": 5,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 69,
+      "s": 5,
+      "d": 0.5
+     },
+     {
+      "v": 2,
+      "p": 65,
+      "s": 5,
+      "d": 1
+     },
+     {
+      "v": 1,
+      "p": 67,
+      "s": 5.5,
+      "d": 0.5
+     },
+     {
+      "v": 1,
+      "p": 65,
+      "s": 6,
+      "d": 1
+     },
+     {
+      "v": 2,
+      "p": 62,
+      "s": 6,
+      "d": 1
+     },
+     {
+      "v": 2,
+      "p": 64,
+      "s": 7,
+      "d": 0.5
+     },
+     {
+      "v": 2,
+      "p": 62,
+      "s": 7.5,
+      "d": 0.5
+     },
+     {
+      "v": 2,
+      "p": 60,
+      "s": 8,
+      "d": 1
+     }
+    ],
+    "threads": [
+     {
+      "a": 0,
+      "b": 2,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 1,
+      "b": 4,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 0,
+      "b": 7,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 3,
+      "b": 6,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 1,
+      "b": 10,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 5,
+      "b": 9,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 3,
+      "b": 14,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 8,
+      "b": 13,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 11,
+      "b": 15,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 5,
+      "b": 17,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 12,
+      "b": 16,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 8,
+      "b": 18,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 11,
+      "b": 19,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     },
+     {
+      "a": 12,
+      "b": 20,
+      "kind": "imitation",
+      "broken": false,
+      "adjusted": false
+     }
+    ],
+    "marks": [
+     {
+      "kind": "entry",
+      "start": 0,
+      "end": 6,
+      "voice": 0,
+      "label": "subject"
+     },
+     {
+      "kind": "stretto",
+      "start": 0,
+      "end": 9
+     },
+     {
+      "kind": "entry",
+      "start": 1,
+      "end": 7,
+      "voice": 1,
+      "label": "subject"
+     },
+     {
+      "kind": "entry",
+      "start": 3,
+      "end": 9,
+      "voice": 2,
+      "label": "subject"
+     }
+    ],
+    "captions": [],
+    "techniques": [],
+    "listenFor": "",
+    "caption": "The subject entering three times, each before the last has ended: a fifth lower after one beat, an octave lower after three."
+   }
+  },
+  {
+   "id": "subject",
+   "title": "Subject",
+   "also": "also: theme",
+   "aliases": [
+    "subject"
+   ],
+   "links": [
+    "subject"
+   ],
+   "short": "The theme of a fugue, stated alone by the first voice.",
+   "text": "The theme of a fugue: the melody the first voice states alone at the start, from which nearly everything else grows. Every later entry is the subject again, perhaps transposed, inverted or stretched.",
+   "related": [
+    "answer",
+    "countersubject",
+    "fugue"
+   ],
+   "pieces": [
+    {
+     "id": "bwv1079-ricercar-a3"
+    },
+    {
+     "id": "bwv1079-ricercar-a6"
+    },
+    {
+     "id": "contrapunctus01"
+    },
+    {
+     "id": "contrapunctus06"
+    },
+    {
+     "id": "bwv846"
+    },
+    {
+     "id": "bwv847"
+    },
+    {
+     "id": "bwv848"
+    },
+    {
+     "id": "bwv850"
+    },
+    {
+     "id": "bwv851"
+    },
+    {
+     "id": "bwv852"
+    },
+    {
+     "id": "bwv853"
+    },
+    {
+     "id": "bwv854"
+    },
+    {
+     "id": "bwv855"
+    },
+    {
+     "id": "bwv856"
+    },
+    {
+     "id": "bwv857"
+    },
+    {
+     "id": "bwv858"
+    },
+    {
+     "id": "bwv859"
+    },
+    {
+     "id": "bwv860"
+    },
+    {
+     "id": "bwv861"
+    },
+    {
+     "id": "bwv862"
+    },
+    {
+     "id": "bwv863"
+    },
+    {
+     "id": "bwv864"
+    },
+    {
+     "id": "bwv866"
+    },
+    {
+     "id": "bwv867"
+    },
+    {
+     "id": "bwv868"
+    },
+    {
+     "id": "bwv869"
+    }
+   ],
+   "example": {
+    "id": "glossary-subject",
+    "title": "",
+    "collection": "",
+    "catalogue": "",
+    "key": "C",
+    "tempo": 60,
+    "beatsPerBar": 4,
+    "ensemble": "chamber",
+    "voices": [
+     {
+      "name": "Subject",
+      "texture": "solid",
+      "instrument": "flute",
+      "pan": 0.0
+     }
+    ],
+    "notes": [
+     {
+      "v": 0,
+      "p": 60,
+      "s": 0,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 67,
+      "s": 1,
+      "d": 1
+     },
+     {
+      "v": 0,
+      "p": 65,
+      "s": 2,
+      "d": 0.5
+     },
+     {
+      "v": 0,
+      "p": 64,
+      "s": 2.5,
+      "d": 0.5
+     },
+     {
+      "v": 0,
+      "p": 62,
+      "s": 3,
+      "d": 0.5
+     },
+     {
+      "v": 0,
+      "p": 64,
+      "s": 3.5,
+      "d": 0.5
+     },
+     {
+      "v": 0,
+      "p": 60,
+      "s": 4,
+      "d": 1
+     }
+    ],
+    "threads": [],
+    "marks": [
+     {
+      "kind": "entry",
+      "start": 0,
+      "end": 5,
+      "voice": 0,
+      "label": "subject"
+     }
+    ],
+    "captions": [],
+    "techniques": [],
+    "listenFor": "",
+    "caption": "A subject alone, as a fugue begins."
+   }
+  }
+ ],
+ "techniques": {
+  "answer": "answer",
+  "augmentation": "augmentation",
+  "canon": "canon",
+  "canon at the fifth": "canon-at-an-interval",
+  "canon at the fourth": "canon-at-an-interval",
+  "canon at the ninth": "canon-at-an-interval",
+  "canon at the octave": "canon-at-an-interval",
+  "canon at the second": "canon-at-an-interval",
+  "canon at the seventh": "canon-at-an-interval",
+  "canon at the sixth": "canon-at-an-interval",
+  "canon at the third": "canon-at-an-interval",
+  "canon at the unison": "canon-at-the-unison",
+  "chromaticism": "chromaticism",
+  "countermotive": "motive",
+  "countersubject": "countersubject",
+  "diminution": "diminution",
+  "fugue": "fugue",
+  "imitation": "imitation",
+  "invention": "invention",
+  "inversion": "inversion",
+  "invertible counterpoint": "invertible-counterpoint",
+  "motive": "motive",
+  "per tonos": "per-tonos",
+  "perpetual canon": "perpetual-canon",
+  "retrograde": "retrograde",
+  "sinfonia": "invention",
+  "stretto": "stretto",
+  "subject": "subject"
+ },
+ "ordinary": [
+  "will answer it",
+  "answers it",
+  "a running answer"
+ ]
+}

@@ -1,0 +1,1701 @@
+{
+ "collections": [
+  {
+   "id": "rounds",
+   "numeral": "I",
+   "name": "Rounds",
+   "catalogue": "",
+   "note": "Songs that chase themselves at the unison; the simplest canon.",
+   "books": [
+    {
+     "name": "",
+     "pieces": [
+      "frere-jacques"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "musical-offering",
+   "numeral": "II",
+   "name": "The Musical Offering",
+   "catalogue": "BWV 1079",
+   "note": "Two ricercars on the royal theme, and canons Bach printed as riddles, one written voice and a rule for the rest.",
+   "books": [
+    {
+     "name": "",
+     "pieces": [
+      "bwv1079-ricercar-a3",
+      "bwv1079-thema-regium",
+      "bwv1079-cancrizans",
+      "bwv1079-violini-in-unisono",
+      "bwv1079-motum-contrarium",
+      "bwv1079-augmentationem",
+      "bwv1079-per-tonos",
+      "bwv1079-fuga-canonica",
+      "bwv1079-ricercar-a6",
+      "bwv1079-quaerendo",
+      "bwv1079-canon-a4",
+      "bwv1079-canone-perpetuo"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "goldberg",
+   "numeral": "III",
+   "name": "Goldberg Variations — the canons",
+   "catalogue": "BWV 988",
+   "note": "Every third variation is a canon, at the unison, the second, and on up to the ninth.",
+   "books": [
+    {
+     "name": "",
+     "pieces": [
+      "goldberg-var03",
+      "goldberg-var06",
+      "goldberg-var09",
+      "goldberg-var12",
+      "goldberg-var15",
+      "goldberg-var18",
+      "goldberg-var21",
+      "goldberg-var24",
+      "goldberg-var27"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "art-of-fugue",
+   "numeral": "IV",
+   "name": "The Art of Fugue",
+   "catalogue": "BWV 1080",
+   "note": "One subject worked through every kind of fugue and canon.",
+   "books": [
+    {
+     "name": "",
+     "pieces": [
+      "contrapunctus01",
+      "contrapunctus06"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "wtc",
+   "numeral": "V",
+   "name": "The Well-Tempered Clavier",
+   "catalogue": "BWV 846–893",
+   "note": "A prelude and fugue in every major and minor key.",
+   "books": [
+    {
+     "name": "Book I",
+     "pieces": [
+      "bwv846",
+      "bwv847",
+      "bwv848",
+      "bwv850",
+      "bwv851",
+      "bwv852",
+      "bwv853",
+      "bwv854",
+      "bwv855",
+      "bwv856",
+      "bwv857",
+      "bwv858",
+      "bwv859",
+      "bwv860",
+      "bwv861",
+      "bwv862",
+      "bwv863",
+      "bwv864",
+      "bwv866",
+      "bwv867",
+      "bwv868",
+      "bwv869"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "inventions",
+   "numeral": "VI",
+   "name": "Inventions and Sinfonias",
+   "catalogue": "BWV 772–801",
+   "note": "Bach's lessons in playing two and three parts; each piece grows from one short motive.",
+   "books": [
+    {
+     "name": "Inventions",
+     "pieces": [
+      "invention01",
+      "invention02",
+      "invention03",
+      "invention04",
+      "invention05",
+      "invention06",
+      "invention07",
+      "invention08",
+      "invention09",
+      "invention10",
+      "invention11",
+      "invention12",
+      "invention13",
+      "invention14",
+      "invention15"
+     ]
+    },
+    {
+     "name": "Sinfonias",
+     "pieces": [
+      "sinfonia01",
+      "sinfonia02",
+      "sinfonia03",
+      "sinfonia04",
+      "sinfonia05",
+      "sinfonia06",
+      "sinfonia07",
+      "sinfonia08",
+      "sinfonia09",
+      "sinfonia10",
+      "sinfonia11",
+      "sinfonia12",
+      "sinfonia13",
+      "sinfonia14",
+      "sinfonia15"
+     ]
+    }
+   ]
+  }
+ ],
+ "pieces": [
+  {
+   "id": "frere-jacques",
+   "title": "Frère Jacques",
+   "collection": "rounds",
+   "catalogue": "traditional",
+   "key": "C major",
+   "voices": 4,
+   "bars": 14,
+   "techniques": [
+    "canon",
+    "canon at the unison",
+    "perpetual canon"
+   ],
+   "listenFor": "one tune, four voices, two bars apart"
+  },
+  {
+   "id": "bwv1079-ricercar-a3",
+   "title": "Ricercar a 3",
+   "collection": "musical-offering",
+   "catalogue": "BWV 1079/1",
+   "key": "C minor",
+   "voices": 3,
+   "bars": 185,
+   "techniques": [
+    "fugue",
+    "subject",
+    "answer",
+    "chromaticism"
+   ],
+   "listenFor": "3 voices; the royal theme ten times, between long free episodes"
+  },
+  {
+   "id": "bwv1079-thema-regium",
+   "title": "Canon perpetuus super thema regium",
+   "collection": "musical-offering",
+   "catalogue": "BWV 1079/2",
+   "key": "C minor",
+   "voices": 3,
+   "bars": 20,
+   "techniques": [
+    "canon",
+    "canon at the octave",
+    "perpetual canon"
+   ],
+   "listenFor": "canon two octaves apart around the royal theme"
+  },
+  {
+   "id": "bwv1079-cancrizans",
+   "title": "Canon a 2 cancrizans",
+   "collection": "musical-offering",
+   "catalogue": "BWV 1079, Canon 1",
+   "key": "C minor",
+   "voices": 2,
+   "bars": 18,
+   "techniques": [
+    "canon",
+    "retrograde"
+   ],
+   "listenFor": "crab canon, one line against itself backwards"
+  },
+  {
+   "id": "bwv1079-violini-in-unisono",
+   "title": "Canon a 2 violini in unisono",
+   "collection": "musical-offering",
+   "catalogue": "BWV 1079, Canon 2",
+   "key": "C minor",
+   "voices": 3,
+   "bars": 33,
+   "techniques": [
+    "canon",
+    "canon at the unison",
+    "perpetual canon"
+   ],
+   "listenFor": "canon at the unison over the royal theme"
+  },
+  {
+   "id": "bwv1079-motum-contrarium",
+   "title": "Canon a 2 per motum contrarium",
+   "collection": "musical-offering",
+   "catalogue": "BWV 1079, Canon 3",
+   "key": "C minor",
+   "voices": 3,
+   "bars": 16,
+   "techniques": [
+    "canon",
+    "inversion",
+    "perpetual canon"
+   ],
+   "listenFor": "canon by contrary motion, under the royal theme"
+  },
+  {
+   "id": "bwv1079-augmentationem",
+   "title": "Canon a 2 per augmentationem, contrario motu",
+   "collection": "musical-offering",
+   "catalogue": "BWV 1079, Canon 4",
+   "key": "C minor",
+   "voices": 3,
+   "bars": 37,
+   "techniques": [
+    "canon",
+    "augmentation",
+    "inversion",
+    "perpetual canon"
+   ],
+   "listenFor": "augmentation and contrary motion at once"
+  },
+  {
+   "id": "bwv1079-per-tonos",
+   "title": "Canon a 2 per tonos",
+   "collection": "musical-offering",
+   "catalogue": "BWV 1079, Canon 5",
+   "key": "C minor",
+   "voices": 3,
+   "bars": 49,
+   "techniques": [
+    "canon",
+    "canon at the fifth",
+    "per tonos",
+    "perpetual canon"
+   ],
+   "listenFor": "each pass a whole tone higher, six times round"
+  },
+  {
+   "id": "bwv1079-fuga-canonica",
+   "title": "Fuga canonica in Epidiapente",
+   "collection": "musical-offering",
+   "catalogue": "BWV 1079/4",
+   "key": "C minor",
+   "voices": 3,
+   "bars": 78,
+   "techniques": [
+    "canon",
+    "canon at the fifth"
+   ],
+   "listenFor": "canon at the fifth above, ten bars apart, over a free bass"
+  },
+  {
+   "id": "bwv1079-ricercar-a6",
+   "title": "Ricercar a 6",
+   "collection": "musical-offering",
+   "catalogue": "BWV 1079/5",
+   "key": "C minor",
+   "voices": 6,
+   "bars": 103,
+   "techniques": [
+    "fugue",
+    "subject",
+    "answer",
+    "chromaticism"
+   ],
+   "listenFor": "6 voices; the royal theme passed down and up through all six"
+  },
+  {
+   "id": "bwv1079-quaerendo",
+   "title": "Canon a 2 quaerendo invenietis",
+   "collection": "musical-offering",
+   "catalogue": "BWV 1079/6",
+   "key": "C minor",
+   "voices": 2,
+   "bars": 41,
+   "techniques": [
+    "canon",
+    "inversion",
+    "perpetual canon"
+   ],
+   "listenFor": "a riddle canon, answered by contrary motion"
+  },
+  {
+   "id": "bwv1079-canon-a4",
+   "title": "Canon a 4",
+   "collection": "musical-offering",
+   "catalogue": "BWV 1079/7",
+   "key": "G minor",
+   "voices": 4,
+   "bars": 85,
+   "techniques": [
+    "canon",
+    "canon at the unison",
+    "canon at the octave",
+    "perpetual canon"
+   ],
+   "listenFor": "one line, four voices: canon at the unison and two octaves apart"
+  },
+  {
+   "id": "bwv1079-canone-perpetuo",
+   "title": "Canone perpetuo",
+   "collection": "musical-offering",
+   "catalogue": "BWV 1079/9",
+   "key": "C minor",
+   "voices": 3,
+   "bars": 75,
+   "techniques": [
+    "canon",
+    "inversion",
+    "perpetual canon"
+   ],
+   "listenFor": "canon by contrary motion at exact intervals"
+  },
+  {
+   "id": "goldberg-var03",
+   "title": "Variatio 3",
+   "collection": "goldberg",
+   "catalogue": "BWV 988, 3",
+   "key": "G major",
+   "voices": 3,
+   "bars": 16,
+   "techniques": [
+    "canon",
+    "canon at the unison"
+   ],
+   "listenFor": "canon at the unison, one bar apart"
+  },
+  {
+   "id": "goldberg-var06",
+   "title": "Variatio 6",
+   "collection": "goldberg",
+   "catalogue": "BWV 988, 6",
+   "key": "G major",
+   "voices": 3,
+   "bars": 32,
+   "techniques": [
+    "canon",
+    "canon at the second"
+   ],
+   "listenFor": "canon at the second, one bar apart"
+  },
+  {
+   "id": "goldberg-var09",
+   "title": "Variatio 9",
+   "collection": "goldberg",
+   "catalogue": "BWV 988, 9",
+   "key": "G major",
+   "voices": 3,
+   "bars": 16,
+   "techniques": [
+    "canon",
+    "canon at the third"
+   ],
+   "listenFor": "canon at the third, one bar apart"
+  },
+  {
+   "id": "goldberg-var12",
+   "title": "Variatio 12",
+   "collection": "goldberg",
+   "catalogue": "BWV 988, 12",
+   "key": "G major",
+   "voices": 3,
+   "bars": 32,
+   "techniques": [
+    "canon",
+    "canon at the fourth",
+    "inversion"
+   ],
+   "listenFor": "canon at the fourth, by contrary motion"
+  },
+  {
+   "id": "goldberg-var15",
+   "title": "Variatio 15",
+   "collection": "goldberg",
+   "catalogue": "BWV 988, 15",
+   "key": "G minor",
+   "voices": 3,
+   "bars": 32,
+   "techniques": [
+    "canon",
+    "canon at the fifth",
+    "inversion"
+   ],
+   "listenFor": "canon at the fifth, by contrary motion"
+  },
+  {
+   "id": "goldberg-var18",
+   "title": "Variatio 18",
+   "collection": "goldberg",
+   "catalogue": "BWV 988, 18",
+   "key": "G major",
+   "voices": 3,
+   "bars": 32,
+   "techniques": [
+    "canon",
+    "canon at the sixth"
+   ],
+   "listenFor": "canon at the sixth, half a bar apart"
+  },
+  {
+   "id": "goldberg-var21",
+   "title": "Variatio 21",
+   "collection": "goldberg",
+   "catalogue": "BWV 988, 21",
+   "key": "G minor",
+   "voices": 3,
+   "bars": 16,
+   "techniques": [
+    "canon",
+    "canon at the seventh"
+   ],
+   "listenFor": "canon at the seventh, half a bar apart"
+  },
+  {
+   "id": "goldberg-var24",
+   "title": "Variatio 24",
+   "collection": "goldberg",
+   "catalogue": "BWV 988, 24",
+   "key": "G major",
+   "voices": 3,
+   "bars": 32,
+   "techniques": [
+    "canon",
+    "canon at the octave"
+   ],
+   "listenFor": "canon at the octave, two bars apart"
+  },
+  {
+   "id": "goldberg-var27",
+   "title": "Variatio 27",
+   "collection": "goldberg",
+   "catalogue": "BWV 988, 27",
+   "key": "G major",
+   "voices": 2,
+   "bars": 32,
+   "techniques": [
+    "canon",
+    "canon at the ninth"
+   ],
+   "listenFor": "canon at the ninth, two voices and no bass"
+  },
+  {
+   "id": "contrapunctus01",
+   "title": "Contrapunctus I",
+   "collection": "art-of-fugue",
+   "catalogue": "BWV 1080, 1",
+   "key": "D minor",
+   "voices": 4,
+   "bars": 78,
+   "techniques": [
+    "fugue",
+    "subject",
+    "answer"
+   ],
+   "listenFor": "4 voices; the plain subject, ten times"
+  },
+  {
+   "id": "contrapunctus06",
+   "title": "Contrapunctus VI",
+   "collection": "art-of-fugue",
+   "catalogue": "BWV 1080, 6",
+   "key": "D minor",
+   "voices": 4,
+   "bars": 79,
+   "techniques": [
+    "fugue",
+    "subject",
+    "answer",
+    "inversion",
+    "diminution",
+    "stretto"
+   ],
+   "listenFor": "inversion and diminution, in stretto"
+  },
+  {
+   "id": "bwv846",
+   "title": "Fugue in C major",
+   "collection": "wtc",
+   "catalogue": "BWV 846",
+   "key": "C major",
+   "voices": 4,
+   "bars": 27,
+   "techniques": [
+    "fugue",
+    "subject",
+    "answer",
+    "stretto"
+   ],
+   "listenFor": "4 voices; the subject in stretto again and again",
+   "number": 1
+  },
+  {
+   "id": "bwv847",
+   "title": "Fugue in C minor",
+   "collection": "wtc",
+   "catalogue": "BWV 847",
+   "key": "C minor",
+   "voices": 3,
+   "bars": 31,
+   "techniques": [
+    "fugue",
+    "subject",
+    "answer",
+    "countersubject"
+   ],
+   "listenFor": "3 voices; the subject eight times",
+   "number": 2
+  },
+  {
+   "id": "bwv848",
+   "title": "Fugue in C♯ major",
+   "collection": "wtc",
+   "catalogue": "BWV 848",
+   "key": "C♯ major",
+   "voices": 3,
+   "bars": 55,
+   "techniques": [
+    "fugue",
+    "subject",
+    "answer",
+    "countersubject"
+   ],
+   "listenFor": "3 voices; a bright dance, the exposition returning near the end",
+   "number": 3
+  },
+  {
+   "id": "bwv850",
+   "title": "Fugue in D major",
+   "collection": "wtc",
+   "catalogue": "BWV 850",
+   "key": "D major",
+   "voices": 4,
+   "bars": 27,
+   "techniques": [
+    "fugue",
+    "subject",
+    "answer"
+   ],
+   "listenFor": "4 voices; a rushing run, then dotted rhythms",
+   "number": 5
+  },
+  {
+   "id": "bwv851",
+   "title": "Fugue in D minor",
+   "collection": "wtc",
+   "catalogue": "BWV 851",
+   "key": "D minor",
+   "voices": 3,
+   "bars": 44,
+   "techniques": [
+    "fugue",
+    "subject",
+    "answer",
+    "inversion",
+    "stretto"
+   ],
+   "listenFor": "3 voices; the subject upright and inverted, in stretto",
+   "number": 6
+  },
+  {
+   "id": "bwv852",
+   "title": "Fugue in E♭ major",
+   "collection": "wtc",
+   "catalogue": "BWV 852",
+   "key": "E♭ major",
+   "voices": 3,
+   "bars": 37,
+   "techniques": [
+    "fugue",
+    "subject",
+    "answer"
+   ],
+   "listenFor": "3 voices; a cheerful subject in running sixteenths",
+   "number": 7
+  },
+  {
+   "id": "bwv853",
+   "title": "Fugue in D♯ minor",
+   "collection": "wtc",
+   "catalogue": "BWV 853",
+   "key": "D♯ minor",
+   "voices": 3,
+   "bars": 87,
+   "techniques": [
+    "fugue",
+    "subject",
+    "answer",
+    "inversion",
+    "augmentation",
+    "stretto"
+   ],
+   "listenFor": "3 voices; inversion, stretto and augmentation",
+   "number": 8
+  },
+  {
+   "id": "bwv854",
+   "title": "Fugue in E major",
+   "collection": "wtc",
+   "catalogue": "BWV 854",
+   "key": "E major",
+   "voices": 3,
+   "bars": 29,
+   "techniques": [
+    "fugue",
+    "subject",
+    "answer"
+   ],
+   "listenFor": "3 voices; a brisk subject that runs on in sixteenths",
+   "number": 9
+  },
+  {
+   "id": "bwv855",
+   "title": "Fugue in E minor",
+   "collection": "wtc",
+   "catalogue": "BWV 855",
+   "key": "E minor",
+   "voices": 2,
+   "bars": 42,
+   "techniques": [
+    "fugue",
+    "subject",
+    "answer",
+    "countersubject",
+    "invertible counterpoint"
+   ],
+   "listenFor": "2 voices; subject and countersubject trade places",
+   "number": 10
+  },
+  {
+   "id": "bwv856",
+   "title": "Fugue in F major",
+   "collection": "wtc",
+   "catalogue": "BWV 856",
+   "key": "F major",
+   "voices": 3,
+   "bars": 72,
+   "techniques": [
+    "fugue",
+    "subject",
+    "answer",
+    "stretto"
+   ],
+   "listenFor": "3 voices; a dance in 3/8, with strettos in three voices",
+   "number": 11
+  },
+  {
+   "id": "bwv857",
+   "title": "Fugue in F minor",
+   "collection": "wtc",
+   "catalogue": "BWV 857",
+   "key": "F minor",
+   "voices": 4,
+   "bars": 58,
+   "techniques": [
+    "fugue",
+    "subject",
+    "answer",
+    "countersubject"
+   ],
+   "listenFor": "4 voices; a slow, chromatic subject",
+   "number": 12
+  },
+  {
+   "id": "bwv858",
+   "title": "Fugue in F♯ major",
+   "collection": "wtc",
+   "catalogue": "BWV 858",
+   "key": "F♯ major",
+   "voices": 3,
+   "bars": 35,
+   "techniques": [
+    "fugue",
+    "subject",
+    "answer",
+    "countersubject"
+   ],
+   "listenFor": "3 voices; a graceful subject and its countersubject in sixteenths",
+   "number": 13
+  },
+  {
+   "id": "bwv859",
+   "title": "Fugue in F♯ minor",
+   "collection": "wtc",
+   "catalogue": "BWV 859",
+   "key": "F♯ minor",
+   "voices": 4,
+   "bars": 40,
+   "techniques": [
+    "fugue",
+    "subject",
+    "answer",
+    "countersubject",
+    "inversion"
+   ],
+   "listenFor": "4 voices; a calm subject, later turned upside down",
+   "number": 14
+  },
+  {
+   "id": "bwv860",
+   "title": "Fugue in G major",
+   "collection": "wtc",
+   "catalogue": "BWV 860",
+   "key": "G major",
+   "voices": 3,
+   "bars": 86,
+   "techniques": [
+    "fugue",
+    "subject",
+    "answer",
+    "inversion"
+   ],
+   "listenFor": "3 voices; a lively gigue, its subject soon turned upside down",
+   "number": 15
+  },
+  {
+   "id": "bwv861",
+   "title": "Fugue in G minor",
+   "collection": "wtc",
+   "catalogue": "BWV 861",
+   "key": "G minor",
+   "voices": 4,
+   "bars": 34,
+   "techniques": [
+    "fugue",
+    "subject",
+    "answer",
+    "countersubject",
+    "stretto"
+   ],
+   "listenFor": "4 voices; a short, sighing subject, in stretto",
+   "number": 16
+  },
+  {
+   "id": "bwv862",
+   "title": "Fugue in A♭ major",
+   "collection": "wtc",
+   "catalogue": "BWV 862",
+   "key": "A♭ major",
+   "voices": 4,
+   "bars": 35,
+   "techniques": [
+    "fugue",
+    "subject",
+    "answer"
+   ],
+   "listenFor": "4 voices; a short subject, a broken chord, heard again and again",
+   "number": 17
+  },
+  {
+   "id": "bwv863",
+   "title": "Fugue in G♯ minor",
+   "collection": "wtc",
+   "catalogue": "BWV 863",
+   "key": "G♯ minor",
+   "voices": 4,
+   "bars": 41,
+   "techniques": [
+    "fugue",
+    "subject",
+    "answer",
+    "countersubject"
+   ],
+   "listenFor": "4 voices; a winding subject and a steady countersubject",
+   "number": 18
+  },
+  {
+   "id": "bwv864",
+   "title": "Fugue in A major",
+   "collection": "wtc",
+   "catalogue": "BWV 864",
+   "key": "A major",
+   "voices": 3,
+   "bars": 54,
+   "techniques": [
+    "fugue",
+    "subject",
+    "answer",
+    "stretto"
+   ],
+   "listenFor": "3 voices; a subject that starts with one note and a silence",
+   "number": 19
+  },
+  {
+   "id": "bwv866",
+   "title": "Fugue in B♭ major",
+   "collection": "wtc",
+   "catalogue": "BWV 866",
+   "key": "B♭ major",
+   "voices": 3,
+   "bars": 48,
+   "techniques": [
+    "fugue",
+    "subject",
+    "answer",
+    "countersubject"
+   ],
+   "listenFor": "3 voices; a long subject ending in running sixteenths",
+   "number": 21
+  },
+  {
+   "id": "bwv867",
+   "title": "Fugue in B♭ minor",
+   "collection": "wtc",
+   "catalogue": "BWV 867",
+   "key": "B♭ minor",
+   "voices": 5,
+   "bars": 75,
+   "techniques": [
+    "fugue",
+    "subject",
+    "answer",
+    "stretto"
+   ],
+   "listenFor": "5 voices; a solemn subject, at the end in stretto in all five voices",
+   "number": 22
+  },
+  {
+   "id": "bwv868",
+   "title": "Fugue in B major",
+   "collection": "wtc",
+   "catalogue": "BWV 868",
+   "key": "B major",
+   "voices": 4,
+   "bars": 34,
+   "techniques": [
+    "fugue",
+    "subject",
+    "answer",
+    "inversion",
+    "stretto"
+   ],
+   "listenFor": "4 voices; a gentle subject, upright and inverted",
+   "number": 23
+  },
+  {
+   "id": "bwv869",
+   "title": "Fugue in B minor",
+   "collection": "wtc",
+   "catalogue": "BWV 869",
+   "key": "B minor",
+   "voices": 4,
+   "bars": 76,
+   "techniques": [
+    "fugue",
+    "subject",
+    "answer",
+    "countersubject"
+   ],
+   "listenFor": "4 voices; a slow chromatic subject that uses all twelve notes",
+   "number": 24
+  },
+  {
+   "id": "invention01",
+   "title": "Invention 1",
+   "collection": "inventions",
+   "catalogue": "BWV 772",
+   "key": "C major",
+   "voices": 2,
+   "bars": 22,
+   "techniques": [
+    "invention",
+    "motive",
+    "imitation",
+    "inversion"
+   ],
+   "listenFor": "the motive and its inversion, tossed between the voices"
+  },
+  {
+   "id": "sinfonia01",
+   "title": "Sinfonia 1",
+   "collection": "inventions",
+   "catalogue": "BWV 787",
+   "key": "C major",
+   "voices": 3,
+   "bars": 21,
+   "techniques": [
+    "sinfonia",
+    "motive",
+    "imitation",
+    "inversion"
+   ],
+   "listenFor": "the scale motive, rising and falling, in all three voices"
+  },
+  {
+   "id": "invention02",
+   "title": "Invention 2",
+   "collection": "inventions",
+   "catalogue": "BWV 773",
+   "key": "C minor",
+   "voices": 2,
+   "bars": 27,
+   "techniques": [
+    "invention",
+    "canon",
+    "canon at the octave"
+   ],
+   "listenFor": "canon at the octave, two bars apart; the voices swap roles"
+  },
+  {
+   "id": "sinfonia02",
+   "title": "Sinfonia 2",
+   "collection": "inventions",
+   "catalogue": "BWV 788",
+   "key": "C minor",
+   "voices": 3,
+   "bars": 32,
+   "techniques": [
+    "sinfonia",
+    "motive",
+    "countermotive",
+    "imitation",
+    "invertible counterpoint"
+   ],
+   "listenFor": "a two-bar motive and its countermotive, swapping voices"
+  },
+  {
+   "id": "invention03",
+   "title": "Invention 3",
+   "collection": "inventions",
+   "catalogue": "BWV 774",
+   "key": "D major",
+   "voices": 2,
+   "bars": 59,
+   "techniques": [
+    "invention",
+    "motive",
+    "imitation"
+   ],
+   "listenFor": "the motive passed between the voices, two bars apart"
+  },
+  {
+   "id": "sinfonia03",
+   "title": "Sinfonia 3",
+   "collection": "inventions",
+   "catalogue": "BWV 789",
+   "key": "D major",
+   "voices": 3,
+   "bars": 25,
+   "techniques": [
+    "sinfonia",
+    "motive",
+    "imitation"
+   ],
+   "listenFor": "a motive in eighths, entering voice by voice as in a fugue"
+  },
+  {
+   "id": "invention04",
+   "title": "Invention 4",
+   "collection": "inventions",
+   "catalogue": "BWV 775",
+   "key": "D minor",
+   "voices": 2,
+   "bars": 52,
+   "techniques": [
+    "invention",
+    "motive",
+    "imitation",
+    "inversion"
+   ],
+   "listenFor": "the motive in both voices, and once upside down"
+  },
+  {
+   "id": "sinfonia04",
+   "title": "Sinfonia 4",
+   "collection": "inventions",
+   "catalogue": "BWV 790",
+   "key": "D minor",
+   "voices": 3,
+   "bars": 23,
+   "techniques": [
+    "sinfonia",
+    "motive",
+    "imitation"
+   ],
+   "listenFor": "a sighing motive, answered at the fifth"
+  },
+  {
+   "id": "invention05",
+   "title": "Invention 5",
+   "collection": "inventions",
+   "catalogue": "BWV 776",
+   "key": "E♭ major",
+   "voices": 2,
+   "bars": 32,
+   "techniques": [
+    "invention",
+    "motive",
+    "countermotive",
+    "invertible counterpoint"
+   ],
+   "listenFor": "a motive and its running countermotive, trading places"
+  },
+  {
+   "id": "sinfonia05",
+   "title": "Sinfonia 5",
+   "collection": "inventions",
+   "catalogue": "BWV 791",
+   "key": "E♭ major",
+   "voices": 3,
+   "bars": 38,
+   "techniques": [
+    "sinfonia",
+    "motive",
+    "imitation"
+   ],
+   "listenFor": "an ornamented duet in two upper voices over a walking bass"
+  },
+  {
+   "id": "invention06",
+   "title": "Invention 6",
+   "collection": "inventions",
+   "catalogue": "BWV 777",
+   "key": "E major",
+   "voices": 2,
+   "bars": 62,
+   "techniques": [
+    "invention",
+    "motive",
+    "countermotive",
+    "invertible counterpoint"
+   ],
+   "listenFor": "two lines that swap voices: a falling syncopated line, a rising scale"
+  },
+  {
+   "id": "sinfonia06",
+   "title": "Sinfonia 6",
+   "collection": "inventions",
+   "catalogue": "BWV 792",
+   "key": "E major",
+   "voices": 3,
+   "bars": 41,
+   "techniques": [
+    "sinfonia",
+    "motive",
+    "imitation",
+    "inversion"
+   ],
+   "listenFor": "a rising motive and its inversion, sung together near the end"
+  },
+  {
+   "id": "invention07",
+   "title": "Invention 7",
+   "collection": "inventions",
+   "catalogue": "BWV 778",
+   "key": "E minor",
+   "voices": 2,
+   "bars": 23,
+   "techniques": [
+    "invention",
+    "motive",
+    "imitation"
+   ],
+   "listenFor": "a short falling motive, answered back and forth"
+  },
+  {
+   "id": "sinfonia07",
+   "title": "Sinfonia 7",
+   "collection": "inventions",
+   "catalogue": "BWV 793",
+   "key": "E minor",
+   "voices": 3,
+   "bars": 44,
+   "techniques": [
+    "sinfonia",
+    "motive",
+    "imitation"
+   ],
+   "listenFor": "a motive in eighths, passed between three voices"
+  },
+  {
+   "id": "invention08",
+   "title": "Invention 8",
+   "collection": "inventions",
+   "catalogue": "BWV 779",
+   "key": "F major",
+   "voices": 2,
+   "bars": 34,
+   "techniques": [
+    "invention",
+    "canon",
+    "canon at the octave"
+   ],
+   "listenFor": "canon at the octave, one bar apart"
+  },
+  {
+   "id": "sinfonia08",
+   "title": "Sinfonia 8",
+   "collection": "inventions",
+   "catalogue": "BWV 794",
+   "key": "F major",
+   "voices": 3,
+   "bars": 23,
+   "techniques": [
+    "sinfonia",
+    "motive",
+    "imitation",
+    "stretto"
+   ],
+   "listenFor": "a lively motive in three voices, in stretto in bars 7 and 8"
+  },
+  {
+   "id": "invention09",
+   "title": "Invention 9",
+   "collection": "inventions",
+   "catalogue": "BWV 780",
+   "key": "F minor",
+   "voices": 2,
+   "bars": 34,
+   "techniques": [
+    "invention",
+    "motive",
+    "countermotive",
+    "invertible counterpoint"
+   ],
+   "listenFor": "a sighing motive and a running countermotive, trading voices"
+  },
+  {
+   "id": "sinfonia09",
+   "title": "Sinfonia 9",
+   "collection": "inventions",
+   "catalogue": "BWV 795",
+   "key": "F minor",
+   "voices": 3,
+   "bars": 35,
+   "techniques": [
+    "sinfonia",
+    "motive",
+    "countermotive",
+    "chromaticism",
+    "invertible counterpoint"
+   ],
+   "listenFor": "a sighing motive over a falling chromatic line"
+  },
+  {
+   "id": "invention10",
+   "title": "Invention 10",
+   "collection": "inventions",
+   "catalogue": "BWV 781",
+   "key": "G major",
+   "voices": 2,
+   "bars": 32,
+   "techniques": [
+    "invention",
+    "motive",
+    "imitation",
+    "stretto"
+   ],
+   "listenFor": "a broken-chord motive, and two strettos near the end"
+  },
+  {
+   "id": "sinfonia10",
+   "title": "Sinfonia 10",
+   "collection": "inventions",
+   "catalogue": "BWV 796",
+   "key": "G major",
+   "voices": 3,
+   "bars": 33,
+   "techniques": [
+    "sinfonia",
+    "motive",
+    "imitation"
+   ],
+   "listenFor": "a running motive in three voices, like a fugue"
+  },
+  {
+   "id": "invention11",
+   "title": "Invention 11",
+   "collection": "inventions",
+   "catalogue": "BWV 782",
+   "key": "G minor",
+   "voices": 2,
+   "bars": 23,
+   "techniques": [
+    "invention",
+    "motive",
+    "countermotive",
+    "inversion"
+   ],
+   "listenFor": "a running motive over a creeping chromatic line"
+  },
+  {
+   "id": "sinfonia11",
+   "title": "Sinfonia 11",
+   "collection": "inventions",
+   "catalogue": "BWV 797",
+   "key": "G minor",
+   "voices": 3,
+   "bars": 72,
+   "techniques": [
+    "sinfonia",
+    "motive",
+    "imitation"
+   ],
+   "listenFor": "a falling chord and a leap: the motive's head, again and again"
+  },
+  {
+   "id": "invention12",
+   "title": "Invention 12",
+   "collection": "inventions",
+   "catalogue": "BWV 783",
+   "key": "A major",
+   "voices": 2,
+   "bars": 21,
+   "techniques": [
+    "invention",
+    "motive",
+    "imitation"
+   ],
+   "listenFor": "a motive of repeated notes and a running answer"
+  },
+  {
+   "id": "sinfonia12",
+   "title": "Sinfonia 12",
+   "collection": "inventions",
+   "catalogue": "BWV 798",
+   "key": "A major",
+   "voices": 3,
+   "bars": 31,
+   "techniques": [
+    "sinfonia",
+    "motive",
+    "imitation"
+   ],
+   "listenFor": "a motive turning around one note, entering voice by voice"
+  },
+  {
+   "id": "invention13",
+   "title": "Invention 13",
+   "collection": "inventions",
+   "catalogue": "BWV 784",
+   "key": "A minor",
+   "voices": 2,
+   "bars": 25,
+   "techniques": [
+    "invention",
+    "motive",
+    "imitation"
+   ],
+   "listenFor": "a broken-chord motive, answered at the octave"
+  },
+  {
+   "id": "sinfonia13",
+   "title": "Sinfonia 13",
+   "collection": "inventions",
+   "catalogue": "BWV 799",
+   "key": "A minor",
+   "voices": 3,
+   "bars": 64,
+   "techniques": [
+    "sinfonia",
+    "motive",
+    "imitation"
+   ],
+   "listenFor": "a slow motive in long notes against running sixteenths"
+  },
+  {
+   "id": "invention14",
+   "title": "Invention 14",
+   "collection": "inventions",
+   "catalogue": "BWV 785",
+   "key": "B♭ major",
+   "voices": 2,
+   "bars": 20,
+   "techniques": [
+    "invention",
+    "motive",
+    "imitation",
+    "inversion"
+   ],
+   "listenFor": "the motive and its mirror image, each half bar"
+  },
+  {
+   "id": "sinfonia14",
+   "title": "Sinfonia 14",
+   "collection": "inventions",
+   "catalogue": "BWV 800",
+   "key": "B♭ major",
+   "voices": 3,
+   "bars": 24,
+   "techniques": [
+    "sinfonia",
+    "motive",
+    "imitation",
+    "stretto"
+   ],
+   "listenFor": "an ornate motive, answered and overlapped"
+  },
+  {
+   "id": "invention15",
+   "title": "Invention 15",
+   "collection": "inventions",
+   "catalogue": "BWV 786",
+   "key": "B minor",
+   "voices": 2,
+   "bars": 22,
+   "techniques": [
+    "invention",
+    "motive",
+    "imitation"
+   ],
+   "listenFor": "a motive answered as in a fugue"
+  },
+  {
+   "id": "sinfonia15",
+   "title": "Sinfonia 15",
+   "collection": "inventions",
+   "catalogue": "BWV 801",
+   "key": "B minor",
+   "voices": 3,
+   "bars": 39,
+   "techniques": [
+    "sinfonia",
+    "motive",
+    "countermotive",
+    "imitation"
+   ],
+   "listenFor": "a motive around a repeated note, over a rocking countermotive"
+  }
+ ],
+ "techniques": {
+  "answer": [
+   "bwv1079-ricercar-a3",
+   "bwv1079-ricercar-a6",
+   "contrapunctus01",
+   "contrapunctus06",
+   "bwv846",
+   "bwv847",
+   "bwv848",
+   "bwv850",
+   "bwv851",
+   "bwv852",
+   "bwv853",
+   "bwv854",
+   "bwv855",
+   "bwv856",
+   "bwv857",
+   "bwv858",
+   "bwv859",
+   "bwv860",
+   "bwv861",
+   "bwv862",
+   "bwv863",
+   "bwv864",
+   "bwv866",
+   "bwv867",
+   "bwv868",
+   "bwv869"
+  ],
+  "augmentation": [
+   "bwv1079-augmentationem",
+   "bwv853"
+  ],
+  "canon": [
+   "frere-jacques",
+   "bwv1079-thema-regium",
+   "bwv1079-cancrizans",
+   "bwv1079-violini-in-unisono",
+   "bwv1079-motum-contrarium",
+   "bwv1079-augmentationem",
+   "bwv1079-per-tonos",
+   "bwv1079-fuga-canonica",
+   "bwv1079-quaerendo",
+   "bwv1079-canon-a4",
+   "bwv1079-canone-perpetuo",
+   "goldberg-var03",
+   "goldberg-var06",
+   "goldberg-var09",
+   "goldberg-var12",
+   "goldberg-var15",
+   "goldberg-var18",
+   "goldberg-var21",
+   "goldberg-var24",
+   "goldberg-var27",
+   "invention02",
+   "invention08"
+  ],
+  "canon at the fifth": [
+   "bwv1079-per-tonos",
+   "bwv1079-fuga-canonica",
+   "goldberg-var15"
+  ],
+  "canon at the fourth": [
+   "goldberg-var12"
+  ],
+  "canon at the ninth": [
+   "goldberg-var27"
+  ],
+  "canon at the octave": [
+   "bwv1079-thema-regium",
+   "bwv1079-canon-a4",
+   "goldberg-var24",
+   "invention02",
+   "invention08"
+  ],
+  "canon at the second": [
+   "goldberg-var06"
+  ],
+  "canon at the seventh": [
+   "goldberg-var21"
+  ],
+  "canon at the sixth": [
+   "goldberg-var18"
+  ],
+  "canon at the third": [
+   "goldberg-var09"
+  ],
+  "canon at the unison": [
+   "frere-jacques",
+   "bwv1079-violini-in-unisono",
+   "bwv1079-canon-a4",
+   "goldberg-var03"
+  ],
+  "chromaticism": [
+   "bwv1079-ricercar-a3",
+   "bwv1079-ricercar-a6",
+   "sinfonia09"
+  ],
+  "countermotive": [
+   "sinfonia02",
+   "invention05",
+   "invention06",
+   "invention09",
+   "sinfonia09",
+   "invention11",
+   "sinfonia15"
+  ],
+  "countersubject": [
+   "bwv847",
+   "bwv848",
+   "bwv855",
+   "bwv857",
+   "bwv858",
+   "bwv859",
+   "bwv861",
+   "bwv863",
+   "bwv866",
+   "bwv869"
+  ],
+  "diminution": [
+   "contrapunctus06"
+  ],
+  "fugue": [
+   "bwv1079-ricercar-a3",
+   "bwv1079-ricercar-a6",
+   "contrapunctus01",
+   "contrapunctus06",
+   "bwv846",
+   "bwv847",
+   "bwv848",
+   "bwv850",
+   "bwv851",
+   "bwv852",
+   "bwv853",
+   "bwv854",
+   "bwv855",
+   "bwv856",
+   "bwv857",
+   "bwv858",
+   "bwv859",
+   "bwv860",
+   "bwv861",
+   "bwv862",
+   "bwv863",
+   "bwv864",
+   "bwv866",
+   "bwv867",
+   "bwv868",
+   "bwv869"
+  ],
+  "imitation": [
+   "invention01",
+   "sinfonia01",
+   "sinfonia02",
+   "invention03",
+   "sinfonia03",
+   "invention04",
+   "sinfonia04",
+   "sinfonia05",
+   "sinfonia06",
+   "invention07",
+   "sinfonia07",
+   "sinfonia08",
+   "invention10",
+   "sinfonia10",
+   "sinfonia11",
+   "invention12",
+   "sinfonia12",
+   "invention13",
+   "sinfonia13",
+   "invention14",
+   "sinfonia14",
+   "invention15",
+   "sinfonia15"
+  ],
+  "invention": [
+   "invention01",
+   "invention02",
+   "invention03",
+   "invention04",
+   "invention05",
+   "invention06",
+   "invention07",
+   "invention08",
+   "invention09",
+   "invention10",
+   "invention11",
+   "invention12",
+   "invention13",
+   "invention14",
+   "invention15"
+  ],
+  "inversion": [
+   "bwv1079-motum-contrarium",
+   "bwv1079-augmentationem",
+   "bwv1079-quaerendo",
+   "bwv1079-canone-perpetuo",
+   "goldberg-var12",
+   "goldberg-var15",
+   "contrapunctus06",
+   "bwv851",
+   "bwv853",
+   "bwv859",
+   "bwv860",
+   "bwv868",
+   "invention01",
+   "sinfonia01",
+   "invention04",
+   "sinfonia06",
+   "invention11",
+   "invention14"
+  ],
+  "invertible counterpoint": [
+   "bwv855",
+   "sinfonia02",
+   "invention05",
+   "invention06",
+   "invention09",
+   "sinfonia09"
+  ],
+  "motive": [
+   "invention01",
+   "sinfonia01",
+   "sinfonia02",
+   "invention03",
+   "sinfonia03",
+   "invention04",
+   "sinfonia04",
+   "invention05",
+   "sinfonia05",
+   "invention06",
+   "sinfonia06",
+   "invention07",
+   "sinfonia07",
+   "sinfonia08",
+   "invention09",
+   "sinfonia09",
+   "invention10",
+   "sinfonia10",
+   "invention11",
+   "sinfonia11",
+   "invention12",
+   "sinfonia12",
+   "invention13",
+   "sinfonia13",
+   "invention14",
+   "sinfonia14",
+   "invention15",
+   "sinfonia15"
+  ],
+  "per tonos": [
+   "bwv1079-per-tonos"
+  ],
+  "perpetual canon": [
+   "frere-jacques",
+   "bwv1079-thema-regium",
+   "bwv1079-violini-in-unisono",
+   "bwv1079-motum-contrarium",
+   "bwv1079-augmentationem",
+   "bwv1079-per-tonos",
+   "bwv1079-quaerendo",
+   "bwv1079-canon-a4",
+   "bwv1079-canone-perpetuo"
+  ],
+  "retrograde": [
+   "bwv1079-cancrizans"
+  ],
+  "sinfonia": [
+   "sinfonia01",
+   "sinfonia02",
+   "sinfonia03",
+   "sinfonia04",
+   "sinfonia05",
+   "sinfonia06",
+   "sinfonia07",
+   "sinfonia08",
+   "sinfonia09",
+   "sinfonia10",
+   "sinfonia11",
+   "sinfonia12",
+   "sinfonia13",
+   "sinfonia14",
+   "sinfonia15"
+  ],
+  "stretto": [
+   "contrapunctus06",
+   "bwv846",
+   "bwv851",
+   "bwv853",
+   "bwv856",
+   "bwv861",
+   "bwv864",
+   "bwv867",
+   "bwv868",
+   "sinfonia08",
+   "invention10",
+   "sinfonia14"
+  ],
+  "subject": [
+   "bwv1079-ricercar-a3",
+   "bwv1079-ricercar-a6",
+   "contrapunctus01",
+   "contrapunctus06",
+   "bwv846",
+   "bwv847",
+   "bwv848",
+   "bwv850",
+   "bwv851",
+   "bwv852",
+   "bwv853",
+   "bwv854",
+   "bwv855",
+   "bwv856",
+   "bwv857",
+   "bwv858",
+   "bwv859",
+   "bwv860",
+   "bwv861",
+   "bwv862",
+   "bwv863",
+   "bwv864",
+   "bwv866",
+   "bwv867",
+   "bwv868",
+   "bwv869"
+  ]
+ }
+}

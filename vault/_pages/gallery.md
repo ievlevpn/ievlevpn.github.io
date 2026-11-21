@@ -6,7 +6,7 @@ permalink: /gallery/
 
 # Gallery
 
-Interactive illustrations of some mathematical objects I'm interested in, built with [three.js](https://threejs.org/).
+Interactive illustrations of some mathematical objects I'm interested in, built with [three.js](https://threejs.org/), and a listening companion for Bach's canons and fugues.
 
 <style>
   .gallery-thumb {

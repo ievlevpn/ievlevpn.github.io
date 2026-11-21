@@ -1,0 +1,22 @@
+The Listening Book — sources and credits
+
+Music: Johann Sebastian Bach (1685–1750), public domain. Markings, captions and definitions are our own.
+
+Scores the notes were read from
+- Goldberg Variations canons and The Art of Fugue (Contrapunctus I, VI): The Mutopia Project,
+  https://www.mutopiaproject.org — Creative Commons Attribution-ShareAlike 3.0 or public domain, per piece.
+  The note data derived from them is shared under the same licence.
+- Well-Tempered Clavier I fugues: Humdrum encodings by David Huron, revised by Craig Stuart Sapp,
+  https://github.com/humdrum-tools/bach-wtc-fugues
+- Inventions and Sinfonias: Humdrum encodings by David Huron, https://github.com/humdrum-tools/inventions
+- Musical Offering, Ricercar a 3 and a 6: Humdrum encodings by Craig Stuart Sapp after the Bach-Gesellschaft
+  edition, https://github.com/craigsapp/bach-musical-offering
+- Musical Offering canons: transcribed from the Bach-Gesellschaft edition (IMSLP #10042) and its resolutions,
+  cross-checked against Reccmo's MIDI files on IMSLP and, for the Canon a 4, the MIDI on dardel.info.
+
+Sound
+- Instrument samples: FluidR3_GM by Frank Wen, MP3 renders by Benjamin Gleitzman (midi-js-soundfonts),
+  Creative Commons Attribution 3.0 — see samples/LICENSE.txt.
+
+Type
+- EB Garamond, Garamond Libre, Noto Music — SIL Open Font License (licenses/: OFL.txt, NotoMusic-OFL.txt, GaramondLibre-COPYING.txt).

@@ -8,3 +8,6 @@
 - file: pillow.html
   title: "A Smooth Gaussian Field and the Euler-Characteristic Heuristic"
   description: "A smooth Gaussian field pinned to zero on a non-convex boundary, flowing in time, and the Adler–Taylor heuristic for its supremum."
+- file: listening-book/index.html
+  title: "The Listening Book: Canons and Fugues of Bach"
+  description: "A listening companion for Bach's canons and fugues: every voice drawn as it sounds, with the canonic rule — inversion, crab, augmentation, rising per tonos, fugue entries and stretto — drawn as it happens. Best with sound on."
