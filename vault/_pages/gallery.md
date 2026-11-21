@@ -6,7 +6,9 @@ permalink: /gallery/
 
 # Gallery
 
-Interactive illustrations of some mathematical objects I'm interested in, built with [three.js](https://threejs.org/), and a listening companion for Bach's canons and fugues.
+## Mathematics
+
+Interactive illustrations of some mathematical objects I'm interested in, built with [three.js](https://threejs.org/).
 
 <style>
   .gallery-thumb {
@@ -17,7 +19,25 @@ Interactive illustrations of some mathematical objects I'm interested in, built 
 </style>
 
 <div class="publication-list">
-  {% for item in site.data.gallery %}
+  {% assign items = site.data.gallery | where_exp: 'i', 'i.section != "other"' %}
+  {% for item in items %}
+  <div class="publication-item">
+    {% assign src = '/viz/' | append: item.file | relative_url %}
+    {% assign poster = item.file | replace: '.html', '.png' | prepend: '/viz/' | relative_url %}
+    <a class="gallery-thumb" href="{{ src }}"><img src="{{ poster }}" alt="{{ item.title }}" loading="lazy"></a>
+    <div class="title" style="margin-top:.6em">
+      <a href="{{ src }}">{{ item.title }}</a>
+    </div>
+    {% if item.description %}<div class="venue">{{ item.description }}</div>{% endif %}
+  </div>
+  {% endfor %}
+</div>
+
+## Other
+
+<div class="publication-list">
+  {% assign items = site.data.gallery | where: 'section', 'other' %}
+  {% for item in items %}
   <div class="publication-item">
     {% assign src = '/viz/' | append: item.file | relative_url %}
     {% assign poster = item.file | replace: '.html', '.png' | prepend: '/viz/' | relative_url %}
