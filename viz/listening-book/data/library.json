@@ -75,7 +75,25 @@
      "name": "",
      "pieces": [
       "contrapunctus01",
-      "contrapunctus06"
+      "contrapunctus02",
+      "contrapunctus03",
+      "contrapunctus04",
+      "contrapunctus05",
+      "contrapunctus06",
+      "contrapunctus07",
+      "contrapunctus08",
+      "contrapunctus09",
+      "contrapunctus10",
+      "contrapunctus11",
+      "contrapunctus12-rectus",
+      "contrapunctus12-inversus",
+      "contrapunctus13-rectus",
+      "contrapunctus13-inversus",
+      "canon-per-augmentationem",
+      "canon-alla-ottava",
+      "canon-alla-decima",
+      "canon-alla-duodecima",
+      "contrapunctus14"
      ]
     }
    ]
@@ -511,6 +529,72 @@
    "listenFor": "4 voices; the plain subject, ten times"
   },
   {
+   "id": "contrapunctus02",
+   "title": "Contrapunctus II",
+   "collection": "art-of-fugue",
+   "catalogue": "BWV 1080, 2",
+   "key": "D minor",
+   "voices": 4,
+   "bars": 84,
+   "techniques": [
+    "fugue",
+    "subject",
+    "answer"
+   ],
+   "listenFor": "the subject of Contrapunctus I, its tail now dotted"
+  },
+  {
+   "id": "contrapunctus03",
+   "title": "Contrapunctus III",
+   "collection": "art-of-fugue",
+   "catalogue": "BWV 1080, 3",
+   "key": "D minor",
+   "voices": 4,
+   "bars": 72,
+   "techniques": [
+    "fugue",
+    "subject",
+    "answer",
+    "inversion",
+    "chromaticism"
+   ],
+   "listenFor": "the subject upside down, against chromatic lines"
+  },
+  {
+   "id": "contrapunctus04",
+   "title": "Contrapunctus IV",
+   "collection": "art-of-fugue",
+   "catalogue": "BWV 1080, 4",
+   "key": "D minor",
+   "voices": 4,
+   "bars": 138,
+   "techniques": [
+    "fugue",
+    "subject",
+    "answer",
+    "inversion",
+    "stretto"
+   ],
+   "listenFor": "the inverted subject; near the end, two strettos a quarter note apart"
+  },
+  {
+   "id": "contrapunctus05",
+   "title": "Contrapunctus V",
+   "collection": "art-of-fugue",
+   "catalogue": "BWV 1080, 5",
+   "key": "D minor",
+   "voices": 4,
+   "bars": 91,
+   "techniques": [
+    "fugue",
+    "subject",
+    "answer",
+    "inversion",
+    "stretto"
+   ],
+   "listenFor": "the subject and its inversion, ever closer in stretto"
+  },
+  {
    "id": "contrapunctus06",
    "title": "Contrapunctus VI",
    "collection": "art-of-fugue",
@@ -527,6 +611,242 @@
     "stretto"
    ],
    "listenFor": "inversion and diminution, in stretto"
+  },
+  {
+   "id": "contrapunctus07",
+   "title": "Contrapunctus VII",
+   "collection": "art-of-fugue",
+   "catalogue": "BWV 1080, 7",
+   "key": "D minor",
+   "voices": 4,
+   "bars": 61,
+   "techniques": [
+    "fugue",
+    "subject",
+    "answer",
+    "inversion",
+    "augmentation",
+    "diminution",
+    "stretto"
+   ],
+   "listenFor": "the subject at three speeds at once, halved and doubled"
+  },
+  {
+   "id": "contrapunctus08",
+   "title": "Contrapunctus VIII",
+   "collection": "art-of-fugue",
+   "catalogue": "BWV 1080, 8",
+   "key": "D minor",
+   "voices": 3,
+   "bars": 188,
+   "techniques": [
+    "fugue",
+    "subject",
+    "answer",
+    "triple fugue",
+    "stretto"
+   ],
+   "listenFor": "a triple fugue; three new subjects, then all three together"
+  },
+  {
+   "id": "contrapunctus09",
+   "title": "Contrapunctus IX",
+   "collection": "art-of-fugue",
+   "catalogue": "BWV 1080, 9",
+   "key": "D minor",
+   "voices": 4,
+   "bars": 130,
+   "techniques": [
+    "fugue",
+    "subject",
+    "answer",
+    "double fugue",
+    "invertible counterpoint"
+   ],
+   "listenFor": "a fast new subject, then the main subject in long notes against it"
+  },
+  {
+   "id": "contrapunctus10",
+   "title": "Contrapunctus X",
+   "collection": "art-of-fugue",
+   "catalogue": "BWV 1080, 10",
+   "key": "D minor",
+   "voices": 4,
+   "bars": 120,
+   "techniques": [
+    "fugue",
+    "subject",
+    "answer",
+    "double fugue",
+    "inversion",
+    "stretto",
+    "invertible counterpoint"
+   ],
+   "listenFor": "a new subject and the dotted subject of V, combined and doubled in tenths"
+  },
+  {
+   "id": "contrapunctus11",
+   "title": "Contrapunctus XI",
+   "collection": "art-of-fugue",
+   "catalogue": "BWV 1080, 11",
+   "key": "D minor",
+   "voices": 4,
+   "bars": 184,
+   "techniques": [
+    "fugue",
+    "subject",
+    "answer",
+    "triple fugue",
+    "inversion",
+    "chromaticism",
+    "stretto"
+   ],
+   "listenFor": "the three subjects of VIII upside down, with a chromatic rising line"
+  },
+  {
+   "id": "contrapunctus12-rectus",
+   "title": "Contrapunctus XII (rectus)",
+   "collection": "art-of-fugue",
+   "catalogue": "BWV 1080, 12",
+   "key": "D minor",
+   "voices": 4,
+   "bars": 56,
+   "techniques": [
+    "fugue",
+    "subject",
+    "answer",
+    "mirror fugue"
+   ],
+   "listenFor": "a mirror fugue; the subject in triple time, to be heard again upside down"
+  },
+  {
+   "id": "contrapunctus12-inversus",
+   "title": "Contrapunctus XII (inversus)",
+   "collection": "art-of-fugue",
+   "catalogue": "BWV 1080, 12",
+   "key": "D minor",
+   "voices": 4,
+   "bars": 56,
+   "techniques": [
+    "fugue",
+    "subject",
+    "answer",
+    "inversion",
+    "mirror fugue"
+   ],
+   "listenFor": "the rectus played upside down, its bass now on top"
+  },
+  {
+   "id": "contrapunctus13-rectus",
+   "title": "Contrapunctus XIII (rectus)",
+   "collection": "art-of-fugue",
+   "catalogue": "BWV 1080, 13",
+   "key": "D minor",
+   "voices": 3,
+   "bars": 71,
+   "techniques": [
+    "fugue",
+    "subject",
+    "answer",
+    "inversion",
+    "mirror fugue"
+   ],
+   "listenFor": "a mirror fugue in three voices; the subject and its inversion take turns"
+  },
+  {
+   "id": "contrapunctus13-inversus",
+   "title": "Contrapunctus XIII (inversus)",
+   "collection": "art-of-fugue",
+   "catalogue": "BWV 1080, 13",
+   "key": "D minor",
+   "voices": 3,
+   "bars": 71,
+   "techniques": [
+    "fugue",
+    "subject",
+    "answer",
+    "inversion",
+    "mirror fugue"
+   ],
+   "listenFor": "the rectus upside down, its alto now on top"
+  },
+  {
+   "id": "canon-per-augmentationem",
+   "title": "Canon per Augmentationem in Contrario Motu",
+   "collection": "art-of-fugue",
+   "catalogue": "BWV 1080, 14",
+   "key": "D minor",
+   "voices": 2,
+   "bars": 109,
+   "techniques": [
+    "canon",
+    "inversion",
+    "augmentation"
+   ],
+   "listenFor": "canon upside down and at double length; then the parts change places"
+  },
+  {
+   "id": "canon-alla-ottava",
+   "title": "Canon alla Ottava",
+   "collection": "art-of-fugue",
+   "catalogue": "BWV 1080, 15",
+   "key": "D minor",
+   "voices": 2,
+   "bars": 103,
+   "techniques": [
+    "canon",
+    "canon at the octave"
+   ],
+   "listenFor": "canon at the octave, four bars apart, in 9/16; the repeat is not played"
+  },
+  {
+   "id": "canon-alla-decima",
+   "title": "Canon alla Decima",
+   "collection": "art-of-fugue",
+   "catalogue": "BWV 1080, 16",
+   "key": "D minor",
+   "voices": 2,
+   "bars": 82,
+   "techniques": [
+    "canon",
+    "canon at the tenth",
+    "invertible counterpoint"
+   ],
+   "listenFor": "canon at the tenth, four bars apart; then the parts change places"
+  },
+  {
+   "id": "canon-alla-duodecima",
+   "title": "Canon alla Duodecima",
+   "collection": "art-of-fugue",
+   "catalogue": "BWV 1080, 17",
+   "key": "D minor",
+   "voices": 2,
+   "bars": 78,
+   "techniques": [
+    "canon",
+    "canon at the twelfth",
+    "invertible counterpoint"
+   ],
+   "listenFor": "canon at the twelfth, eight bars apart; then the parts change places"
+  },
+  {
+   "id": "contrapunctus14",
+   "title": "Contrapunctus XIV (unfinished)",
+   "collection": "art-of-fugue",
+   "catalogue": "BWV 1080, 19",
+   "key": "D minor",
+   "voices": 4,
+   "bars": 239,
+   "techniques": [
+    "fugue",
+    "subject",
+    "answer",
+    "triple fugue",
+    "inversion",
+    "stretto",
+    "chromaticism"
+   ],
+   "listenFor": "three subjects, the third spelling B-A-C-H; it breaks off unfinished"
   },
   {
    "id": "bwv846",
@@ -1415,7 +1735,21 @@
    "bwv1079-ricercar-a3",
    "bwv1079-ricercar-a6",
    "contrapunctus01",
+   "contrapunctus02",
+   "contrapunctus03",
+   "contrapunctus04",
+   "contrapunctus05",
    "contrapunctus06",
+   "contrapunctus07",
+   "contrapunctus08",
+   "contrapunctus09",
+   "contrapunctus10",
+   "contrapunctus11",
+   "contrapunctus12-rectus",
+   "contrapunctus12-inversus",
+   "contrapunctus13-rectus",
+   "contrapunctus13-inversus",
+   "contrapunctus14",
    "bwv846",
    "bwv847",
    "bwv848",
@@ -1443,6 +1777,8 @@
   ],
   "augmentation": [
    "bwv1079-augmentationem",
+   "contrapunctus07",
+   "canon-per-augmentationem",
    "bwv853"
   ],
   "canon": [
@@ -1466,6 +1802,10 @@
    "goldberg-var21",
    "goldberg-var24",
    "goldberg-var27",
+   "canon-per-augmentationem",
+   "canon-alla-ottava",
+   "canon-alla-decima",
+   "canon-alla-duodecima",
    "invention02",
    "invention08"
   ],
@@ -1484,6 +1824,7 @@
    "bwv1079-thema-regium",
    "bwv1079-canon-a4",
    "goldberg-var24",
+   "canon-alla-ottava",
    "invention02",
    "invention08"
   ],
@@ -1496,8 +1837,14 @@
   "canon at the sixth": [
    "goldberg-var18"
   ],
+  "canon at the tenth": [
+   "canon-alla-decima"
+  ],
   "canon at the third": [
    "goldberg-var09"
+  ],
+  "canon at the twelfth": [
+   "canon-alla-duodecima"
   ],
   "canon at the unison": [
    "frere-jacques",
@@ -1508,6 +1855,9 @@
   "chromaticism": [
    "bwv1079-ricercar-a3",
    "bwv1079-ricercar-a6",
+   "contrapunctus03",
+   "contrapunctus11",
+   "contrapunctus14",
    "sinfonia09"
   ],
   "countermotive": [
@@ -1532,13 +1882,32 @@
    "bwv869"
   ],
   "diminution": [
-   "contrapunctus06"
+   "contrapunctus06",
+   "contrapunctus07"
+  ],
+  "double fugue": [
+   "contrapunctus09",
+   "contrapunctus10"
   ],
   "fugue": [
    "bwv1079-ricercar-a3",
    "bwv1079-ricercar-a6",
    "contrapunctus01",
+   "contrapunctus02",
+   "contrapunctus03",
+   "contrapunctus04",
+   "contrapunctus05",
    "contrapunctus06",
+   "contrapunctus07",
+   "contrapunctus08",
+   "contrapunctus09",
+   "contrapunctus10",
+   "contrapunctus11",
+   "contrapunctus12-rectus",
+   "contrapunctus12-inversus",
+   "contrapunctus13-rectus",
+   "contrapunctus13-inversus",
+   "contrapunctus14",
    "bwv846",
    "bwv847",
    "bwv848",
@@ -1613,7 +1982,18 @@
    "bwv1079-canone-perpetuo",
    "goldberg-var12",
    "goldberg-var15",
+   "contrapunctus03",
+   "contrapunctus04",
+   "contrapunctus05",
    "contrapunctus06",
+   "contrapunctus07",
+   "contrapunctus10",
+   "contrapunctus11",
+   "contrapunctus12-inversus",
+   "contrapunctus13-rectus",
+   "contrapunctus13-inversus",
+   "canon-per-augmentationem",
+   "contrapunctus14",
    "bwv849",
    "bwv851",
    "bwv853",
@@ -1629,12 +2009,22 @@
    "invention14"
   ],
   "invertible counterpoint": [
+   "contrapunctus09",
+   "contrapunctus10",
+   "canon-alla-decima",
+   "canon-alla-duodecima",
    "bwv855",
    "sinfonia02",
    "invention05",
    "invention06",
    "invention09",
    "sinfonia09"
+  ],
+  "mirror fugue": [
+   "contrapunctus12-rectus",
+   "contrapunctus12-inversus",
+   "contrapunctus13-rectus",
+   "contrapunctus13-inversus"
   ],
   "motive": [
    "invention01",
@@ -1701,7 +2091,14 @@
    "sinfonia15"
   ],
   "stretto": [
+   "contrapunctus04",
+   "contrapunctus05",
    "contrapunctus06",
+   "contrapunctus07",
+   "contrapunctus08",
+   "contrapunctus10",
+   "contrapunctus11",
+   "contrapunctus14",
    "bwv846",
    "bwv849",
    "bwv851",
@@ -1720,7 +2117,21 @@
    "bwv1079-ricercar-a3",
    "bwv1079-ricercar-a6",
    "contrapunctus01",
+   "contrapunctus02",
+   "contrapunctus03",
+   "contrapunctus04",
+   "contrapunctus05",
    "contrapunctus06",
+   "contrapunctus07",
+   "contrapunctus08",
+   "contrapunctus09",
+   "contrapunctus10",
+   "contrapunctus11",
+   "contrapunctus12-rectus",
+   "contrapunctus12-inversus",
+   "contrapunctus13-rectus",
+   "contrapunctus13-inversus",
+   "contrapunctus14",
    "bwv846",
    "bwv847",
    "bwv848",
@@ -1747,6 +2158,9 @@
    "bwv869"
   ],
   "triple fugue": [
+   "contrapunctus08",
+   "contrapunctus11",
+   "contrapunctus14",
    "bwv849"
   ]
  }

@@ -32,7 +32,49 @@
      "id": "contrapunctus01"
     },
     {
+     "id": "contrapunctus02"
+    },
+    {
+     "id": "contrapunctus03"
+    },
+    {
+     "id": "contrapunctus04"
+    },
+    {
+     "id": "contrapunctus05"
+    },
+    {
      "id": "contrapunctus06"
+    },
+    {
+     "id": "contrapunctus07"
+    },
+    {
+     "id": "contrapunctus08"
+    },
+    {
+     "id": "contrapunctus09"
+    },
+    {
+     "id": "contrapunctus10"
+    },
+    {
+     "id": "contrapunctus11"
+    },
+    {
+     "id": "contrapunctus12-rectus"
+    },
+    {
+     "id": "contrapunctus12-inversus"
+    },
+    {
+     "id": "contrapunctus13-rectus"
+    },
+    {
+     "id": "contrapunctus13-inversus"
+    },
+    {
+     "id": "contrapunctus14"
     },
     {
      "id": "bwv846"
@@ -312,6 +354,12 @@
      "id": "bwv1079-augmentationem"
     },
     {
+     "id": "contrapunctus07"
+    },
+    {
+     "id": "canon-per-augmentationem"
+    },
+    {
      "id": "bwv853"
     }
    ],
@@ -576,6 +624,18 @@
      "id": "goldberg-var27"
     },
     {
+     "id": "canon-per-augmentationem"
+    },
+    {
+     "id": "canon-alla-ottava"
+    },
+    {
+     "id": "canon-alla-decima"
+    },
+    {
+     "id": "canon-alla-duodecima"
+    },
+    {
      "id": "invention02"
     },
     {
@@ -790,7 +850,7 @@
   {
    "id": "canon-at-an-interval",
    "title": "Canon at an interval",
-   "also": "also: at the second, the third … the ninth",
+   "also": "also: at the second, the third … the ninth, the tenth, the twelfth",
    "aliases": [
     "canon at the second",
     "canon at the third",
@@ -799,7 +859,9 @@
     "canon at the sixth",
     "canon at the seventh",
     "canon at the octave",
-    "canon at the ninth"
+    "canon at the ninth",
+    "canon at the tenth",
+    "canon at the twelfth"
    ],
    "links": [
     "canon at the second",
@@ -809,7 +871,9 @@
     "canon at the sixth",
     "canon at the seventh",
     "canon at the octave",
-    "canon at the ninth"
+    "canon at the ninth",
+    "canon at the tenth",
+    "canon at the twelfth"
    ],
    "short": "The comes sings the dux's melody moved up or down by a fixed interval.",
    "text": "The comes sings the dux's melody transposed by a fixed interval: in a canon at the fifth it starts a fifth higher (or lower), in a canon at the octave an octave apart. The interval is usually counted on the scale, so the comes stays in the key, and a whole step in the dux may be answered by a half step. Every third Goldberg Variation is a canon, at each interval in turn from the unison to the ninth.",
@@ -865,6 +929,18 @@
     {
      "id": "goldberg-var27",
      "note": "at the ninth"
+    },
+    {
+     "id": "canon-alla-ottava",
+     "note": "at the octave"
+    },
+    {
+     "id": "canon-alla-decima",
+     "note": "at the tenth"
+    },
+    {
+     "id": "canon-alla-duodecima",
+     "note": "at the twelfth"
     },
     {
      "id": "invention02",
@@ -1439,6 +1515,15 @@
      "id": "bwv1079-ricercar-a6"
     },
     {
+     "id": "contrapunctus03"
+    },
+    {
+     "id": "contrapunctus11"
+    },
+    {
+     "id": "contrapunctus14"
+    },
+    {
      "id": "sinfonia09"
     }
    ],
@@ -1811,6 +1896,9 @@
    "pieces": [
     {
      "id": "contrapunctus06"
+    },
+    {
+     "id": "contrapunctus07"
     }
    ],
    "example": {
@@ -2013,6 +2101,21 @@
    ],
    "pieces": [
     {
+     "id": "contrapunctus08"
+    },
+    {
+     "id": "contrapunctus09"
+    },
+    {
+     "id": "contrapunctus10"
+    },
+    {
+     "id": "contrapunctus11"
+    },
+    {
+     "id": "contrapunctus14"
+    },
+    {
      "id": "bwv849"
     }
    ]
@@ -2064,6 +2167,9 @@
     },
     {
      "id": "goldberg-var27"
+    },
+    {
+     "id": "canon-alla-ottava"
     },
     {
      "id": "invention02"
@@ -2287,7 +2393,49 @@
      "id": "contrapunctus01"
     },
     {
+     "id": "contrapunctus02"
+    },
+    {
+     "id": "contrapunctus03"
+    },
+    {
+     "id": "contrapunctus04"
+    },
+    {
+     "id": "contrapunctus05"
+    },
+    {
      "id": "contrapunctus06"
+    },
+    {
+     "id": "contrapunctus07"
+    },
+    {
+     "id": "contrapunctus08"
+    },
+    {
+     "id": "contrapunctus09"
+    },
+    {
+     "id": "contrapunctus10"
+    },
+    {
+     "id": "contrapunctus11"
+    },
+    {
+     "id": "contrapunctus12-rectus"
+    },
+    {
+     "id": "contrapunctus12-inversus"
+    },
+    {
+     "id": "contrapunctus13-rectus"
+    },
+    {
+     "id": "contrapunctus13-inversus"
+    },
+    {
+     "id": "contrapunctus14"
     },
     {
      "id": "bwv846"
@@ -3232,7 +3380,40 @@
      "id": "goldberg-var15"
     },
     {
+     "id": "contrapunctus03"
+    },
+    {
+     "id": "contrapunctus04"
+    },
+    {
+     "id": "contrapunctus05"
+    },
+    {
      "id": "contrapunctus06"
+    },
+    {
+     "id": "contrapunctus07"
+    },
+    {
+     "id": "contrapunctus10"
+    },
+    {
+     "id": "contrapunctus11"
+    },
+    {
+     "id": "contrapunctus12-inversus"
+    },
+    {
+     "id": "contrapunctus13-rectus"
+    },
+    {
+     "id": "contrapunctus13-inversus"
+    },
+    {
+     "id": "canon-per-augmentationem"
+    },
+    {
+     "id": "contrapunctus14"
     },
     {
      "id": "bwv849"
@@ -3468,6 +3649,18 @@
    ],
    "pieces": [
     {
+     "id": "contrapunctus09"
+    },
+    {
+     "id": "contrapunctus10"
+    },
+    {
+     "id": "canon-alla-decima"
+    },
+    {
+     "id": "canon-alla-duodecima"
+    },
+    {
      "id": "bwv855"
     },
     {
@@ -3671,6 +3864,43 @@
     "listenFor": "",
     "caption": "Two lines, then the same pair exchanged: the upper voice (solid) takes the lower line, and the lower voice (hatched) the upper line an octave down."
    }
+  },
+  {
+   "id": "mirror-fugue",
+   "title": "Mirror fugue",
+   "also": "also: rectus and inversus",
+   "aliases": [
+    "mirror fugue",
+    "mirror fugues",
+    "rectus",
+    "inversus"
+   ],
+   "links": [
+    "mirror fugue",
+    "mirror fugues",
+    "rectus",
+    "inversus"
+   ],
+   "short": "A fugue written so that the whole of it, every voice, also works upside down.",
+   "text": "A fugue composed so that it can be turned upside down as a whole: every voice is inverted, as if the page were held to a mirror, and the result is a second correct fugue. Bach prints both, the rectus and the inversus; in the inversus the voices also change places, a low line, inverted, becoming a high one. In The Art of Fugue Contrapunctus XII (four voices) and XIII (three) are mirror fugues.",
+   "related": [
+    "inversion",
+    "fugue"
+   ],
+   "pieces": [
+    {
+     "id": "contrapunctus12-rectus"
+    },
+    {
+     "id": "contrapunctus12-inversus"
+    },
+    {
+     "id": "contrapunctus13-rectus"
+    },
+    {
+     "id": "contrapunctus13-inversus"
+    }
+   ]
   },
   {
    "id": "motive",
@@ -4794,7 +5024,28 @@
    ],
    "pieces": [
     {
+     "id": "contrapunctus04"
+    },
+    {
+     "id": "contrapunctus05"
+    },
+    {
      "id": "contrapunctus06"
+    },
+    {
+     "id": "contrapunctus07"
+    },
+    {
+     "id": "contrapunctus08"
+    },
+    {
+     "id": "contrapunctus10"
+    },
+    {
+     "id": "contrapunctus11"
+    },
+    {
+     "id": "contrapunctus14"
     },
     {
      "id": "bwv846"
@@ -5155,7 +5406,49 @@
      "id": "contrapunctus01"
     },
     {
+     "id": "contrapunctus02"
+    },
+    {
+     "id": "contrapunctus03"
+    },
+    {
+     "id": "contrapunctus04"
+    },
+    {
+     "id": "contrapunctus05"
+    },
+    {
      "id": "contrapunctus06"
+    },
+    {
+     "id": "contrapunctus07"
+    },
+    {
+     "id": "contrapunctus08"
+    },
+    {
+     "id": "contrapunctus09"
+    },
+    {
+     "id": "contrapunctus10"
+    },
+    {
+     "id": "contrapunctus11"
+    },
+    {
+     "id": "contrapunctus12-rectus"
+    },
+    {
+     "id": "contrapunctus12-inversus"
+    },
+    {
+     "id": "contrapunctus13-rectus"
+    },
+    {
+     "id": "contrapunctus13-inversus"
+    },
+    {
+     "id": "contrapunctus14"
     },
     {
      "id": "bwv846"
@@ -5319,17 +5612,21 @@
   "canon at the second": "canon-at-an-interval",
   "canon at the seventh": "canon-at-an-interval",
   "canon at the sixth": "canon-at-an-interval",
+  "canon at the tenth": "canon-at-an-interval",
   "canon at the third": "canon-at-an-interval",
+  "canon at the twelfth": "canon-at-an-interval",
   "canon at the unison": "canon-at-the-unison",
   "chromaticism": "chromaticism",
   "countermotive": "motive",
   "countersubject": "countersubject",
   "diminution": "diminution",
+  "double fugue": "double-fugue",
   "fugue": "fugue",
   "imitation": "imitation",
   "invention": "invention",
   "inversion": "inversion",
   "invertible counterpoint": "invertible-counterpoint",
+  "mirror fugue": "mirror-fugue",
   "motive": "motive",
   "per tonos": "per-tonos",
   "perpetual canon": "perpetual-canon",
