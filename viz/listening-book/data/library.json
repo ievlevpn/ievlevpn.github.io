@@ -93,6 +93,7 @@
       "bwv846",
       "bwv847",
       "bwv848",
+      "bwv849",
       "bwv850",
       "bwv851",
       "bwv852",
@@ -108,6 +109,7 @@
       "bwv862",
       "bwv863",
       "bwv864",
+      "bwv865",
       "bwv866",
       "bwv867",
       "bwv868",
@@ -578,6 +580,25 @@
    "number": 3
   },
   {
+   "id": "bwv849",
+   "title": "Fugue in C♯ minor",
+   "collection": "wtc",
+   "catalogue": "BWV 849",
+   "key": "C♯ minor",
+   "voices": 5,
+   "bars": 115,
+   "techniques": [
+    "fugue",
+    "triple fugue",
+    "subject",
+    "answer",
+    "inversion",
+    "stretto"
+   ],
+   "listenFor": "5 voices; three subjects, one after another, then all three together",
+   "number": 4
+  },
+  {
    "id": "bwv850",
    "title": "Fugue in D major",
    "collection": "wtc",
@@ -833,6 +854,24 @@
    ],
    "listenFor": "3 voices; a subject that starts with one note and a silence",
    "number": 19
+  },
+  {
+   "id": "bwv865",
+   "title": "Fugue in A minor",
+   "collection": "wtc",
+   "catalogue": "BWV 865",
+   "key": "A minor",
+   "voices": 5,
+   "bars": 87,
+   "techniques": [
+    "fugue",
+    "subject",
+    "answer",
+    "inversion",
+    "stretto"
+   ],
+   "listenFor": "4 voices, five at the close; the subject upright and inverted, in stretto",
+   "number": 20
   },
   {
    "id": "bwv866",
@@ -1380,6 +1419,7 @@
    "bwv846",
    "bwv847",
    "bwv848",
+   "bwv849",
    "bwv850",
    "bwv851",
    "bwv852",
@@ -1395,6 +1435,7 @@
    "bwv862",
    "bwv863",
    "bwv864",
+   "bwv865",
    "bwv866",
    "bwv867",
    "bwv868",
@@ -1501,6 +1542,7 @@
    "bwv846",
    "bwv847",
    "bwv848",
+   "bwv849",
    "bwv850",
    "bwv851",
    "bwv852",
@@ -1516,6 +1558,7 @@
    "bwv862",
    "bwv863",
    "bwv864",
+   "bwv865",
    "bwv866",
    "bwv867",
    "bwv868",
@@ -1571,10 +1614,12 @@
    "goldberg-var12",
    "goldberg-var15",
    "contrapunctus06",
+   "bwv849",
    "bwv851",
    "bwv853",
    "bwv859",
    "bwv860",
+   "bwv865",
    "bwv868",
    "invention01",
    "sinfonia01",
@@ -1658,11 +1703,13 @@
   "stretto": [
    "contrapunctus06",
    "bwv846",
+   "bwv849",
    "bwv851",
    "bwv853",
    "bwv856",
    "bwv861",
    "bwv864",
+   "bwv865",
    "bwv867",
    "bwv868",
    "sinfonia08",
@@ -1677,6 +1724,7 @@
    "bwv846",
    "bwv847",
    "bwv848",
+   "bwv849",
    "bwv850",
    "bwv851",
    "bwv852",
@@ -1692,10 +1740,14 @@
    "bwv862",
    "bwv863",
    "bwv864",
+   "bwv865",
    "bwv866",
    "bwv867",
    "bwv868",
    "bwv869"
+  ],
+  "triple fugue": [
+   "bwv849"
   ]
  }
 }

@@ -44,6 +44,9 @@
      "id": "bwv848"
     },
     {
+     "id": "bwv849"
+    },
+    {
      "id": "bwv850"
     },
     {
@@ -87,6 +90,9 @@
     },
     {
      "id": "bwv864"
+    },
+    {
+     "id": "bwv865"
     },
     {
      "id": "bwv866"
@@ -1983,6 +1989,35 @@
    }
   },
   {
+   "id": "double-fugue",
+   "title": "Double and triple fugue",
+   "also": "also: fugue on two (three) subjects",
+   "aliases": [
+    "double fugue",
+    "double fugues",
+    "triple fugue",
+    "triple fugues"
+   ],
+   "links": [
+    "double fugue",
+    "double fugues",
+    "triple fugue",
+    "triple fugues"
+   ],
+   "short": "A fugue on two subjects (double) or three (triple), heard in turn and then together.",
+   "text": "A double fugue is built on two subjects instead of one, a triple fugue on three. Often each new subject is introduced and worked through in turn, against the ones already heard, until they sound at once in different voices, each above and below the others; sometimes two enter together from the start. Each subject keeps its own answers and entries, labelled subject I, subject II, subject III.",
+   "related": [
+    "fugue",
+    "subject",
+    "invertible-counterpoint"
+   ],
+   "pieces": [
+    {
+     "id": "bwv849"
+    }
+   ]
+  },
+  {
    "id": "free-passage",
    "title": "Free passage",
    "also": "also: episode · cadence · coda",
@@ -2264,6 +2299,9 @@
      "id": "bwv848"
     },
     {
+     "id": "bwv849"
+    },
+    {
      "id": "bwv850"
     },
     {
@@ -2307,6 +2345,9 @@
     },
     {
      "id": "bwv864"
+    },
+    {
+     "id": "bwv865"
     },
     {
      "id": "bwv866"
@@ -3194,6 +3235,9 @@
      "id": "contrapunctus06"
     },
     {
+     "id": "bwv849"
+    },
+    {
      "id": "bwv851"
     },
     {
@@ -3204,6 +3248,9 @@
     },
     {
      "id": "bwv860"
+    },
+    {
+     "id": "bwv865"
     },
     {
      "id": "bwv868"
@@ -4753,6 +4800,9 @@
      "id": "bwv846"
     },
     {
+     "id": "bwv849"
+    },
+    {
      "id": "bwv851"
     },
     {
@@ -4766,6 +4816,9 @@
     },
     {
      "id": "bwv864"
+    },
+    {
+     "id": "bwv865"
     },
     {
      "id": "bwv867"
@@ -5114,6 +5167,9 @@
      "id": "bwv848"
     },
     {
+     "id": "bwv849"
+    },
+    {
      "id": "bwv850"
     },
     {
@@ -5157,6 +5213,9 @@
     },
     {
      "id": "bwv864"
+    },
+    {
+     "id": "bwv865"
     },
     {
      "id": "bwv866"
@@ -5277,7 +5336,8 @@
   "retrograde": "retrograde",
   "sinfonia": "invention",
   "stretto": "stretto",
-  "subject": "subject"
+  "subject": "subject",
+  "triple fugue": "double-fugue"
  },
  "ordinary": [
   "will answer it",
