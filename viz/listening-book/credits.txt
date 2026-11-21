@@ -9,6 +9,8 @@ Scores the notes were read from
 - Well-Tempered Clavier I fugues: Humdrum encodings by David Huron, revised by Craig Stuart Sapp,
   https://github.com/humdrum-tools/bach-wtc-fugues
 - Inventions and Sinfonias: Humdrum encodings by David Huron, https://github.com/humdrum-tools/inventions
+- The Art of Fugue (all other pieces): Humdrum encodings by Craig Stuart Sapp,
+  https://github.com/craigsapp/art-of-the-fugue
 - Musical Offering, Ricercar a 3 and a 6: Humdrum encodings by Craig Stuart Sapp after the Bach-Gesellschaft
   edition, https://github.com/craigsapp/bach-musical-offering
 - Musical Offering canons: transcribed from the Bach-Gesellschaft edition (IMSLP #10042) and its resolutions,
