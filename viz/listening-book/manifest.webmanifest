@@ -1,6 +1,6 @@
 {
-  "name": "The Listening Book",
-  "short_name": "Listening Book",
+  "name": "Ohren-Übung",
+  "short_name": "Ohren-Übung",
   "description": "A listening companion for Bach's canons and fugues.",
   "start_url": "./",
   "scope": "./",

@@ -53,7 +53,7 @@ Werckmeister. In equal they sound alike; in Werckmeister the far key sounds tens
       <span class="plate-c">${g(Jn(e,t))}</span>
     </a>`).join(``)}</nav>`}function Xn(e){let t=_n().flatMap(t=>{let n=y(e,t);return n?[b(_(n.id),n.title,v(e,n)?.name??``)]:[]});return t.length?`<div class="list">${t.join(``)}</div>`:`<p class="empty">Nothing heard yet. Open a piece from the shelf.</p>`}function Zn(e,t){let n=zn(e,t);return n.length?`<div class="list">${n.map(t=>b(_(t.id),t.title,`${v(e,t)?.name??``} · ${t.catalogue} · ${t.key}`)).join(``)}</div>`:`<p class="empty">Nothing found for “${g(t.trim())}”.</p>`}function Qn(e,t,n,r,i){e.innerHTML=`<main class="sheet">
     <header class="top">
-      <div class="brand"><small>Canones et Fugae</small><span>The Listening Book</span></div>
+      <div class="brand"><small>Canones et Fugae</small><span>Ohren-Übung</span><em class="subtitle">bestehend in Fugen und Canons von Joh. Seb. Bach, denen Liebhabern zur Gemüths-Ergötzung sichtbar gemacht</em></div>
       <nav class="tabs">${Kn.map(([e,t,r])=>`<a href="${r}"${e===n?` class="on" aria-current="page"`:``}>${t}</a>`).join(``)}</nav>
       <input class="search" type="search" placeholder="Seek a piece, BWV, key…" aria-label="Search" autocomplete="off" spellcheck="false">
     </header>

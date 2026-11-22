@@ -1,4 +1,4 @@
-// The Listening Book — offline support.
+// Ohren-Übung — offline support.
 // Pages and piece data: network first (updates show at once), cache when offline.
 // Hashed build assets: cache first. Samples, icons: served from cache, refreshed in the background.
 const CACHE = 'listening-book-v1'
